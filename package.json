@@ -1,6 +1,11 @@
 {
   "devDependencies": {
-    "vitepress": "^1.6.3"
+    "@types/canvas-confetti": "^1.9.0",
+    "busuanzi.pure.js": "^1.0.3",
+    "canvas-confetti": "^1.9.3",
+    "vitepress": "^1.6.3",
+    "vitepress-sidebar": "^1.31.0",
+    "vitepress-theme-website": "^1.0.8"
   },
   "scripts": {
     "docs:dev": "vitepress dev",

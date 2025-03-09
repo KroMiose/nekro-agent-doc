@@ -15,7 +15,9 @@ hero:
     - theme: alt
       text: 开发文档(未完成)
       link: /Extension_Development
-
+image:
+    src: /home-icon.png
+    alt: 背景图
 features:
   - title: 高可扩展
     details: 模块化架构设计，支持自定义扩展开发。从基础消息处理到AI绘图、语音合成，轻松扩展任意功能。
@@ -24,4 +26,4 @@ features:
   - title: 开箱即用
     details: 提供一键部署脚本与WebUI管理面板，快速搭建完整的AI应用环境。支持多种主流LLM与协议端。
 ---
-
+<Confetti />
