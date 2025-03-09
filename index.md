@@ -8,13 +8,13 @@ hero:
   actions:
     - theme: brand
       text: 开始了解
-      link: /home
+      link: /dosc/home
     - theme: alt
       text: 快速开始
-      link: /部署/Quick_Start
+      link: /dosc/部署/Quick_Start
     - theme: alt
       text: 开发文档(未完成)
-      link: /Extension_Development
+      link: /dosc/开发/Extension_Development
   image:
     src: ./images/home/NA_logo.png
     alt: 背景图
