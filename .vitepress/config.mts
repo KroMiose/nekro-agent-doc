@@ -16,7 +16,8 @@ export default defineConfig({
       {
         text: 'Examples',
         items: [
-          { text: '简要部署文档', link: '/Deployment' },
+          { text: '什么是Nekro Agent', link: '/home' },
+          { text: '快速开始', link: '/部署/Quick_Start' },
           { text: '升级Nekro Agent', link: '/updata' },
           { text: '基础命令', link: '/command' },
           { text: '常见问题', link: '/QA' },
