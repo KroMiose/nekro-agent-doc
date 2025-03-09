@@ -24,7 +24,7 @@ sudo -E bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-a
 
 **根据终端引导进行操作，安装完成后可以访问 NekroAgent 的 WebUI 界面:**
 
-![na_webui](./images/Deploy/na_webui.png)
+![na_webui](/images/Deploy/na_webui.png)
 
 ::: warning
 注意: 如果您使用的是云服务器，请确保服务器后台放行以下端口:
@@ -47,7 +47,7 @@ sudo -E bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-a
 ws://nekro_agent:8021/onebot/v11/ws
 ```
 
-![napcat_webui](./images/Deploy/napcat_webui.png)
+![napcat_webui](/images/Deploy/napcat_webui.png)
 
 ## 🚀 Nekro Agent 一键部署脚本 (不含协议端)
 
