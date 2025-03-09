@@ -1,7 +1,6 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
-
 hero:
   name: "Nekro Agent"
   text: "更智能、更优雅的代理执行 AI"
