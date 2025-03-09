@@ -262,7 +262,3 @@
 .dark .VPContent {
   animation: scaleIn 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
-
-.dark .VPContent {
-  animation: slideInFromBottom 0.8s ease-out forwards;
-}
