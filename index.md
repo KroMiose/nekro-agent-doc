@@ -16,7 +16,7 @@ hero:
       text: 开发文档(未完成)
       link: /Extension_Development
   image:
-    src: /images/home-icon.png
+    src: /images/home/NA_logo.png
     alt: 背景图
 features:
   - title: 高可扩展
