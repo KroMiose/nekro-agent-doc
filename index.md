@@ -3,8 +3,8 @@
 layout: home
 hero:
   name: "Nekro Agent"
-  text: "更智能、更优雅的代理执行 AI"
-  tagline: ✨ 高可扩展 | 高自由度 | 极简部署 的 AI 聊天插件 & 代理执行 Bot! ✨
+  text: "新一代 AI 代理框架"
+  tagline: 安全、高效、优雅的智能交互体验。
   actions:
     - theme: brand
       text: 什么是Nekro Agent ?
@@ -18,10 +18,10 @@ hero:
 
 features:
   - title: 高可扩展
-    details: Nekro Agent 专为 QQ Bot 设计。它支持模块化插件，允许开发者轻松集成自定义功能。
-  - title: 高自由度
-    details: Nekro Agent 拥有高自由度， AI 可以直接在虚拟沙盒中直接运行代码。
-  - title: 极简部署
-    details: 一行命令就可直接部署Nekro Agent。
+    details: 模块化架构设计，支持自定义扩展开发。从基础消息处理到AI绘图、语音合成，轻松扩展任意功能。
+  - title: 安全可控
+    details: 基于Docker的沙盒环境，AI代码执行严格隔离。内置多重安全机制，确保系统安全稳定运行。
+  - title: 开箱即用
+    details: 提供一键部署脚本与WebUI管理面板，快速搭建完整的AI应用环境。支持多种主流LLM与协议端。
 ---
 
