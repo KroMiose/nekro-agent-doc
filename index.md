@@ -16,8 +16,8 @@ hero:
       text: 开发文档(未完成)
       link: /dosc/开发/Extension_Development
   image:
-    src: ./images/home/NA_logo.png
-    alt: 背景图
+    src: ../images/home/NA_logo.png
+    alt: na_logo
 features:
   - title: 高可扩展
     details: 模块化架构设计，支持自定义扩展开发。从基础消息处理到AI绘图、语音合成，轻松扩展任意功能。
