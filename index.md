@@ -7,7 +7,7 @@ hero:
   tagline: 安全、高效、优雅的智能交互体验。
   actions:
     - theme: brand
-      text: 什么是Nekro Agent ?
+      text: 开始了解
       link: /home
     - theme: alt
       text: 快速开始
@@ -16,7 +16,7 @@ hero:
       text: 开发文档(未完成)
       link: /Extension_Development
   image:
-    src: /images/home/NA_logo.png
+    src: ./images/home/NA_logo.png
     alt: 背景图
 features:
   - title: 高可扩展
