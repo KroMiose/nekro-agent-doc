@@ -16,7 +16,7 @@ hero:
       text: 开发文档(未完成)
       link: /dosc/开发/Extension_Development
   image:
-    src: ../images/home/NA_logo.png
+    src: "https://raw.githubusercontent.com/wess09/nekro-agent-doc/main/images/home/NA_logo.png"
     alt: na_logo
 features:
   - title: 高可扩展
