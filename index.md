@@ -16,7 +16,7 @@ hero:
       text: 开发文档(未完成)
       link: /dosc/开发/Extension_Development
   image:
-    src: "https://img.picui.cn/free/2025/03/10/67ce980bf398d.png"
+    src: "https://img.picui.cn/free/2025/03/10/67cec9bbb40cb.png"
     alt: na_logo
 features:
   - title: 高可扩展
