@@ -11,6 +11,9 @@ importers:
       '@types/canvas-confetti':
         specifier: ^1.9.0
         version: 1.9.0
+      '@types/dom-view-transitions':
+        specifier: ^1.0.6
+        version: 1.0.6
       busuanzi.pure.js:
         specifier: ^1.0.3
         version: 1.0.3
@@ -417,6 +420,9 @@ packages:
 
   '@types/canvas-confetti@1.9.0':
     resolution: {integrity: sha512-aBGj/dULrimR1XDZLtG9JwxX1b4HPRF6CX9Yfwh3NvstZEm1ZL7RBnel4keCPSqs1ANRu1u2Aoz9R+VmtjYuTg==}
+
+  '@types/dom-view-transitions@1.0.6':
+    resolution: {integrity: sha512-Q5IoDouTOcZKEs4nDpmUti2MXP48MQDBkS2nUQKFrsDeTFIaArVmhWUon28vlDfNkbbaK4EROu4Fv0iKObWjSg==}
 
   '@types/estree@1.0.6':
     resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
@@ -1323,6 +1329,8 @@ snapshots:
   '@shikijs/vscode-textmate@10.0.2': {}
 
   '@types/canvas-confetti@1.9.0': {}
+
+  '@types/dom-view-transitions@1.0.6': {}
 
   '@types/estree@1.0.6': {}
 

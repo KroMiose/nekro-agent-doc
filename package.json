@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "@types/canvas-confetti": "^1.9.0",
+    "@types/dom-view-transitions": "^1.0.6",
     "busuanzi.pure.js": "^1.0.3",
     "canvas-confetti": "^1.9.3",
     "vitepress": "^1.6.3",
