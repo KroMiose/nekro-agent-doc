@@ -2,8 +2,13 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Nekro Agent",
+  title: "Nekro Agent 文档站",
   description: "更智能、更优雅的代理执行 AI",
+  head: [
+    ['link', { rel: 'icon', href: 'https://img.picui.cn/free/2025/03/10/67ce9955d9600.png' }],
+    ['meta', { name: 'msvalidate.01', content: 'D97C6AD736A2167C559A3848690C857E' }],
+    ['meta', { name: 'google-site-verification', content: '4UhKgVLa3cPvgaPx-lyNnzdg6XVEAGIC4gueoQ81gF4' }]
+  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -28,7 +33,6 @@ export default defineConfig({
 
       }
     ],
-
     socialLinks: [
       { icon: 'github', link: 'https://github.com/KroMiose/nekro-agent' }
     ]

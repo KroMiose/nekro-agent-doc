@@ -584,7 +584,7 @@
       var(--gradient-color-8)
     );
     background-size: 400% 400%;
-    animation: gradient 20s ease-in-out infinite;
+    animation: gradient 15s ease-in-out infinite;
     z-index: -1;
     opacity: 0.3;
   }
@@ -693,3 +693,22 @@
   );
   --vp-home-hero-image-filter: blur(80px);
 }
+
+  /* 动态背景渐变动画 */
+  @keyframes gradient {
+    0% {
+      background-position: 0% 0%;
+    }
+    25% {
+      background-position: 100% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    75% {
+      background-position: 0% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
