@@ -47,7 +47,9 @@
   --vp-button-brand-active-text: var(--vp-c-white);
   --vp-button-brand-active-bg: #ff5959;
 }
-
+/**
+ * alt按钮白色
+ * -------------------------------------------------------------------------- */
 :root {
   --vp-button-alt-border: transparent;
   --vp-button-alt-bg: #ffffff;
@@ -56,6 +58,16 @@
   --vp-button-alt-active-border: transparent;
   --vp-button-alt-active-bg: #8d8d8d;
 }
+.dark {
+  --vp-button-alt-border: transparent;
+  --vp-button-alt-bg: #333333;
+  --vp-button-alt-hover-border: transparent;
+  --vp-button-alt-hover-bg: #444444;
+  --vp-button-alt-active-border: transparent;
+  --vp-button-alt-active-bg: #555555;
+}
+
+
 
 .VPButton.brand:hover {
   box-shadow: 0 4px 12px rgba(234, 82, 82, 0.3);
