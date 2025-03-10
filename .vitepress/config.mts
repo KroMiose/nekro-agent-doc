@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Nekro Agent",
+  title: "Nekro Agent 文档站",
   description: "更智能、更优雅的代理执行 AI",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
