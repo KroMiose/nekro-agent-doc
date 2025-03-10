@@ -27,5 +27,3 @@ features:
     details: 提供一键部署脚本与WebUI管理面板，快速搭建完整的AI应用环境。支持多种主流LLM与协议端。
 ---
 <Confetti />
-<meta name="msvalidate.01" content="8CA3D9FF3DD9911545472DDD388E1683" />
-<meta name="google-site-verification" content="4UhKgVLa3cPvgaPx-lyNnzdg6XVEAGIC4gueoQ81gF4" />
