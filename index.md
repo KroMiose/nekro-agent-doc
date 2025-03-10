@@ -28,3 +28,4 @@ features:
 ---
 <Confetti />
 <meta name="msvalidate.01" content="8CA3D9FF3DD9911545472DDD388E1683" />
+<meta name="google-site-verification" content="4UhKgVLa3cPvgaPx-lyNnzdg6XVEAGIC4gueoQ81gF4" />
