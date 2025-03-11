@@ -17,8 +17,8 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '主页', link: '/' },
-      { text: '部署文档', link: '/dosc/部署/Quick_Start' },
-      { text: '开发文档', link: '/dosc/开发/Dev_deploy_linux' },
+      { text: '部署文档', link: '/docs_zh/Deploy/Quick_Start' },
+      { text: '开发文档', link: '/docs_zh/Dev/Dev_deploy_linux' },
       { text: '加入社群', link: 'https://qm.qq.com/q/eT30LxDcSA' }
     ],
 
@@ -26,14 +26,14 @@ export default defineConfig({
       {
         text: 'Examples',
         items: [
-          { text: '开始了解 Nekro Agent', link: '/dosc/home' },
-          { text: '快速开始', link: '/dosc/部署/Quick_Start' },
-          { text: '升级Nekro Agent', link: '/dosc/updata' },
-          { text: '基础命令', link: '/dosc/command' },
-          { text: '常见问题', link: '/dosc/QA' },
-          { text: '贡献列表', link: '/dosc/Contribution_list' },
-          { text: '开发部署', link: '/dosc/开发/Dev_deploy_linux' },
-          { text: '开发部署 for Windows', link: '/dosc/开发/Dev_deploy_win' }
+          { text: '开始了解 Nekro Agent', link: '/docs_zh/home' },
+          { text: '快速开始', link: '/docs_zh/Deploy/Quick_Start' },
+          { text: '升级Nekro Agent', link: '/docs_zh/updata' },
+          { text: '基础命令', link: '/docs_zh/command' },
+          { text: '常见问题', link: '/docs_zh/QA' },
+          { text: '贡献列表', link: '/docs_zh/Contribution_list' },
+          { text: '开发部署', link: '/docs_zh/Dev/Dev_deploy_linux' },
+          { text: '开发部署 for Windows', link: '/docs_zh/Dev/Dev_deploy_win' }
         ]
 
       }
