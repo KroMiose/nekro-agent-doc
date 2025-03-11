@@ -13,6 +13,11 @@ export default defineConfig({
     ['meta', { name: 'msvalidate.01', content: 'D97C6AD736A2167C559A3848690C857E' }],
     ['meta', { name: 'google-site-verification', content: '4UhKgVLa3cPvgaPx-lyNnzdg6XVEAGIC4gueoQ81gF4' }]
   ],
+  
+  sitemap: {
+    hostname: 'https://doc.nekro.cloud'
+  },
+  
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -21,7 +26,7 @@ export default defineConfig({
       { text: '开发文档', link: '/docs_zh/Dev/Dev_deploy_linux' },
       { text: '加入社群', link: 'https://qm.qq.com/q/eT30LxDcSA' }
     ],
-
+    
     sidebar: [
       {
         text: 'Examples',
@@ -35,7 +40,6 @@ export default defineConfig({
           { text: '开发部署', link: '/docs_zh/Dev/Dev_deploy_linux' },
           { text: '开发部署 for Windows', link: '/docs_zh/Dev/Dev_deploy_win' }
         ]
-
       }
     ],
     socialLinks: [
