@@ -155,12 +155,6 @@ ws://127.0.0.1:8021/onebot/v11/ws
 
 本插件提供了扩展开发接口，可以方便地扩展功能。扩展既可以是一个简单的工具方法，也可以是一个复杂行为功能。
 
-### 快速开始
-
-可参考两个内置的扩展模块进行开发：
-- [基本消息模块](../extensions/basic.py)
-- [群聊禁言模块](../extensions/judgement.py)
-
 ### 详细文档
 
 我们提供了一份详细的扩展开发指南文档：[Extension Development Guide](./Extension_Development.md)，包含：
