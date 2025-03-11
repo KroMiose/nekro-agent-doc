@@ -18,7 +18,7 @@ export default defineConfig({
     nav: [
       { text: '主页', link: '/' },
       { text: '部署文档', link: '/dosc/部署/Quick_Start' },
-      { text: '开发文档', link: '/dosc/开发/Extension_Development' },
+      { text: '开发文档', link: '/dosc/开发/Dev_deploy_linux' },
       { text: '加入社群', link: 'https://qm.qq.com/q/eT30LxDcSA' }
     ],
 
@@ -32,7 +32,8 @@ export default defineConfig({
           { text: '基础命令', link: '/dosc/command' },
           { text: '常见问题', link: '/dosc/QA' },
           { text: '贡献列表', link: '/dosc/Contribution_list' },
-          { text: '开发文档', link: '/dosc/开发/Extension_Development' }
+          { text: '开发部署', link: '/dosc/开发/Dev_deploy_linux' },
+          { text: '开发部署 for Windows', link: '/dosc/开发/Dev_deploy_win' }
         ]
 
       }
