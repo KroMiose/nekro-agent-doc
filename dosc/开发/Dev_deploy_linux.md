@@ -151,10 +151,6 @@ ws://127.0.0.1:8021/onebot/v11/ws
 
 项目中包含 `.vscode/launch.json` 文件，可以直接使用 VSCode 进行调试，使用其内置的调试启动配置即可。
 
-## 扩展开发
-
-本插件提供了扩展开发接口，可以方便地扩展功能。扩展既可以是一个简单的工具方法，也可以是一个复杂行为功能。
-
 ### 详细文档
 
 我们提供了一份详细的扩展开发指南文档：[Extension Development Guide](./Extension_Development.md)，包含：
