@@ -37,8 +37,8 @@ export default defineConfig({
           { text: '基础命令', link: '/docs_zh/command' },
           { text: '常见问题', link: '/docs_zh/QA' },
           { text: '贡献列表', link: '/docs_zh/Contribution_list' },
-          { text: '开发部署', link: '/docs_zh/Dev/Dev_deploy_linux' },
-          { text: '开发部署 for Windows', link: '/docs_zh/Dev/Dev_deploy_win' }
+          { text: 'Linux 开发环境准备', link: '/docs_zh/Dev/Dev_deploy_linux' },
+          { text: 'Windows 开发环境准备', link: '/docs_zh/Dev/Dev_deploy_win' }
         ]
       }
     ],
