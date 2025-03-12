@@ -1,9 +1,9 @@
 ---
-title: Windows开发部署指南
-description: Nekro Agent Windows环境下的开发部署完整指南
+title: Windows开发环境准备
+description: Nekro Agent Windows环境下的开发环境准备
 ---
 
-# Windows开发部署指南
+# Windows开发环境准备
 
 ::: warning 注意事项
 - 所有命令行操作必须在 PowerShell 中执行 💻
