@@ -2,7 +2,12 @@ import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import MyLayout from './components/MyLayout.vue'
 import DefaultTheme from 'vitepress/theme'
-import './style.css'
+import './css/background.css'
+import './css/text.css'
+import './css/brand.css'
+import './css/Animation.css'
+import './css/logo.css'
+import './css/transparent.css'
 import { inBrowser } from "vitepress"
 import busuanzi from "busuanzi.pure.js"
 import Confetti from "./components/Confetti.vue"
