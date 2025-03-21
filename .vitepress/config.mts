@@ -38,7 +38,8 @@ export default defineConfig({
           { text: '常见问题', link: '/docs_zh/QA' },
           { text: '贡献列表', link: '/docs_zh/Contribution_list' },
           { text: 'Linux 开发环境准备', link: '/docs_zh/Dev/Dev_deploy_linux' },
-          { text: 'Windows 开发环境准备', link: '/docs_zh/Dev/Dev_deploy_win' }
+          { text: 'Windows 开发环境准备', link: '/docs_zh/Dev/Dev_deploy_win' },
+          { text: '开发计划', link: '/docs_zh/TODO' }
         ]
       }
     ],
