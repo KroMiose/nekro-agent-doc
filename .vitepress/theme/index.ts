@@ -1,6 +1,6 @@
 import { h } from 'vue'
 import type { Theme } from 'vitepress'
-import MyLayout from './components/MyLayout.vue'
+import MyLayout from './components/Dark_mode_switch.vue'
 import DefaultTheme from 'vitepress/theme'
 import './css/background.css'
 import './css/text.css'
