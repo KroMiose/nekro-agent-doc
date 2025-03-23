@@ -1,3 +1,9 @@
+  /* 模糊效果调整 */
+:root {
+  --blurpx: 20px;
+  --blur-color: rgba(255, 255, 255, 0);
+}
+
 :root {
   .VPFeature {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -18,36 +24,36 @@
 
   /* 首页下滑后导航透明 */
   .VPNavBar:not(.has-sidebar):not(.home.top) {
-      background-color: rgba(255, 255, 255, 0);
-      backdrop-filter: blur(30px);
+      background-color: var(--blur-color);
+      backdrop-filter: blur(var(--blurpx));
   }
 
   /* 搜索框透明 */
   .DocSearch-Button {
-      background-color: rgba(255, 255, 255, 0);
-      backdrop-filter: blur(30px);
+      background-color: var(--blur-color);
+      backdrop-filter: blur(var(--blurpx));
   }
 
 
   /* 文档页侧边栏顶部透明 */
   .curtain {
-      background-color: rgba(255, 255, 255, 0);
-      backdrop-filter: blur(30px);
+      background-color: var(--blur-color);
+      backdrop-filter: blur(var(--blurpx));
   }
 
   @media (min-width: 960px) {
 
       /* 文档页导航中间透明 */
       .VPNavBar:not(.home.top) .content-body {
-          background-color: rgba(255, 255, 255, 0);
-          backdrop-filter: blur(30px);
+          background-color: var(--blur-color);
+          backdrop-filter: blur(var(--blurpx));
       }
   }
 
   /* 移动端大纲栏透明 */
   .VPLocalNav {
-      background-color: rgba(255, 255, 255, 0);
-      backdrop-filter: blur(30px);
+      background-color: var(--blur-color);
+      backdrop-filter: blur(var(--blurpx));
   }
 
 }
