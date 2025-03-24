@@ -31,7 +31,7 @@ export default defineConfig({
   '/docs_zh/': [
     {
       text: '部署指南',
-      collapsible: true,
+      collapsed: true,      // 将 collapsible 改为 collapsed
       items: [
         { text: '快速开始', link: '/docs_zh/Deploy/Quick_Start' },
         { text: '系统升级', link: '/docs_zh/Deploy/updata' },
@@ -40,7 +40,7 @@ export default defineConfig({
     },
     {
       text: '开发文档',
-      collapsible: true,
+      collapsed: true,      // 将 collapsible 改为 collapsed
       items: [
         { text: 'Linux环境准备', link: '/docs_zh/Dev/Dev_deploy_linux' },
         { text: 'Windows环境准备', link: '/docs_zh/Dev/Dev_deploy_win' },
