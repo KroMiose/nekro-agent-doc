@@ -27,21 +27,32 @@ export default defineConfig({
       { text: '加入社群', link: 'https://qm.qq.com/q/eT30LxDcSA' }
     ],
     
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: '开始了解 Nekro Agent', link: '/docs_zh/home' },
-          { text: '快速开始', link: '/docs_zh/Deploy/Quick_Start' },
-          { text: '升级Nekro Agent', link: '/docs_zh/updata' },
-          { text: '基础命令', link: '/docs_zh/command' },
-          { text: '常见问题', link: '/docs_zh/QA' },
-          { text: '贡献列表', link: '/docs_zh/Contribution_list' },
-          { text: 'Linux 开发环境准备', link: '/docs_zh/Dev/Dev_deploy_linux' },
-          { text: 'Windows 开发环境准备', link: '/docs_zh/Dev/Dev_deploy_win' }
-        ]
-      }
-    ],
+    sidebar: {
+  '/docs_zh/': [
+    {
+      text: '部署指南',
+      collapsible: true,
+      items: [
+        { text: '快速开始', link: '/docs_zh/Deploy/Quick_Start' },
+        { text: '系统升级', link: '/docs_zh/Deploy/updata' },
+        { text: '基础命令', link: '/docs_zh/Deploy/command' }
+      ]
+    },
+    {
+      text: '开发文档',
+      collapsible: true,
+      items: [
+        { text: 'Linux环境准备', link: '/docs_zh/Dev/Dev_deploy_linux' },
+        { text: 'Windows环境准备', link: '/docs_zh/Dev/Dev_deploy_win' },
+        { text: '扩展开发指南', link: '/docs_zh/Dev/Extension_Development' }
+      ]
+    },
+    {
+      text: '常见问题',
+      link: '/docs_zh/QA'
+    }
+  ]
+},
     socialLinks: [
       { icon: 'github', link: 'https://github.com/KroMiose/nekro-agent' }
     ]

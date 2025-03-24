@@ -1,3 +1,8 @@
+---
+title: 快速部署指南
+description: Nekro Agent 快速安装与配置手册
+---
+
 # 快速开始
 
 欢迎使用 Nekro Agent，本文档将帮助您快速部署服务。

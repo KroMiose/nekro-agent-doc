@@ -5,13 +5,20 @@ description: Nekro Agent Windows环境下的开发环境准备
 
 # Windows开发环境准备
 
-::: warning 注意事项
+::: warning 📌 准备前必读
+1. 所有命令行操作必须在 PowerShell 中执行
+2. 若遇到端口冲突，请检查 8021/5432 端口占用
+3. 建议关闭Windows Defender实时防护避免误拦截
+4. 遇到问题欢迎[加入社群](https://qm.qq.com/q/dvalq3oHgA)讨论
+:::
+
+## 🛠️ 基础环境配置
 - 所有命令行操作必须在 PowerShell 中执行 💻
 - 若遇到端口冲突，请检查 8021/5432 端口占用 🔍
 - 遇到问题欢迎 [加入社群] 讨论 📚
 :::
 
-## 基础环境配置
+## 🛠️ 基础环境配置
 
 ### Python 环境 🐍
 
@@ -24,7 +31,7 @@ description: Nekro Agent Windows环境下的开发环境准备
 python --version
 ```
 
-## 项目初始化
+## 📦 项目初始化
 
 ### 克隆仓库 📂
 ```bash
@@ -44,7 +51,7 @@ poetry config virtualenvs.in-project true
 poetry install
 ```
 
-## 数据库配置
+## 🗃️ 数据库配置
 
 ### 安装 PostgreSQL
 1. 访问 [PostgreSQL 官网](https://www.postgresql.org/download/windows/) 🌍
