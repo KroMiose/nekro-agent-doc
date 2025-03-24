@@ -3,21 +3,8 @@
   <p><img src="./images/home/NoneBotPlugin.svg" width="240" alt="NoneBotPluginText"></p>
 </div>
 <div align="center">🎉新一代 AI 代理框架，安全、高效、优雅的智能交互体验🎉<br/>
-  🎉 <a href="https://github.com/KroMiose/nonebot_plugin_naturel_gpt">源自 Naturel GPT</a> 的 Agent 升级续作 🌈<br/>
-  🧬 <a href="https://docs.google.com/spreadsheets/d/1JQNmVH-vlDn2uEPwkjv3iN-zn0PHpQ7RGbgA5T3fxOA/edit?usp=sharing">预设收集共享表(欢迎分享各种自定义人设)</a> 🧬 <br/>
   🎆 如果喜欢请点个⭐吧！您的支持就是我持续更新的动力 🎉<br/>
   💬 技术交流/答疑/讨论 -> ：<a href="https://jq.qq.com/?_wv=1027&k=71t9iCT7">加入插件交流群: 636925153</a> 🗨️ <br/>
-  <img src="https://img.shields.io/badge/python-3.9+-6a9.svg" alt="python">
-  <a href="https://pypi.python.org/pypi/nekro-agent" target="_blank">
-    <img src="https://img.shields.io/pypi/v/nekro-agent.svg" alt="pypi">
-  </a>
-  <a href="https://hub.docker.com/u/kromiose" target="_blank">
-    <img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/kromiose/nekro-agent?color=%20%23EA5252">
-  </a>
-  <a href="https://jq.qq.com/?_wv=1027&k=71t9iCT7" target="_blank">
-    <img src="https://img.shields.io/badge/加入交流群-636925153-c42.svg" alt="python">
-  </a>
-  <br/>
   📢 <a href="https://api.nekro.top">Nekro 官方合作中转站</a> 现已上线，参与 Nekro 生态开发者可获得本站专属折扣和额度补贴！ 📢 <br/>
   🌟 可洛喵 & Nekro Agent 插件形象征集中，欢迎加入交流群分享你的创意！🌟<br/>
 </div>
@@ -58,6 +45,5 @@
 :::
 
 ::: warning 开发计划
-- 完善第三方扩展能力及 AI 生成扩展
-- 基于 LLM 的自动上下文衔接触发器
+- 全新1.0 版本开发中...
 :::
