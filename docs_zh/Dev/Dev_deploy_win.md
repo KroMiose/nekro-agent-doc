@@ -5,6 +5,10 @@ description: Nekro Agent Windows环境下的开发环境准备
 
 # Windows开发环境准备
 
+::: warning 警告
+此文档仅用于开发环境，严禁用于部署或使用。
+:::
+
 ::: warning 📌 准备前必读
 1. 所有命令行操作必须在 PowerShell 中执行
 2. 若遇到端口冲突，请检查 8021/5432 端口占用
