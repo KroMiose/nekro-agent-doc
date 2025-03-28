@@ -6,7 +6,9 @@ description: Nekro Agent 快速安装与配置手册
 # 快速开始
 
 欢迎使用 Nekro Agent，本文档将帮助您快速部署服务。
-
+::: warning 警告
+此文档仅适用于Linux，其他操作系统请勿使用。
+:::
 ## 🚀 部署方式
 
 ### 方式一：标准部署（推荐）

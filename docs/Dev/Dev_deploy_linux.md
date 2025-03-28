@@ -7,9 +7,11 @@ description: Nekro Agent Linux环境下的开发部署完整指南
 
 ::: tip 提示
 通过以下几步操作即可开始开发 Nekro Agent。
-如果需要在Windows上部署，可参考[Windows开发环境准备](./Dev_deploy_win.md)
+如果需要在Windows上开发，可参考[Windows开发环境准备](./Dev_deploy_win.md)
 :::
-
+::: warning 警告
+此文档仅用于开发环境，严禁用于部署或使用。
+:::
 ## 准备工作
 
 ::: tip 推荐

@@ -22,34 +22,41 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '主页', link: '/' },
-      { text: '部署文档', link: '/docs_zh/Deploy/Quick_Start' },
-      { text: '开发文档', link: '/docs_zh/Dev/Dev_deploy_linux' },
+      { text: '部署文档', link: '/docs/Deploy/Quick_Start' },
+      { text: '开发文档', link: '/docs/Dev/Dev_deploy_linux' },
       { text: '加入社群', link: 'https://qm.qq.com/q/eT30LxDcSA' }
     ],
     
     sidebar: {
-  '/docs_zh/': [
+  '/docs/': [
     {
       text: '部署指南',
-      collapsed: true,      // 将 collapsible 改为 collapsed
       items: [
-        { text: '快速开始', link: '/docs_zh/Deploy/Quick_Start' },
-        { text: '系统升级', link: '/docs_zh/Deploy/updata' },
-        { text: '基础命令', link: '/docs_zh/Deploy/command' }
+        { text: '快速开始', link: '/docs/Deploy/Quick_Start' },
+        { text: '快速开始 for Windows', link: '/docs/Deploy/Quick_Start_Win' },
+        { text: '系统升级', link: '/docs/Deploy/updata' },
+        { text: '基础命令', link: '/docs/Deploy/command' }
       ]
     },
     {
       text: '开发文档',
-      collapsed: true,      // 将 collapsible 改为 collapsed
+      collapsed: true,
       items: [
-        { text: 'Linux环境准备', link: '/docs_zh/Dev/Dev_deploy_linux' },
-        { text: 'Windows环境准备', link: '/docs_zh/Dev/Dev_deploy_win' },
-        { text: '扩展开发指南', link: '/docs_zh/Dev/Extension_Development' }
+        { text: 'Linux环境准备', link: '/docs/Dev/Dev_deploy_linux' },
+        { text: 'Windows环境准备', link: '/docs/Dev/Dev_deploy_win' },
+        { text: '扩展开发指南', link: '/docs/Dev/Extension_Development' }
+      ]
+    },
+    {
+      text: '插件文档 & 插件列表',
+      collapsed: true,
+      items: [
+        { text: '警告', link: '/docs/extensions_docs/后续有文档请删除这个文件' }
       ]
     },
     {
       text: '常见问题',
-      link: '/docs_zh/QA'
+      link: '/docs/QA'
     }
   ]
 },

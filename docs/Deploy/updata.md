@@ -5,6 +5,9 @@
 :::
 
 当 NekroAgent 新版本发布时，你可以使用以下一键命令更新应用:
+::: warning 注意
+Windows 用户无法使用此命令
+:::
 ```bash
 # 设置数据目录
 export NEKRO_DATA_DIR=${HOME}/srv/nekro_agent
