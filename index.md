@@ -9,9 +9,6 @@ hero:
     - theme: brand
       text: 开始了解
       link: /docs/home
-    - theme: brand
-      text: Nekro Cloud
-      link: https://community.nekro.cloud/
     - theme: alt
       text: 快速开始
       link: /docs/Deploy/Quick_Start

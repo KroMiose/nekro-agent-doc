@@ -24,6 +24,7 @@ export default defineConfig({
       { text: '主页', link: '/' },
       { text: '部署文档', link: '/docs/Deploy/Quick_Start' },
       { text: '开发文档', link: '/docs/Dev/Dev_deploy_linux' },
+      { text: 'Nekro Cloud', link: 'https://community.nekro.cloud/' },
       { text: '加入社群', link: 'https://qm.qq.com/q/eT30LxDcSA' }
     ],
     
