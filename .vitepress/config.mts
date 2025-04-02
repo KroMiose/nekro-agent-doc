@@ -49,6 +49,10 @@ export default defineConfig({
       ]
     },
     {
+      text: '常见错误排查指南',
+      link: '/docs/CommonErrors'
+    },
+    {
       text: '常见问题',
       link: '/docs/QA'
     }

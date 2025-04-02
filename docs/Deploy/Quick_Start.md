@@ -25,8 +25,8 @@ sudo -E bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-a
 - 云服务器需放行端口：
   - 8021：NekroAgent 主服务
   - 6099：Napcat 服务
+- 部分错误请参照 [常见错误列表](../CommonErrors.md)
 :::
-
 #### 部署后配置
 
 1. 访问 WebUI：`http://<你的服务ip>:8021`

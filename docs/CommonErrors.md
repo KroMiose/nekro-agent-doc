@@ -2,25 +2,24 @@
 title: 常见错误排查指南
 description: Nekro Agent 常见错误解决方案与排查方法
 ---
-
 # 常见错误排查指南
 
-::: tip 排查提示
-建议先查看容器日志定位问题：`docker compose logs -f nekro_agent`
+## 安装脚本问题
+
+### 1. 无法下载安装脚本
+
+具体表现为：
+
+```bash
+curl: (7) Failed to connect to raw.githubusercontent.com port 443: Connection refused
+```
+请检查您的网络连接是否正常，或尝试更换github镜像站后重新运行脚本。
+
+### 2. 安装脚本无法启动主服务
+
+1. 检查你的网络环境是否可以连接到 DockerHub ，如果无法连接，请更换镜像源。
+2. 请检查您的Docker容器列表，如您想部署多个 NekroAgent 请参照[FAQ](QA.md)。
+
+::: warning 警告
+此文档仍需更新，敬请期待。
 :::
-
-## 🚨 LLM 相关错误
-
-## 🚨 LLM 相关错误
-
-### 1.1 错误信息：`LLM API error: 'Timeout'`
-
-这通常是由于网络超时导致的错误。请检查您的网络链接是否正常，如正常请尝试重新启动容器或服务器。
-
-### 1.2 错误信息：`LLM API error: 'NoneType' object is not subscriptable`
-
-这通常是由于模型返回的结果为空导致的错误。常见于Google系，可能为 Google 的安全审查导致，具体成因未知。
-
-解决方法，更换模型或更改人设。
-
-没搞完临时放这里
