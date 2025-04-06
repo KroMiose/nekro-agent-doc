@@ -1,9 +1,7 @@
----
-
 # 🔄 更新 Nekro Agent
 
 ::: tip 提示
-建议您定期关注 [更新日志](../CHANGELOG.md)，及时了解 Nekro Agent 的新功能、修复与优化内容。
+建议您定期关注 更新日志，及时了解 Nekro Agent 的新功能、修复与优化内容。
 :::
 
 ## 一键更新脚本（Linux）
