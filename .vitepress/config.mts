@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Nekro Agent 文档站",
+  title: "Nekro Agent 文档中心",
   description: "更智能、更优雅的代理执行 AI",
   head: [
     ['link', { rel: 'icon', href: '/NekroAgentLogo.png' }],
@@ -24,7 +24,7 @@ export default defineConfig({
       { text: '主页', link: '/' },
       { text: '部署文档', link: '/docs/Deploy/Quick_Start' },
       { text: '开发文档', link: '/docs/Dev/Dev_deploy_linux' },
-      { text: 'Nekro Cloud', link: 'https://community.nekro.cloud/' },
+      { text: 'Nekro AI', link: 'https://community.nekro.ai/' },
       { text: '加入社群', link: 'https://qm.qq.com/q/eT30LxDcSA' }
     ],
     

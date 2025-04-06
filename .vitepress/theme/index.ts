@@ -9,6 +9,7 @@ import './css/brand.css'
 import './css/Animation.css'
 import './css/logo.css'
 import './css/transparent.css'
+import './css/style.css'
 import { inBrowser } from "vitepress"
 import busuanzi from "busuanzi.pure.js"
 import Confetti from "./components/Confetti.vue"

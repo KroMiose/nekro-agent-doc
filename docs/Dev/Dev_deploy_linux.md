@@ -56,7 +56,7 @@ nb run
 
 ### 4. 配置必要信息
 
-编辑配置文件 `configs/nekro-agent/nekro-agent.yaml` 配置数据库连接等信息。关于 `yaml` 配置文件格式请参考 [Yaml 语法](https://www.runoob.com/w3cnote/yaml-intro.html)。
+编辑配置文件 `./data/configs/nekro-agent/nekro-agent.yaml` 配置数据库连接等信息。关于 `yaml` 配置文件格式请参考 [Yaml 语法](https://www.runoob.com/w3cnote/yaml-intro.html)。
 
 ::: tip 建议
 建议使用 VSCode 编辑器进行编辑，善用 `Ctrl+F` 快速定位配置项

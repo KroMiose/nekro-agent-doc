@@ -1,0 +1,18 @@
+.VPHero .tagline {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.VPHero .tagline::after {
+  content: '_';
+  position: absolute;
+  right: -19px;
+  animation: blink 500ms steps(1) infinite normal;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
