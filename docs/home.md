@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://v2.nonebot.dev/store"><img src="/docs/images/home/NA_logo.png" width="1024" alt="NoneBotPluginLogo"></a><br>
-  <p><img src="/docs/images/home/NoneBotPlugin.svg" width="240" alt="NoneBotPluginText"></p>
+  <p><img src="./images/home/NoneBotPlugin.svg" width="240" alt="NoneBotPluginText"></p>
 </div>
 
 # Nekro Agent
