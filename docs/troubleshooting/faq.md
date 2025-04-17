@@ -93,3 +93,6 @@ docker volume rm nekro_qdrant_data
 cd ..
 rm -rf <安装目录>
 ```
+### Q: 为什么文档站主页色彩有断层？
+
+**A**: 火狐 和其他 非Chrome 浏览器 可能存在一些兼容性问题，成因未知
