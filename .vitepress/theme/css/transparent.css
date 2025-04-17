@@ -1,25 +1,25 @@
-  /* 模糊效果调整 */
+/* 模糊效果调整 */
 :root {
   --blurpx: 20px;
-  --blur-color: rgba(255, 255, 255, 0);
+  --blur-color: color(display-p3 1 1 1 / 0);
 }
 
 :root {
   .VPFeature {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px color(display-p3 0 0 0 / 0.1);
     transition: box-shadow 0.3s ease;
   }
 
   .VPFeature:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 24px color(display-p3 0 0 0 / 0.15);
   }
 
   .dark .VPFeature {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px color(display-p3 0 0 0 / 0.3);
   }
 
   .dark .VPFeature:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 24px color(display-p3 0 0 0 / 0.4);
   }
 
   /* 首页下滑后导航透明 */

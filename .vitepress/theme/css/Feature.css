@@ -1,19 +1,19 @@
 :root {
     /* Feature卡片阴影效果 */
     .VPFeature {
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px color(display-p3 0 0 0 / 0.1);
       transition: box-shadow 0.3s ease;
     }
   
     .VPFeature:hover {
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 8px 24px color(display-p3 0 0 0 / 0.15);
     }
   
     .dark .VPFeature {
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 12px color(display-p3 0 0 0 / 0.3);
     }
   
     .dark .VPFeature:hover {
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 8px 24px color(display-p3 0 0 0 / 0.4);
     }
 }

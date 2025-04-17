@@ -1,407 +1,407 @@
 @keyframes rainbow {
     0% {
-        --rainbow-prev: #009ff7;
-        --rainbow-next: #c76dd1;
+        --rainbow-prev: color(display-p3 0 0.624 0.969);
+        --rainbow-next: color(display-p3 0.78 0.427 0.82);
     }
   
     1.25% {
-        --rainbow-prev: #009dfa;
-        --rainbow-next: #cf69c9;
+        --rainbow-prev: color(display-p3 0 0.616 0.98);
+        --rainbow-next: color(display-p3 0.812 0.412 0.788);
     }
   
     2.5% {
-        --rainbow-prev: #009bfc;
-        --rainbow-next: #d566c2;
+        --rainbow-prev: color(display-p3 0 0.608 0.988);
+        --rainbow-next: color(display-p3 0.835 0.399 0.761);
     }
   
     3.75% {
-        --rainbow-prev: #0098fd;
-        --rainbow-next: #dc63ba;
+        --rainbow-prev: color(display-p3 0 0.596 0.992);
+        --rainbow-next: color(display-p3 0.863 0.388 0.729);
     }
   
     5% {
-        --rainbow-prev: #0096fd;
-        --rainbow-next: #e160b3;
+        --rainbow-prev: color(display-p3 0 0.588 0.992);
+        --rainbow-next: color(display-p3 0.882 0.376 0.702);
     }
   
     6.25% {
-        --rainbow-prev: #0093fd;
-        --rainbow-next: #e65eab;
+        --rainbow-prev: color(display-p3 0 0.576 0.992);
+        --rainbow-next: color(display-p3 0.902 0.369 0.671);
     }
   
     7.5% {
-        --rainbow-prev: #2e90fc;
-        --rainbow-next: #e95ca2;
+        --rainbow-prev: color(display-p3 0.18 0.565 0.988);
+        --rainbow-next: color(display-p3 0.914 0.361 0.635);
     }
   
     8.75% {
-        --rainbow-prev: #4d8dfa;
-        --rainbow-next: #ed5a9a;
+        --rainbow-prev: color(display-p3 0.302 0.553 0.98);
+        --rainbow-next: color(display-p3 0.929 0.353 0.604);
     }
   
     10% {
-        --rainbow-prev: #638af8;
-        --rainbow-next: #ef5992;
+        --rainbow-prev: color(display-p3 0.388 0.541 0.973);
+        --rainbow-next: color(display-p3 0.937 0.349 0.573);
     }
   
     11.25% {
-        --rainbow-prev: #7587f5;
-        --rainbow-next: #f15989;
+        --rainbow-prev: color(display-p3 0.459 0.529 0.961);
+        --rainbow-next: color(display-p3 0.945 0.349 0.537);
     }
   
     12.5% {
-        --rainbow-prev: #8583f1;
-        --rainbow-next: #f25981;
+        --rainbow-prev: color(display-p3 0.522 0.514 0.945);
+        --rainbow-next: color(display-p3 0.949 0.349 0.506);
     }
   
     13.75% {
-        --rainbow-prev: #9280ed;
-        --rainbow-next: #f25a79;
+        --rainbow-prev: color(display-p3 0.573 0.502 0.929);
+        --rainbow-next: color(display-p3 0.949 0.353 0.475);
     }
   
     15% {
-        --rainbow-prev: #9f7ce9;
-        --rainbow-next: #f25c71;
+        --rainbow-prev: color(display-p3 0.624 0.486 0.914);
+        --rainbow-next: color(display-p3 0.949 0.361 0.443);
     }
   
     16.25% {
-        --rainbow-prev: #aa78e3;
-        --rainbow-next: #f15e69;
+        --rainbow-prev: color(display-p3 0.667 0.471 0.89);
+        --rainbow-next: color(display-p3 0.945 0.369 0.412);
     }
   
     17.5% {
-        --rainbow-prev: #b574dd;
-        --rainbow-next: #ef6061;
+        --rainbow-prev: color(display-p3 0.71 0.455 0.867);
+        --rainbow-next: color(display-p3 0.937 0.376 0.38);
     }
   
     18.75% {
-        --rainbow-prev: #be71d7;
-        --rainbow-next: #ed635a;
+        --rainbow-prev: color(display-p3 0.745 0.443 0.843);
+        --rainbow-next: color(display-p3 0.929 0.388 0.353);
     }
   
     20% {
-        --rainbow-prev: #c76dd1;
-        --rainbow-next: #eb6552;
+        --rainbow-prev: color(display-p3 0.78 0.427 0.82);
+        --rainbow-next: color(display-p3 0.922 0.396 0.322);
     }
   
     21.25% {
-        --rainbow-prev: #cf69c9;
-        --rainbow-next: #e8694b;
+        --rainbow-prev: color(display-p3 0.812 0.412 0.788);
+        --rainbow-next: color(display-p3 0.91 0.412 0.294);
     }
   
     22.5% {
-        --rainbow-prev: #d566c2;
-        --rainbow-next: #e46c44;
+        --rainbow-prev: color(display-p3 0.835 0.399 0.761);
+        --rainbow-next: color(display-p3 0.894 0.424 0.267);
     }
   
     23.75% {
-        --rainbow-prev: #dc63ba;
-        --rainbow-next: #e06f3d;
+        --rainbow-prev: color(display-p3 0.863 0.388 0.729);
+        --rainbow-next: color(display-p3 0.878 0.435 0.239);
     }
   
     25% {
-        --rainbow-prev: #e160b3;
-        --rainbow-next: #db7336;
+        --rainbow-prev: color(display-p3 0.882 0.376 0.702);
+        --rainbow-next: color(display-p3 0.859 0.451 0.212);
     }
   
     26.25% {
-        --rainbow-prev: #e65eab;
-        --rainbow-next: #d77630;
+        --rainbow-prev: color(display-p3 0.902 0.369 0.671);
+        --rainbow-next: color(display-p3 0.843 0.463 0.188);
     }
   
     27.5% {
-        --rainbow-prev: #e95ca2;
-        --rainbow-next: #d17a2a;
+        --rainbow-prev: color(display-p3 0.914 0.361 0.635);
+        --rainbow-next: color(display-p3 0.82 0.478 0.165);
     }
   
     28.75% {
-        --rainbow-prev: #ed5a9a;
-        --rainbow-next: #cc7d24;
+        --rainbow-prev: color(display-p3 0.929 0.353 0.604);
+        --rainbow-next: color(display-p3 0.8 0.49 0.141);
     }
   
     30% {
-        --rainbow-prev: #ef5992;
-        --rainbow-next: #c6811e;
+        --rainbow-prev: color(display-p3 0.937 0.349 0.573);
+        --rainbow-next: color(display-p3 0.776 0.506 0.118);
     }
   
     31.25% {
-        --rainbow-prev: #f15989;
-        --rainbow-next: #bf8418;
+        --rainbow-prev: color(display-p3 0.945 0.349 0.537);
+        --rainbow-next: color(display-p3 0.749 0.518 0.094);
     }
   
     32.5% {
-        --rainbow-prev: #f25981;
-        --rainbow-next: #b98713;
+        --rainbow-prev: color(display-p3 0.949 0.349 0.506);
+        --rainbow-next: color(display-p3 0.725 0.529 0.075);
     }
   
     33.75% {
-        --rainbow-prev: #f25a79;
-        --rainbow-next: #b28a0f;
+        --rainbow-prev: color(display-p3 0.949 0.353 0.475);
+        --rainbow-next: color(display-p3 0.698 0.541 0.059);
     }
   
     35% {
-        --rainbow-prev: #f25c71;
-        --rainbow-next: #ab8d0c;
+        --rainbow-prev: color(display-p3 0.949 0.361 0.443);
+        --rainbow-next: color(display-p3 0.671 0.553 0.047);
     }
   
     36.25% {
-        --rainbow-prev: #f15e69;
-        --rainbow-next: #a3900b;
+        --rainbow-prev: color(display-p3 0.945 0.369 0.412);
+        --rainbow-next: color(display-p3 0.639 0.565 0.043);
     }
   
     37.5% {
-        --rainbow-prev: #ef6061;
-        --rainbow-next: #9c920d;
+        --rainbow-prev: color(display-p3 0.937 0.376 0.38);
+        --rainbow-next: color(display-p3 0.612 0.573 0.051);
     }
   
     38.75% {
-        --rainbow-prev: #ed635a;
-        --rainbow-next: #949510;
+        --rainbow-prev: color(display-p3 0.929 0.388 0.353);
+        --rainbow-next: color(display-p3 0.58 0.584 0.063);
     }
   
     40% {
-        --rainbow-prev: #eb6552;
-        --rainbow-next: #8b9715;
+        --rainbow-prev: color(display-p3 0.922 0.396 0.322);
+        --rainbow-next: color(display-p3 0.545 0.592 0.082);
     }
   
     41.25% {
-        --rainbow-prev: #e8694b;
-        --rainbow-next: #83991b;
+        --rainbow-prev: color(display-p3 0.91 0.412 0.294);
+        --rainbow-next: color(display-p3 0.514 0.6 0.106);
     }
   
     42.5% {
-        --rainbow-prev: #e46c44;
-        --rainbow-next: #7a9b21;
+        --rainbow-prev: color(display-p3 0.894 0.424 0.267);
+        --rainbow-next: color(display-p3 0.478 0.608 0.129);
     }
   
     43.75% {
-        --rainbow-prev: #e06f3d;
-        --rainbow-next: #719d27;
+        --rainbow-prev: color(display-p3 0.878 0.435 0.239);
+        --rainbow-next: color(display-p3 0.443 0.616 0.153);
     }
   
     45% {
-        --rainbow-prev: #db7336;
-        --rainbow-next: #679e2e;
+        --rainbow-prev: color(display-p3 0.859 0.451 0.212);
+        --rainbow-next: color(display-p3 0.404 0.62 0.18);
     }
   
     46.25% {
-        --rainbow-prev: #d77630;
-        --rainbow-next: #5da035;
+        --rainbow-prev: color(display-p3 0.843 0.463 0.188);
+        --rainbow-next: color(display-p3 0.365 0.627 0.208);
     }
   
     47.5% {
-        --rainbow-prev: #d17a2a;
-        --rainbow-next: #51a13c;
+        --rainbow-prev: color(display-p3 0.82 0.478 0.165);
+        --rainbow-next: color(display-p3 0.318 0.631 0.235);
     }
   
     48.75% {
-        --rainbow-prev: #cc7d24;
-        --rainbow-next: #44a244;
+        --rainbow-prev: color(display-p3 0.8 0.49 0.141);
+        --rainbow-next: color(display-p3 0.267 0.635 0.267);
     }
   
     50% {
-        --rainbow-prev: #c6811e;
-        --rainbow-next: #34a44b;
+        --rainbow-prev: color(display-p3 0.776 0.506 0.118);
+        --rainbow-next: color(display-p3 0.204 0.643 0.294);
     }
   
     51.25% {
-        --rainbow-prev: #bf8418;
-        --rainbow-next: #1ba553;
+        --rainbow-prev: color(display-p3 0.749 0.518 0.094);
+        --rainbow-next: color(display-p3 0.106 0.647 0.325);
     }
   
     52.5% {
-        --rainbow-prev: #b98713;
-        --rainbow-next: #00a65b;
+        --rainbow-prev: color(display-p3 0.725 0.529 0.075);
+        --rainbow-next: color(display-p3 0 0.651 0.357);
     }
   
     53.75% {
-        --rainbow-prev: #b28a0f;
-        --rainbow-next: #00a663;
+        --rainbow-prev: color(display-p3 0.698 0.541 0.059);
+        --rainbow-next: color(display-p3 0 0.651 0.388);
     }
   
     55% {
-        --rainbow-prev: #ab8d0c;
-        --rainbow-next: #00a76c;
+        --rainbow-prev: color(display-p3 0.671 0.553 0.047);
+        --rainbow-next: color(display-p3 0 0.655 0.424);
     }
   
     56.25% {
-        --rainbow-prev: #a3900b;
-        --rainbow-next: #00a874;
+        --rainbow-prev: color(display-p3 0.639 0.565 0.043);
+        --rainbow-next: color(display-p3 0 0.659 0.455);
     }
   
     57.5% {
-        --rainbow-prev: #9c920d;
-        --rainbow-next: #00a87d;
+        --rainbow-prev: color(display-p3 0.612 0.573 0.051);
+        --rainbow-next: color(display-p3 0 0.659 0.49);
     }
   
     58.75% {
-        --rainbow-prev: #949510;
-        --rainbow-next: #00a985;
+        --rainbow-prev: color(display-p3 0.58 0.584 0.063);
+        --rainbow-next: color(display-p3 0 0.663 0.522);
     }
   
     60% {
-        --rainbow-prev: #8b9715;
-        --rainbow-next: #00a98e;
+        --rainbow-prev: color(display-p3 0.545 0.592 0.082);
+        --rainbow-next: color(display-p3 0 0.663 0.557);
     }
   
     61.25% {
-        --rainbow-prev: #83991b;
-        --rainbow-next: #00a996;
+        --rainbow-prev: color(display-p3 0.514 0.6 0.106);
+        --rainbow-next: color(display-p3 0 0.663 0.588);
     }
   
     62.5% {
-        --rainbow-prev: #7a9b21;
-        --rainbow-next: #00a99f;
+        --rainbow-prev: color(display-p3 0.478 0.608 0.129);
+        --rainbow-next: color(display-p3 0 0.663 0.624);
     }
   
     63.75% {
-        --rainbow-prev: #719d27;
-        --rainbow-next: #00a9a7;
+        --rainbow-prev: color(display-p3 0.443 0.616 0.153);
+        --rainbow-next: color(display-p3 0 0.663 0.655);
     }
   
     65% {
-        --rainbow-prev: #679e2e;
-        --rainbow-next: #00a9b0;
+        --rainbow-prev: color(display-p3 0.404 0.62 0.18);
+        --rainbow-next: color(display-p3 0 0.663 0.69);
     }
   
     66.25% {
-        --rainbow-prev: #5da035;
-        --rainbow-next: #00a9b8;
+        --rainbow-prev: color(display-p3 0.365 0.627 0.208);
+        --rainbow-next: color(display-p3 0 0.663 0.722);
     }
   
     67.5% {
-        --rainbow-prev: #51a13c;
-        --rainbow-next: #00a9c0;
+        --rainbow-prev: color(display-p3 0.318 0.631 0.235);
+        --rainbow-next: color(display-p3 0 0.663 0.753);
     }
   
     68.75% {
-        --rainbow-prev: #44a244;
-        --rainbow-next: #00a8c7;
+        --rainbow-prev: color(display-p3 0.267 0.635 0.267);
+        --rainbow-next: color(display-p3 0 0.659 0.78);
     }
   
     70% {
-        --rainbow-prev: #34a44b;
-        --rainbow-next: #00a8cf;
+        --rainbow-prev: color(display-p3 0.204 0.643 0.294);
+        --rainbow-next: color(display-p3 0 0.659 0.812);
     }
   
     71.25% {
-        --rainbow-prev: #1ba553;
-        --rainbow-next: #00a7d5;
+        --rainbow-prev: color(display-p3 0.106 0.647 0.325);
+        --rainbow-next: color(display-p3 0 0.655 0.835);
     }
   
     72.5% {
-        --rainbow-prev: #00a65b;
-        --rainbow-next: #00a6dc;
+        --rainbow-prev: color(display-p3 0 0.651 0.357);
+        --rainbow-next: color(display-p3 0 0.651 0.863);
     }
   
     73.75% {
-        --rainbow-prev: #00a663;
-        --rainbow-next: #00a6e2;
+        --rainbow-prev: color(display-p3 0 0.651 0.388);
+        --rainbow-next: color(display-p3 0 0.651 0.886);
     }
   
     75% {
-        --rainbow-prev: #00a76c;
-        --rainbow-next: #00a4e7;
+        --rainbow-prev: color(display-p3 0 0.655 0.424);
+        --rainbow-next: color(display-p3 0 0.643 0.906);
     }
   
     76.25% {
-        --rainbow-prev: #00a874;
-        --rainbow-next: #00a3ec;
+        --rainbow-prev: color(display-p3 0 0.659 0.455);
+        --rainbow-next: color(display-p3 0 0.639 0.925);
     }
   
     77.5% {
-        --rainbow-prev: #00a87d;
-        --rainbow-next: #00a2f1;
+        --rainbow-prev: color(display-p3 0 0.659 0.49);
+        --rainbow-next: color(display-p3 0 0.635 0.945);
     }
   
     78.75% {
-        --rainbow-prev: #00a985;
-        --rainbow-next: #00a0f4;
+        --rainbow-prev: color(display-p3 0 0.663 0.522);
+        --rainbow-next: color(display-p3 0 0.627 0.957);
     }
   
     80% {
-        --rainbow-prev: #00a98e;
-        --rainbow-next: #009ff7;
+        --rainbow-prev: color(display-p3 0 0.663 0.557);
+        --rainbow-next: color(display-p3 0 0.624 0.969);
     }
   
     81.25% {
-        --rainbow-prev: #00a996;
-        --rainbow-next: #009dfa;
+        --rainbow-prev: color(display-p3 0 0.663 0.588);
+        --rainbow-next: color(display-p3 0 0.616 0.98);
     }
   
     82.5% {
-        --rainbow-prev: #00a99f;
-        --rainbow-next: #009bfc;
+        --rainbow-prev: color(display-p3 0 0.663 0.624);
+        --rainbow-next: color(display-p3 0 0.608 0.988);
     }
   
     83.75% {
-        --rainbow-prev: #00a9a7;
-        --rainbow-next: #0098fd;
+        --rainbow-prev: color(display-p3 0 0.663 0.655);
+        --rainbow-next: color(display-p3 0 0.596 0.992);
     }
   
     85% {
-        --rainbow-prev: #00a9b0;
-        --rainbow-next: #0096fd;
+        --rainbow-prev: color(display-p3 0 0.663 0.69);
+        --rainbow-next: color(display-p3 0 0.588 0.992);
     }
   
     86.25% {
-        --rainbow-prev: #00a9b8;
-        --rainbow-next: #0093fd;
+        --rainbow-prev: color(display-p3 0 0.663 0.722);
+        --rainbow-next: color(display-p3 0 0.576 0.992);
     }
   
     87.5% {
-        --rainbow-prev: #00a9c0;
-        --rainbow-next: #2e90fc;
+        --rainbow-prev: color(display-p3 0 0.663 0.753);
+        --rainbow-next: color(display-p3 0.18 0.565 0.988);
     }
   
     88.75% {
-        --rainbow-prev: #00a8c7;
-        --rainbow-next: #4d8dfa;
+        --rainbow-prev: color(display-p3 0 0.659 0.78);
+        --rainbow-next: color(display-p3 0.302 0.553 0.98);
     }
   
     90% {
-        --rainbow-prev: #00a8cf;
-        --rainbow-next: #638af8;
+        --rainbow-prev: color(display-p3 0 0.659 0.812);
+        --rainbow-next: color(display-p3 0.388 0.541 0.973);
     }
   
     91.25% {
-        --rainbow-prev: #00a7d5;
-        --rainbow-next: #7587f5;
+        --rainbow-prev: color(display-p3 0 0.655 0.835);
+        --rainbow-next: color(display-p3 0.459 0.529 0.961);
     }
   
     92.5% {
-        --rainbow-prev: #00a6dc;
-        --rainbow-next: #8583f1;
+        --rainbow-prev: color(display-p3 0 0.651 0.863);
+        --rainbow-next: color(display-p3 0.522 0.514 0.945);
     }
   
     93.75% {
-        --rainbow-prev: #00a6e2;
-        --rainbow-next: #9280ed;
+        --rainbow-prev: color(display-p3 0 0.651 0.886);
+        --rainbow-next: color(display-p3 0.573 0.502 0.929);
     }
   
     95% {
-        --rainbow-prev: #00a4e7;
-        --rainbow-next: #9f7ce9;
+        --rainbow-prev: color(display-p3 0 0.643 0.906);
+        --rainbow-next: color(display-p3 0.624 0.486 0.914);
     }
   
     96.25% {
-        --rainbow-prev: #00a3ec;
-        --rainbow-next: #aa78e3;
+        --rainbow-prev: color(display-p3 0 0.639 0.925);
+        --rainbow-next: color(display-p3 0.667 0.471 0.89);
     }
   
     97.5% {
-        --rainbow-prev: #00a2f1;
-        --rainbow-next: #b574dd;
+        --rainbow-prev: color(display-p3 0 0.635 0.945);
+        --rainbow-next: color(display-p3 0.71 0.455 0.867);
     }
   
     98.75% {
-        --rainbow-prev: #00a0f4;
-        --rainbow-next: #be71d7;
+        --rainbow-prev: color(display-p3 0 0.627 0.957);
+        --rainbow-next: color(display-p3 0.745 0.443 0.843);
     }
   
     100% {
-        --rainbow-prev: #009ff7;
-        --rainbow-next: #c76dd1;
+        --rainbow-prev: color(display-p3 0 0.624 0.969);
+        --rainbow-next: color(display-p3 0.78 0.427 0.82);
     }
   }
 :root {
@@ -417,8 +417,8 @@
   
     --vp-home-hero-image-background-image: linear-gradient(
       -45deg,
-      #e25252 50%,
-      #47caff 50%
+      color(display-p3 0.886 0.322 0.322) 50%,
+      color(display-p3 0.278 0.792 1) 50%
     );
     --vp-home-hero-image-filter: blur(44px);
   }

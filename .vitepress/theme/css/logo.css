@@ -2,8 +2,8 @@
   /*hero logo背景渐变色 */
     --vp-home-hero-image-background-image: linear-gradient(
       -45deg,
-      #52cfeb 50%,
-      #e25252 50%
+      color(display-p3 0.322 0.812 0.922) 50%,
+      color(display-p3 0.886 0.322 0.322) 50%
   
     );
     --vp-home-hero-image-filter: blur(80px);

@@ -19,11 +19,11 @@
 
 :root {
   /* 设置全局主题色 */
-  --vp-c-brand: #e25252;
-  --vp-c-brand-light: #f37070;
-  --vp-c-brand-lighter: #ff9292;
-  --vp-c-brand-dark: #ca3a3a;
-  --vp-c-brand-darker: #b02e2e;
+  --vp-c-brand: color(display-p3 0.886 0.322 0.322);
+  --vp-c-brand-light: color(display-p3 0.953 0.439 0.439);
+  --vp-c-brand-lighter: color(display-p3 1 0.573 0.573);
+  --vp-c-brand-dark: color(display-p3 0.792 0.227 0.227);
+  --vp-c-brand-darker: color(display-p3 0.69 0.18 0.18);
 
   /* 按钮颜色 */
   --vp-button-brand-bg: var(--vp-c-brand);
@@ -31,17 +31,17 @@
   --vp-button-brand-active-bg: var(--vp-c-brand-darker);
 
   /* 自定义块颜色 */
-  --vp-custom-block-tip-bg: rgba(226, 82, 82, 0.1);
+  --vp-custom-block-tip-bg: color(display-p3 0.886 0.322 0.322 / 0.1);
   --vp-custom-block-tip-border: var(--vp-c-brand);
 }
 
 .dark {
   /* 暗色模式下的主题色 */
-  --vp-c-brand: #e25252;
-  --vp-c-brand-light: #f37070;
-  --vp-c-brand-lighter: #ff9292;
-  --vp-c-brand-dark: #ca3a3a;
-  --vp-c-brand-darker: #b02e2e;
+  --vp-c-brand: color(display-p3 0.886 0.322 0.322);
+  --vp-c-brand-light: color(display-p3 0.953 0.439 0.439);
+  --vp-c-brand-lighter: color(display-p3 1 0.573 0.573);
+  --vp-c-brand-dark: color(display-p3 0.792 0.227 0.227);
+  --vp-c-brand-darker: color(display-p3 0.69 0.18 0.18);
 }
 
 /* 导航栏链接悬浮颜色 */
