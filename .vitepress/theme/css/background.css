@@ -5,26 +5,26 @@
     --vp-c-default-soft: var(--vp-c-gray-soft);
   
     /* 动态背景渐变 */
-    --gradient-color-1: #ffc0c0;
-    --gradient-color-2: #c0d8ff;
-    --gradient-color-3: #e0c0ff;
-    --gradient-color-4: #ffc0e0;
-    --gradient-color-5: #c0fff0;
-    --gradient-color-6: #ffe0c0;
-    --gradient-color-7: #c0ffc0;
-    --gradient-color-8: #ffc0ff;
+    --gradient-color-1: color(display-p3 1 0.6 0.7);
+    --gradient-color-2: color(display-p3 0.6 0.85 1);
+    --gradient-color-3: color(display-p3 0.85 0.6 1);
+    --gradient-color-4: color(display-p3 1 0.6 0.88);
+    --gradient-color-5: color(display-p3 0.6 1 0.94);
+    --gradient-color-6: color(display-p3 1 0.88 0.6);
+    --gradient-color-7: color(display-p3 0.6 1 0.75);
+    --gradient-color-8: color(display-p3 1 0.6 1);
     }
   
     .dark {
-    --gradient-color-1: #8a6060;
-    --gradient-color-2: #607080;
-    --gradient-color-3: #806090;
-    --gradient-color-4: #906070;
-    --gradient-color-5: #608080;
-    --gradient-color-6: #907060;
-    --gradient-color-7: #608060;
-    --gradient-color-8: #906090;
-  }
+    --gradient-color-1: color(display-p3 0.54 0.38 0.38);
+    --gradient-color-2: color(display-p3 0.38 0.44 0.5);
+    --gradient-color-3: color(display-p3 0.5 0.38 0.56);
+    --gradient-color-4: color(display-p3 0.56 0.38 0.44);
+    --gradient-color-5: color(display-p3 0.38 0.5 0.5);
+    --gradient-color-6: color(display-p3 0.56 0.44 0.38);
+    --gradient-color-7: color(display-p3 0.38 0.5 0.38);
+    --gradient-color-8: color(display-p3 0.56 0.38 0.56);
+    }
   
     /* 动态背景渐变动画 */
     @keyframes gradient {
