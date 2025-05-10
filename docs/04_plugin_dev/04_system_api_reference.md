@@ -21,7 +21,7 @@ Nekro Agent 为插件开发者提供了一系列核心系统服务的 API，使�
 *   **Qdrant 向量数据库客户端**
     *   `core.get_qdrant_client() -> Optional[QdrantClient]` (async): 获取全局 Qdrant 客户端实例。
     *   `core.get_qdrant_config() -> Optional[dict]` (async): 获取 Qdrant 连接配置。
-    *   详见 [使用向量数据库](./03_advanced_features/3.4_vector_database.md) 章节。
+    *   详见 [使用向量数据库](/docs/04_plugin_dev/03_advanced_features/3.3_vector_database.md) 章节。
 
 *   **全局配置访问 (`core.config`)**
     *   可以直接访问 Nekro Agent 的全局配置项（定义在 Agent 主配置文件中）。
