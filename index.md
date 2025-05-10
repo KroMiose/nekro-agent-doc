@@ -13,7 +13,7 @@ hero:
       text: 开始使用
       link: /docs/02_quick_start/quickstart
     - theme: alt
-      text: 插件开发 (建设中)
+      text: 插件开发
       link: /docs/04_plugin_dev/concepts
     - theme: alt
       text: 开源仓库
