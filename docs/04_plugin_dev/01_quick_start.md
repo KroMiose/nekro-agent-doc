@@ -105,15 +105,15 @@ async def say_hello_from_plugin(_ctx: AgentCtx) -> str:
 
 2.  **在 Agent 中测试**：
     加载成功后，你就可以在与 Nekro Agent 的对话中尝试调用这个插件方法了。例如，你可以对 Agent 说：
-    `"调用 say_hello 方法"`
+    `"调用 say_hello_from_plugin 方法"`
     或者更自然地：
     `"让 hello_plugin 说你好"`
 
-    Agent 的 AI 模型会根据你的指令，结合函数中的文档字符串，决定是否以及如何调用 `say_hello` 方法。如果调用成功，AI 应该会告诉你插件返回了 "Hello from Plugin!"。
+    Agent 的 AI 模型会根据你的指令，结合函数中的文档字符串，决定是否以及如何调用 `say_hello_from_plugin` 方法。如果调用成功，AI 应该会告诉你插件返回了 "Hello from Plugin!"。
 
     你也可以通过指令调用代码：
     ```python
-    /exec say_hello()
+    /exec say_hello_from_plugin()
     ```
     发送指令前确保机器人也处在同一会话内
 
