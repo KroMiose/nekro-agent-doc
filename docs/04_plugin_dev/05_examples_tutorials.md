@@ -18,22 +18,22 @@
 
 以下是本章节计划包含的示例教程：
 
-1.  **[简单工具插件](./06_examples_tutorials/6.1_simple_tool_plugin.md)**:
+1.  **[简单工具插件](./05_examples_tutorials/5.1_simple_tool_plugin.md)**:
     *   创建一个提供基本计算或文本处理功能的沙盒方法 (`SandboxMethodType.TOOL`)。
     *   包含插件定义、沙盒方法注册和简单的配置项。
 
-2.  **[数据存储插件](./06_examples_tutorials/6.2_data_storage_plugin.md)**:
+2.  **[数据存储插件](./05_examples_tutorials/5.2_data_storage_plugin.md)**:
     *   演示如何使用 `plugin.store` API (set, get, delete)。
     *   实现一个简单的笔记记录或用户偏好设置功能，区分会话数据和用户全局数据。
     *   结合 Pydantic 模型进行结构化数据的存储和读取。
 
-3.  **[Webhook 接收插件](./06_examples_tutorials/6.3_webhook_plugin.md)**:
+3.  **[Webhook 接收插件](./05_examples_tutorials/5.3_webhook_plugin.md)**:
     *   创建一个 Webhook 端点 (`@plugin.mount_webhook_method()`)。
     *   模拟接收外部系统的 POST 请求 (例如 JSON payload)。
     *   进行简单的安全验证（如固定 Token）。
     *   处理接收到的数据，并通过消息 API (`message.send_text`) 通知到指定会话。
 
-4.  **[Qdrant 向量搜索插件](./06_examples_tutorials/6.4_qdrant_search_plugin.md)**:
+4.  **[Qdrant 向量搜索插件](./05_examples_tutorials/5.4_qdrant_search_plugin.md)**:
     *   在插件初始化时创建 Qdrant 集合。
     *   提供沙盒方法，允许用户添加文本到向量数据库（包括文本嵌入的过程，可使用模拟的嵌入函数）。
     *   提供沙盒方法，根据用户查询进行语义搜索，并返回最相关的结果。

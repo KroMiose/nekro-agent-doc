@@ -148,24 +148,10 @@ export default defineConfig({
               items: [
                 { text: "Webhook 接入点", link: "/docs/04_plugin_dev/03_advanced_features/3.1_webhooks" },
                 { text: "文件交互", link: "/docs/04_plugin_dev/03_advanced_features/3.2_file_interaction" },
-                { text: "动态方法收集", link: "/docs/04_plugin_dev/03_advanced_features/3.3_dynamic_methods" },
-                { text: "使用向量数据库", link: "/docs/04_plugin_dev/03_advanced_features/3.4_vector_database" },
+                { text: "使用向量数据库", link: "/docs/04_plugin_dev/03_advanced_features/3.3_vector_database" },
               ],
             },
             { text: "系统 API 参考", link: "/docs/04_plugin_dev/04_system_api_reference" },
-            {
-              text: "最佳实践与技巧",
-              link: "/docs/04_plugin_dev/05_best_practices",
-              collapsed: true,
-              items: [
-                { text: "提示词工程", link: "/docs/04_plugin_dev/05_best_practices/5.1_prompt_engineering" },
-                { text: "代码组织与结构", link: "/docs/04_plugin_dev/05_best_practices/5.2_code_organization" },
-                { text: "错误处理与日志记录", link: "/docs/04_plugin_dev/05_best_practices/5.3_error_handling" },
-                { text: "安全性考量", link: "/docs/04_plugin_dev/05_best_practices/5.4_security" },
-                { text: "性能优化", link: "/docs/04_plugin_dev/05_best_practices/5.5_performance" },
-                { text: "插件市场与分发", link: "/docs/04_plugin_dev/05_best_practices/5.6_marketplace" },
-              ],
-            },
           ],
         },
         {
