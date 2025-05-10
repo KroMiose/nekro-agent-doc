@@ -127,78 +127,45 @@ export default defineConfig({
           text: "插件开发",
           collapsed: true,
           items: [
+            { text: "引言", link: "/docs/04_plugin_dev/00_introduction" },
+            { text: "快速上手", link: "/docs/04_plugin_dev/01_quick_start" },
             {
-              text: "基本概念",
+              text: "插件核心概念",
+              link: "/docs/04_plugin_dev/02_plugin_basics",
               collapsed: true,
               items: [
-                {
-                  text: "通信架构",
-                  link: "/docs/04_plugin_dev/01_concepts/architecture",
-                },
-                {
-                  text: "响应周期",
-                  link: "/docs/04_plugin_dev/01_concepts/lifecycle",
-                },
-                {
-                  text: "沙盒方法",
-                  link: "/docs/04_plugin_dev/01_concepts/sandbox-methods",
-                },
-                {
-                  text: "插件类型",
-                  link: "/docs/04_plugin_dev/01_concepts/plugin-types",
-                },
+                { text: "插件实例与生命周期", link: "/docs/04_plugin_dev/02_plugin_basics/2.1_plugin_instance" },
+                { text: "沙盒方法详解", link: "/docs/04_plugin_dev/02_plugin_basics/2.2_sandbox_methods" },
+                { text: "插件配置", link: "/docs/04_plugin_dev/02_plugin_basics/2.3_configuration" },
+                { text: "数据存储", link: "/docs/04_plugin_dev/02_plugin_basics/2.4_storage" },
+                { text: "提示词注入", link: "/docs/04_plugin_dev/02_plugin_basics/2.5_prompt_injection" },
               ],
             },
             {
-              text: "事件回调",
+              text: "高级功能",
+              link: "/docs/04_plugin_dev/03_advanced_features",
               collapsed: true,
               items: [
-                { text: "初始化", link: "/docs/04_plugin_dev/02_events/init" },
-                {
-                  text: "提示词注入",
-                  link: "/docs/04_plugin_dev/02_events/prompt-injection",
-                },
-                {
-                  text: "沙盒方法",
-                  link: "/docs/04_plugin_dev/02_events/sandbox-methods",
-                },
-                {
-                  text: "清理环境",
-                  link: "/docs/04_plugin_dev/02_events/cleanup",
-                },
-                {
-                  text: "插件存储",
-                  link: "/docs/04_plugin_dev/02_events/plugin-store",
-                },
-                {
-                  text: "Webhook 接入点",
-                  link: "/docs/04_plugin_dev/02_events/webhook",
-                },
+                { text: "Webhook 接入点", link: "/docs/04_plugin_dev/03_advanced_features/3.1_webhooks" },
+                { text: "文件交互", link: "/docs/04_plugin_dev/03_advanced_features/3.2_file_interaction" },
+                { text: "动态方法收集", link: "/docs/04_plugin_dev/03_advanced_features/3.3_dynamic_methods" },
+                { text: "使用向量数据库", link: "/docs/04_plugin_dev/03_advanced_features/3.4_vector_database" },
               ],
             },
+            { text: "系统 API 参考", link: "/docs/04_plugin_dev/04_system_api_reference" },
             {
-              text: "最佳实践",
+              text: "最佳实践与技巧",
+              link: "/docs/04_plugin_dev/05_best_practices",
               collapsed: true,
               items: [
-                {
-                  text: "插件共享市场",
-                  link: "/docs/04_plugin_dev/03_best_practices/marketplace",
-                },
-                {
-                  text: "文件交互",
-                  link: "/docs/04_plugin_dev/03_best_practices/file-interaction",
-                },
-                {
-                  text: "提示词工程",
-                  link: "/docs/04_plugin_dev/03_best_practices/prompt-engineering",
-                },
-                {
-                  text: "插件配置",
-                  link: "/docs/04_plugin_dev/03_best_practices/plugin-configuration",
-                },
+                { text: "提示词工程", link: "/docs/04_plugin_dev/05_best_practices/5.1_prompt_engineering" },
+                { text: "代码组织与结构", link: "/docs/04_plugin_dev/05_best_practices/5.2_code_organization" },
+                { text: "错误处理与日志记录", link: "/docs/04_plugin_dev/05_best_practices/5.3_error_handling" },
+                { text: "安全性考量", link: "/docs/04_plugin_dev/05_best_practices/5.4_security" },
+                { text: "性能优化", link: "/docs/04_plugin_dev/05_best_practices/5.5_performance" },
+                { text: "插件市场与分发", link: "/docs/04_plugin_dev/05_best_practices/5.6_marketplace" },
               ],
             },
-            { text: "系统 API", link: "/docs/04_plugin_dev/04_system_api" },
           ],
         },
         {
