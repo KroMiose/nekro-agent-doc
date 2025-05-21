@@ -1,3 +1,8 @@
+---
+title: Windows 部署 Nekro Agent 完整系统镜像
+description: 在 Windows 系统上使用 完整系统镜像 部署 Nekro Agent 的详细步骤
+---
+
 # Nekro Agent 完整系统镜像
 ## 简介
 Nekro Agent 完整系统镜像，适用于 Hyper-V 和 VMware 虚拟机。
