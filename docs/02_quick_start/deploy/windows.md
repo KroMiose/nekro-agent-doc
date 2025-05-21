@@ -5,29 +5,15 @@ description: 在 Windows 系统上部署 Nekro Agent 的详细步骤，包括WSL
 
 # Windows 部署教程
 
-本文档将指导您在 Windows 系统上部署 Nekro Agent。
+将指导您在 Windows 系统上部署 Nekro Agent。
 
-## 🌈 环境准备
+### 请选择部署方式
 
-由于 Nekro Agent 基于 Docker 运行，我们需要先在 Windows 上安装 WSL2（Windows Subsystem for Linux 2）。
+[HyperV 部署教程](/docs/02_quick_start/deploy/windows/hyperv)
 
-### 安装 WSL2
+[WSL2 部署教程](/docs/02_quick_start/deploy/windows/wsl)
 
-1. 以管理员身份打开 PowerShell，执行以下命令启用 WSL 功能：
-
-```powershell
-wsl --install
-```
-
-2. 重启电脑完成安装
-3. 启动 Ubuntu（默认安装的发行版），设置用户名和密码
-4. 确认 WSL2 安装成功：
-
-```powershell
-wsl -l -v
-```
-
-输出应显示 VERSION 为 2
+[Nekro Agent 完整系统镜像](/docs/02_quick_start/deploy/windows/iso)
 
 ### 安装 Docker Desktop（可选但推荐）
 
