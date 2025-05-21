@@ -1,7 +1,16 @@
 import { defineConfig } from "vitepress";
+import markdownItVideo from "@vrcd-community/markdown-it-video";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  markdown: {
+    config: (md) => {
+      md.use(markdownItVideo, {
+        youtube: {width: '100%', height: '387px'},
+        bilibili: {width: '100%', height: '387px'}
+      });
+    }
+  },
   title: "Nekro Agent 文档站",
   description: "更智能、更优雅的代理执行 AI",
   head: [

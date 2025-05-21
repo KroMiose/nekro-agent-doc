@@ -13,5 +13,8 @@
     "docs:dev:port": "vitepress dev --port",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview"
+  },
+  "dependencies": {
+    "@vrcd-community/markdown-it-video": "^1.1.1"
   }
 }
