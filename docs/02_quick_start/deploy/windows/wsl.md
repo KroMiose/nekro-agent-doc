@@ -3,7 +3,7 @@ title: Windows 部署 Nekro Agent for WSl2
 description: 在 Windows 系统上使用 WSL2 部署 Nekro Agent 的详细步骤
 ---
 
-# 基于 Windows 的 Linux 子系统
+# 基于 Linux 的 Windows 子系统
 ## 🌈 环境准备
 
 由于 Nekro Agent 基于 Docker 运行，我们需要先在 Windows 上安装 WSL2（Windows Subsystem for Linux 2）。
