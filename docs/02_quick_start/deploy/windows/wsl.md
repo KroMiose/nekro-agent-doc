@@ -68,6 +68,4 @@ wsl -l -v
 
 在 WSL2 的 Ubuntu 终端中进行以下操作：
 
-=======
 WSL 环境与 Linux 几乎一致，后续步骤见 [Linux 部署教程](/docs/02_quick_start/deploy/linux#Linux-部署教程)
->>>>>>> fc3ebb314ee81d2197c7ab5a5dec45711986aadf
