@@ -14,7 +14,7 @@ Nekro Agent 完整系统镜像，适用于 Hyper-V 和 VMware 虚拟机。
 
 
 #### 下载链接
-Hyper-V [虚拟机镜像](https://pan.mrly.cc/f/jzi8/Hyper-V%E7%89%88NekroAgnt.7z)
+Hyper-V [虚拟机镜像](https://pan.mrly.cc/s/b1ux)
 :::tip 提示
 系统用户名: nekroagent   系统密码: nekro
 
@@ -26,9 +26,9 @@ VMware 待实现
 #### Hyper-V 导入步骤
 1. 下载镜像并解压
 2. 打开 Hyper-V 管理器，选择“导入虚拟机”
-3. 选择解压后的文件夹，选择“Hyper-V版NekroAgnt.vhdk”文件
-4. 选择“连接”，选择“使用现有虚拟交换机”
-5. 选择“下一步”，选择“导入”
+3. 选择解压后的文件夹，选择 NekroAgent 文件夹
+4. 选择“就地注册虚拟机(使用现有的唯一ID)(R)”
+5. 选择“下一步”，选择“完成”
 
 :::warning 警告
 安装完成后请立即修改密码
