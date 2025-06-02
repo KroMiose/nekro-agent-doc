@@ -26,7 +26,7 @@ CPU 支持 VM 监视器模式扩展（Intel CPU 上的 VT-c）。
 最小内存为 4 GB。
 
 ::: info 备注
-无法在 Windows 10 家庭版或 Windows 11 家庭版上使用正常方法安装 Hyper-V 角色。
+无法在 Windows 10 家庭版或 Windows 11 家庭版上使用正常方法安装 Hyper-V 角色，请使用[安装脚本](https://pan.mrly.cc/s/veC9)注意:脚本需使用管理员权限运行。
 :::
 
 有关详细信息和故障排除，请参阅 Windows Hyper-V 系统要求。
