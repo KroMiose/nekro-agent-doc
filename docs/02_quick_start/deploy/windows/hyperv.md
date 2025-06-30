@@ -101,43 +101,7 @@ DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V
 @[bilibili](BV1BqJizaEDs)
 
 ## 安装 Nekro Agent
-### 方式一：标准部署（推荐）
-
-集成 Napcat 协议端的自动化部署版本，一键完成所有服务组件与协议端部署
-
-```bash
-sudo -E bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/main/docker/quick_start_x_napcat.sh)"
-```
-
-如果部署过程出现网络问题无法正确下载脚本，可使用国内 GitCode 加速部署命令：
-
-> 注意: GitCode 加速的部署方式依赖于 GitCode 同步速度，可能无法及时同步最新版本，如有条件尽量使用 Github 脚本部署
-
-```bash
-sudo -E bash -c "$(curl -fsSL https://raw.gitcode.com/gh_mirrors/ne/nekro-agent/raw/main/docker/quick_start_x_napcat.sh)" - -g
-```
-
-::: warning 注意事项
-
-- 默认安装目录：`~/srv/nekro_agent`
-- 如需修改安装目录：执行 `export NEKRO_DATA_DIR=<你的目录>`
-- 云服务器需放行端口：
-  - 8021：NekroAgent 主服务
-  - 6099：Napcat 服务
-- 请注意保存安装脚本中提供的面板登陆信息，以便后续配置使用
-
-:::
-按照提示完成部署后，按照[协议端配置](/docs/02_quick_start/config/protocol.html#napcat-集成部署-推荐)文档说明完成配置
-
-### 方式二：核心部署
-
-仅部署 NekroAgent 核心服务组件，需要自行配置 OneBot V11 协议端。
-
-```bash
-sudo -E bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/main/docker/quick_start.sh)"
-```
-
-监听的协议端连接地址：`ws://<你的服务ip>:8021/onebot/v11/ws`
+安装 Nekro Agent 的步骤与 Linux 部署 一致，请查看[Linux部署](/docs/02_quick_start/deploy/linux)文档，根据文档说明完成部署。
 
 ### 部署后配置
 
