@@ -25,6 +25,7 @@ description: 帮助您快速开始使用 Nekro Agent 的指南，包括部署选
 - [Linux 部署教程](/docs/02_quick_start/deploy/linux) - 适用于各类 Linux 发行版
 - [Windows 部署教程](/docs/02_quick_start/deploy/windows) - 适用于 Windows 10/11 系统
 - [MacOS 部署教程](/docs/02_quick_start/deploy/macos) - 适用于 MacOS 系统
+- [社区 部署教程](/docs/02_quick_start/deploy/third_party) - 跨平台部署方案
 
 ## 基本配置
 

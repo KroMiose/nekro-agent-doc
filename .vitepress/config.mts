@@ -98,6 +98,10 @@ export default defineConfig({
                   text: "MacOS 部署教程",
                   link: "/docs/02_quick_start/deploy/macos",
                 },
+                {
+                  text: "社区 部署教程",
+                  link: "/docs/02_quick_start/deploy/third_party"
+                },
               ],
             },
             {
