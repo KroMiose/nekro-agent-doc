@@ -17,19 +17,7 @@
   }
 }
 
-/* 定义 misans 字体 */
-@font-face {
-  font-family: 'MiSans';
-  src: url('/assets/fonts/MiSans-Regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
-  /* 设置全局字体 */
-  --vp-font-family-base: 'MiSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-
   /* 设置全局主题色 */
   --vp-c-brand: color(display-p3 0.886 0.322 0.322);
   --vp-c-brand-light: color(display-p3 0.953 0.439 0.439);

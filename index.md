@@ -4,7 +4,7 @@ layout: home
 hero:
   name: "Nekro Agent"
   text: "新一代 AI 代理框架"
-  tagline: 安全、高效、优雅的智能交互体验。
+  tagline: 安全、高效、优雅的智能交互体验
   actions:
     - theme: brand
       text: 快速了解
