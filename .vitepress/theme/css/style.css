@@ -18,30 +18,25 @@
 }
 
 :root {
-  /* 设置全局主题色 */
-  --vp-c-brand: color(display-p3 0.886 0.322 0.322);
-  --vp-c-brand-light: color(display-p3 0.953 0.439 0.439);
-  --vp-c-brand-lighter: color(display-p3 1 0.573 0.573);
-  --vp-c-brand-dark: color(display-p3 0.792 0.227 0.227);
-  --vp-c-brand-darker: color(display-p3 0.69 0.18 0.18);
-
-  /* 按钮颜色 */
-  --vp-button-brand-bg: var(--vp-c-brand);
-  --vp-button-brand-hover-bg: var(--vp-c-brand-dark);
-  --vp-button-brand-active-bg: var(--vp-c-brand-darker);
-
   /* 自定义块颜色 */
-  --vp-custom-block-tip-bg: color(display-p3 0.886 0.322 0.322 / 0.1);
-  --vp-custom-block-tip-border: var(--vp-c-brand);
+  --vp-custom-block-tip-border: transparent;
+  --vp-custom-block-tip-text: var(--vp-c-text-1);
+  --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
+  --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
+  
+  /* 代码颜色 */
+  --vp-code-color: var(--vp-c-brand-1);
+  --vp-code-link-color: var(--vp-c-brand-1);
+  --vp-code-link-hover-color: var(--vp-c-brand-2);
+  --vp-code-tab-active-bar-color: var(--vp-c-brand-1);
+  
+  /* 徽章颜色 */
+  --vp-badge-tip-border: transparent;
+  --vp-badge-tip-text: var(--vp-c-brand-1);
+  --vp-badge-tip-bg: var(--vp-c-brand-soft);
 }
 
 .dark {
-  /* 暗色模式下的主题色 */
-  --vp-c-brand: color(display-p3 0.886 0.322 0.322);
-  --vp-c-brand-light: color(display-p3 0.953 0.439 0.439);
-  --vp-c-brand-lighter: color(display-p3 1 0.573 0.573);
-  --vp-c-brand-dark: color(display-p3 0.792 0.227 0.227);
-  --vp-c-brand-darker: color(display-p3 0.69 0.18 0.18);
 }
 
 /* 导航栏链接悬浮颜色 */
@@ -99,12 +94,19 @@
 
 /* 自定义块引用样式 */
 .custom-block.tip {
-  border-color: var(--vp-c-brand) !important;
+  border-color: var(--vp-custom-block-tip-border);
+  color: var(--vp-custom-block-tip-text);
+  background-color: var(--vp-custom-block-tip-bg);
 }
 
 /* 代码块复制按钮悬浮颜色 */
 .vp-copy-code-button:hover {
   color: var(--vp-c-brand) !important;
+}
+
+/* 代码组标签页激活状态 */
+.vp-code-group .tabs label.active {
+  color: var(--vp-c-brand);
 }
 
 /* 搜索框激活样式 */
@@ -119,4 +121,11 @@
 
 .float-button:hover {
   background-color: var(--vp-c-brand-dark) !important;
+}
+
+/* 徽章样式 */
+.vp-badge.tip {
+  border-color: var(--vp-badge-tip-border);
+  color: var(--vp-badge-tip-text);
+  background-color: var(--vp-badge-tip-bg);
 }

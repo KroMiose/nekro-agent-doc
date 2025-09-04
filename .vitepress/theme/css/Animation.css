@@ -8,12 +8,7 @@
     opacity: 1;
   }
 }
-:root {
-  --vp-custom-block-tip-border: color(display-p3 0 0 0 / 0);
-  --vp-custom-block-tip-text: var(--vp-c-text-1);
-  --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
-  --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
-}
+
 
 .VPContent {
   animation: scaleIn 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;

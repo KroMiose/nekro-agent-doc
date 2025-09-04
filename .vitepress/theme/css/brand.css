@@ -1,14 +1,16 @@
 :root {
+    /* 按钮颜色 */
     --vp-button-brand-border: transparent;
     --vp-button-brand-text: var(--vp-c-white);
-    --vp-button-brand-bg: color(display-p3 0.886 0.322 0.322);
+    --vp-button-brand-bg: var(--vp-c-brand-1);
     --vp-button-brand-hover-border: transparent;
     --vp-button-brand-hover-text: var(--vp-c-white);
-    --vp-button-brand-hover-bg: color(display-p3 0.792 0.227 0.227);
+    --vp-button-brand-hover-bg: var(--vp-c-brand-2);
     --vp-button-brand-active-border: transparent;
     --vp-button-brand-active-text: var(--vp-c-white);
-    --vp-button-brand-active-bg: color(display-p3 0.953 0.439 0.439);
+    --vp-button-brand-active-bg: var(--vp-c-brand-3);
   }
+  
   /**
    * alt按钮白色
    * -------------------------------------------------------------------------- */
@@ -20,7 +22,19 @@
     --vp-button-alt-active-border: transparent;
     --vp-button-alt-active-bg: color(display-p3 0.553 0.553 0.553);
   }
+  
   .dark {
+    /* 暗色模式下的按钮颜色 */
+    --vp-button-brand-border: transparent;
+    --vp-button-brand-text: var(--vp-c-white);
+    --vp-button-brand-bg: var(--vp-c-brand-1);
+    --vp-button-brand-hover-border: transparent;
+    --vp-button-brand-hover-text: var(--vp-c-white);
+    --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+    --vp-button-brand-active-border: transparent;
+    --vp-button-brand-active-text: var(--vp-c-white);
+    --vp-button-brand-active-bg: var(--vp-c-brand-3);
+    
     --vp-button-alt-border: transparent;
     --vp-button-alt-bg: color(display-p3 0.2 0.2 0.2);
     --vp-button-alt-hover-border: transparent;

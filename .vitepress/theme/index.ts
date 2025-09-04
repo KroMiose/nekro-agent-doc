@@ -3,6 +3,7 @@ import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import MyLayout from './components/switch.vue'
 
+import './css/theme-colors.css'
 import './css/background.css'
 import './css/text.css'
 import './css/brand.css'
@@ -10,6 +11,7 @@ import './css/Animation.css'
 import './css/logo.css'
 import './css/transparent.css'
 import './css/style.css'
+import './css/search-modal.css'
 import { inBrowser } from "vitepress"
 import busuanzi from "busuanzi.pure.js"
 import Confetti from "./components/Confetti.vue"
