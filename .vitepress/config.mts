@@ -18,7 +18,7 @@ export default defineConfig({
       "link",
       {
         rel: "icon",
-        href: "https://img.picui.cn/free/2025/03/10/67ce9955d9600.png",
+        href: "https://oss.nekro.ai/nekro_agent_logo.png",
       },
     ],
     [
