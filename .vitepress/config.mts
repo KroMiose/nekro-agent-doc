@@ -18,7 +18,7 @@ export default defineConfig({
       "link",
       {
         rel: "icon",
-        href: "https://oss.nekro.ai/nekro_agent_logo.png",
+        href: "https://nekro-agent-doc-imge-wuhan-oss.oss-cn-wuhan-lr.aliyuncs.com/nekro_agent_logo.webp",
       },
     ],
     [
