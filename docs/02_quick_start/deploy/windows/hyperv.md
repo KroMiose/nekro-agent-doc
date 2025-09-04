@@ -7,6 +7,14 @@ description: 在 Windows 系统上使用 Hyper-V 部署 Nekro Agent 的详细步
 
 本文档将指导您在 Windows 系统上部署 Nekro Agent。
 
+:::tip 给初次使用 Hyper-V 快速创建者的提示
+- 快速创建 Ubuntu 22.04 时，不要勾选“自动登录”，选择“密码登录”，否则未知原因无法启用增强会话。
+- 快速创建的是 Azure Linux 内核，不支持 Hyper-V 内存回收，设定最大多少内存就全部占满。如需内存回收，切换成 Generic 内核。
+- Hyper-V 扩展分配的空间记得使用磁盘管理工具启用。
+- 擅自更新前多创建检查点。
+:::
+
+
 ## 🌈 环境准备
 
 由于 Nekro Agent 基于 Docker 运行，我们需要先在 Windows 上安装 Hyper-V。
