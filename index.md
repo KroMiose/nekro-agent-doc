@@ -20,7 +20,7 @@ hero:
       link: https://github.com/KroMiose/nekro-agent
       icon: github
   image:
-    src: "https://nekro-agent-doc-imge-wuhan-oss.oss-cn-wuhan-lr.aliyuncs.com/nekro_agent_logo.webp"
+    src: "nekro_agent_logo.webp"
     alt: na_logo
 features:
   - title: 多人交互
