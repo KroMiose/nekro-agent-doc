@@ -4,7 +4,7 @@ description: Nekro Agent 是一款强大的AI代理框架，提供安全、高�
 ---
 
 <div align="center">
-  <img src="/assets/NA_logo.png" width="1024" alt="NekroAgentLogo">
+  <img src="/assets/NA_logo.webp" width="1024" alt="NekroAgentLogo">
   <p><img src="/assets/NoneBotPlugin.svg" width="240" alt="NoneBotPluginText"></p>
 </div>
 

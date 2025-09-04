@@ -44,7 +44,7 @@ CPU 支持 VM 监视器模式扩展（Intel CPU 上的 VT-c）。
 ```powershell
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 ```
-![enable-hyper-v-powershell](/assets/windows/enable-hyper-v-powershell.png)
+![enable-hyper-v-powershell](/assets/windows/enable-hyper-v-powershell.webp)
 
 2.输入 Y ，让计算机重启以完成安装。
 
@@ -62,7 +62,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 ```powershell
 DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V
 ```
-![enable-hyper-v-dism](/assets/windows/enable-hyper-v-dism.png)
+![enable-hyper-v-dism](/assets/windows/enable-hyper-v-dism.webp)
 
 4.可以看到该功能已启用，并且“操作已成功完成”。
 
@@ -86,7 +86,7 @@ DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V
 2.选择 “打开或关闭 Windows 功能”。
 
 3.选择 Hyper-V ，然后选择“ 确定”。
-![enable-hyper-v](/assets/windows/enable-hyper-v.png)
+![enable-hyper-v](/assets/windows/enable-hyper-v.webp)
 
 安装完成后，系统会提示重启计算机。
 

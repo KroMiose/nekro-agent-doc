@@ -19,7 +19,7 @@ Nekro Agent 使用一个具有完整 Python 解释器与常用数据处理包的
 
 利用 Python 强大的生态系统，Nekro Agent 可以执行复杂的文件处理任务，包括图像处理、格式转换、数据提取等，全程无需额外软件支持。
 
-![图像处理、文件压缩](/assets/demo/demo_1.png)
+![图像处理、文件压缩](/assets/demo/demo_1.webp)
 
 <details>
 <summary>💡 使用提示</summary>
@@ -39,7 +39,7 @@ Nekro Agent 使用一个具有完整 Python 解释器与常用数据处理包的
 
 无需繁琐的开发环境配置，直接通过对话生成可运行的网页应用，让创意快速变为现实。
 
-![2048 游戏开发](/assets/demo/demo_2.png)
+![2048 游戏开发](/assets/demo/demo_2.webp)
 
 <details>
 <summary>💡 使用提示</summary>
@@ -56,7 +56,7 @@ Nekro Agent 使用一个具有完整 Python 解释器与常用数据处理包的
 
 帮助理解复杂概念，通过生成直观的可视化图表提升学习效率。
 
-![架构、流程图解](/assets/demo/demo_3.png)
+![架构、流程图解](/assets/demo/demo_3.webp)
 
 <details>
 <summary>💡 使用提示</summary>
@@ -74,7 +74,7 @@ Nekro Agent 使用一个具有完整 Python 解释器与常用数据处理包的
 
 协助解决复杂题目，通过图形化分析提供清晰的思路和解决方法。
 
-![复杂题目分析](/assets/demo/demo_5.png)
+![复杂题目分析](/assets/demo/demo_5.webp)
 
 <details>
 <summary>💡 使用提示</summary>
@@ -94,7 +94,7 @@ Nekro Agent 使用一个具有完整 Python 解释器与常用数据处理包的
 
 通过 Webhook 机制，订阅外部事件并实现自动化处理和通知推送，让你的信息流保持最新状态。
 
-![Github 推送](/assets/demo/demo_4.png)
+![Github 推送](/assets/demo/demo_4.webp)
 
 <details>
 <summary>💡 使用提示</summary>
@@ -112,7 +112,7 @@ Nekro Agent 使用一个具有完整 Python 解释器与常用数据处理包的
 
 无缝整合其他 AI 服务，实现能力互补，让多个 AI 协同工作提供最佳体验。
 
-![绘图AI集成](/assets/demo/demo_6.png)
+![绘图AI集成](/assets/demo/demo_6.webp)
 
 <details>
 <summary>💡 使用提示</summary>
