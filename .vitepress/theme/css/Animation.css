@@ -11,9 +11,9 @@
 
 
 .VPContent {
-  animation: scaleIn 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  animation: scaleIn 0.42s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
 
 .dark .VPContent {
-  animation: scaleIn 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  animation: scaleIn 0.42s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }

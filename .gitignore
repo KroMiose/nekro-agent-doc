@@ -4,3 +4,4 @@ dist/
 npm-debug.log
 .vitepress/cache
 .vitepress/dist
+theme
