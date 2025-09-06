@@ -3,7 +3,7 @@
 layout: home
 hero:
   name: "Nekro Agent"
-  text: "新一代 智能中枢 框架"
+  text: "新一代智能中枢框架"
   tagline: 安全、高效、优雅的智能交互体验
   actions:
     - theme: brand
