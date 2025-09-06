@@ -11,6 +11,14 @@ description: 在 Linux 环境下部署 Nekro Agent 的完整指南，包括标�
 
 此模式将一键部署 Nekro Agent 核心服务及 Napcat 协议端，是为大多数用户推荐的完整解决方案。
 
+::: warning 警告！
+
+1. 务必修改NapCat默认密码：公网WebU 必须使用强密码（建议12位以上，含数字、字母、符号）
+2. 务必使用Token验证：OneBot服务务必设置有效 Token，避免空Token或弱口令
+3. 为安全起见，请避免使用默认端口
+
+:::
+
 ### 部署命令
 
 ```bash

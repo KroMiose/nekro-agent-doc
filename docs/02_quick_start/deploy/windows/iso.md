@@ -6,10 +6,13 @@ description: 在 Windows 系统上使用 完整系统镜像 部署 Nekro Agent �
 # Nekro Agent 完整系统镜像
 ## 简介
 Nekro Agent 完整系统镜像，适用于 Hyper-V 和 VMware 虚拟机。
+
 :::info 注意
+
 完整系统镜像可能落后于最新版本，建议使用 WSL 或 Hyper-V 部署
 
 慕容泠鸢 提供镜像存储服务
+
 :::
 
 
@@ -31,7 +34,12 @@ VMware 待实现
 5. 选择“下一步”，选择“完成”
 
 :::warning 警告
-安装完成后请立即修改密码
+安装完成后请立即修改系统密码
+
+1. 务必修改NapCat默认密码：公网WebU 必须使用强密码（建议12位以上，含数字、字母、符号）
+2. 务必使用Token验证：OneBot服务务必设置有效 Token，避免空Token或弱口令
+3. 为安全起见，请避免使用默认端口
+
 :::
 
 #### VMware 导入步骤

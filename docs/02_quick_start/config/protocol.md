@@ -11,6 +11,14 @@ Nekro Agent 支持多种支持 OneBot V11 的协议端连接方式，本文档�
 
 [NapCat](https://github.com/NapNeko/NapCatQQ) NapCat 是现代化的基于 QQNT 的 Bot 协议端实现，如果你使用了包含 NapCat 部署的一键脚本，请直接跳转至第 4 步，使用 Token 登录 NapCat 按照步骤配置好 Websocket 客户端即可
 
+::: warning 警告！
+
+1. 务必修改NapCat默认密码：公网WebU 必须使用强密码（建议12位以上，含数字、字母、符号）
+2. 务必使用Token验证：OneBot服务务必设置有效 Token，避免空Token或弱口令
+3. 为安全起见，请避免使用默认端口
+
+:::
+
 #### 配置步骤
 
 ::: warning 注意
