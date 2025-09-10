@@ -100,12 +100,18 @@ export default defineConfig({
                 {
                   text: "MacOS 部署教程",
                   link: "/docs/02_quick_start/deploy/macos",
-                },
-                {
-                  text: "社区 部署教程",
-                  link: "/docs/02_quick_start/deploy/third_party"
-                },
+                }
               ],
+            },
+            {
+              text: "社区部署",
+              collapsed: true,
+              items: [
+                {
+                  text: "Nekro-Agent-Toolkit",
+                  link: "/docs/community/nekro-agent-toolkit"
+                },
+              ]
             },
             {
               text: "基本配置",

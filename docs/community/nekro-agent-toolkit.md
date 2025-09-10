@@ -1,11 +1,11 @@
 ---
-title: Nekro Agent 社区部署脚本
-description: 使用社区部署脚本快速部署 Nekro Agent。
+title: Nekro-Agent-Toolkit
+description: 使用Nekro-Agent-Toolkit快速部署 Nekro Agent。
 ---
 
-# 社区安装脚本推荐
+# Nekro-Agent-Toolkit
 
-本文档将推荐社区的安装脚本，以便于Nekro-Agent安装部署。
+本文档将推荐Nekro-Agent-Toolkit，以便于Nekro-Agent安装部署。
 
 ##  [Nekro-Agent-Toolkit](https://github.com/greenhandzdl/nekro-agent-toolkit)
 
@@ -16,8 +16,10 @@ description: 使用社区部署脚本快速部署 Nekro Agent。
   - `python3`, `pipx`
 * 安装：
   
-```bash
+```zsh
 pipx install nekro-agent-toolkit
+# 你可以取一个别名并写入~/.bashrc,~/.zshrc
+alias na-cli = 'nekro-agent-toolkit'
 ```
 
 * 优势：
@@ -39,7 +41,7 @@ pipx install nekro-agent-toolkit
 ❯ nekro-agent-toolkit -i <data_dir>
 ```
 
-  ##### 帮助`Nekro-Agent-Toolkit`
+  ##### 更多：
 ```zsh
 # 可以参考：https://github.com/greenhandzdl/nekro-agent-toolkit
 ❯ nekro-agent-toolkit -h
@@ -48,8 +50,8 @@ pipx install nekro-agent-toolkit
 > [!WARNING]
 > ### Nekro-Agent安装后说明： 
 > 
->   [快速开始](../quickstart.html#基本配置)
+>   [快速开始#基本配置](/docs/02_quick_start/quickstart.html#基本配置)
 > 
->   [NapCat登陆并修改默认密码](../config/protocol.html)
+>   [NapCat登陆并修改默认密码](/docs/02_quick_start/config/protocol.html)
 >
->   [Nekro-Agent相关项配置](../config/system.html)
+>   [Nekro-Agent相关项配置](/docs/02_quick_start/config/system.html)

@@ -18,14 +18,18 @@ description: 帮助您快速开始使用 Nekro Agent 的指南，包括部署选
 ! 请知悉结果接受自行承担风险后继续，作者不对使用本项目造成的任何损失负责 !
 :::
 
-## 部署选择
+## 官方部署选择
 
 根据您的操作系统选择合适的部署方式：
 
 - [Linux 部署教程](/docs/02_quick_start/deploy/linux) - 适用于各类 Linux 发行版
 - [Windows 部署教程](/docs/02_quick_start/deploy/windows) - 适用于 Windows 10/11 系统
 - [MacOS 部署教程](/docs/02_quick_start/deploy/macos) - 适用于 MacOS 系统
-- [社区 部署教程](/docs/02_quick_start/deploy/third_party) - **跨平台**部署方案
+
+## 社区部署方案
+
+- [Nekro-Agent-Toolkit 跨平台部署](/docs/community/nekro-agent-toolkit) 
+  - **跨平台**部署方案和便捷式的**安装、备份、恢复**。
 
 ## 基本配置
 
