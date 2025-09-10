@@ -1,11 +1,11 @@
 ---
 title: Nekro-Agent-Toolkit
-description: 使用Nekro-Agent-Toolkit快速部署 Nekro Agent。
+description: 使用Nekro-Agent-Toolkit快速部署NekroAgent。
 ---
 
 # Nekro-Agent-Toolkit
 
-本文档将推荐Nekro-Agent-Toolkit，以便于Nekro-Agent安装部署。
+本文档将推荐Nekro-Agent-Toolkit，以便于NekroAgent安装部署。
 
 ##  [Nekro-Agent-Toolkit](https://github.com/greenhandzdl/nekro-agent-toolkit)
 
@@ -28,7 +28,7 @@ alias na-cli = 'nekro-agent-toolkit'
   
 * 使用说明：
 
-  ##### 安装`Nekro-Agent`
+  ##### 安装`NekroAgent`
 ```zsh
 # 推荐：设置默认数据目录，后面可以省略<data_dir>参数
 ❯ nekro-agent-toolkit -st <data_dir>
@@ -48,10 +48,10 @@ alias na-cli = 'nekro-agent-toolkit'
 ```
 
 > [!WARNING]
-> ### Nekro-Agent安装后说明： 
+> ### NekroAgent安装后说明： 
 > 
 >   [快速开始#基本配置](/docs/02_quick_start/quickstart.html#基本配置)
 > 
 >   [NapCat登陆并修改默认密码](/docs/02_quick_start/config/protocol.html)
 >
->   [Nekro-Agent相关项配置](/docs/02_quick_start/config/system.html)
+>   [NekroAgent相关项配置](/docs/02_quick_start/config/system.html)

@@ -29,7 +29,7 @@ description: 帮助您快速开始使用 Nekro Agent 的指南，包括部署选
 ## 社区部署方案
 
 - [Nekro-Agent-Toolkit 跨平台部署](/docs/community/nekro-agent-toolkit) 
-  - **跨平台**部署方案和便捷式的**安装、备份、恢复**。
+  - **跨平台**部署方案和便捷式的**安装、备份、恢复**NekroAgent 的方案。
 
 ## 基本配置
 
