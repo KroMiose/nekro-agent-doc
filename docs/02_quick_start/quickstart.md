@@ -25,7 +25,7 @@ description: 帮助您快速开始使用 Nekro Agent 的指南，包括部署选
 - [Linux 部署教程](/docs/02_quick_start/deploy/linux) - 适用于各类 Linux 发行版
 - [Windows 部署教程](/docs/02_quick_start/deploy/windows) - 适用于 Windows 10/11 系统
 - [MacOS 部署教程](/docs/02_quick_start/deploy/macos) - 适用于 MacOS 系统
-- [社区 部署教程](/docs/02_quick_start/deploy/third_party) - 跨平台部署方案
+- [社区 部署教程](/docs/02_quick_start/deploy/third_party) - **跨平台**部署方案
 
 ## 基本配置
 
@@ -37,7 +37,7 @@ description: 帮助您快速开始使用 Nekro Agent 的指南，包括部署选
 
 ::: warning ⚠ 重要安全信息 ⚠
 为安全起见，请务必阅读以下信息:
-1. 务必修改协议端默认密码：公网 WebU 必须使用强密码（建议12位以上，含数字、字母、符号）
+1. 务必修改协议端默认密码：公网 WebUI 必须使用强密码（建议12位以上，含数字、字母、符号）
 2. 为安全起见，请避免使用默认端口
 :::
 
