@@ -14,6 +14,7 @@ Nekro Agent 提供了简便的编排更新命令，当新版本发布时，你�
 ::: warning 注意事项
 
 如果使用了 Wsl 或 OrbStack 虚拟机部署，以下命令需要进入虚拟机中执行
+<br>如果你使用的是老旧的系统,请将docker compose替换为docker-compose
 
 :::
 
@@ -29,8 +30,8 @@ cd ${NEKRO_DATA_DIR}
 
 ```bash
 sudo docker pull kromiose/nekro-agent-sandbox && \
-sudo docker-compose --env-file .env pull nekro_agent && \
-sudo docker-compose --env-file .env up --build -d nekro_agent
+sudo docker compose --env-file .env pull nekro_agent && \
+sudo docker compose --env-file .env up --build -d nekro_agent
 ```
 
 ### 更新所有镜像并重启容器 (如果需要同时更新 NapCat 或其他数据支持服务)
@@ -38,8 +39,8 @@ sudo docker-compose --env-file .env up --build -d nekro_agent
 > 该命令会更新 `nekro-agent` 镜像和所有依赖的镜像，可能导致 Bot 掉线需要重新登录
 
 ```bash
-sudo docker-compose --env-file .env pull && \
-sudo docker-compose --env-file .env up --build -d
+sudo docker compose --env-file .env pull && \
+sudo docker compose --env-file .env up --build -d
 ```
 
 ## 📝 更新日志
