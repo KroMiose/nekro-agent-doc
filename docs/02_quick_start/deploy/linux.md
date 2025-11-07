@@ -26,7 +26,7 @@ description: 在 Linux 环境下部署 Nekro Agent 的完整指南，包括标�
 sudo -E bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/main/docker/install.sh)" - --with-napcat
 ```
 
-如果从 Github 下载脚本遇到网络问题，您可以使用国内的 GitCode 镜像源：
+如果从 Github 下载脚本遇到网络问题，您可以使用 NekroCloud服务：
 
 ```bash
 # 从 NekroCloud服务 (推荐)
