@@ -26,10 +26,14 @@ description: 在 Linux 环境下部署 Nekro Agent 的完整指南，包括标�
 sudo -E bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/main/docker/install.sh)" - --with-napcat
 ```
 
-如果从 Github 下载脚本遇到网络问题，您可以使用 NekroCloud服务：
+如果从 Github 下载脚本遇到网络问题，您可以使用 NekroEndpoint 服务：
+
+:::tip
+NekroEndpoint 是基于 Cloudflare Workers 构建的边缘端点编排平台，支持静态内容返回、代理转发、动态脚本执行三类端点，提供权限组、访问密钥等细粒度权限控制，依托全球 300 + 节点实现毫秒级响应，可用于 API 代理聚合、Webhook 处理等场景。
+:::
 
 ```bash
-# 从 NekroCloud服务 (推荐)
+# 从 NekroEndpoint (推荐)
 sudo -E bash -c "$(curl -fsSL https://ep.nekro.ai/e/KroMiose/nekro-agent/main/docker/install.sh)" - --with-napcat
 ```
 
