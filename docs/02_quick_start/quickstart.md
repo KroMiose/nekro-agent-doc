@@ -36,6 +36,10 @@ description: 帮助您快速开始使用 Nekro Agent 的指南，包括部署选
 
   - 基于 **1Panel 面板**的开箱即用一键部署方案，支持纯界面部署操作和 OpenResty 反向代理配置，自动配置 NapCat 协议端。
 
+- [iStoreOS 系统部署](/docs/community/iStoreOS)
+
+  - 在基于 **openWRP** 的软路由系统运行 Nekro Agent，提供一键安装脚本。
+
 ## 基本配置
 
 成功部署后，您需要完成以下基本配置：

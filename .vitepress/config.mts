@@ -111,6 +111,9 @@ export default defineConfig({
                   text: "Nekro-Agent-Toolkit",
                   link: "/docs/community/nekro-agent-toolkit"
                 },
+                { text: "iStoreOS 部署教程",
+                  link: "/docs/community/iStoreOS"
+                }
               ]
             },
             {
