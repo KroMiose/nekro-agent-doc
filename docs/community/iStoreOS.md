@@ -33,7 +33,7 @@ description: 在 iStoreOS 软路由系统上部署 Nekro Agent。iStoreOS 基于
 
 ```bash
 # bin/ash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/refs/heads/main/docker/wrpinstall.sh)" - --with-napcat
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/refs/heads/main/docker/wrtinstall.sh)" - --with-napcat
 ```
 
 部署完成后，请参考[协议端配置-Napcat](/docs/02_quick_start/config/protocol.html#napcat-集成部署-推荐)文档完成后续配置。
