@@ -73,3 +73,39 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/ref
 
 - **标准部署**: 前往[协议端配置](/docs/02_quick_start/config/protocol.html#napcat-集成部署-推荐)文档，根据文档说明完成配置。
 - **核心部署**: 前往[协议端配置](/docs/02_quick_start/config/protocol)文档，参考说明继续配置。
+
+## 🚀 应用更新
+
+iStoreOS 环境请使用以下命令更新应用
+
+### 进入数据目录
+
+```bash
+# 如果修改了数据目录，请根据实际情况设置
+export NEKRO_DATA_DIR=${HOME}/srv/nekro_agent && \
+cd ${NEKRO_DATA_DIR}
+```
+
+### 仅更新 Nekro Agent 和沙盒镜像 (推荐)
+
+```bash
+ docker pull kromiose/nekro-agent-sandbox && \
+ docker-compose --env-file .env pull nekro_agent && \
+ docker-compose --env-file .env up --build -d nekro_agent
+```
+
+### 更新所有镜像并重启容器 (如果需要同时更新 NapCat 或其他数据支持服务)
+
+> 该命令会更新 `nekro-agent` 镜像和所有依赖的镜像，可能导致 Bot 掉线需要重新登录
+
+```bash
+ docker-compose --env-file .env pull && \
+ docker-compose --env-file .env up --build -d
+```
+
+## 📝 更新日志
+
+每次更新后，可以在 [GitHub Releases](https://github.com/KroMiose/nekro-agent/releases) 查看更新日志了解变更内容
+
+
+
