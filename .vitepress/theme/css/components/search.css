@@ -1,0 +1,108 @@
+/* 
+ * 搜索弹窗样式 - Apple Spotlight Style
+ * Search Modal Styles
+ */
+
+:root {
+  /* --- 基础背景与颜色 --- */
+  /* 弹窗背景 - 稍微带点透明度，配合 backdrop-filter */
+  --vp-local-search-bg: rgba(255, 255, 255, 0.95);
+  
+  /* 结果列表颜色 */
+  --vp-local-search-result-bg: transparent;
+  
+  /* 选中项 - 使用我们定义的“柔和品牌色” */
+  --vp-local-search-result-selected-bg: var(--vp-c-brand-soft);
+  --vp-local-search-result-selected-border: transparent; /* 去掉硬边框 */
+  
+  /* 关键词高亮 - 改为文字变色，而不是背景色块，更优雅 */
+  --vp-local-search-highlight-bg: transparent;
+  --vp-local-search-highlight-text: var(--vp-c-brand-1);
+}
+
+.dark {
+  /* 深色模式下的 Spotlight 风格 */
+  --vp-local-search-bg: #1C1C1E; /* iOS 深色弹窗标准色 */
+  --vp-local-search-result-selected-bg: rgba(224, 82, 82, 0.15);
+  --vp-local-search-highlight-text: var(--vp-c-brand-1);
+}
+
+/* 
+ * 1. 弹窗容器优化 
+ * 模仿 macOS Spotlight 的圆角和阴影
+ */
+.VPLocalSearchBox .shell {
+  border-radius: 16px !important; /* 大圆角 */
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2) !important; /* 深度阴影 */
+  border: 1px solid rgba(128, 128, 128, 0.1);
+}
+
+/* 背景遮罩 - 毛玻璃效果 */
+.VPLocalSearchBox .backdrop {
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* 
+ * 2. 搜索输入框 (Search Bar) 
+ */
+.VPLocalSearchBox .search-bar {
+  border-radius: 10px !important; /* 输入框圆角 */
+  margin: 12px !important;
+  background-color: var(--vp-c-bg-alt) !important;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+/* 输入框激活状态 - 品牌色光晕 */
+.VPLocalSearchBox .search-bar:focus-within {
+  border-color: var(--vp-c-brand-1) !important;
+  box-shadow: 0 0 0 4px var(--vp-c-brand-soft) !important; /* 外部扩散光晕 */
+}
+
+/* 
+ * 3. 搜索结果列表 (Result List) 
+ */
+.VPLocalSearchBox .result {
+  border-radius: 8px !important; /* 列表项圆角 */
+  margin: 4px 8px !important; /* 增加间距，不贴边 */
+  border: none !important; /* 去除原有边框 */
+  transition: background-color 0.1s;
+}
+
+/* 选中项样式优化 */
+.VPLocalSearchBox .result.selected {
+  background-color: var(--vp-c-brand-soft) !important;
+}
+
+/* 选中项内的标题变色 */
+.VPLocalSearchBox .result.selected .titles,
+.VPLocalSearchBox .result.selected .title-icon {
+  color: var(--vp-c-brand-1) !important;
+}
+
+/* 
+ * 4. 关键词高亮 (Highlighting) 
+ * 覆盖 VitePress 默认的黄色/绿色背景块
+ */
+.VPLocalSearchBox .titles mark,
+.VPLocalSearchBox .excerpt mark {
+  color: var(--vp-c-brand-1) !important; /* 文字变红 */
+  background: transparent !important; /* 背景透明 */
+  font-weight: 800 !important;
+  text-decoration: underline; /* 可选：加下划线增强识别 */
+  text-decoration-color: var(--vp-c-brand-soft);
+  text-underline-offset: 3px;
+}
+
+/* 
+ * 5. 按钮与图标细节 
+ */
+.VPLocalSearchBox .search-actions button:not([disabled]):hover,
+.VPLocalSearchBox .toggle-layout-button.detailed-list {
+  color: var(--vp-c-brand-1) !important;
+}
+
+.VPLocalSearchBox .title-icon {
+  color: var(--vp-c-text-2); /* 默认灰色，不抢眼 */
+}

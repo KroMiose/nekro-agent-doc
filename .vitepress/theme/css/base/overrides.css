@@ -1,0 +1,167 @@
+/* 
+ * 全局样式覆盖与自定义 - Apple Style with #E05252
+ */
+
+:root {
+  /* --- 1. 核心品牌色定义 (Coral Red) --- */
+  --vp-c-brand-1: #E05252;
+  --vp-c-brand-2: #C94242; /* Hover 稍深 */
+  --vp-c-brand-3: #B03030; /* Active 更深 */
+  --vp-c-brand-soft: rgba(224, 82, 82, 0.12); /* 浅色背景 */
+  
+  /* 兼容旧变量名 (防止部分组件失效) */
+  --vp-c-brand: var(--vp-c-brand-1);
+  --vp-c-brand-light: var(--vp-c-brand-soft);
+  --vp-c-brand-dark: var(--vp-c-brand-2);
+
+  /* --- 2. 语义色 (Apple Human Interface Colors) --- */
+  /* Tip 使用蓝色，避免满屏红色导致视觉疲劳或误报 */
+  --vp-c-tip-1: #007AFF;
+  --vp-c-tip-soft: rgba(0, 122, 255, 0.12);
+
+  /* --- 3. 自定义块颜色 (Admonitions) --- */
+  /* Tip 块：使用蓝色体系，看起来更像 iOS 的提示弹窗 */
+  --vp-custom-block-tip-border: transparent;
+  --vp-custom-block-tip-text: #0c4a6e; /* 深蓝字，保证对比度 */
+  --vp-custom-block-tip-bg: var(--vp-c-tip-soft);
+  --vp-custom-block-tip-code-bg: rgba(255, 255, 255, 0.5); 
+  
+  /* --- 4. 代码颜色 --- */
+  /* 行内代码：使用品牌色，但降低一点饱和度以免刺眼 */
+  --vp-code-color: #D64545; 
+  --vp-code-link-color: var(--vp-c-brand-1);
+  --vp-code-link-hover-color: var(--vp-c-brand-2);
+  --vp-code-tab-active-bar-color: var(--vp-c-brand-1);
+  
+  /* --- 5. 徽章颜色 (Badge) --- */
+  /* 保持 Tip 徽章为蓝色，与提示框一致 */
+  --vp-badge-tip-border: transparent;
+  --vp-badge-tip-text: var(--vp-c-tip-1);
+  --vp-badge-tip-bg: var(--vp-c-tip-soft);
+}
+
+/* --- 深色模式适配 --- */
+.dark {
+  --vp-c-brand-1: #E56464; /* 深色模式下稍微提亮品牌色 */
+  --vp-c-brand-2: #ED7D7D;
+  --vp-c-brand-soft: rgba(229, 100, 100, 0.16);
+  
+  --vp-c-tip-1: #3B82F6; /* 亮蓝 */
+  --vp-c-tip-soft: rgba(59, 130, 246, 0.16);
+
+  --vp-custom-block-tip-text: #E0F2FE;
+  --vp-custom-block-tip-code-bg: rgba(0, 0, 0, 0.2);
+  
+  /* 行内代码在深色背景下用柔和的粉红 */
+  --vp-code-color: #FCA5A5; 
+}
+
+/* ==============================================
+   组件覆盖 (Apple Style Overrides)
+   ============================================== */
+
+/* --- 1. 导航栏 (NavBar) --- */
+.VPNavBarMenuLink:hover,
+.VPNavBarMenuGroup .text:hover {
+  color: var(--vp-c-brand-1) !important;
+  transition: color 0.2s ease;
+}
+
+.VPNavBarMenuLink.active {
+  color: var(--vp-c-brand-1) !important;
+}
+
+.VPMenu .VPLink.active {
+  color: var(--vp-c-brand-1) !important;
+  background-color: var(--vp-c-brand-soft); /* 下拉菜单选中加背景 */
+  border-radius: 6px;
+}
+
+/* 社交图标 */
+.VPSocialLink:hover {
+  color: var(--vp-c-brand-1) !important;
+  transform: scale(1.1); /* 微动效 */
+  transition: transform 0.2s;
+}
+
+/* --- 2. 侧边栏 (Sidebar) - 关键的 Apple 风格修改 --- */
+/* 将原来单纯的文字变色，改为“背景胶囊”样式 */
+.VPSidebarItem.is-active > .item > .link,
+.VPSidebarItem.is-active > .item > .text {
+  color: var(--vp-c-brand-1) !important;
+  background-color: var(--vp-c-brand-soft);
+  border-radius: 8px; /* 圆角矩形 */
+  padding-left: 12px; /* 补偿视觉 */
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+/* 移除默认的左侧边框线 */
+.VPSidebarItem.level-0.is-active > .item {
+  border-left-color: transparent !important;
+}
+
+/* 侧边栏 Hover 状态 */
+.VPSidebarItem .link:hover:not(.active) span,
+.VPSidebarItem .link:hover:not(.active) .text {
+  color: var(--vp-c-brand-2) !important;
+}
+
+/* --- 3. 右侧大纲 (Outline) --- */
+.VPDocOutlineItem.active .link {
+  color: var(--vp-c-brand-1) !important;
+  border-left: 2px solid var(--vp-c-brand-1); /* 保留左侧指示线条 */
+}
+
+.VPDocOutlineItem .link:hover {
+  color: var(--vp-c-brand-2) !important;
+}
+
+/* --- 4. 移动端菜单 --- */
+.VPFlyout .VPMenuLink.active .link {
+  color: var(--vp-c-brand-1) !important;
+}
+
+.VPNavBarHamburger:hover .container {
+  background-color: var(--vp-c-brand-soft) !important;
+}
+
+/* --- 5. 自定义块 (Tip/Info) --- */
+/* 圆角更大，去掉边框，更像 iOS 弹窗 */
+.custom-block.tip {
+  border: none;
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+/* --- 6. 其他组件 --- */
+/* 代码复制按钮 */
+.vp-copy-code-button:hover {
+  background-color: var(--vp-c-brand-1) !important; /* 背景变红 */
+  color: white !important; /* 图标变白 */
+  border-radius: 6px;
+}
+
+/* 代码组 Tabs */
+.vp-code-group .tabs label.active {
+  color: var(--vp-c-brand-1);
+  border-bottom-color: var(--vp-c-brand-1);
+}
+
+/* 搜索按钮 */
+.DocSearch-Button:hover {
+  border-color: var(--vp-c-brand-1) !important;
+  color: var(--vp-c-brand-1) !important;
+  background: var(--vp-c-brand-soft) !important;
+}
+
+/* 浮动按钮 (Back to top) */
+.float-button {
+  background-color: var(--vp-c-brand-1) !important;
+  box-shadow: 0 4px 12px rgba(224, 82, 82, 0.4); /* 增加投影 */
+}
+
+.float-button:hover {
+  background-color: var(--vp-c-brand-2) !important;
+  transform: translateY(-2px);
+}

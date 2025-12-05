@@ -1,0 +1,26 @@
+/* 全局淡入上升动画 */
+@keyframes appleFadeInUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.98) translateY(10px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* 内容区域进入动画 */
+.VPContent {
+  animation: appleFadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
+/* 可访问性：关闭动画 */
+@media (prefers-reduced-motion: reduce) {
+  .VPContent {
+    animation: none !important;
+  }
+}

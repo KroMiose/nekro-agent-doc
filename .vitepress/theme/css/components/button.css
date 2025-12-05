@@ -1,0 +1,85 @@
+/* 按钮样式定义 */
+:root {
+  /* 主按钮（Brand） */
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: #FFFFFF;
+  --vp-button-brand-bg: var(--vp-c-brand-1);
+  
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: #FFFFFF;
+  --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+  
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-text: #FFFFFF;
+  --vp-button-brand-active-bg: var(--vp-c-brand-3);
+
+  /* 次要按钮（Alt） */
+  --vp-button-alt-border: transparent;
+  --vp-button-alt-text: var(--vp-c-text-1);
+  --vp-button-alt-bg: rgba(0, 0, 0, 0.05);
+  
+  --vp-button-alt-hover-border: transparent;
+  --vp-button-alt-hover-text: var(--vp-c-text-1);
+  --vp-button-alt-hover-bg: rgba(0, 0, 0, 0.1);
+  
+  --vp-button-alt-active-border: transparent;
+  --vp-button-alt-active-text: var(--vp-c-text-1);
+  --vp-button-alt-active-bg: rgba(0, 0, 0, 0.15);
+}
+
+/* 暗色模式 */
+.dark {
+  /* 主按钮（Brand） */
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: #FFFFFF;
+  --vp-button-brand-bg: var(--vp-c-brand-1);
+  
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: #FFFFFF;
+  --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+  
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-text: #FFFFFF;
+  --vp-button-brand-active-bg: var(--vp-c-brand-3);
+  
+  /* 次要按钮（Alt） */
+  --vp-button-alt-border: transparent;
+  --vp-button-alt-text: #FFFFFF;
+  --vp-button-alt-bg: rgba(255, 255, 255, 0.12);
+  
+  --vp-button-alt-hover-border: transparent;
+  --vp-button-alt-hover-text: #FFFFFF;
+  --vp-button-alt-hover-bg: rgba(255, 255, 255, 0.18);
+  
+  --vp-button-alt-active-border: transparent;
+  --vp-button-alt-active-text: #FFFFFF;
+  --vp-button-alt-active-bg: rgba(255, 255, 255, 0.24);
+}
+
+/* 按钮通用形态修正 */
+.VPButton {
+  border-radius: 999px !important; /* 胶囊圆角 */
+  font-weight: 600 !important;      /* 加粗字体 */
+  transition: background-color 0.2s, box-shadow 0.2s, transform 0.1s !important;
+}
+
+/* 点击反馈 */
+.VPButton:active {
+  transform: scale(0.96);
+}
+
+/* Brand 按钮悬浮光晕 */
+.VPButton.brand:hover {
+  box-shadow: 0 8px 20px -4px rgba(224, 82, 82, 0.5);
+  transform: scale(1.05);
+}
+
+/* Alt 按钮悬浮阴影 */
+.VPButton.alt:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* 暗色模式 Brand 按钮悬浮光晕 */
+.dark .VPButton.brand:hover {
+  box-shadow: 0 8px 20px -4px rgba(229, 100, 100, 0.4);
+}

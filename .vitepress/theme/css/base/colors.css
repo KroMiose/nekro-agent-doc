@@ -1,0 +1,43 @@
+/* 
+ * 基础颜色变量定义 - Apple Style Optimized
+ * Base color variable definitions
+ */
+:root {
+  /* --- 主品牌色定义 (Coral Red #E05252) --- */
+  --vp-c-brand: #E05252;
+  --vp-c-brand-light: #FCA5A5; /* 浅色变体，用于辅助 */
+  --vp-c-brand-dark: #C94242;  /* 深色变体，用于 Hover */
+  --vp-c-brand-darker: #B03030; /* 更深色，用于 Active */
+  
+  /* --- 关键修正：柔和背景色 (Apple Style 核心) --- */
+  /* 这是一个带透明度的红色，用于侧边栏选中背景、提示框背景 */
+  /* 原来的 #802424 太深了，这里改为 12% 透明度的品牌色 */
+  --vp-c-brand-soft: rgba(224, 82, 82, 0.12);
+
+  /* --- VitePress 标准映射 --- */
+  /* brand-1: 正常状态 (Button, Link) */
+  --vp-c-brand-1: var(--vp-c-brand);
+  /* brand-2: 悬停状态 (Hover) - 浅色模式下应该变深 */
+  --vp-c-brand-2: var(--vp-c-brand-dark);
+  /* brand-3: 激活/点击状态 (Active) - 保持一致或更深 */
+  --vp-c-brand-3: var(--vp-c-brand-darker);
+}
+
+.dark {
+  /* --- 暗色模式下的主题色 --- */
+  /* Apple 风格建议：深色模式下，主色调稍微提亮一点点，增加在黑底上的可读性 */
+  --vp-c-brand: #E05252; 
+  --vp-c-brand-light: #FCA5A5;
+  --vp-c-brand-dark: #E05252; /* Hover 时回归原色 */
+  --vp-c-brand-darker: #C94242;
+  
+  /* --- 暗色模式下的柔和背景 --- */
+  /* 稍微增加透明度，让它在深色背景上能显现出来 */
+  --vp-c-brand-soft: rgba(229, 100, 100, 0.16);
+  
+  /* --- 暗色模式映射 --- */
+  --vp-c-brand-1: var(--vp-c-brand);
+  /* 深色模式下 Hover 通常是变亮，或者保持原色稍微变化 */
+  --vp-c-brand-2: var(--vp-c-brand-light);
+  --vp-c-brand-3: var(--vp-c-brand);
+}

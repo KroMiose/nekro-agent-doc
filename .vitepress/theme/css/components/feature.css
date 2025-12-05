@@ -1,0 +1,92 @@
+/* Feature 卡片基础样式 */
+.VPHome .VPFeature {
+  position: relative;
+  height: auto !important;          /* 自适应高度，避免被相邻卡片撑高 */
+  min-height: unset !important;     /* 移除最小高度限制 */
+  width: 100%;                      /* 占满栅格宽度 */
+  border-radius: 30px !important;   /* 大圆角，视觉更柔和 */
+  height: 100% !important; 
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+}
+
+/* 深色模式 */
+.dark .VPHome .VPFeature {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* 浅色模式 */
+html:not(.dark) .VPHome .VPFeature {
+  background-color: rgba(255, 255, 255, 0.6) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 悬停放大 */
+.VPHome .VPFeature:hover {
+  transform: scale(1.05);
+  border-color: var(--vp-c-brand-1) !important;
+}
+
+.dark .VPHome .VPFeature:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4),
+              0 0 30px rgba(224, 82, 82, 0.25);
+}
+
+html:not(.dark) .VPHome .VPFeature:hover {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* 图标 */
+.VPHome .VPFeature .icon,
+.VPHome .VPFeature .box > :deep(.VPImage) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px !important;
+  height: 52px !important;
+  margin-bottom: 12px;              /* 修复缺失数值 */
+  border-radius: 16px !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 标题 */
+.VPHome .VPFeature .title {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  margin-bottom: 10px;
+  line-height: 1.4 !important;
+}
+
+.dark .VPHome .VPFeature .title {
+  color: #FFFFFF !important;
+}
+
+/* 详情 */
+.VPHome .VPFeature .details {
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+}
+
+.dark .VPHome .VPFeature .details {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* 链接 */
+.VPHome .VPFeature .link-text {
+  margin-top: 16px;
+}
+
+.dark .VPHome .VPFeature .link-text .link-text-value {
+  color: #fff !important;
+}
