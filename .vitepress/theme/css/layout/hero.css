@@ -78,15 +78,15 @@ html:not(.dark) .VPHomeHero::before { opacity: 0.5; }
 html:not(.dark) .VPHomeHero::after  { opacity: 0.4; }
 
 /* 移动端性能降级：静态背景 & 单层光斑 */
-@media (max-width: 768px) {
-  .VPHomeHero::before,
-  .VPHomeHero::after {
-    animation: none;
-    transform: scale(1.1);
-    filter: blur(80px);
-  }
-  .VPHomeHero::after { display: none; }
-}
+/*@media (max-width: 768px) {
+/*  .VPHomeHero::before,
+/*  .VPHomeHero::after {
+/*    animation: none;
+/*    transform: scale(1.1);
+/*    filter: blur(80px);
+/*  }
+/*  .VPHomeHero::after { display: none; }
+/*}
 
 /* 设计变量：品牌色、玻璃拟态、光斑透明度 */
 :root {
@@ -192,6 +192,6 @@ html:not(.dark) .VPHomeHero::after  { opacity: 0.4; }
 .VPSidebarItem.level-0.is-active > .item { border-left-color: transparent !important; }
 
 /* 移动端极光背景进一步模糊 & 去动画 */
-@media (max-width: 768px) {
-  .VPHomeHero::before { filter: blur(60px); animation: none; }
-}
+/*@media (max-width: 768px) {
+/*  .VPHomeHero::before { filter: blur(60px); animation: none; }
+/*}
