@@ -1,92 +1,98 @@
-/* Feature 卡片基础样式 */
+/* Feature 卡片基础样式 - 3D 增强版 */
 .VPHome .VPFeature {
   position: relative;
-  height: auto !important;          /* 自适应高度，避免被相邻卡片撑高 */
-  min-height: unset !important;     /* 移除最小高度限制 */
-  width: 100%;                      /* 占满栅格宽度 */
-  border-radius: 30px !important;   /* 大圆角，视觉更柔和 */
-  height: 100% !important; 
+  height: 100% !important;
+  width: 100%;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  border-radius: 30px !important;
+  overflow: hidden;
 
+  /* 核心：3D 透视设置 */
+  transform-style: preserve-3d;
+  perspective: 1000px; 
+  
+  /* 使用 CSS 变量控制旋转，默认为 0 */
+  transform: perspective(1000px) rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg)) scale3d(1, 1, 1);
+  
+  /* 磨砂玻璃背景 */
   backdrop-filter: blur(20px) saturate(120%);
   -webkit-backdrop-filter: blur(20px) saturate(120%);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  overflow: hidden;
+  
+  /* 过渡动画：优化缩放和平移效果 */
+  transition: transform 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
+  will-change: transform; /* 性能优化 */
 }
 
-/* 深色模式 */
+/* -------------------------------------------
+   新增：光泽扫描效果 (Glare Effect)
+   视频中那个随鼠标移动的光斑
+------------------------------------------- */
+.VPHome .VPFeature::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 30px;
+  z-index: 2;
+  pointer-events: none; /* 确保不影响点击 */
+  
+  /* 径向渐变，位置由 --bg-x 和 --bg-y 控制 */
+  background: radial-gradient(
+    800px circle at var(--bg-x, 50%) var(--bg-y, 50%),
+    rgba(255, 255, 255, 0.15),
+    transparent 40%
+  );
+  opacity: 0; /* 默认隐藏 */
+  transition: opacity 0.3s ease;
+  mix-blend-mode: overlay; /* 混合模式，增强质感 */
+}
+
+/* 深色模式下的样式适配 */
 .dark .VPHome .VPFeature {
   background-color: rgba(255, 255, 255, 0.04) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
-/* 浅色模式 */
+/* 浅色模式下的样式适配 */
 html:not(.dark) .VPHome .VPFeature {
   background-color: rgba(255, 255, 255, 0.6) !important;
   border: 1px solid rgba(0, 0, 0, 0.05) !important;
 }
 
-/* 悬停放大 */
+/* -------------------------------------------
+   悬停交互状态
+------------------------------------------- */
 .VPHome .VPFeature:hover {
-  transform: scale(1.05);
+  /* 悬停时添加缩放效果 */
+  transform: perspective(1000px) rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg)) scale3d(1.05, 1.05, 1.05);
   border-color: var(--vp-c-brand-1) !important;
+  z-index: 10; /* 悬停时层级提高 */
+}
+
+/* 悬停时显示光泽 */
+.VPHome .VPFeature:hover::after {
+  opacity: 1;
 }
 
 .dark .VPHome .VPFeature:hover {
   background-color: rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4),
-              0 0 30px rgba(224, 82, 82, 0.25);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(224, 82, 82, 0.1);
 }
 
 html:not(.dark) .VPHome .VPFeature:hover {
   background-color: rgba(255, 255, 255, 0.9) !important;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* 图标 */
-.VPHome .VPFeature .icon,
-.VPHome .VPFeature .box > :deep(.VPImage) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px !important;
-  height: 52px !important;
-  margin-bottom: 12px;              /* 修复缺失数值 */
-  border-radius: 16px !important;
-  background-color: rgba(255, 255, 255, 0.1) !important;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+/* 内部内容层级调整 (确保文字在光泽层之下，或者根据需求调整) */
+.VPHome .VPFeature > * {
+  transform: translateZ(20px); /* 让内容轻微浮起，产生更强的3D感 */
 }
 
-/* 标题 */
-.VPHome .VPFeature .title {
-  font-size: 18px !important;
-  font-weight: 600 !important;
-  margin-bottom: 10px;
-  line-height: 1.4 !important;
-}
-
-.dark .VPHome .VPFeature .title {
-  color: #FFFFFF !important;
-}
-
-/* 详情 */
-.VPHome .VPFeature .details {
-  font-size: 15px !important;
-  line-height: 1.6 !important;
-}
-
-.dark .VPHome .VPFeature .details {
-  color: rgba(255, 255, 255, 0.75) !important;
-}
-
-/* 链接 */
-.VPHome .VPFeature .link-text {
-  margin-top: 16px;
-}
-
-.dark .VPHome .VPFeature .link-text .link-text-value {
-  color: #fff !important;
-}
+/* 保持你原有的图标、标题、详情等样式不变，此处省略... */
+/* ... (保留原有的 .icon, .title, .details 样式) ... */

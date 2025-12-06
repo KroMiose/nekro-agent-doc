@@ -1,30 +1,37 @@
-/* 按钮样式定义 */
+/*!
+ * @file button.css
+ * @brief 按钮样式定义
+ * @description 定义网站中按钮组件的样式，包括主按钮和次要按钮在浅色和深色模式下的表现
+ * @author nekro-agent-doc team
+ * @date 2024
+ */
+
 :root {
   /* 主按钮（Brand） */
-  --vp-button-brand-border: transparent;
-  --vp-button-brand-text: #FFFFFF;
-  --vp-button-brand-bg: var(--vp-c-brand-1);
+  --vp-button-brand-border: transparent;         /* 主按钮边框 */
+  --vp-button-brand-text: #FFFFFF;               /* 主按钮文字颜色 */
+  --vp-button-brand-bg: var(--vp-c-brand-1);     /* 主按钮背景色 */
   
-  --vp-button-brand-hover-border: transparent;
-  --vp-button-brand-hover-text: #FFFFFF;
-  --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+  --vp-button-brand-hover-border: transparent;   /* 主按钮悬停边框 */
+  --vp-button-brand-hover-text: #FFFFFF;         /* 主按钮悬停文字颜色 */
+  --vp-button-brand-hover-bg: var(--vp-c-brand-2); /* 主按钮悬停背景色 */
   
-  --vp-button-brand-active-border: transparent;
-  --vp-button-brand-active-text: #FFFFFF;
-  --vp-button-brand-active-bg: var(--vp-c-brand-3);
+  --vp-button-brand-active-border: transparent;  /* 主按钮激活边框 */
+  --vp-button-brand-active-text: #FFFFFF;        /* 主按钮激活文字颜色 */
+  --vp-button-brand-active-bg: var(--vp-c-brand-3); /* 主按钮激活背景色 */
 
   /* 次要按钮（Alt） */
-  --vp-button-alt-border: transparent;
-  --vp-button-alt-text: var(--vp-c-text-1);
-  --vp-button-alt-bg: rgba(0, 0, 0, 0.05);
+  --vp-button-alt-border: transparent;           /* 次要按钮边框 */
+  --vp-button-alt-text: var(--vp-c-text-1);      /* 次要按钮文字颜色 */
+  --vp-button-alt-bg: rgba(0, 0, 0, 0.05);       /* 次要按钮背景色 */
   
-  --vp-button-alt-hover-border: transparent;
-  --vp-button-alt-hover-text: var(--vp-c-text-1);
-  --vp-button-alt-hover-bg: rgba(0, 0, 0, 0.1);
+  --vp-button-alt-hover-border: transparent;     /* 次要按钮悬停边框 */
+  --vp-button-alt-hover-text: var(--vp-c-text-1); /* 次要按钮悬停文字颜色 */
+  --vp-button-alt-hover-bg: rgba(0, 0, 0, 0.1);  /* 次要按钮悬停背景色 */
   
-  --vp-button-alt-active-border: transparent;
-  --vp-button-alt-active-text: var(--vp-c-text-1);
-  --vp-button-alt-active-bg: rgba(0, 0, 0, 0.15);
+  --vp-button-alt-active-border: transparent;    /* 次要按钮激活边框 */
+  --vp-button-alt-active-text: var(--vp-c-text-1); /* 次要按钮激活文字颜色 */
+  --vp-button-alt-active-bg: rgba(0, 0, 0, 0.15); /* 次要按钮激活背景色 */
 }
 
 /* 暗色模式 */
@@ -43,17 +50,17 @@
   --vp-button-brand-active-bg: var(--vp-c-brand-3);
   
   /* 次要按钮（Alt） */
-  --vp-button-alt-border: transparent;
-  --vp-button-alt-text: #FFFFFF;
-  --vp-button-alt-bg: rgba(255, 255, 255, 0.12);
+  --vp-button-alt-border: transparent;           /* 次要按钮边框 */
+  --vp-button-alt-text: #FFFFFF;                 /* 次要按钮文字颜色 */
+  --vp-button-alt-bg: rgba(255, 255, 255, 0.12); /* 次要按钮背景色 */
   
-  --vp-button-alt-hover-border: transparent;
-  --vp-button-alt-hover-text: #FFFFFF;
-  --vp-button-alt-hover-bg: rgba(255, 255, 255, 0.18);
+  --vp-button-alt-hover-border: transparent;     /* 次要按钮悬停边框 */
+  --vp-button-alt-hover-text: #FFFFFF;           /* 次要按钮悬停文字颜色 */
+  --vp-button-alt-hover-bg: rgba(255, 255, 255, 0.18); /* 次要按钮悬停背景色 */
   
-  --vp-button-alt-active-border: transparent;
-  --vp-button-alt-active-text: #FFFFFF;
-  --vp-button-alt-active-bg: rgba(255, 255, 255, 0.24);
+  --vp-button-alt-active-border: transparent;    /* 次要按钮激活边框 */
+  --vp-button-alt-active-text: #FFFFFF;          /* 次要按钮激活文字颜色 */
+  --vp-button-alt-active-bg: rgba(255, 255, 255, 0.24); /* 次要按钮激活背景色 */
 }
 
 /* 按钮通用形态修正 */
@@ -65,21 +72,21 @@
 
 /* 点击反馈 */
 .VPButton:active {
-  transform: scale(0.96);
+  transform: scale(0.96); /* 按钮按下时的缩放效果 */
 }
 
 /* Brand 按钮悬浮光晕 */
 .VPButton.brand:hover {
-  box-shadow: 0 8px 20px -4px rgba(224, 82, 82, 0.5);
-  transform: scale(1.05);
+  box-shadow: 0 8px 20px -4px rgba(224, 82, 82, 0.5); /* 品牌按钮悬停光晕 */
+  transform: scale(1.05); /* 悬停时轻微放大 */
 }
 
 /* Alt 按钮悬浮阴影 */
 .VPButton.alt:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* 次要按钮悬停阴影 */
 }
 
 /* 暗色模式 Brand 按钮悬浮光晕 */
 .dark .VPButton.brand:hover {
-  box-shadow: 0 8px 20px -4px rgba(229, 100, 100, 0.4);
+  box-shadow: 0 8px 20px -4px rgba(229, 100, 100, 0.4); /* 暗色模式下品牌按钮悬停光晕 */
 }

@@ -1,3 +1,11 @@
+/*!
+ * @file animation.css
+ * @brief 全局动画效果定义
+ * @description 定义网站的全局动画效果，包括淡入上升动画和可访问性支持
+ * @author nekro-agent-doc team
+ * @date 2024
+ */
+
 /* 全局淡入上升动画 */
 @keyframes appleFadeInUp {
   0% {
