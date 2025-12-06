@@ -22,7 +22,7 @@ hero:
       icon: github
   image:
     src: "nekro_agent_logo.webp"
-    alt: na_logo
+    alt: NekroNekro 图标
 features:
   - title: 多人交互
     details: 原生的多人群聊交互支持，精确理解复杂群聊场景需求
