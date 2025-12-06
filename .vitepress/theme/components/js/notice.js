@@ -1,48 +1,33 @@
-// .vitepress/theme/notice.js
 // 网站美学更新提示脚本
 
-/**
- * 显示网站美学更新通知
- * 功能：
- * 1. 在指定日期前显示一个提示框
- * 2. 用户关闭后，使用 localStorage 记住状态，不再显示
- * 3. 提示框样式美观，并包含一个 issue 链接
- */
 export function showAestheticNotice() {
-  // --- 可配置项 ---
-  const NOTICE_KEY = 'hasSeenAestheticNotice_2024_v1'; // localStorage 的键，如果想重置提示，修改 v1 -> v2
-  const EXPIRY_DATE_STRING = '2025-12-20';             // 在此日期之后，提示将不再显示
-  const ISSUE_URL = 'https://github.com/KroMiose/nekro-agent-doc/issues'; // 项目提交 issue 的地址
+  // 配置项
+  const NOTICE_KEY = 'hasSeenAestheticNotice_2024_v1'
+  const EXPIRY_DATE_STRING = '2025-12-20'
+  const ISSUE_URL = 'https://github.com/KroMiose/nekro-agent-doc/issues/new?template=issue_template.yml'
 
-  // --- 核心逻辑 ---
   try {
-    // 检查1：用户是否已经看过并关闭了此提示？
+    // 检查用户是否已经看过提示
     if (localStorage.getItem(NOTICE_KEY) === 'true') {
-      return;
+      return
     }
 
-    // 检查2：当前日期是否已超过有效期？
-    const currentDate = new Date();
-    const expiryDate = new Date(EXPIRY_DATE_STRING);
+    // 检查是否过期
+    const currentDate = new Date()
+    const expiryDate = new Date(EXPIRY_DATE_STRING)
     if (currentDate >= expiryDate) {
-      return;
+      return
     }
 
-    // 如果检查通过，则创建并显示提示框
-    createNoticeElement();
+    createNoticeElement()
 
   } catch (error) {
-    // 在 SSR 或 localStorage 不可用的情况下静默失败
-    console.error("无法显示美学更新提示:", error);
+    console.error("无法显示美学更新提示:", error)
   }
 
-  /**
-   * 创建并显示通知元素
-   */
   function createNoticeElement() {
-    // 1. 创建 DOM 元素
-    const noticeWrapper = document.createElement('div');
-    noticeWrapper.id = 'aesthetic-notice';
+    const noticeWrapper = document.createElement('div')
+    noticeWrapper.id = 'aesthetic-notice'
     noticeWrapper.innerHTML = `
       <div class="notice-content">
         <h4>✨ 焕然一新！</h4>
@@ -50,20 +35,17 @@ export function showAestheticNotice() {
         <p>如果在浏览时遇到任何显示问题或任何无障碍问题，请<a href="${ISSUE_URL}" target="_blank" rel="noopener noreferrer">提交 Issue</a> 帮助我们改进，非常感谢！</p>
         <button class="close-button" aria-label="关闭提示">&times;</button>
       </div>
-    `;
+    `
     
-    // 2. 添加关闭事件监听器
-    const closeButton = noticeWrapper.querySelector('.close-button');
+    const closeButton = noticeWrapper.querySelector('.close-button')
     closeButton.onclick = () => {
-      // 添加淡出动画效果
-      noticeWrapper.classList.add('hiding');
+      noticeWrapper.classList.add('hiding')
       
-      // 动画结束后移除元素并设置 localStorage
       setTimeout(() => {
-        document.body.removeChild(noticeWrapper);
-        localStorage.setItem(NOTICE_KEY, 'true');
-      }, 300);
-    };
+        document.body.removeChild(noticeWrapper)
+        localStorage.setItem(NOTICE_KEY, 'true')
+      }, 300)
+    }
 
     // 3. 创建并注入样式
     const styles = `
