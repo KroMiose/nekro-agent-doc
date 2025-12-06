@@ -49,7 +49,7 @@ body::-webkit-scrollbar {
     radial-gradient(at 90% 80%, #F59E0B 0, transparent 50%),
     radial-gradient(at 50% 50%, #db2777 0, transparent 50%);
   opacity: 0.5;
-  animation: aurora-move-1 30s ease-in-out infinite alternate;
+  animation: aurora-move-1 10s ease-in-out infinite alternate;
 }
 
 /* 冷色层：深邃紫+通透蓝 */
@@ -58,20 +58,20 @@ body::-webkit-scrollbar {
     radial-gradient(at 80% 10%, #7C3AED 0, transparent 50%),
     radial-gradient(at 10% 90%, #06B6D4 0, transparent 50%);
   opacity: 0.4;
-  animation: aurora-move-2 35s ease-in-out infinite alternate-reverse;
+  animation: aurora-move-2 14s ease-in-out infinite alternate-reverse;
 }
 
 /* 极光动画：非对称流动，避免机械感 */
 @keyframes aurora-move-1 {
   0%   { transform: scale(1)   translate(0, 0); }
-  33%  { transform: scale(1.1)  translate(5vw, 5vh); }
-  66%  { transform: scale(0.9)  translate(-5vw, -5vh); }
+  33%  { transform: scale(1.1)  translate(12vw, 12vh); }
+  66%  { transform: scale(0.9)  translate(-12vw, -12vh); }
   100% { transform: scale(1.05) translate(0, 0); }
 }
 @keyframes aurora-move-2 {
   0%   { transform: scale(1)   translate(0, 0)      rotate(0deg);  }
-  50%  { transform: scale(1.2)  translate(-10vw, 10vh) rotate(10deg); }
-  100% { transform: scale(0.9)  translate(5vw, -5vh)  rotate(-5deg); }
+  50%  { transform: scale(1.2)  translate(-20vw, 20vh) rotate(10deg); }
+  100% { transform: scale(0.9)  translate(12vw, -12vh)  rotate(-5deg); }
 }
 
 /* 深浅模式混合模式差异化 */
@@ -82,8 +82,14 @@ html:not(.dark) .VPHomeHero::after {
   filter: blur(100px) saturate(120%);
   mix-blend-mode: multiply;
 }
-html:not(.dark) .VPHomeHero::before { opacity: 0.5; }
-html:not(.dark) .VPHomeHero::after  { opacity: 0.4; }
+html:not(.dark) .VPHomeHero::before { 
+  opacity: 0.5; 
+  animation: aurora-move-1 10s ease-in-out infinite alternate;
+}
+html:not(.dark) .VPHomeHero::after { 
+  opacity: 0.4; 
+  animation: aurora-move-2 14s ease-in-out infinite alternate-reverse;
+}
 
 /* 移动端性能降级：静态背景 & 单层光斑 */
 /*@media (max-width: 768px) {
@@ -137,7 +143,7 @@ html:not(.dark) .VPHomeHero::after  { opacity: 0.4; }
   --vp-home-hero-name-background: linear-gradient(45deg, var(--rainbow-prev), var(--rainbow-next));
   -webkit-background-clip: text;
   background-clip: text;
-  animation: rainbow 8s linear infinite;
+  animation: rainbow 4s linear infinite;
 }
 
 /* 按钮：圆角、按压反馈、阴影 */
