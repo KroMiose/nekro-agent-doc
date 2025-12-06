@@ -1,5 +1,9 @@
-/* 
- * 全局样式覆盖与自定义 - Apple Style with #E05252
+/*!
+ * @file overrides.css
+ * @brief 全局样式覆盖与自定义 - Apple Style with #E05252
+ * @description 对VitePress默认样式进行覆盖和自定义，实现Apple风格的主题定制
+ * @author nekro-agent-doc team
+ * @date 2024
  */
 
 :root {

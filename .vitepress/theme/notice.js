@@ -1,17 +1,18 @@
 // .vitepress/theme/notice.js
+// 网站美学更新提示脚本
 
 /**
- * 网站美学更新提示脚本
+ * 显示网站美学更新通知
  * 功能：
- * 1. 在指定日期前显示一个提示框。
- * 2. 用户关闭后，使用 localStorage 记住状态，不再显示。
- * 3. 提示框样式美观，并包含一个 issue 链接。
+ * 1. 在指定日期前显示一个提示框
+ * 2. 用户关闭后，使用 localStorage 记住状态，不再显示
+ * 3. 提示框样式美观，并包含一个 issue 链接
  */
 export function showAestheticNotice() {
   // --- 可配置项 ---
   const NOTICE_KEY = 'hasSeenAestheticNotice_2024_v1'; // localStorage 的键，如果想重置提示，修改 v1 -> v2
   const EXPIRY_DATE_STRING = '2025-12-20';             // 在此日期之后，提示将不再显示
-  const ISSUE_URL = 'https://github.com/KroMiose/nekro-agent-doc/issues'; // 【请务必修改】您的项目提交 issue 的地址
+  const ISSUE_URL = 'https://github.com/KroMiose/nekro-agent-doc/issues'; // 项目提交 issue 的地址
 
   // --- 核心逻辑 ---
   try {
@@ -35,6 +36,9 @@ export function showAestheticNotice() {
     console.error("无法显示美学更新提示:", error);
   }
 
+  /**
+   * 创建并显示通知元素
+   */
   function createNoticeElement() {
     // 1. 创建 DOM 元素
     const noticeWrapper = document.createElement('div');

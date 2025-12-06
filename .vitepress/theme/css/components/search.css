@@ -1,30 +1,33 @@
-/* 
- * 搜索弹窗样式 - Apple Spotlight Style
- * Search Modal Styles
+/*!
+ * @file search.css
+ * @brief 搜索弹窗样式 - Apple Spotlight Style
+ * @description 定义搜索弹窗的样式，模仿 macOS Spotlight 的设计风格
+ * @author nekro-agent-doc team
+ * @date 2024
  */
 
 :root {
   /* --- 基础背景与颜色 --- */
   /* 弹窗背景 - 稍微带点透明度，配合 backdrop-filter */
-  --vp-local-search-bg: rgba(255, 255, 255, 0.95);
+  --vp-local-search-bg: rgba(255, 255, 255, 0.95); /* 搜索弹窗背景色 */
   
   /* 结果列表颜色 */
-  --vp-local-search-result-bg: transparent;
+  --vp-local-search-result-bg: transparent; /* 搜索结果背景色 */
   
-  /* 选中项 - 使用我们定义的“柔和品牌色” */
-  --vp-local-search-result-selected-bg: var(--vp-c-brand-soft);
+  /* 选中项 - 使用我们定义的"柔和品牌色" */
+  --vp-local-search-result-selected-bg: var(--vp-c-brand-soft); /* 选中项背景色 */
   --vp-local-search-result-selected-border: transparent; /* 去掉硬边框 */
   
   /* 关键词高亮 - 改为文字变色，而不是背景色块，更优雅 */
-  --vp-local-search-highlight-bg: transparent;
-  --vp-local-search-highlight-text: var(--vp-c-brand-1);
+  --vp-local-search-highlight-bg: transparent; /* 关键词高亮背景 */
+  --vp-local-search-highlight-text: var(--vp-c-brand-1); /* 关键词高亮文字 */
 }
 
 .dark {
   /* 深色模式下的 Spotlight 风格 */
   --vp-local-search-bg: #1C1C1E; /* iOS 深色弹窗标准色 */
-  --vp-local-search-result-selected-bg: rgba(224, 82, 82, 0.15);
-  --vp-local-search-highlight-text: var(--vp-c-brand-1);
+  --vp-local-search-result-selected-bg: rgba(224, 82, 82, 0.15); /* 深色模式选中项背景 */
+  --vp-local-search-highlight-text: var(--vp-c-brand-1); /* 深色模式关键词高亮文字 */
 }
 
 /* 
@@ -34,13 +37,13 @@
 .VPLocalSearchBox .shell {
   border-radius: 16px !important; /* 大圆角 */
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2) !important; /* 深度阴影 */
-  border: 1px solid rgba(128, 128, 128, 0.1);
+  border: 1px solid rgba(128, 128, 128, 0.1); /* 边框 */
 }
 
 /* 背景遮罩 - 毛玻璃效果 */
 .VPLocalSearchBox .backdrop {
-  backdrop-filter: blur(8px);
-  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px); /* 毛玻璃模糊效果 */
+  background: rgba(0, 0, 0, 0.2); /* 背景遮罩颜色 */
 }
 
 /* 
@@ -48,15 +51,15 @@
  */
 .VPLocalSearchBox .search-bar {
   border-radius: 10px !important; /* 输入框圆角 */
-  margin: 12px !important;
-  background-color: var(--vp-c-bg-alt) !important;
-  border: 1px solid transparent;
-  transition: all 0.2s ease;
+  margin: 12px !important; /* 外边距 */
+  background-color: var(--vp-c-bg-alt) !important; /* 背景色 */
+  border: 1px solid transparent; /* 边框 */
+  transition: all 0.2s ease; /* 过渡动画 */
 }
 
 /* 输入框激活状态 - 品牌色光晕 */
 .VPLocalSearchBox .search-bar:focus-within {
-  border-color: var(--vp-c-brand-1) !important;
+  border-color: var(--vp-c-brand-1) !important; /* 激活时边框颜色 */
   box-shadow: 0 0 0 4px var(--vp-c-brand-soft) !important; /* 外部扩散光晕 */
 }
 
@@ -67,18 +70,18 @@
   border-radius: 8px !important; /* 列表项圆角 */
   margin: 4px 8px !important; /* 增加间距，不贴边 */
   border: none !important; /* 去除原有边框 */
-  transition: background-color 0.1s;
+  transition: background-color 0.1s; /* 背景色过渡动画 */
 }
 
 /* 选中项样式优化 */
 .VPLocalSearchBox .result.selected {
-  background-color: var(--vp-c-brand-soft) !important;
+  background-color: var(--vp-c-brand-soft) !important; /* 选中项背景色 */
 }
 
 /* 选中项内的标题变色 */
 .VPLocalSearchBox .result.selected .titles,
 .VPLocalSearchBox .result.selected .title-icon {
-  color: var(--vp-c-brand-1) !important;
+  color: var(--vp-c-brand-1) !important; /* 选中项标题颜色 */
 }
 
 /* 
@@ -89,10 +92,10 @@
 .VPLocalSearchBox .excerpt mark {
   color: var(--vp-c-brand-1) !important; /* 文字变红 */
   background: transparent !important; /* 背景透明 */
-  font-weight: 800 !important;
+  font-weight: 800 !important; /* 字体加粗 */
   text-decoration: underline; /* 可选：加下划线增强识别 */
-  text-decoration-color: var(--vp-c-brand-soft);
-  text-underline-offset: 3px;
+  text-decoration-color: var(--vp-c-brand-soft); /* 下划线颜色 */
+  text-underline-offset: 3px; /* 下划线偏移 */
 }
 
 /* 
@@ -100,7 +103,7 @@
  */
 .VPLocalSearchBox .search-actions button:not([disabled]):hover,
 .VPLocalSearchBox .toggle-layout-button.detailed-list {
-  color: var(--vp-c-brand-1) !important;
+  color: var(--vp-c-brand-1) !important; /* 悬停时品牌色 */
 }
 
 .VPLocalSearchBox .title-icon {

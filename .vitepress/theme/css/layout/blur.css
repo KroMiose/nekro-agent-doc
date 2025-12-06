@@ -1,6 +1,9 @@
-/* 
- * 全局模糊与磨砂玻璃系统 (Apple System Material)
- * Blur Effects & Glassmorphism System
+/*!
+ * @file blur.css
+ * @brief 全局模糊与磨砂玻璃系统 (Apple System Material)
+ * @description 实现全局模糊效果与磨砂玻璃系统，模仿 Apple 设计风格
+ * @author nekro-agent-doc team
+ * @date 2024
  */
 
 :root {

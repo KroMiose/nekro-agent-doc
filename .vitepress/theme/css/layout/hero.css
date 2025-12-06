@@ -1,4 +1,12 @@
 
+/*!
+ * @file hero.css
+ * @brief 首页英雄区样式
+ * @description 定义首页英雄区的动态极光背景、彩虹文字动画等样式
+ * @author nekro-agent-doc team
+ * @date 2024
+ */
+
 /* 滚动条隐藏：保留滚动功能，移除视觉干扰 */
 html {
   width: 100%;

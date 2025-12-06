@@ -1,3 +1,11 @@
+/*!
+ * @file feature.css
+ * @brief Feature卡片样式定义
+ * @description 定义首页Feature卡片组件的样式，包括磨砂玻璃效果、悬停动画等
+ * @author nekro-agent-doc team
+ * @date 2024
+ */
+
 /* Feature 卡片基础样式 */
 .VPHome .VPFeature {
   position: relative;
@@ -10,40 +18,40 @@
   flex-direction: column;
   box-sizing: border-box;
 
-  backdrop-filter: blur(20px) saturate(120%);
-  -webkit-backdrop-filter: blur(20px) saturate(120%);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  backdrop-filter: blur(20px) saturate(120%); /* 磨砂玻璃效果 */
+  -webkit-backdrop-filter: blur(20px) saturate(120%); /* Safari兼容 */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* 平滑过渡动画 */
   overflow: hidden;
 }
 
 /* 深色模式 */
 .dark .VPHome .VPFeature {
-  background-color: rgba(255, 255, 255, 0.04) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.04) !important; /* 深色模式背景 */
+  border: 1px solid rgba(255, 255, 255, 0.1) !important; /* 边框 */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); /* 阴影效果 */
 }
 
 /* 浅色模式 */
 html:not(.dark) .VPHome .VPFeature {
-  background-color: rgba(255, 255, 255, 0.6) !important;
-  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  background-color: rgba(255, 255, 255, 0.6) !important; /* 浅色模式背景 */
+  border: 1px solid rgba(0, 0, 0, 0.05) !important; /* 边框 */
 }
 
 /* 悬停放大 */
 .VPHome .VPFeature:hover {
-  transform: scale(1.05);
-  border-color: var(--vp-c-brand-1) !important;
+  transform: scale(1.05); /* 悬停时放大 */
+  border-color: var(--vp-c-brand-1) !important; /* 边框颜色变化 */
 }
 
 .dark .VPHome .VPFeature:hover {
-  background-color: rgba(255, 255, 255, 0.08) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important; /* 深色模式悬停背景 */
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4),
-              0 0 30px rgba(224, 82, 82, 0.25);
+              0 0 30px rgba(224, 82, 82, 0.25); /* 增强阴影效果 */
 }
 
 html:not(.dark) .VPHome .VPFeature:hover {
-  background-color: rgba(255, 255, 255, 0.9) !important;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.9) !important; /* 浅色模式悬停背景 */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1); /* 阴影效果 */
 }
 
 /* 图标 */
@@ -52,41 +60,41 @@ html:not(.dark) .VPHome .VPFeature:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 52px !important;
-  height: 52px !important;
+  width: 52px !important;           /* 图标宽度 */
+  height: 52px !important;          /* 图标高度 */
   margin-bottom: 12px;              /* 修复缺失数值 */
-  border-radius: 16px !important;
-  background-color: rgba(255, 255, 255, 0.1) !important;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px !important;   /* 图标圆角 */
+  background-color: rgba(255, 255, 255, 0.1) !important; /* 图标背景 */
+  border: 1px solid rgba(255, 255, 255, 0.05); /* 图标边框 */
 }
 
 /* 标题 */
 .VPHome .VPFeature .title {
-  font-size: 18px !important;
-  font-weight: 600 !important;
-  margin-bottom: 10px;
-  line-height: 1.4 !important;
+  font-size: 18px !important;       /* 标题字体大小 */
+  font-weight: 600 !important;      /* 标题字重 */
+  margin-bottom: 10px;              /* 标题底部间距 */
+  line-height: 1.4 !important;      /* 标题行高 */
 }
 
 .dark .VPHome .VPFeature .title {
-  color: #FFFFFF !important;
+  color: #FFFFFF !important;        /* 深色模式标题颜色 */
 }
 
 /* 详情 */
 .VPHome .VPFeature .details {
-  font-size: 15px !important;
-  line-height: 1.6 !important;
+  font-size: 15px !important;       /* 详情字体大小 */
+  line-height: 1.6 !important;      /* 详情行高 */
 }
 
 .dark .VPHome .VPFeature .details {
-  color: rgba(255, 255, 255, 0.75) !important;
+  color: rgba(255, 255, 255, 0.75) !important; /* 深色模式详情文字颜色 */
 }
 
 /* 链接 */
 .VPHome .VPFeature .link-text {
-  margin-top: 16px;
+  margin-top: 16px;                 /* 链接顶部间距 */
 }
 
 .dark .VPHome .VPFeature .link-text .link-text-value {
-  color: #fff !important;
+  color: #fff !important;           /* 深色模式链接文字颜色 */
 }

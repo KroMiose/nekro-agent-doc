@@ -1,6 +1,7 @@
 // .vitepress/theme/index.ts
+// 自定义主题入口文件
 
-import { h, onMounted } from 'vue' // 1. 导入 onMounted
+import { h, onMounted } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import MyLayout from './components/switch.vue'
@@ -15,19 +16,26 @@ import './css/components/search.css'
 import './css/layout/blur.css'
 import './css/base/overrides.css'
 
+// 导入第三方库和组件
 import { inBrowser } from "vitepress"
 import busuanzi from "busuanzi.pure.js"
 import Confetti from "./components/Confetti.vue"
 
-// 2. 导入我们的通知脚本
+// 导入自定义通知脚本
 import { showAestheticNotice } from './notice.js'
 
 /**
- * 自定义主题
+ * 自定义主题配置
  */
 export default {
   extends: DefaultTheme,
 
+  /**
+   * 增强 Vue 应用实例
+   * @param app - Vue 应用实例
+   * @param router - VitePress 路由器
+   * @param siteData - 站点数据
+   */
   enhanceApp({ app, router, siteData }) {
     // 注册全局组件
     app.component("Confetti", Confetti)
@@ -40,7 +48,9 @@ export default {
     }
   },
   
-  // 3. 使用 setup() 函数来集成 onMounted 钩子
+  /**
+   * 设置组件的生命周期钩子
+   */
   setup() {
     onMounted(() => {
       if (inBrowser) {
@@ -50,6 +60,9 @@ export default {
     });
   },
 
+  /**
+   * 自定义布局组件
+   */
   Layout() {
     return h(MyLayout) 
   },

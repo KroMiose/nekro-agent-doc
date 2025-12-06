@@ -1,3 +1,6 @@
+<!-- .vitepress/theme/components/switch.vue -->
+<!-- 自定义布局组件，包含路由过渡动画和浮动按钮 -->
+
 <script setup>
 import { useRouter, useData } from "vitepress";
 import DefaultTheme from "vitepress/theme";
@@ -8,7 +11,9 @@ const { route } = useRouter();
 const { isDark } = useData();
 const transitionName = ref('scale-in');
 
-// 滚动到顶部函数
+/**
+ * 滚动到页面顶部
+ */
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,
@@ -16,6 +21,9 @@ const scrollToTop = () => {
   });
 };
 
+/**
+ * 监听路由变化，设置过渡动画名称
+ */
 watch(
   route,
   (newRoute, oldRoute) => {
@@ -25,11 +33,17 @@ watch(
   }
 );
 
-// 暗黑模式切换相关代码
+/**
+ * 检查是否支持视图过渡动画
+ * @returns {boolean} 是否支持视图过渡动画
+ */
 const enableTransitions = () =>
   'startViewTransition' in document &&
   window.matchMedia('(prefers-reduced-motion: no-preference)').matches
 
+/**
+ * 提供暗黑模式切换功能
+ */
 provide('toggle-appearance', async ({ clientX: x, clientY: y }) => {
   if (!enableTransitions()) {
     isDark.value = !isDark.value
@@ -62,14 +76,15 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }) => {
 
 <template>
   <div class="router-wrapper">
+    <!-- 页面过渡动画 -->
     <transition 
       :name="transitionName"
       mode="out-in"
-      @before-leave="beforeLeave"
-      @after-enter="afterEnter"
     >
       <div :key="route.path">
         <Layout />
+        
+        <!-- 文档页脚 -->
         <div class="doc-footer" v-if="route.path.includes('/docs/')">
           <div class="container">
             <div class="doc-footer-content">
@@ -100,7 +115,7 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }) => {
   min-height: 100vh;
 }
 
-
+/* 页面进入动画 */
 @keyframes scaleIn {
   0% {
     transform: scale(0.98);
@@ -112,6 +127,7 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }) => {
   }
 }
 
+/* 页面离开动画 */
 @keyframes fadeOut {
   0% { opacity: 1; }
   100% { opacity: 0; }
@@ -197,13 +213,5 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }) => {
   background-color: var(--vp-c-brand-dark);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.dark .float-button {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.dark .float-button:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 </style>
