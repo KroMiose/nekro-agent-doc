@@ -21,6 +21,9 @@ import { inBrowser } from "vitepress"
 import busuanzi from "busuanzi.pure.js"
 import Confetti from "./components/Confetti.vue"
 
+// 导入3D倾斜效果
+import { init3DTiltEffect } from './components/feature.js'
+
 // 导入自定义通知脚本
 import { showAestheticNotice } from './notice.js'
 
@@ -56,6 +59,9 @@ export default {
       if (inBrowser) {
         // 在页面挂载后调用通知函数
         showAestheticNotice();
+        
+        // 初始化3D倾斜效果
+        init3DTiltEffect();
       }
     });
   },
