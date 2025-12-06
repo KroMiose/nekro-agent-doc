@@ -11,9 +11,9 @@ import { onMounted } from 'vue';
  */
 onMounted(() => {
   confetti({
-    particleCount: 100,  // 粒子数量
-    spread: 170,         // 扩散角度
-    origin: { y: 0.6 },  // 垂直起始位置
+    particleCount: 100,
+    spread: 170,
+    origin: { y: 0.6 },
   });
 });
 </script>

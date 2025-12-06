@@ -47,7 +47,7 @@ export function showAestheticNotice() {
       }, 300)
     }
 
-    // 3. 创建并注入样式
+    // 创建并注入样式
     const styles = `
       #aesthetic-notice {
         position: fixed;
@@ -62,7 +62,7 @@ export function showAestheticNotice() {
         transform: scale(0.95);
       }
       .notice-content {
-        background: rgba(28, 28, 30, 0.8); /* 深色玻璃效果 */
+        background: rgba(28, 28, 30, 0.8);
         color: #fff;
         padding: 20px 24px;
         border-radius: 16px;
@@ -91,7 +91,7 @@ export function showAestheticNotice() {
         opacity: 0.9;
       }
       .notice-content a {
-        color: #E56464; /* 使用您的品牌色 */
+        color: #E56464;
         text-decoration: none;
         font-weight: 500;
         border-bottom: 1px solid transparent;
@@ -157,7 +157,7 @@ export function showAestheticNotice() {
     styleSheet.innerText = styles;
     document.head.appendChild(styleSheet);
 
-    // 4. 将提示框添加到页面
+    // 将提示框添加到页面
     document.body.appendChild(noticeWrapper);
   }
 }

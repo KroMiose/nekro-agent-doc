@@ -2,10 +2,10 @@
 <!-- 暗黑模式切换动画组件 -->
 
 <script setup>
-import { useData } from "vitepress";
-import { nextTick, provide } from "vue";
+import { useData } from "vitepress"
+import { nextTick, provide } from "vue"
 
-const { isDark } = useData();
+const { isDark } = useData()
 
 /**
  * 检查是否支持视图过渡动画

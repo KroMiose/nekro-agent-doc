@@ -28,25 +28,13 @@ import { init3DTiltEffect } from './components/js/feature.js'
 // 导入自定义通知脚本
 import { showAestheticNotice } from './components/js/notice.js'
 
-/**
- * 自定义主题配置
- */
 export default {
   extends: DefaultTheme,
 
-  /**
-   * 自定义布局组件
-   */
   Layout: () => {
     return h(LayoutComponent)
   },
 
-  /**
-   * 增强 Vue 应用实例
-   * @param app - Vue 应用实例
-   * @param router - VitePress 路由器
-   * @param siteData - 站点数据
-   */
   enhanceApp({ app, router, siteData }) {
     // 注册全局组件
     app.component("Confetti", Confetti)
@@ -60,9 +48,6 @@ export default {
     }
   },
   
-  /**
-   * 设置组件的生命周期钩子
-   */
   setup() {
     onMounted(() => {
       if (inBrowser) {
