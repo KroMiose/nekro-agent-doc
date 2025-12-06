@@ -43,7 +43,7 @@ export function showAestheticNotice() {
       <div class="notice-content">
         <h4>✨ 焕然一新！</h4>
         <p>文档站的美学设计已全面更新，希望能为您带来更好的阅读体验。</p>
-        <p>如果在浏览时遇到任何显示问题，请<a href="${ISSUE_URL}" target="_blank" rel="noopener noreferrer">提交 Issue</a> 帮助我们改进，非常感谢！</p>
+        <p>如果在浏览时遇到任何显示问题或任何无障碍问题，请<a href="${ISSUE_URL}" target="_blank" rel="noopener noreferrer">提交 Issue</a> 帮助我们改进，非常感谢！</p>
         <button class="close-button" aria-label="关闭提示">&times;</button>
       </div>
     `;
