@@ -25,10 +25,3 @@
   /* 启用硬件加速 */
   transform: translateZ(0);
 }
-
-/* 可访问性：关闭动画 */
-@media (prefers-reduced-motion: reduce) {
-  .VPContent {
-    animation: none !important;
-  }
-}
