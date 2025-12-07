@@ -51,11 +51,7 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }) => {
 </script>
 
 <template>
-<<<<<<< HEAD
   <Layout />
-=======
-  <LayoutComponent />
->>>>>>> 3e74ac1456799c7703053eaf622fc2ea36e1ee20
 </template>
 
 <style>

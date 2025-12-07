@@ -38,7 +38,7 @@ description: 帮助您快速开始使用 Nekro Agent 的指南，包括部署选
 
 - [iStoreOS 系统部署](/docs/community/iStoreOS)
 
-  - 在基于 **openWRT** 的软路由系统运行 Nekro Agent，提供一键安装脚本。
+  - 在基于 **OpenWRT** 的软路由系统运行 Nekro Agent，提供一键安装脚本。
 
 ## 基本配置
 
