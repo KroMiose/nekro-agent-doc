@@ -4,8 +4,10 @@
 <script setup>
 import { useData } from "vitepress"
 import { nextTick, provide } from "vue"
+import DefaultTheme from 'vitepress/theme'
 
 const { isDark } = useData()
+const { Layout } = DefaultTheme
 
 /**
  * 检查是否支持视图过渡动画
@@ -49,7 +51,7 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }) => {
 </script>
 
 <template>
-  <LayoutComponent />
+  <Layout />
 </template>
 
 <style>

@@ -32,13 +32,13 @@ export default {
   extends: DefaultTheme,
 
   Layout: () => {
-    return h(LayoutComponent)
+    return h(MyLayout)
   },
 
   enhanceApp({ app, router, siteData }) {
     // 注册全局组件
     app.component("Confetti", Confetti)
-    app.component("LayoutComponent", LayoutComponent)
+    app.component("MyLayout", MyLayout)
 
     // 仅在浏览器环境下执行
     if (inBrowser) {
