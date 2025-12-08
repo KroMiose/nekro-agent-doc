@@ -21,7 +21,7 @@ hero:
       link: https://github.com/KroMiose/nekro-agent
       icon: github
   image:
-    src: "nekro_agent_logo.webp"
+    src: "nekro_agent_logo_new.webp"
     alt: NekroNekro 图标
 features:
   - title: 多人交互
