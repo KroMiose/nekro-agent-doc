@@ -18,8 +18,8 @@
   }
 }
 
-/* 内容区域进入动画 */
-.VPContent {
+/* 内容区域进入动画 - 只在首次加载时执行 */
+.VPContent:not(.content-enter) {
   animation: appleFadeInUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   will-change: transform, opacity;
   /* 启用硬件加速 */

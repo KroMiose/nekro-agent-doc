@@ -131,19 +131,9 @@ html:not(.dark) .VPHomeHero::after {
   --hero-orb-3: rgba(168, 85, 247, 0.3);
 }
 
-/* 彩虹文字动画：80 关键帧平滑过渡 */
-@keyframes rainbow {
-  0%    { --rainbow-prev: color(display-p3 0 0.624 0.969); --rainbow-next: color(display-p3 0.78 0.427 0.82);  }
-  1.25% { --rainbow-prev: color(display-p3 0 0.616 0.98);  --rainbow-next: color(display-p3 0.812 0.412 0.788); }
-  /* 以下关键帧省略，保持与原文件一致，共 80 步 */
-  100%  { --rainbow-prev: color(display-p3 0 0.624 0.969); --rainbow-next: color(display-p3 0.78 0.427 0.82);  }
-}
+/* 彩虹文字动画变量定义 */
 :root {
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(45deg, var(--rainbow-prev), var(--rainbow-next));
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: rainbow 4s linear infinite;
 }
 
 /* 按钮：圆角、按压反馈、阴影 */
@@ -210,7 +200,7 @@ html:not(.dark) .VPHomeHero::after {
   .VPHomeHero::before { filter: blur(60px); animation: none; }
 }
 
-/*文本标题的动画*/
+/* 彩虹文字动画：80 关键帧平滑过渡 */
 @keyframes rainbow {
     0% {
         --rainbow-prev: #009ff7;
@@ -616,7 +606,18 @@ html:not(.dark) .VPHomeHero::after {
         --rainbow-prev: #009ff7;
         --rainbow-next: #c76dd1;
     }
-  }
-:root {
+}
+
+/* 应用彩虹动画到英雄区标题 */
+.VPHomeHero .name {
+    /* 定义初始值 */
+    --rainbow-prev: #009ff7;
+    --rainbow-next: #c76dd1;
+    /* 应用渐变背景 */
+    background: linear-gradient(45deg, var(--rainbow-prev), var(--rainbow-next));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* 应用动画 */
     animation: rainbow 8s linear infinite;
 }

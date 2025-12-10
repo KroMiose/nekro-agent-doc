@@ -42,9 +42,20 @@ export default {
 
     // 仅在浏览器环境下执行
     if (inBrowser) {
+      // 初始化函数
+      const initEffects = () => {
+        // 初始化3D倾斜效果（延迟执行以确保DOM已渲染）
+        setTimeout(() => {
+          init3DTiltEffect();
+        }, 100);
+      };
+
+      // 首次加载时初始化
       router.onAfterRouteChanged = () => {
-        busuanzi.fetch()
-      }
+        busuanzi.fetch();
+        // 每次路由切换后重新初始化3D效果
+        initEffects();
+      };
     }
   },
   
@@ -55,7 +66,9 @@ export default {
         showAestheticNotice();
         
         // 初始化3D倾斜效果
-        init3DTiltEffect();
+        setTimeout(() => {
+          init3DTiltEffect();
+        }, 100);
       }
     });
   }

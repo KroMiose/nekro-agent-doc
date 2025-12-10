@@ -4,11 +4,12 @@
 <script setup>
 import { useRouter, useData } from "vitepress";
 import DefaultTheme from "vitepress/theme";
-import { ref, watch } from "vue";
+import { ref, watch, nextTick } from "vue";
 
 const { Layout } = DefaultTheme;
 const { route } = useRouter();
 const transitionName = ref('scale-in');
+const routeKey = ref(0);
 
 /**
  * 滚动到页面顶部
@@ -21,39 +22,44 @@ const scrollToTop = () => {
 };
 
 /**
- * 监听路由变化，设置过渡动画名称
+ * 监听路由变化，触发内容区域动画
  */
 watch(
   route,
-  (newRoute, oldRoute) => {
-    const newIndex = newRoute.path.split('/').length
-    const oldIndex = oldRoute.path.split('/').length
-    transitionName.value = newIndex > oldIndex ? 'scale-in' : 'scale-out'
-  }
+  async (newRoute, oldRoute) => {
+    // 等待 DOM 更新
+    await nextTick()
+    
+    // 触发内容区域的动画
+    const contentArea = document.querySelector('.VPContent')
+    if (contentArea) {
+      // 移除之前的动画类
+      contentArea.classList.remove('content-enter')
+      
+      // 强制重排以触发动画
+      void contentArea.offsetHeight
+      
+      // 添加进入动画类
+      contentArea.classList.add('content-enter')
+    }
+  },
+  { immediate: false }
 );
 </script>
 
 <template>
   <div class="router-wrapper">
-    <!-- 页面过渡动画 -->
-    <transition 
-      :name="transitionName"
-      mode="out-in"
-    >
-      <div :key="route.path">
-        <Layout />
-        
-        <!-- 文档页脚 -->
-        <div class="doc-footer" v-if="route.path.includes('/docs/')">
-          <div class="container">
-            <div class="doc-footer-content">
-              <span>发现文档问题？</span>
-              <a href="https://github.com/KroMiose/nekro-agent-doc/issues/new?template=issue_template.yml" target="_blank" class="doc-footer-link">报告问题</a>
-            </div>
-          </div>
+    <Layout />
+    
+    <!-- 文档页脚 -->
+    <div class="doc-footer" v-if="route.path.includes('/docs/')">
+      <div class="container">
+        <div class="doc-footer-content">
+          <span>发现文档问题？</span>
+          <a href="https://github.com/KroMiose/nekro-agent-doc/issues/new?template=issue_template.yml" target="_blank" class="doc-footer-link">报告问题</a>
         </div>
       </div>
-    </transition>
+    </div>
     
     <!-- 悬浮按钮区域 -->
     <div class="float-buttons" v-if="route.path.includes('/docs/')">
@@ -74,8 +80,12 @@ watch(
   min-height: 100vh;
 }
 
-/* 页面进入动画 */
-@keyframes scaleIn {
+/* 内容区域动画 - 只作用于内容区域，不影响导航栏等固定元素 */
+.VPContent.content-enter {
+  animation: contentScaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes contentScaleIn {
   0% {
     transform: scale(0.98);
     opacity: 0;
@@ -84,12 +94,6 @@ watch(
     transform: scale(1);
     opacity: 1;
   }
-}
-
-/* 页面离开动画 */
-@keyframes fadeOut {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
 }
 
 /* 文档页脚样式 */
