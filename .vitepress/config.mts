@@ -37,7 +37,6 @@ export default defineConfig({
       {
         name: "keywords",
         content: [
-          // === A. 品牌核心 (Brand Core) ===
           "NekroAgent,NekroAgent AI,Nekro,Nekro Cloud,Nekro Bot,nekro-agent",
           "Neko Agent,Neko Bot,Neko AI",
           "NekroAI,Nekro AI,nekroai",
@@ -47,14 +46,12 @@ export default defineConfig({
           "네크로 에이전트,네크로 AI",
           "NekroAgent,Некро Агент,Некро ИИ",
 
-          // === B. 赛博猫娘 & 角色扮演 (Character & RP) ===
           "赛博猫娘,机械娘,虚拟女友,AI老婆,二次元AI,情感陪伴,沉浸式对话,语擦,语C,角色扮演,AI人设",
           "Cyber Catgirl,Robot Girl,Virtual Girlfriend,Waifu AI,AI Companion,Roleplay,RP,Character AI,NSFW AI","Not Safe For Workers AI",
           "サイバー猫耳,メカ娘,バーチャルカノジョ,AIカノジョ,俺の嫁,なりきり,ロールプレイ",
           "사이버 캣걸,메카 소녀,가상 여자친구,AI 여친,롤플레이,상황극",
           "Кибер-нэко,Девушка-робот,Виртуальная девушка,AI Вайфу,Ролевая игра,РП",
 
-          // === C. 聊天机器人生态 (Chatbot Ecosystem) ===
           "QQ机器人,QQ Bot,QQ频道机器人,微信机器人,Discord Bot,Telegram Bot",
           "OneBot,OneBot V11,NapCat,Lagrange,LLOneBot,Go-CQHTTP,NoneBot,Koishi,Shamrock",
           "Message Push,Auto Reply,消息推送,自动回复",
@@ -62,7 +59,6 @@ export default defineConfig({
           "자동 응답,챗봇",
           "Чат-бот,Автоответчик",
 
-          // === D. AI 核心架构 (AI Architecture) ===
           "AI Agent,Autonomous Agents,Multi-Agent,LLM,Transformer,MoE",
           "自主智能体,多智能体协作,大语言模型,思维链,CoT",
           "AIエージェント,マルチエージェント,大規模言語モデル",
@@ -70,15 +66,13 @@ export default defineConfig({
           "AI Агент,Мульти-агент,Большие языковые модели",
           "GPT-4o,Claude 3.5,DeepSeek,Llama 3,Qwen,Mistral",
 
-          // === E. Cloudflare & 边缘计算 (Cloudflare & Edge Infrastructure) ===
-          // ★★★ 新增：Cloudflare 核心引流词 ★★★
           "Cloudflare,Workers,Workers AI,Cloudflare Pages,R2,D1,Hyperdrive",
           "CF,赛博菩萨,Cloudflare Tunnel,Argo Tunnel,Zero Trust,WARP", // CN Hot Keywords
           "Edge AI,Serverless AI,Edge Computing,Global CDN,DDoS Protection",
           "クラウドフレア,エッジコンピューティング,サーバーレス", // JP
           "클라우드플레어,엣지 컴퓨팅,서버리스", // KR
           "Cloudflare,Бессерверные вычисления,Edge AI", // RU
-          // === A. Global Giants (US & Europe - 2025 Latest) ===
+
           "OpenAI,ChatGPT,GPT-4o,GPT-5,GPT-5.1,GPT-5.1 Thinking,GPT-5 Thinking,o1,o3,o3 pro,o3-mini,o4-mini,gpt-oss,DALL-E 3,Sora 2,Sora 2 Pro,Sora 2 Plus,MuseNet,Whisper," +
           "Google,DeepMind,Gemini,Gemini 2.5 Flash,Gemini 2.5 Pro,Gemini 3 Pro,Gemini 3 Deep Think,Gemini Diffusion,Nano Banana,Nano Banana Pro,Gemma 3,Imagen 4,Veo 3.0,Veo 3.1,V2A," +
           "Anthropic,Claude,Claude 3.5,Claude Sonnet 4,Claude Sonnet 4.5,Claude Opus 4.5,Claude Haiku 4.5,Claude Extended Thinking," +
@@ -87,7 +81,6 @@ export default defineConfig({
           "Microsoft,Copilot,Phi-4,Phi-reasoning,Phi-4-mini,Phi-4-plus,Azure OpenAI," +
           "Mistral AI,Mistral Large 2,Mistral Large 3,Mistral 3 Medium,Ministral 3,Pixtral Large,Magistral Medium,Magistral Small," +
           
-          // === B. China Giants (Leading the 2025 Race) ===
           "DeepSeek,DeepSeek-V3.1,DeepSeek-V3.1-Terminus,DeepSeek-V3.2,DeepSeek-V3.2-Thinking,DeepSeek-V3.2-Speciale,DeepSeek-R1,深度求索,幻方量化," +
           "Alibaba,Qwen,Qwen3,Qwen3-Max,Qwen3-Omni,Qwen3-VL,Qwen3-Next,Qwen3-Max-Thinking,Qwen3-TTS,Wan 2.2,Wan 2.5,Z-Image,通义千问,通义万相," +
           "ByteDance,Doubao,Doubao-Seed-1.6,Doubao-Seed-1.6-Thinking,Seed1.5-VL,Seed-OSS,Seedream 4.5,Seedance,字节跳动,豆包," +
@@ -95,8 +88,7 @@ export default defineConfig({
           "Zhipu AI,GLM-4.5,GLM-4.5V,GLM-4.6,GLM-4.6V,GLM-4.6V-Flash,GLM-4.1V-Thinking,CogView 4,智谱AI,智谱清言,智谱清影," +
           "Moonshot AI,Kimi,Kimi-K2,Kimi-K2-Thinking,Kimi-VL,Kimi-VL-Thinking,K1.6,月之暗面," +
           "Baidu,Ernie 4.5,Ernie 5.0,X1 Turbo,X1.1,Wenxin Yiyan,百度,文心一言,文小言," +
-          
-          // === C. Specialized & Rising Stars (Video/Image/Music/Startup) ===
+
           "MiniMax,Hailuo 2.3,MiniMax-Text-01,MiniMax-VL-01,MiniMax-M1,MiniMax-M2,Music-2,Speech-2.6,海螺AI," +
           "Kuaishou,Kling,Kling O1,Kling Video 2.6,Kling Image 2.1,可灵AI,可灵视频,可灵图片," +
           "StepFun,Step-2,Step-3,Step-r1,ACE-Step,阶跃星辰," +
@@ -105,23 +97,20 @@ export default defineConfig({
           "Runway,Gen-4.5,Luma AI,Dream Machine,Ray 3," +
           "Pika,Pika 2.2,Suno,Suno v5,Mureka V7," +
           "Stability AI,Stable Diffusion 3.5,Stable Video Diffusion,Stable Audio",
-          // ★★★ 新增：内网穿透与部署 (对于本地Bot部署非常重要) ★★★
+
           "内网穿透,端口转发,反向代理,免服务器部署", // CN
           "Port Forwarding,Reverse Proxy,Localhost Tunneling,Ngrok alternative", // EN
           "ポート開放不要,トンネリング,リバースプロキシ", // JP
           "포트 포워딩,터널링,리버스 프록시", // KR
           "Туннелирование,Обратный прокси", // RU
 
-          // ★★★ 新增：竞品与相关技术 (蹭流量) ★★★
           "Vercel,Netlify,Supabase,AWS Lambda,Railway,Zeabur,Hugging Face Spaces",
 
-          // === F. RAG & 数据 (RAG & Data) ===
           "RAG,Retrieval-Augmented Generation,Vector Database,Knowledge Graph",
           "检索增强生成,向量数据库,知识图谱",
           "検索拡張生成,ベクトルデータベース",
           "ChromaDB,Milvus,Pinecone,Faiss",
 
-          // === G. 开发与工具 (Dev & Tools) ===
           "Function Calling,Tool Use,Workflow Automation,API Integration",
           "函数调用,工具使用,工作流自动化,API集成",
           "Local LLM,Ollama,vLLM,Llama.cpp,Docker,VitePress"
