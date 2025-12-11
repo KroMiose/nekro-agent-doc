@@ -49,7 +49,7 @@ export default defineConfig({
 
           // === B. 赛博猫娘 & 角色扮演 (Character & RP) ===
           "赛博猫娘,机械娘,虚拟女友,AI老婆,二次元AI,情感陪伴,沉浸式对话,语擦,语C,角色扮演,AI人设",
-          "Cyber Catgirl,Robot Girl,Virtual Girlfriend,Waifu AI,AI Companion,Roleplay,RP,Character AI,NSFW AI",
+          "Cyber Catgirl,Robot Girl,Virtual Girlfriend,Waifu AI,AI Companion,Roleplay,RP,Character AI,NSFW AI","Not Safe For Workers AI",
           "サイバー猫耳,メカ娘,バーチャルカノジョ,AIカノジョ,俺の嫁,なりきり,ロールプレイ",
           "사이버 캣걸,메카 소녀,가상 여자친구,AI 여친,롤플레이,상황극",
           "Кибер-нэко,Девушка-робот,Виртуальная девушка,AI Вайфу,Ролевая игра,РП",
