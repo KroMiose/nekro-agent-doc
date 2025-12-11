@@ -53,7 +53,7 @@ export default defineConfig({
           "Кибер-нэко,Девушка-робот,Виртуальная девушка,AI Вайфу,Ролевая игра,РП",
 
           "QQ机器人,QQ Bot,QQ频道机器人,微信机器人,Discord Bot,Telegram Bot",
-          "OneBot,OneBot V11,NapCat,Lagrange,LLOneBot,Go-CQHTTP,NoneBot,Koishi,Shamrock",
+          "OneBot,OneBot V11,NapCat,Lagrange,LLOneBot,Go-CQHTTP,NoneBot,Koishi,Shamrock","mirai","gocq","yunzai","原神机器人","猫娘机器人",
           "Message Push,Auto Reply,消息推送,自动回复",
           "自動応答,チャットボット,自動化", 
           "자동 응답,챗봇",
