@@ -3,7 +3,7 @@
 <div align="center">
   <img src="https://oss.nekro.ai/nekro_agent_logo.png" width="200" alt="Nekro Agent Logo">
   <img src="./public/favicon.webp" width="200" alt="Nekro Agent Doc Logo">
-  <h3>安全、高效、优雅的智能交互体验</h3>
+  <h3>安全、高效、优雅的智能交互体验，欢迎来到 Nekro Agent 文档！</h3>
 </div>
 
 ## 📖 项目简介
