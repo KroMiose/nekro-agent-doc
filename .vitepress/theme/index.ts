@@ -4,7 +4,7 @@
 import { h, onMounted } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
-
+// 写一下这些CSS的已知问题：火狐浏览器浏览时 背景会有异常 待修复
 // 导入所有样式文件
 import './css/base/colors.css'
 import './css/layout/hero.css'
