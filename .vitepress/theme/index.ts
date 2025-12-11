@@ -17,7 +17,6 @@ import './css/base/overrides.css'
 
 // 导入第三方库和组件
 import { inBrowser } from "vitepress"
-import busuanzi from "busuanzi.pure.js"
 import Confetti from "./components/vue/Confetti.vue"
 import MyLayout from './components/vue/switch.vue'
 import LayoutComponent from './components/vue/layout.vue'
@@ -52,8 +51,6 @@ export default {
 
       // 首次加载时初始化
       router.onAfterRouteChanged = () => {
-        busuanzi.fetch();
-        // 每次路由切换后重新初始化3D效果
         initEffects();
       };
     }
