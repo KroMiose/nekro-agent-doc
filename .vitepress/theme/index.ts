@@ -55,13 +55,13 @@ export default {
       };
     }
   },
-  
+
   setup() {
     onMounted(() => {
       if (inBrowser) {
         // 在页面挂载后调用通知函数
         showAestheticNotice();
-        
+
         // 初始化3D倾斜效果
         setTimeout(() => {
           init3DTiltEffect();
