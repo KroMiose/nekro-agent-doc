@@ -15,13 +15,13 @@ export default defineConfig({
 
   // --- 站点核心信息 ---
   // 标题融合了技术属性（自主智能体）和应用场景（赛博猫娘/QQ机器人）
-  title: "NekroAgent",
+  title: "NekroAgent 文档",
   description: "NekroAgent 是一款基于 LLM 的开源自主智能体框架。支持构建赛博猫娘、QQ 机器人及企业级自动化工作流。集成 RAG 检索增强、CoT 推理、Function Calling 工具调用与 OneBot 协议。支持 DeepSeek/OpenAI，适配 Linux/Docker 私有化部署。",
 
   // --- Head 区域深度优化 ---
   head: [
     // 1. 基础资源
-    ["link", { rel: "icon", href: "nekro_agent_logo.webp" }],
+    ["link", { rel: "icon", href: "favicon.webp" }],
     ["meta", { name: "viewport", content: "width=device-width, initial-scale=1.0, viewport-fit=cover" }],
     ["meta", { name: "theme-color", content: "#3eaf7c" }],
 
