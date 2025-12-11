@@ -24,7 +24,7 @@ export default defineConfig({
     ["link", { rel: "icon", href: "nekro_agent_logo.webp" }],
     ["meta", { name: "viewport", content: "width=device-width, initial-scale=1.0, viewport-fit=cover" }],
     ["meta", { name: "theme-color", content: "#3eaf7c" }],
-    
+
     // 2. 爬虫与收录
     ["meta", { name: "robots", content: "index, follow, max-image-preview:large" }],
     ["meta", { name: "revisit-after", content: "1 days" }],
@@ -32,7 +32,7 @@ export default defineConfig({
     ["meta", { name: "google-site-verification", content: "4UhKgVLa3cPvgaPx-lyNnzdg6XVEAGIC4gueoQ81gF4" }],
 
     // --- 3. 终极关键词矩阵 (ALL-IN-ONE) ---
-[
+    [
       "meta",
       {
         name: "keywords",
@@ -47,15 +47,15 @@ export default defineConfig({
           "NekroAgent,Некро Агент,Некро ИИ",
 
           "赛博猫娘,机械娘,虚拟女友,AI老婆,二次元AI,情感陪伴,沉浸式对话,语擦,语C,角色扮演,AI人设",
-          "Cyber Catgirl,Robot Girl,Virtual Girlfriend,Waifu AI,AI Companion,Roleplay,RP,Character AI,NSFW AI","Not Safe For Workers AI",
+          "Cyber Catgirl,Robot Girl,Virtual Girlfriend,Waifu AI,AI Companion,Roleplay,RP,Character AI,NSFW AI", "Not Safe For Workers AI",
           "サイバー猫耳,メカ娘,バーチャルカノジョ,AIカノジョ,俺の嫁,なりきり,ロールプレイ",
           "사이버 캣걸,메카 소녀,가상 여자친구,AI 여친,롤플레이,상황극",
           "Кибер-нэко,Девушка-робот,Виртуальная девушка,AI Вайфу,Ролевая игра,РП",
 
           "QQ机器人,QQ Bot,QQ频道机器人,微信机器人,Discord Bot,Telegram Bot",
-          "OneBot,OneBot V11,NapCat,Lagrange,LLOneBot,Go-CQHTTP,NoneBot,Koishi,Shamrock","mirai","gocq","yunzai","原神机器人","猫娘机器人",
+          "OneBot,OneBot V11,NapCat,Lagrange,LLOneBot,Go-CQHTTP,NoneBot,Koishi,Shamrock", "mirai", "gocq", "yunzai", "原神机器人", "猫娘机器人",
           "Message Push,Auto Reply,消息推送,自动回复",
-          "自動応答,チャットボット,自動化", 
+          "自動応答,チャットボット,自動化",
           "자동 응답,챗봇",
           "Чат-бот,Автоответчик",
 
@@ -80,7 +80,7 @@ export default defineConfig({
           "Meta,Llama 4,Llama 4 Scout,Llama 4 Marverick,Llama 4 Behemoth," +
           "Microsoft,Copilot,Phi-4,Phi-reasoning,Phi-4-mini,Phi-4-plus,Azure OpenAI," +
           "Mistral AI,Mistral Large 2,Mistral Large 3,Mistral 3 Medium,Ministral 3,Pixtral Large,Magistral Medium,Magistral Small," +
-          
+
           "DeepSeek,DeepSeek-V3.1,DeepSeek-V3.1-Terminus,DeepSeek-V3.2,DeepSeek-V3.2-Thinking,DeepSeek-V3.2-Speciale,DeepSeek-R1,深度求索,幻方量化," +
           "Alibaba,Qwen,Qwen3,Qwen3-Max,Qwen3-Omni,Qwen3-VL,Qwen3-Next,Qwen3-Max-Thinking,Qwen3-TTS,Wan 2.2,Wan 2.5,Z-Image,通义千问,通义万相," +
           "ByteDance,Doubao,Doubao-Seed-1.6,Doubao-Seed-1.6-Thinking,Seed1.5-VL,Seed-OSS,Seedream 4.5,Seedance,字节跳动,豆包," +
@@ -114,7 +114,7 @@ export default defineConfig({
           "Function Calling,Tool Use,Workflow Automation,API Integration",
           "函数调用,工具使用,工作流自动化,API集成",
           "Local LLM,Ollama,vLLM,Llama.cpp,Docker,VitePress"
-        ].join(",") 
+        ].join(",")
       }
     ],
 
@@ -157,7 +157,7 @@ export default defineConfig({
   },
 
   themeConfig: {
-    logo: '/nekro_agent_logo.webp', 
+    logo: '/nekro_agent_logo.webp',
     search: { provider: 'local' },
     nav: [
       { text: "主页", link: "/" },

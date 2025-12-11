@@ -27,26 +27,26 @@ features:
   - title: 多人交互
     details: 原生的多人群聊交互支持，精确理解复杂群聊场景需求
     icon: 
-      light: /feature-icons/chat.png
-      dark: /feature-icons/chat_black.png
+      light: /feature-icons/chat.webp
+      dark: /feature-icons/chat_black.webp
       alt: 多人交互
   - title: 插件架构
     details: 插件化架构设计，高灵活自定义插件接入 无论是绘图、搜索、各种外部 API ... 轻松扩展
     icon: 
-      light: /feature-icons/puzzle.png
-      dark: /feature-icons/puzzle_black.png
+      light: /feature-icons/puzzle.webp
+      dark: /feature-icons/puzzle_black.webp
       alt: 插件架构
   - title: 沙盒系统
     details: 基于 Docker 的沙盒代码执行环境，实现强大且安全的环境交互能力
     icon: 
-      light: /feature-icons/box.png
-      dark: /feature-icons/box_black.png
+      light: /feature-icons/box.webp
+      dark: /feature-icons/box_black.webp
       alt: 沙盒系统
   - title: 开箱即用
     details: 提供一键部署脚本、WebUI 面板、智能插件编辑器... 快速搭建和扩展高性能 AI 机器人
     icon: 
-      light: /feature-icons/rocket.png
-      dark: /feature-icons/roket_black.png
+      light: /feature-icons/rocket.webp
+      dark: /feature-icons/rocket_black.webp
       alt: 开箱即用
 ---
 
