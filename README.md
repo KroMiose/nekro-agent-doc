@@ -12,6 +12,7 @@
 Nekro Agent 文档站是基于 VitePress 开发的官方文档网站，旨在提供全面、清晰的 Nekro Agent 使用指南。通过这个文档站，用户可以轻松了解 Nekro Agent 的部署方法、配置选项、进阶功能和插件开发等内容。
 
 🔗 在线访问：[https://doc.nekro.ai](https://doc.nekro.ai)
+🔗 如果您无法访问主域名请尝试：[https://testedgeone.nanoda.work/](https://testedgeone.nanoda.work/)此网站为测试站点不保证文档内容的准确性
 
 ## 🗂️ 文档结构
 
