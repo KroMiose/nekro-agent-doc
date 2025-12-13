@@ -85,26 +85,26 @@ layout: doc
 .recruit-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Reduced from 40px */
-  margin-top: 10px; /* Reduced from 40px */
+  gap: 20px;
+  margin-top: 10px;
   align-items: center;
 }
 
 /* Sticker QR Card */
-.qr-card {
+.recruit-wrapper .qr-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 30px;
   border-radius: 20px;
   transition: transform 0.3s;
-  max-width: 400px; /* increased to match desktop width */
+  max-width: 400px;
   width: 100%;
   background-color: var(--vp-c-bg-soft);
   border: 1px solid var(--vp-c-bg-soft);
 }
 
-.qr-card h2 {
+.recruit-wrapper .qr-card h2 {
   border: none;
   margin: 0 0 20px 0;
   font-size: 1.5em;
@@ -112,52 +112,52 @@ layout: doc
   line-height: 1.4;
 }
 
-.qr-card img {
+.recruit-wrapper .qr-card img {
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   width: 100%;
-  max-width: 280px; /* Limit image size within larger card */
+  max-width: 280px;
   height: auto;
 }
 
 /* Feature Grid Overrides & Fixes */
-.rules-container {
+.recruit-wrapper .rules-container {
   width: 100%;
 }
 
-.rules-container h2 {
+.recruit-wrapper .rules-container h2 {
   text-align: center;
-  margin-bottom: 20px; /* Reduced from 30px */
+  margin-bottom: 20px;
   border-top: none;
-  margin-top: 0; /* Ensure no top margin */
+  margin-top: 0;
   padding-top: 0;
 }
 
-/* Force grid layout for features */
-.VPFeatures {
+/* Force grid layout for features - SCOPED PROTECTED */
+.recruit-wrapper .VPFeatures {
   padding: 0 !important;
 }
-.VPFeatures .container {
+.recruit-wrapper .VPFeatures .container {
   max-width: 100% !important;
 }
-.VPFeatures .items {
+.recruit-wrapper .VPFeatures .items {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
 }
-.VPFeatures .item.grid-3 {
+.recruit-wrapper .VPFeatures .item.grid-3 {
   width: 100%;
 }
 
 /* Fix Icon Clipping: Ensure padding is sufficient */
-.VPFeature {
-  padding: 24px !important; /* Force padding to prevent overlapping */
+.recruit-wrapper .VPFeature {
+  padding: 24px !important;
   height: 100%;
 }
 
 /* Ensure icons are decent size */
-.VPFeature .icon {
+.recruit-wrapper .VPFeature .icon {
   font-size: 24px;
   margin-bottom: 12px;
 }
@@ -170,25 +170,25 @@ layout: doc
   }
   
   /* QR Card styles for Stacked Layout */
-  .qr-card {
+  .recruit-wrapper .qr-card {
     position: static; 
     width: 100%;
-    max-width: 480px; /* Slightly wider for desktop title friendliness */
-    flex-direction: column; /* ALWAYS vertical stack, even on desktop */
+    max-width: 480px;
+    flex-direction: column;
     margin-bottom: 20px;
   }
   
-  .rules-container {
-    width: 100%; /* Full width for grid */
-    padding-top: 0; /* Reduced from 20px */
+  .recruit-wrapper .rules-container {
+    width: 100%;
+    padding-top: 0;
   }
 
-  .rules-container h2 {
-    text-align: center; /* Center title */
+  .recruit-wrapper .rules-container h2 {
+    text-align: center;
   }
   
-  /* 3 Column Grid for PC (33.3% minus gap) - Now has full space */
-  .VPFeatures .item.grid-3 {
+  /* 3 Column Grid for PC */
+  .recruit-wrapper .VPFeatures .item.grid-3 {
     width: calc(33.333% - 14px);
   }
 }
