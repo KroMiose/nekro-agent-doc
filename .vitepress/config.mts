@@ -78,6 +78,7 @@ export default defineConfig({
             { text: "概览", link: "/docs/01_intro/overview" },
             { text: "应用场景", link: "/docs/01_intro/application_scenarios" },
             { text: "社区宣发激励计划", link: "/docs/01_intro/event" },
+            { text: "NekroAI 成员招募", link: "/docs/01_intro/recruitment" },
           ],
         },
         {
