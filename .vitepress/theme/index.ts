@@ -4,7 +4,7 @@
 import { h, onMounted } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
-
+// 写一下这些CSS的已知问题：火狐浏览器浏览时 背景会有异常 待修复  
 // 导入所有样式文件
 import './css/base/colors.css'
 import './css/layout/hero.css'
@@ -17,7 +17,6 @@ import './css/base/overrides.css'
 
 // 导入第三方库和组件
 import { inBrowser } from "vitepress"
-import busuanzi from "busuanzi.pure.js"
 import Confetti from "./components/vue/Confetti.vue"
 import MyLayout from './components/vue/switch.vue'
 import LayoutComponent from './components/vue/layout.vue'
@@ -52,19 +51,17 @@ export default {
 
       // 首次加载时初始化
       router.onAfterRouteChanged = () => {
-        busuanzi.fetch();
-        // 每次路由切换后重新初始化3D效果
         initEffects();
       };
     }
   },
-  
+
   setup() {
     onMounted(() => {
       if (inBrowser) {
         // 在页面挂载后调用通知函数
         showAestheticNotice();
-        
+
         // 初始化3D倾斜效果
         setTimeout(() => {
           init3DTiltEffect();
