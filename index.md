@@ -50,36 +50,5 @@ features:
       alt: 开箱即用
 ---
 
-<script setup>
-import { onMounted, onUnmounted } from 'vue'
 
-const lockScroll = () => {
-  // 960px 以上 (PC端) 且在首页时
-  if (window.innerWidth >= 960) {
-    // 暴力锁定：同时设置 html 和 body，限制高度为 100vh，隐藏溢出
-    const style = 'overflow: hidden !important; height: 100vh !important;'
-    document.documentElement.style.cssText = style
-    document.body.style.cssText = style
-  } else {
-    // 移动端或窗口变小时恢复
-    unlockScroll()
-  }
-}
-
-const unlockScroll = () => {
-  // 清除强制锁定的内联样式
-  document.documentElement.style.cssText = ''
-  document.body.style.cssText = ''
-}
-
-onMounted(() => {
-  lockScroll()
-  window.addEventListener('resize', lockScroll)
-})
-
-onUnmounted(() => {
-  unlockScroll()
-  window.removeEventListener('resize', lockScroll)
-})
-</script>
 <Confetti />
