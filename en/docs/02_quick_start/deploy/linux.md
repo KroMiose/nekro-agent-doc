@@ -23,7 +23,7 @@ This mode will deploy Nekro Agent core services and Napcat protocol endpoint wit
 
 ```bash
 # From Github (Recommended)
-sudo -E bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/main/docker/install.sh)" - --with-napcat
+sudo -E bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/main/docker/install_i18n.sh)" - --with-napcat
 ```
 
 If you encounter network issues when downloading the script from Github, you can use [NekroEndpoint](https://ep.nekro.ai) to access the deployment script:
@@ -34,7 +34,7 @@ If you encounter network issues when downloading the script from Github, you can
 
 ```bash
 # From NekroEndpoint (Recommended)
-sudo -E bash -c "$(curl -fsSL https://ep.nekro.ai/e/KroMiose/nekro-agent/main/docker/install.sh)" - --with-napcat
+sudo -E bash -c "$(curl -fsSL https://ep.nekro.ai/e/KroMiose/nekro-agent/main/docker/install_i18n.sh)" - --with-napcat
 ```
 
 > **Tips**:
@@ -53,12 +53,12 @@ Run the following command and select not to install Napcat service when the scri
 
 ```bash
 # From Github (Recommended)
-sudo -E bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/main/docker/install.sh)"
+sudo -E bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/main/docker/install_i18n.sh)"
 ```
 
 ```bash
-# From GitCode (Domestic Acceleration)
-sudo -E bash -c "$(curl -fsSL https://raw.gitcode.com/gh_mirrors/ne/nekro-agent/raw/main/docker/install.sh)"
+# From NekroEndpoint (CloudFlare Acceleration)
+sudo -E bash -c "$(curl -fsSL https://ep.nekro.ai/e/KroMiose/nekro-agent/main/docker/install_i18n.sh)"
 ```
 
 When the script asks, input `n`:

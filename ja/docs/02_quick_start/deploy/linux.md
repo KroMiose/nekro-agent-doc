@@ -23,7 +23,7 @@ description: Linux環境でのNekro Agentデプロイメントの完全ガイド
 
 ```bash
 # Githubから（推奨）
-sudo -E bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/main/docker/install.sh)" - --with-napcat
+sudo -E bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/main/docker/install_i18n.sh)" - --with-napcat
 ```
 
 Githubからスクリプトをダウンロードする際にネットワークの問題が発生した場合は、[NekroEndpoint](https://ep.nekro.ai)を使用してデプロイメントスクリプトにアクセスできます：
@@ -34,7 +34,7 @@ Githubからスクリプトをダウンロードする際にネットワーク�
 
 ```bash
 # NekroEndpointから（推奨）
-sudo -E bash -c "$(curl -fsSL https://ep.nekro.ai/e/KroMiose/nekro-agent/main/docker/install.sh)" - --with-napcat
+sudo -E bash -c "$(curl -fsSL https://ep.nekro.ai/e/KroMiose/nekro-agent/main/docker/install_i18n.sh)" - --with-napcat
 ```
 
 > **ヒント**:
@@ -53,12 +53,12 @@ sudo -E bash -c "$(curl -fsSL https://ep.nekro.ai/e/KroMiose/nekro-agent/main/do
 
 ```bash
 # Githubから（推奨）
-sudo -E bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/main/docker/install.sh)"
+sudo -E bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/main/docker/install_i18n.sh)"
 ```
 
 ```bash
-# GitCodeから（国内アクセラレーション）
-sudo -E bash -c "$(curl -fsSL https://raw.gitcode.com/gh_mirrors/ne/nekro-agent/raw/main/docker/install.sh)"
+# NekroEndpointから（CloudFlareアクセラレーション）
+sudo -E bash -c "$(curl -fsSL https://ep.nekro.ai/e/KroMiose/nekro-agent/main/docker/install_i18n.sh)"
 ```
 
 スクリプトが尋ねたとき、`n`と入力します：

@@ -57,8 +57,8 @@ sudo -E bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-a
 ```
 
 ```bash
-# 从 GitCode (国内加速)
-sudo -E bash -c "$(curl -fsSL https://raw.gitcode.com/gh_mirrors/ne/nekro-agent/raw/main/docker/install.sh)"
+# 从 NekroEndpoint (CloudFlare 加速)
+sudo -E bash -c "$(curl -fsSL https://ep.nekro.ai/e/KroMiose/nekro-agent/main/docker/install.sh)"
 ```
 
 当脚本询问时，输入 `n`:
