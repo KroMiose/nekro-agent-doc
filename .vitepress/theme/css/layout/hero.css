@@ -58,76 +58,81 @@ body::-webkit-scrollbar {
     content: '';
     position: fixed !important;
     z-index: -999;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    filter: blur(130px) saturate(150%);
-    will-change: opacity, background-position;
-    background-size: 200% 200%;
+    top: -10%;
+    left: -10%;
+    width: 120vw;
+    height: 120vh;
+    /* 减小模糊半径让极光更清晰，同时提升性能 */
+    filter: blur(80px) saturate(180%);
+    /* 使用 transform 替代 background-position */
+    will-change: transform, opacity;
+    background-size: 100% 100%;
     /* 平滑过渡主题切换 */
     transition: opacity 0.3s ease, filter 0.3s ease;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 /* 暖色层：品牌红+活力橙+辅助粉红 */
 .VPHomeHero::before {
     background-image:
-        radial-gradient(circle at 20% 30%, var(--vp-c-brand-1) 0, transparent 40%),
-        radial-gradient(circle at 80% 70%, #F59E0B 0, transparent 40%),
-        radial-gradient(circle at 50% 50%, #db2777 0, transparent 40%);
-    opacity: 0.5;
-    animation: aurora-flow-1 12s ease-in-out infinite;
+        radial-gradient(circle at 20% 30%, var(--vp-c-brand-1) 0, transparent 50%),
+        radial-gradient(circle at 80% 70%, #F59E0B 0, transparent 50%),
+        radial-gradient(circle at 50% 50%, #db2777 0, transparent 50%);
+    opacity: 0.65;
+    /* 延长动画周期减少 GPU 计算频率 */
+    animation: aurora-drift-1 20s ease-in-out infinite;
 }
 
 /* 冷色层：深邃紫+通透蓝 */
 .VPHomeHero::after {
     background-image:
-        radial-gradient(circle at 70% 20%, #7C3AED 0, transparent 40%),
-        radial-gradient(circle at 20% 80%, #06B6D4 0, transparent 40%);
-    opacity: 0.4;
-    animation: aurora-flow-2 16s ease-in-out infinite;
+        radial-gradient(circle at 70% 20%, #7C3AED 0, transparent 50%),
+        radial-gradient(circle at 20% 80%, #06B6D4 0, transparent 50%);
+    opacity: 0.55;
+    animation: aurora-drift-2 25s ease-in-out infinite;
 }
 
-/* 极光动画：使用 background-position 实现流动效果，不影响布局 */
-@keyframes aurora-flow-1 {
+/* 极光动画：使用 transform 实现流动效果，GPU 加速 */
+@keyframes aurora-drift-1 {
 
     0%,
     100% {
-        background-position: 0% 0%;
+        transform: translate(0, 0) scale(1) translateZ(0);
         opacity: 0.5;
     }
 
     25% {
-        background-position: 50% 25%;
-        opacity: 0.6;
+        transform: translate(5%, 3%) scale(1.02) translateZ(0);
+        opacity: 0.55;
     }
 
     50% {
-        background-position: 100% 50%;
+        transform: translate(-3%, 5%) scale(0.98) translateZ(0);
         opacity: 0.45;
     }
 
     75% {
-        background-position: 50% 75%;
-        opacity: 0.55;
+        transform: translate(-5%, -3%) scale(1.03) translateZ(0);
+        opacity: 0.5;
     }
 }
 
-@keyframes aurora-flow-2 {
+@keyframes aurora-drift-2 {
 
     0%,
     100% {
-        background-position: 100% 100%;
+        transform: translate(0, 0) scale(1) translateZ(0);
         opacity: 0.4;
     }
 
     33% {
-        background-position: 0% 50%;
+        transform: translate(-4%, 4%) scale(1.03) translateZ(0);
         opacity: 0.35;
     }
 
     66% {
-        background-position: 50% 0%;
+        transform: translate(4%, -4%) scale(0.97) translateZ(0);
         opacity: 0.45;
     }
 }
@@ -145,18 +150,27 @@ body::-webkit-scrollbar {
 
 html:not(.dark) .VPHomeHero::before,
 html:not(.dark) .VPHomeHero::after {
-    filter: blur(100px) saturate(120%);
-    mix-blend-mode: multiply;
+    filter: blur(60px) saturate(180%);
+    /* 改用 screen 滤色模式让颜色更明亮 */
+    mix-blend-mode: screen;
 }
 
 html:not(.dark) .VPHomeHero::before {
-    opacity: 0.5;
-    animation: aurora-flow-1 12s ease-in-out infinite;
+    opacity: 0.6;
 }
 
 html:not(.dark) .VPHomeHero::after {
-    opacity: 0.4;
-    animation: aurora-flow-2 16s ease-in-out infinite;
+    opacity: 0.5;
+}
+
+/* 系统节能模式：自动禁用动画 */
+@media (prefers-reduced-motion: reduce) {
+
+    .VPHomeHero::before,
+    .VPHomeHero::after {
+        animation: none !important;
+        transform: none;
+    }
 }
 
 /* 移动端性能降级：静态背景 & 单层光斑 */
@@ -166,6 +180,7 @@ html:not(.dark) .VPHomeHero::after {
     .VPHomeHero::after {
         animation: none;
         filter: blur(80px);
+        transform: none;
     }
 
     .VPHomeHero::after {
@@ -243,12 +258,10 @@ html:not(.dark) .VPHomeHero::after {
 .VPNavBar:not(.has-sidebar):not(.home.top) {
     background-color: var(--glass-bg-light) !important;
     backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .dark .VPNavBar:not(.has-sidebar):not(.home.top) {
     background-color: var(--glass-bg-dark) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* 搜索框：圆角、聚焦高亮、选中态 */

@@ -9,10 +9,10 @@
 :root {
   /* 模糊半径：macOS 风格通常较大 */
   --blur-radius: 20px;
-  
+
   /* 饱和度提升：这是 Apple 玻璃鲜艳通透的秘诀 */
   --glass-saturate: 180%;
-  
+
   /* 玻璃背景色 (关键变量) */
   /* 浅色模式：半透明白色，模拟磨砂玻璃 */
   --glass-bg-color: rgba(255, 255, 255, 0.7);
@@ -28,25 +28,26 @@
 }
 
 /* ==================================================
-   1. 顶部导航栏 (Navbar)
+   1. 顶部导航栏 (Navbar) - 性能优化版本
    ================================================== */
 
 /* 首页下滑后 & 文档页的导航栏 */
+/* 移除 backdrop-filter 以优化滚动性能，改用纯半透明背景 */
 .VPNavBar:not(.has-sidebar):not(.home.top),
 .VPNavBar.has-sidebar {
   background-color: var(--glass-bg-color) !important;
-  backdrop-filter: blur(var(--blur-radius)) saturate(var(--glass-saturate));
-  -webkit-backdrop-filter: blur(var(--blur-radius)) saturate(var(--glass-saturate));
-  
-  /* 底部增加一条极细的分割线，增加层次感 */
-  border-bottom: 1px solid var(--glass-border-color) !important;
+  /* 已移除 backdrop-filter 以提升滚动性能 */
+
+  /* 移除边框以避免滚动时的突变 */
+  border-bottom: none !important;
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 /* 适配桌面端中间内容区 (防止 VitePress 默认遮挡) */
 @media (min-width: 960px) {
   .VPNavBar:not(.home.top) .content-body {
-    background-color: transparent !important; /* 让父元素的模糊透出来 */
+    background-color: transparent !important;
+    /* 让父元素的模糊透出来 */
   }
 }
 
@@ -55,7 +56,8 @@
    ================================================== */
 /* 让搜索按钮变成一个磨砂胶囊 */
 .DocSearch-Button {
-  background-color: rgba(0, 0, 0, 0.05) !important; /* 浅色模式微调 */
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  /* 浅色模式微调 */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 8px !important;
@@ -69,7 +71,8 @@
 }
 
 .dark .DocSearch-Button {
-  background-color: rgba(255, 255, 255, 0.1) !important; /* 深色模式微调 */
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  /* 深色模式微调 */
 }
 
 .dark .DocSearch-Button:hover {
@@ -82,9 +85,11 @@
 
 /* 文档页侧边栏顶部的遮罩 */
 .curtain {
-  background-color: transparent !important; /* 移除默认色，改用渐变或模糊 */
+  background-color: transparent !important;
+  /* 移除默认色，改用渐变或模糊 */
   background: linear-gradient(to bottom, var(--vp-c-bg) 0%, transparent 100%);
-  pointer-events: none; /* 防止遮挡点击 */
+  pointer-events: none;
+  /* 防止遮挡点击 */
 }
 
 /* 移动端顶部导航 */
@@ -97,5 +102,6 @@
 
 /* 移动端侧边栏弹窗背景 */
 .VPNavScreen {
-  background-color: var(--vp-c-bg) !important; /* 保持实色或稍微透明，防止内容混杂 */
+  background-color: var(--vp-c-bg) !important;
+  /* 保持实色或稍微透明，防止内容混杂 */
 }
