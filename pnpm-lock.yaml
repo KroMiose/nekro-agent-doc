@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@vrcd-community/markdown-it-video':
+        specifier: ^1.1.1
+        version: 1.1.1
     devDependencies:
       '@types/canvas-confetti':
         specifier: ^1.9.0
@@ -457,6 +461,9 @@ packages:
     peerDependencies:
       vite: ^5.0.0 || ^6.0.0
       vue: ^3.2.25
+
+  '@vrcd-community/markdown-it-video@1.1.1':
+    resolution: {integrity: sha512-Y1RUJawdUL/laFunC8t28Zto6TV0WhstfluvMaBzHVYmbZ0mrNLyqQbpBUh4tKT3khrw8Gua3cA6zqCUK9DCYA==}
 
   '@vue/compiler-core@3.5.13':
     resolution: {integrity: sha512-oOdAkwqUfW1WqpwSYJce06wvt6HljgY3fGeM9NcVA1HaYOij3mZG9Rkysn0OHuyUAGMbEbARIpsG+LPVlBJ5/Q==}
@@ -1361,6 +1368,8 @@ snapshots:
     dependencies:
       vite: 5.4.14
       vue: 3.5.13
+
+  '@vrcd-community/markdown-it-video@1.1.1': {}
 
   '@vue/compiler-core@3.5.13':
     dependencies:
