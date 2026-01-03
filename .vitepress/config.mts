@@ -15,6 +15,9 @@ export default defineConfig({
 
   // --- Head 区域深度优化 (共享配置) ---
   head: [
+    // 0. IE浏览器检测脚本 - 必须在其他脚本之前加载
+    ["script", { src: "/ie-detector-legacy.js" }],
+    
     // 1. 基础资源
     ["link", { rel: "icon", href: "/favicon.webp" }],
     ["meta", { name: "viewport", content: "width=device-width, initial-scale=1.0, viewport-fit=cover" }],

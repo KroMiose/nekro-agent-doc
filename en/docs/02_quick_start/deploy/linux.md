@@ -38,6 +38,7 @@ sudo -E bash -c "$(curl -fsSL https://ep.nekro.ai/e/KroMiose/nekro-agent/main/do
 ```
 
 > **Tips**:
+>
 > - The `--with-napcat` parameter in the above command will start fully automatic standard deployment.
 > - If this parameter is not added, the script will start in interactive mode. At that time, please select `Y` to install Napcat.
 
@@ -74,10 +75,12 @@ After deployment is complete, Nekro Agent will listen to the following address. 
 ## 📝 Notes
 
 - **Installation Directory**:
+
   - Default installation is in `~/srv/nekro_agent`.
   - If you need to customize, please set the environment variable **before executing the script**: `export NEKRO_DATA_DIR=<your directory>`
 
 - **Port Opening**:
+
   - If you are using a cloud server, please open the required ports in the security group:
   - `8021/tcp`: Nekro Agent main service (required for all modes).
   - `6099/tcp`: Napcat service (only required for standard deployment).
@@ -89,4 +92,3 @@ After deployment is complete, Nekro Agent will listen to the following address. 
 
 - **Standard Deployment**: Go to the [Protocol Configuration](/en/docs/02_quick_start/config/protocol.html#napcat-integrated-deployment-recommended) document and complete the configuration according to the documentation.
 - **Core Deployment**: Go to the [Protocol Configuration](/en/docs/02_quick_start/config/protocol) document and continue configuration with reference to the instructions.
-
