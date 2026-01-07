@@ -84,7 +84,14 @@ uv sync --all-extras
 
 ### 3. Start Development Services
 
-Start required services like PostgreSQL and Qdrant:
+To ensure the PostgreSQL database in the development environment has appropriate permissions to write configuration, you need to create the data directory and set permissions first:
+
+```bash
+mkdir -p data/dev_postgres_data
+sudo chown -R 999:999 data/dev_postgres_data
+```
+
+Start required services like PostgreSQL, Qdrant, etc.:
 
 ```bash
 # Start development service orchestration (PostgreSQL + Qdrant + NapCat)
@@ -134,6 +141,15 @@ sudo docker pull kromiose/nekro-agent-sandbox:preview
 If you need to modify dependency packages in the image, you can modify the `sandbox/dockerfile` and `sandbox/pyproject.toml` files, then use `sudo bash sandbox.sh --build` to rebuild the image
 
 ### 6. Run Bot
+
+::: warning Note
+Since plugins need to dynamically use Docker to create sandbox execution environments and set container shared directory permissions, it is recommended to add the current user to the `docker` group and restart the shell to take effect:
+
+```bash
+sudo usermod -aG docker $USER
+```
+
+:::
 
 ```bash
 # Normal startup

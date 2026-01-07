@@ -84,6 +84,13 @@ uv sync --all-extras
 
 ### 3. 启动开发依赖服务
 
+为了确保开发环境的 PostgreSQL 数据库拥有合适的权限写入配置，需要先创建数据目录并设置权限：
+
+```bash
+mkdir -p data/dev_postgres_data
+sudo chown -R 999:999 data/dev_postgres_data
+```
+
 启动开发所需的 PostgreSQL、Qdrant 等依赖服务：
 
 ```bash
@@ -112,6 +119,7 @@ vim .env.dev
 
 ::: info 配置说明
 `.env.example` 已预配置好开发环境的默认值，包括：
+
 - 数据库连接信息（连接到上一步启动的开发服务）
 - Qdrant 向量数据库配置
 - 开发环境预设的安全密钥

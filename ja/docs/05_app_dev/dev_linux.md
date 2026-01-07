@@ -84,6 +84,13 @@ uv sync --all-extras
 
 ### 3. 開発サービスを起動
 
+開発環境のPostgreSQLデータベースが適切な権限で設定を書き込めるようにするため、まずデータディレクトリを作成し、権限を設定する必要があります：
+
+```bash
+mkdir -p data/dev_postgres_data
+sudo chown -R 999:999 data/dev_postgres_data
+```
+
 PostgreSQLやQdrantなどの必要なサービスを起動します：
 
 ```bash
@@ -134,6 +141,15 @@ sudo docker pull kromiose/nekro-agent-sandbox:preview
 イメージ内の依存関係パッケージを変更する必要がある場合は、`sandbox/dockerfile`と`sandbox/pyproject.toml`ファイルを変更し、`sudo bash sandbox.sh --build`を使用してイメージを再構築できます
 
 ### 6. Botを実行
+
+::: warning 注意
+プラグインが動作する際にDockerを動的に使用してサンドボックス実行環境を作成し、コンテナ共有ディレクトリの権限を設定する必要があるため、現在のユーザーを`docker`グループに追加し、シェルを再起動して有効にすることをお勧めします：
+
+```bash
+sudo usermod -aG docker $USER
+```
+
+:::
 
 ```bash
 # 通常起動
