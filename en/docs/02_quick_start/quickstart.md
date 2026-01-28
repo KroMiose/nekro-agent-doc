@@ -22,7 +22,7 @@ This project allows AI to execute arbitrary code in an isolated Docker container
 
 Choose the appropriate deployment method based on your operating system:
 
-- [Linux Deployment Tutorial](/en/docs/02_quick_start/deploy/linux) - Suitable for various Linux distributions
+- [Linux Deployment Tutorial](/en/docs/02_quick_start/deploy/linux) - Applicable to Linux distributions that use apt as the package manager.
 - [Windows Deployment Tutorial](/en/docs/02_quick_start/deploy/windows) - Suitable for Windows 10/11 systems
 - [MacOS Deployment Tutorial](/en/docs/02_quick_start/deploy/macos) - Suitable for MacOS systems
 

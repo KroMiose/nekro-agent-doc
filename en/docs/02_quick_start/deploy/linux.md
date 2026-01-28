@@ -7,6 +7,10 @@ description: Complete guide to deploying Nekro Agent in a Linux environment, inc
 
 This document will guide you through deploying Nekro Agent on a Linux system. Our installation script provides two deployment modes. Please choose according to your needs.
 
+::: tip tips
+The installation script provided in this article is only applicable to Linux distributions that use `apt` as the package manager, such as Ubuntu and Debian.
+:::
+
 ## 🚀 Method 1: Standard Deployment (Recommended)
 
 This mode will deploy Nekro Agent core services and Napcat protocol endpoint with one click, which is the complete solution recommended for most users.

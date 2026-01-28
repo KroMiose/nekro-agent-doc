@@ -22,7 +22,7 @@ Nekro Agent `(以下、NA)` へようこそ！このドキュメントは、こ�
 
 オペレーティングシステムに基づいて適切なデプロイ方法を選択してください：
 
-- [Linux デプロイチュートリアル](/ja/docs/02_quick_start/deploy/linux) - さまざまなLinuxディストリビューションに適しています
+- [Linux デプロイチュートリアル](/ja/docs/02_quick_start/deploy/linux) - apt をパッケージマネージャーとして使用している Linux ディストリビューション向け
 - [Windows デプロイチュートリアル](/ja/docs/02_quick_start/deploy/windows) - Windows 10/11 システムに適しています
 - [MacOS デプロイチュートリアル](/ja/docs/02_quick_start/deploy/macos) - MacOS システムに適しています
 
