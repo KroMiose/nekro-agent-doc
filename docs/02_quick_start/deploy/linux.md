@@ -7,6 +7,10 @@ description: 在 Linux 环境下部署 Nekro Agent 的完整指南，包括标�
 
 本文档将指导您在 Linux 系统上部署 Nekro Agent。我们的安装脚本提供了两种部署模式，请根据您的需求选择。
 
+::: tip 提示
+本文提供的安装脚本仅适用于使用`apt`作为包管理器的Linux发行版，例如Ubuntu、Debian等
+:::
+
 ## 🚀 方式一：标准部署（推荐）
 
 此模式将一键部署 Nekro Agent 核心服务及 Napcat 协议端，是为大多数用户推荐的完整解决方案。
