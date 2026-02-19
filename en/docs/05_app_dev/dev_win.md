@@ -1,199 +1,195 @@
 ---
-title: Windows Development and Deployment Guide
-description: Complete guide for development and deployment of Nekro Agent in Windows environment
+title: Windows Development Guide
+description: Complete development guide for Nekro Agent on Windows
 ---
 
 # Windows Development Environment Setup
 
 ::: warning Warning
-This document is for development environment only and is not recommended for deployment or use.
+This document is for development environment only, not recommended for deployment or production use.
 :::
 
-## Prerequisites
-
-Development environment requirements:
-
-- A functional PostgreSQL database
-- Python environment installed (Python 3.10 recommended)
-- Install `poetry` (Python dependency management tool)
-- Install `nb-cli` (NoneBot scaffolding tool)
-- Install Docker Desktop
-- All command line operations are recommended to be executed in PowerShell
-
-```bash
-pip install poetry
-pip install nb-cli
-```
-
-## Source Code Deployment
-
-### 1. Clone Repository
-
-```bash
-git clone https://github.com/KroMiose/nekro-agent.git
-```
-
-### 2. Install Dependencies
-
-```bash
-cd nekro-agent
-pip install poetry  # Need to install Python environment first: Python 3.10 recommended
-poetry config virtualenvs.in-project true  # Install virtual environment in project directory (optional)
-poetry install
-```
-
-### 3. Install PostgreSQL Database
-
-1. Visit [PostgreSQL official website](https://www.postgresql.org/download/windows/)
-2. Download the latest 15.x version installer
-3. During installation:
-   - Set administrator password (please remember it)
-   - Keep default port 5432
-   - Uncheck "Stack Builder"
-
-### 4. Database Initialization
-
-1. Open SQL Shell (psql) or pgAdmin
-2. Execute the following SQL commands:
-
-```sql
--- Create database
-CREATE DATABASE nekro_db;
-```
-
-### 5. Generate Configuration File
-
-Run the Bot once to load plugins and then close it to generate configuration files:
-
-```bash
-nb run
-```
-
-### 6. Configure Required Information
-
-Edit the configuration file `./data/configs/nekro-agent.yaml` to configure database connection and other information.
-
-```yaml
-# Bot and management information
-SUPER_USERS: # List of admin user QQ numbers
-  - "12345678"
-BOT_QQ: "12345678" # Bot QQ number (**Required**)
-ADMIN_CHAT_KEY: group_12345678 # Admin session channel identifier
-
-# PostgreSQL database configuration
-POSTGRES_HOST: localhost
-POSTGRES_PORT: 5432
-POSTGRES_USER: postgres
-POSTGRES_PASSWORD: your_password
-POSTGRES_DATABASE: nekro_db
-```
-
-::: info Complete Configuration
-For complete configuration instructions, please refer to [config.py](https://github.com/KroMiose/nekro-agent/blob/main/nekro_agent/core/config.py)
+::: tip Note
+The development process for Windows and Linux is essentially the same. This document only covers Windows-specific installation steps. For other steps, please refer to the [Linux Development Guide](./dev_linux.md).
 :::
 
-### 7. Install Docker Desktop
+## Windows-Specific Preparation
 
-1. Visit [Docker official website](https://www.docker.com/products/docker-desktop/)
-2. Download Windows version and install
-3. After startup, the whale icon in the bottom right corner indicates success
-4. (Optional) Enable WSL2 backend in settings to improve performance
+### 1. Install Python 3.11
 
-### 8. Pull Sandbox Image
+Visit [Python Official Website](https://www.python.org/downloads/windows/) to download and install Python 3.11:
 
-Pull the Docker image for the sandbox environment:
+1. Download Windows installer (64-bit)
+2. **Make sure to check** "Add Python to PATH"
+3. Select "Install Now"
+
+### 2. Install UV
+
+Execute in PowerShell:
 
 ```powershell
-# Pull image
+# Windows
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# Verify installation
+uv --version
+```
+
+### 3. Install Docker Desktop
+
+1. Visit [Docker Desktop Official Website](https://www.docker.com/products/docker-desktop/)
+2. Download Windows version
+3. Install and launch Docker Desktop
+4. Verify Docker service is running: `docker info`
+
+::: tip About Permissions
+Windows users typically don't need administrator privileges to run the development server. Docker Desktop automatically configures permissions.
+
+**If you encounter permission issues:**
+
+1. **Run PowerShell as Administrator**
+   - Right-click PowerShell icon
+   - Select "Run as administrator"
+
+2. **Ensure Docker Desktop is running**
+   - Docker Desktop needs to run in the background
+   - First launch may require administrator privileges
+
+3. **Use WSL2 (Recommended)**
+   ```powershell
+   # Install WSL2
+   wsl --install
+   
+   # Develop in WSL2, refer to Linux development guide
+   ```
+:::
+
+## Source Deployment
+
+### Quick Start
+
+The development process for Windows is basically the same as Linux, with the main difference being the command-line tool (using PowerShell). Follow these steps:
+
+1. **Clone repository and install dependencies** - See [Linux Guide: Source Deployment Steps 1-2](./dev_linux.md#source-deployment)
+2. **Start development services** - See [Linux Guide: Step 3](./dev_linux.md#_3-start-development-services)
+3. **Configure environment variables** - See Windows-specific commands below
+4. **Pull sandbox image** - See [Linux Guide: Step 5](./dev_linux.md#_5-pull-sandbox-image)
+5. **Run Bot** - See [Linux Guide: Step 6](./dev_linux.md#_6-run-bot)
+6. **OneBot configuration** - See [Linux Guide: Step 7](./dev_linux.md#_7-onebot-configuration)
+
+### Windows-Specific Commands
+
+#### Configure Environment Variables (Step 3)
+
+```powershell
+# Copy configuration template (pre-configured to connect to dev services)
+copy .env.example .env.dev
+
+# Modify configuration as needed (optional)
+notepad .env.dev
+```
+
+### One-Command Setup (PowerShell)
+
+```powershell
+# Clone and enter project
+git clone https://github.com/KroMiose/nekro-agent.git
+cd nekro-agent
+
+# Install dependencies
+uv sync --all-extras
+
+# Start development services
+docker-compose -f docker/docker-compose.dev.yml up -d
+
+# Configure environment variables
+copy .env.example .env.dev
+
+# Pull sandbox image
 docker pull kromiose/nekro-agent-sandbox:latest
 
-# Verify image
-docker images | findstr "nekro-agent-sandbox"
+# Start application
+uv run nb run --reload --reload-excludes ext_workdir
 ```
 
-### 9. Set WebUI Password
+## Using WSL2 for Development (Recommended)
 
-::: warning Note
-Since the webui password of nekro_agent is stored in environment variables rather than database, you need to set the password in environment variables
-:::
+WSL2 provides better compatibility and performance. Highly recommended for Windows users:
 
-1. Open File Explorer and find "This PC", right-click on "Properties"
-2. Find "Advanced system settings" and click "Environment Variables"
-3. Add the following in environment variables:
-   - Name: `NEKRO_ADMIN_PASSWORD`
-   - Value: The password you want to set
-4. Click "OK" to save settings and exit
+### 1. Install WSL2
 
-### 10. Run Bot
+```powershell
+# Execute in PowerShell (Administrator)
+wsl --install
+
+# After restarting, set Ubuntu username and password
+```
+
+### 2. Develop in WSL2
 
 ```bash
-nb run
-# Enable reload monitoring in development debug mode and exclude dynamic extension directories
-nb run --reload --reload-excludes ext_workdir
+# Enter WSL2
+wsl
+
+# Follow Linux development guide completely
 ```
 
-Or start via command line:
-```bash
-poetry run bot
-```
+Then follow the [Linux Development Guide](./dev_linux.md) completely within WSL2.
 
-### 11. OneBot Configuration
-
-Use any OneBot protocol client to log in to the bot and use reverse WebSocket connection method, configure the connection address:
-
-```
-ws://127.0.0.1:8021/onebot/v11/ws
-```
-
-::: tip
-The port here can be configured in `.env.prod`, default is `8021`
+::: tip WSL2 Advantages
+- Full Linux compatibility
+- Better performance
+- Simpler dependency management
+- Avoid Windows path and permission issues
 :::
-
-### 12. Debug Mode
-
-The project includes a `.vscode/launch.json` file, which allows you to debug directly using VSCode:
-
-1. Open the project root directory
-2. Press `F5` to start debugging
-3. Observe if terminal output is normal
 
 ## Frontend Development (Optional)
 
-If you need to develop frontend pages, follow these steps:
+### Install Node.js
 
-### 1. Install Node.js
-1. Visit [Node.js official website](https://nodejs.org/)
-2. Download 20.x LTS version (.msi format)
-3. Check **Add to PATH** option during installation
+1. Visit [Node.js Official Website](https://nodejs.org/)
+2. Download and install LTS version (recommended 20.x)
 
-### 2. Configure pnpm
-```powershell
-# Install pnpm globally
-npm install -g pnpm
+### Next Steps
 
-# Set up mirror for acceleration
-pnpm config set registry https://registry.npmmirror.com
-```
+Other frontend development steps are the same as Linux. See [Linux Guide: Frontend Development](./dev_linux.md#frontend-development-optional).
 
-### 3. Install Frontend Dependencies
+Or use one-command setup (PowerShell):
+
 ```powershell
 cd frontend
-
-# Install dependencies
+npm install -g pnpm
+pnpm config set registry https://registry.npmmirror.com
 pnpm install --frozen-lockfile
-```
-
-### 4. Start Frontend
-```bash
-cd ./frontend
 pnpm dev
 ```
 
-When you see the following log, you can access it in your browser:
-```
-VITE vx.x.x  ready in xxx ms
+## Debug Mode
 
-➜  Local:   http://localhost:xxxx/ <- This is the port number
-➜  Network: use --host to expose
-➜  press h + enter to show help
-```
+The project includes `.vscode/launch.json` for direct VSCode debugging:
+
+1. Open project root directory
+2. Press `F5` to start debugging
+3. Observe terminal output
+
+## Common Issues
+
+### Docker Desktop Won't Start
+
+1. Ensure Hyper-V or WSL2 is enabled
+2. Check if virtualization is enabled in BIOS
+3. Run Docker Desktop as administrator
+
+### Path Issues
+
+Windows uses backslashes `\`, but Git Bash or WSL2 use forward slashes `/`. Using WSL2 for development is recommended to avoid path issues.
+
+### Permission Issues
+
+If you encounter permission errors, try:
+1. Run PowerShell as administrator
+2. Or use WSL2 (recommended)
+
+## Docker Image Information
+
+Please refer to [Linux Guide: Docker Image Information](./dev_linux.md#docker-image-information).

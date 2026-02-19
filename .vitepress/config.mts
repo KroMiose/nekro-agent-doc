@@ -15,6 +15,9 @@ export default defineConfig({
 
   // --- Head 区域深度优化 (共享配置) ---
   head: [
+    // 0. IE浏览器检测脚本 - 必须在其他脚本之前加载
+    ["script", { src: "/ie-detector-legacy.js" }],
+    
     // 1. 基础资源
     ["link", { rel: "icon", href: "/favicon.webp" }],
     ["meta", { name: "viewport", content: "width=device-width, initial-scale=1.0, viewport-fit=cover" }],
@@ -188,6 +191,7 @@ export default defineConfig({
                     { text: "使用向量数据库", link: "/docs/04_plugin_dev/03_advanced_features/3.3_vector_database" },
                     { text: "动态路由", link: "/docs/04_plugin_dev/03_advanced_features/3.4_dynamic_router" },
                     { text: "动态包导入", link: "/docs/04_plugin_dev/03_advanced_features/3.5_dynamic_package_import" },
+                    { text: "异步任务", link: "/docs/04_plugin_dev/03_advanced_features/3.6_async_tasks" },
                   ],
                 },
                 { text: "系统 API 参考", link: "/docs/04_plugin_dev/04_system_api_reference" },
@@ -315,6 +319,7 @@ export default defineConfig({
                     { text: "Vector Database", link: "/en/docs/04_plugin_dev/03_advanced_features/3.3_vector_database" },
                     { text: "Dynamic Router", link: "/en/docs/04_plugin_dev/03_advanced_features/3.4_dynamic_router" },
                     { text: "Dynamic Package", link: "/en/docs/04_plugin_dev/03_advanced_features/3.5_dynamic_package_import" },
+                    { text: "Async Tasks", link: "/en/docs/04_plugin_dev/03_advanced_features/3.6_async_tasks" },
                   ],
                 },
                 { text: "System API", link: "/en/docs/04_plugin_dev/04_system_api_reference" },
@@ -442,6 +447,7 @@ export default defineConfig({
                     { text: "ベクトルデータベース", link: "/ja/docs/04_plugin_dev/03_advanced_features/3.3_vector_database" },
                     { text: "動的ルーター", link: "/ja/docs/04_plugin_dev/03_advanced_features/3.4_dynamic_router" },
                     { text: "動的パッケージ", link: "/ja/docs/04_plugin_dev/03_advanced_features/3.5_dynamic_package_import" },
+                    { text: "非同期タスク", link: "/ja/docs/04_plugin_dev/03_advanced_features/3.6_async_tasks" },
                   ],
                 },
                 { text: "システムAPI", link: "/ja/docs/04_plugin_dev/04_system_api_reference" },

@@ -50,6 +50,7 @@ The Nekro Agent plugin system is designed based on modular and event-driven arch
     *   **File System**: Implement efficient file transfer between plugins and AI sandbox through `AgentCtx.fs`.
     *   **Vector Database**: Integrate Qdrant vector database to provide semantic search and intelligent retrieval capabilities for plugins.
     *   **Context Management**: Uniformly access chat information, message services, configuration, and adapter functions through `AgentCtx`.
+    *   **Async Tasks**: Execute long-running background tasks with progress tracking, cancellation, and terminal callbacks without blocking main conversation.
 
 This design ensures the flexibility and security of plugin operation while providing developers with powerful extension capabilities.
 

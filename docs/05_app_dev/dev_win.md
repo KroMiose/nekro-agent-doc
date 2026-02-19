@@ -9,191 +9,187 @@ description: Nekro Agent Windows环境下的开发部署完整指南
 此文档仅用于开发环境，不推荐用于部署或使用。
 :::
 
-## 准备工作
+::: tip 提示
+Windows 和 Linux 的开发流程基本相同。本文档仅列出 Windows 特有的安装步骤，其他步骤请参考 [Linux 开发部署指南](./dev_linux.md)。
+:::
 
-开发环境要求：
+## Windows 特有准备工作
 
-- 一个可用的 Postgresql 数据库
-- 安装 Python 环境 (推荐 Python 3.10)
-- 安装 `poetry` (Python 依赖管理工具)
-- 安装 `nb-cli` (NoneBot 脚手架)
-- 安装 Docker Desktop
-- 所有命令行操作推荐在 PowerShell 中执行
+### 1. 安装 Python 3.11
 
-```bash
-pip install poetry
-pip install nb-cli
+访问 [Python 官网](https://www.python.org/downloads/windows/) 下载并安装 Python 3.11：
+
+1. 下载 Windows installer (64-bit)
+2. 安装时**务必勾选** "Add Python to PATH"
+3. 选择 "Install Now"
+
+### 2. 安装 UV
+
+在 PowerShell 中执行：
+
+```powershell
+# Windows
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# 验证安装
+uv --version
 ```
+
+### 3. 安装 Docker Desktop
+
+1. 访问 [Docker Desktop 官网](https://www.docker.com/products/docker-desktop/)
+2. 下载 Windows 版本
+3. 安装并启动 Docker Desktop
+4. 确认 Docker 服务正常运行：`docker info`
+
+::: tip 关于权限
+Windows 用户通常不需要管理员权限运行开发服务器。Docker Desktop 会自动配置权限。
+
+**如果遇到权限问题：**
+
+1. **以管理员身份运行 PowerShell**
+   - 右键点击 PowerShell 图标
+   - 选择"以管理员身份运行"
+
+2. **确保 Docker Desktop 正常运行**
+   - Docker Desktop 需要在后台运行
+   - 首次启动可能需要管理员权限
+
+3. **使用 WSL2（推荐）**
+   ```powershell
+   # 安装 WSL2
+   wsl --install
+   
+   # 在 WSL2 中开发，参考 Linux 开发文档
+   ```
+:::
 
 ## 源码部署
 
-### 1. 克隆仓库
+### 快速开始
 
-```bash
-git clone https://github.com/KroMiose/nekro-agent.git
-```
+Windows 的开发流程与 Linux 基本相同，主要区别在于命令行工具（使用 PowerShell）。请按照以下步骤操作：
 
-### 2. 安装依赖
+1. **克隆仓库并安装依赖** - 参考 [Linux 指南：源码部署 步骤 1-2](./dev_linux.md#源码部署)
+2. **启动开发依赖服务** - 参考 [Linux 指南：步骤 3](./dev_linux.md#_3-启动开发依赖服务)
+3. **配置环境变量** - 参考下方 Windows 特定命令
+4. **拉取沙盒镜像** - 参考 [Linux 指南：步骤 5](./dev_linux.md#_5-拉取沙盒镜像)
+5. **运行 Bot** - 参考 [Linux 指南：步骤 6](./dev_linux.md#_6-运行-bot)
+6. **OneBot 配置** - 参考 [Linux 指南：步骤 7](./dev_linux.md#_7-onebot-配置)
 
-```bash
-cd nekro-agent
-pip install poetry  # 需要提前安装 Python 环境: 推荐 Python 3.10
-poetry config virtualenvs.in-project true  # 将虚拟环境安装到项目目录下 (可选)
-poetry install
-```
+### Windows 特定命令
 
-### 3. 安装 PostgreSQL 数据库
-
-1. 访问 [PostgreSQL 官网](https://www.postgresql.org/download/windows/)
-2. 下载最新 15.x 版本安装包
-3. 安装时：
-   - 设置管理员密码（请牢记）
-   - 保持默认端口 5432
-   - 取消勾选"Stack Builder"
-
-### 4. 数据库初始化
-
-1. 打开 SQL Shell (psql) 或 pgAdmin
-2. 执行以下 SQL 命令：
-
-```sql
--- 创建数据库
-CREATE DATABASE nekro_db;
-```
-
-### 5. 生成配置文件
-
-运行一次 Bot 加载插件并关闭以生成配置文件：
-
-```bash
-nb run
-```
-
-### 6. 配置必要信息
-
-编辑配置文件 `./data/configs/nekro-agent.yaml` 配置数据库连接等信息。
-
-```yaml
-# Bot 与管理信息
-SUPER_USERS: # 管理用户 QQ 号列表
-  - "12345678"
-BOT_QQ: "12345678" # 机器人 QQ 号 (**必填**)
-ADMIN_CHAT_KEY: group_12345678 # 管理会话频道标识
-
-# Postgresql 数据库配置
-POSTGRES_HOST: localhost
-POSTGRES_PORT: 5432
-POSTGRES_USER: postgres
-POSTGRES_PASSWORD: your_password
-POSTGRES_DATABASE: nekro_db
-```
-
-::: info 完整配置
-完整配置说明请参考 [config.py](https://github.com/KroMiose/nekro-agent/blob/main/nekro_agent/core/config.py)
-:::
-
-### 7. 安装 Docker Desktop
-
-1. 访问 [Docker 官网](https://www.docker.com/products/docker-desktop/)
-2. 下载 Windows 版本并安装
-3. 启动后右下角出现鲸鱼图标即成功
-4. （可选）在设置中启用 WSL2 后端提升性能
-
-### 8. 拉取沙盒镜像
-
-拉取用于沙盒环境的 Docker 镜像：
+#### 配置环境变量（步骤 3）
 
 ```powershell
-# 拉取镜像
+# 复制配置模板（已预配置连接开发服务）
+copy .env.example .env.dev
+
+# 根据需要修改配置（可选）
+notepad .env.dev
+```
+
+### 一键复制命令（PowerShell）
+
+```powershell
+# 克隆并进入项目
+git clone https://github.com/KroMiose/nekro-agent.git
+cd nekro-agent
+
+# 安装依赖
+uv sync --all-extras
+
+# 启动开发服务
+docker compose -f docker/docker-compose.dev.yml up -d
+
+# 配置环境变量
+copy .env.example .env.dev
+
+# 拉取沙盒镜像
 docker pull kromiose/nekro-agent-sandbox:latest
 
-# 验证镜像
-docker images | findstr "nekro-agent-sandbox"
+# 启动应用
+uv run nb run --reload --reload-excludes ext_workdir
 ```
 
-### 9. 设置 WebUI 密码
+## 使用 WSL2 开发（推荐）
 
-::: warning 注意
-由于 nekro_agent 的 webui 密码是被存放在环境变量而非数据库，需要在环境变量中设置密码
-:::
+WSL2 提供了更好的兼容性和性能，强烈推荐 Windows 用户使用：
 
-1. 打开文件资源管理器找到"此电脑", 右键点击 "属性"
-2. 找到"高级系统设置", 并点击"环境变量"
-3. 在环境变量中添加以下内容:
-   - 名称: `NEKRO_ADMIN_PASSWORD`
-   - 值: 你想要设置的密码
-4. 点击"确定"保存设置并退出
+### 1. 安装 WSL2
 
-### 10. 运行 Bot
+```powershell
+# 在 PowerShell（管理员）中执行
+wsl --install
+
+# 重启电脑后，设置 Ubuntu 用户名和密码
+```
+
+### 2. 在 WSL2 中开发
 
 ```bash
-nb run
-# 开发调试模式下启用重载监视并排除动态扩展目录
-nb run --reload --reload-excludes ext_workdir
+# 进入 WSL2
+wsl
+
+# 完全按照 Linux 开发指南操作
 ```
 
-或使用命令行启动：
-```bash
-poetry run bot
-```
+然后在 WSL2 中完全按照 [Linux 开发部署指南](./dev_linux.md) 进行操作。
 
-### 11. OneBot 配置
-
-使用任意 OneBot 协议客户端登录机器人并使用反向 WebSocket 连接方式，配置好连接地址：
-
-```
-ws://127.0.0.1:8021/onebot/v11/ws
-```
-
-::: tip
-这里的端口可在 `.env.prod` 中配置，默认为 `8021`
+::: tip WSL2 优势
+- 完全的 Linux 兼容性
+- 更好的性能
+- 更简单的依赖管理
+- 避免 Windows 路径和权限问题
 :::
-
-### 12. 调试模式
-
-项目中包含 `.vscode/launch.json` 文件，可以直接使用 VSCode 进行调试：
-
-1. 打开项目根目录
-2. 按 `F5` 启动调试
-3. 观察终端输出是否正常
 
 ## 前端开发（可选）
 
-如需开发前端页面，可按以下步骤进行：
+### 安装 Node.js
 
-### 1. 安装 Node.js
 1. 访问 [Node.js 官网](https://nodejs.org/)
-2. 下载 20.x LTS 版本（.msi 格式）
-3. 安装时勾选 **Add to PATH** 选项
+2. 下载并安装 LTS 版本（推荐 20.x）
 
-### 2. 配置 pnpm
-```powershell
-# 全局安装 pnpm
-npm install -g pnpm
+### 后续步骤
 
-# 设置镜像加速
-pnpm config set registry https://registry.npmmirror.com
-```
+前端开发的其他步骤与 Linux 相同，请参考 [Linux 指南：前端开发](./dev_linux.md#前端开发-可选)。
 
-### 3. 安装前端依赖
+或使用一键命令（PowerShell）：
+
 ```powershell
 cd frontend
-
-# 安装依赖
+npm install -g pnpm
+pnpm config set registry https://registry.npmmirror.com
 pnpm install --frozen-lockfile
-```
-
-### 4. 启动前端
-```bash
-cd ./frontend
 pnpm dev
 ```
 
-当看到如下日志时，即可在浏览器访问：
-```
-VITE vx.x.x  ready in xxx ms
+## 调试模式
 
-➜  Local:   http://localhost:xxxx/ <-这里是端口号
-➜  Network: use --host to expose
-➜  press h + enter to show help
-```
+项目包含 `.vscode/launch.json` 文件，可直接使用 VSCode 调试：
+
+1. 打开项目根目录
+2. 按 `F5` 启动调试
+3. 观察终端输出
+
+## 常见问题
+
+### Docker Desktop 无法启动
+
+1. 确保已启用 Hyper-V 或 WSL2
+2. 检查 BIOS 中是否启用了虚拟化
+3. 以管理员身份运行 Docker Desktop
+
+### 路径问题
+
+Windows 使用反斜杠 `\`，但在 Git Bash 或 WSL2 中使用正斜杠 `/`。建议使用 WSL2 开发以避免路径问题。
+
+### 权限问题
+
+如果遇到权限错误，尝试：
+1. 以管理员身份运行 PowerShell
+2. 或使用 WSL2（推荐）
+
+## Docker 镜像说明
+
+请参考 [Linux 指南：Docker 镜像说明](./dev_linux.md#docker-镜像说明)。

@@ -14,14 +14,56 @@ description: Nekro Agent Linux环境下的开发部署完整指南
 开发环境要求：
 
 - 一个可用的 Postgresql 数据库
-- 安装 Python 环境 (推荐 Python 3.10)
-- 安装 `poetry` (Python 依赖管理工具)
-- 安装 `nb-cli` (NoneBot 脚手架)
+- 安装 Python 环境 (推荐 Python 3.11)
+- 安装 `uv` (Python 包管理器)
+- Docker & Docker Compose
+
+### 安装 UV 和 poe
 
 ```bash
-pip install poetry
-pip install nb-cli
+# Linux/macOS
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# 验证安装
+uv --version
+
+# 安装 poe
+uv tool install poethepoet
+
+# 验证安装
+poe --version
 ```
+
+::: tip 关于 sudo 权限
+由于项目需要调用 Docker，部分开发场景可能需要 sudo 权限。为确保 `uv` 和 `poe` 在 sudo 下可用：
+
+**安装 UV 和 poe 到系统路径**
+
+```bash
+# 安装 UV 到系统路径
+sudo cp ~/.local/bin/uv /usr/local/bin/
+sudo cp ~/.local/bin/uvx /usr/local/bin/
+sudo chmod +x /usr/local/bin/uv /usr/local/bin/uvx
+
+# 安装 poe 到系统路径
+sudo cp ~/.local/share/uv/tools/poethepoet/bin/poe /usr/local/bin/
+sudo chmod +x /usr/local/bin/poe
+
+# 在新终端中验证使用 sudo 执行命令
+sudo uv --version
+sudo poe --help
+```
+
+**使用 sudo 运行开发服务器：**
+
+```bash
+sudo -E uv run poe dev
+# 或
+sudo -E poe dev
+```
+
+`-E` 参数保留当前用户的环境变量。
+:::
 
 ## 源码部署
 
@@ -35,40 +77,54 @@ git clone https://github.com/KroMiose/nekro-agent.git
 
 ```bash
 cd nekro-agent
-pip install poetry  # 需要提前安装 Python 环境: 推荐 Python 3.10
-poetry config virtualenvs.in-project true  # 将虚拟环境安装到项目目录下 (可选)
-poetry install
+
+# 使用 UV 安装依赖 (包括开发依赖)
+uv sync --all-extras
 ```
 
-### 3. 生成配置文件
+### 3. 启动开发依赖服务
 
-运行一次 Bot 加载插件并关闭以生成配置文件：
+为了确保开发环境的 PostgreSQL 数据库拥有合适的权限写入配置，需要先创建数据目录并设置权限：
 
 ```bash
-nb run
+mkdir -p data/dev_postgres_data
+sudo chown -R 999:999 data/dev_postgres_data
 ```
 
-### 4. 配置必要信息
+启动开发所需的 PostgreSQL、Qdrant 等依赖服务：
 
-编辑配置文件 `./data/configs/nekro-agent.yaml` 配置数据库连接等信息。
-
-```yaml
-# Bot 与管理信息
-SUPER_USERS: # 管理用户 QQ 号列表
-  - "12345678"
-BOT_QQ: "12345678" # 机器人 QQ 号 (**必填**)
-ADMIN_CHAT_KEY: group_12345678 # 管理会话频道标识
-
-# Postgresql 数据库配置
-POSTGRES_HOST: 127.0.0.1
-POSTGRES_PORT: 5432
-POSTGRES_USER: db_username
-POSTGRES_PASSWORD: db_password
-POSTGRES_DATABASE: nekro_agent
+```bash
+# 启动开发服务编排 (PostgreSQL + Qdrant + NapCat)
+docker compose -f docker/docker-compose.dev.yml up -d
 ```
 
-::: info 完整配置
-完整配置说明请参考 [config.py](https://github.com/KroMiose/nekro-agent/blob/main/nekro_agent/core/config.py)
+::: tip 服务端口说明
+开发环境服务端口映射：
+- PostgreSQL: `5433` (避免与本地默认 5432 冲突)
+- Qdrant: `6334` (避免与生产环境默认 6333 冲突)
+- NapCat: `6199` (避免与默认 6099 冲突)
+:::
+
+### 4. 配置环境变量
+
+复制环境变量配置模板并根据需要修改：
+
+```bash
+# 复制配置模板（已预配置连接开发服务）
+cp .env.example .env.dev
+
+# 根据需要修改配置（可选）
+vim .env.dev
+```
+
+::: info 配置说明
+`.env.example` 已预配置好开发环境的默认值，包括：
+
+- 数据库连接信息（连接到上一步启动的开发服务）
+- Qdrant 向量数据库配置
+- 开发环境预设的安全密钥
+
+大多数情况下无需修改即可直接使用。如需自定义配置，请参考 [config.py](https://github.com/KroMiose/nekro-agent/blob/main/nekro_agent/core/config.py)
 :::
 
 ### 5. 拉取沙盒镜像
@@ -76,7 +132,11 @@ POSTGRES_DATABASE: nekro_agent
 拉取用于沙盒环境的 Docker 镜像：
 
 ```bash
-sudo bash sandbox.sh --pull
+# 拉取稳定版本
+sudo docker pull kromiose/nekro-agent-sandbox:latest
+
+# 或拉取预览版本（包含最新功能）
+sudo docker pull kromiose/nekro-agent-sandbox:preview
 ```
 
 如果需要修改镜像中的依赖包，可修改 `sandbox/dockerfile` 和 `sandbox/pyproject.toml` 文件，然后使用 `sudo bash sandbox.sh --build` 重新构建镜像
@@ -93,9 +153,11 @@ sudo usermod -aG docker $USER
 :::
 
 ```bash
-nb run
+# 正常启动
+uv run nb run
+
 # 开发调试模式下启用重载监视并排除动态扩展目录
-nb run --reload --reload-excludes ext_workdir
+uv run nb run --reload --reload-excludes ext_workdir
 ```
 
 ### 7. OneBot 配置
@@ -135,6 +197,7 @@ ws://127.0.0.1:8021/onebot/v11/ws
     你也可以通过系统的包管理器安装，但请确保版本是 20.x。
 
 ### 2. 配置 pnpm
+
 ```bash
 # 全局安装 pnpm
 npm install -g pnpm
@@ -144,6 +207,7 @@ pnpm config set registry https://registry.npmmirror.com
 ```
 
 ### 3. 安装前端依赖
+
 ```bash
 cd frontend
 
@@ -152,16 +216,33 @@ pnpm install --frozen-lockfile
 ```
 
 ### 4. 启动前端
+
 ```bash
 cd ./frontend
 pnpm dev
 ```
 
 当看到如下日志时，即可在浏览器访问：
+
 ```
 VITE vx.x.x  ready in xxx ms
 
 ➜  Local:   http://localhost:xxxx/ <-这里是端口号
 ➜  Network: use --host to expose
 ➜  press h + enter to show help
+```
+
+## Docker 镜像说明
+
+Nekro Agent 提供两种 Docker 镜像标签：
+
+- **latest**: 稳定版本，适用于生产环境
+- **preview**: 预览版本，包含最新功能，适用于测试和开发
+
+```bash
+# 使用稳定版本（推荐）
+docker pull kromiose/nekro-agent:latest
+
+# 使用预览版本（体验最新功能）
+docker pull kromiose/nekro-agent:preview
 ```

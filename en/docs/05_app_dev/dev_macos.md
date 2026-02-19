@@ -1,250 +1,147 @@
 ---
-title: macOS Development and Deployment Guide
-description: Complete guide for development and deployment of Nekro Agent in macOS environment
+title: macOS Development Guide
+description: Complete development guide for Nekro Agent on macOS
 ---
 
 # macOS Development Environment Setup
 
 ::: warning Warning
-This document is for development environment only and is not recommended for deployment or use.
+This document is for development environment only, not recommended for deployment or production use.
 :::
 
-## Prerequisites
+::: tip Note
+The development process for macOS and Linux is essentially the same. This document only covers macOS-specific installation steps. For other steps, please refer to the [Linux Development Guide](./dev_linux.md).
+:::
 
-Development environment requirements:
+## macOS-Specific Preparation
 
-- A functional PostgreSQL database
-- Python environment installed (Python 3.10 recommended)
-- Install `poetry` (Python dependency management tool)
-- Install `nb-cli` (NoneBot scaffolding tool)
-- Install OrbStack or Docker Desktop for Mac
+### 1. Install Homebrew
 
-### Install Basic Development Tools
-
-1. Install Homebrew (if not already installed)
+If Homebrew is not installed yet:
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-2. Install Python
+### 2. Install Python 3.11
 
 ```bash
-brew install python@3.10
+brew install python@3.11
 ```
 
-3. Install development dependencies
+### 3. Install UV
 
 ```bash
-pip3 install poetry
-pip3 install nb-cli
+# Using Homebrew (recommended)
+brew install uv
+
+# Or using official install script
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Verify installation
+uv --version
 ```
 
-## Source Code Deployment
+### 4. Install OrbStack
 
-### 1. Clone Repository
-
-```bash
-git clone https://github.com/KroMiose/nekro-agent.git
-```
-
-### 2. Install Dependencies
-
-```bash
-cd nekro-agent
-poetry config virtualenvs.in-project true  # Install virtual environment in project directory (optional)
-poetry install
-```
-
-### 3. Install PostgreSQL Database
-
-Install via Homebrew:
-
-```bash
-brew install postgresql@15
-brew services start postgresql@15
-```
-
-### 4. Database Initialization
-
-1. Create database:
-
-```bash
-# Switch to postgres user
-psql postgres
-
-# Execute within PostgreSQL
-CREATE DATABASE nekro_db;
-\q
-```
-
-### 5. Generate Configuration File
-
-Run the Bot once to load plugins and then close it to generate configuration files:
-
-```bash
-nb run
-```
-
-### 6. Configure Required Information
-
-Edit the configuration file `./data/configs/nekro-agent.yaml` to configure database connection and other information.
-
-```yaml
-# Bot and management information
-SUPER_USERS: # List of admin user QQ numbers
-  - "12345678"
-BOT_QQ: "12345678" # Bot QQ number (**Required**)
-ADMIN_CHAT_KEY: group_12345678 # Admin session channel identifier
-
-# PostgreSQL database configuration
-POSTGRES_HOST: localhost
-POSTGRES_PORT: 5432
-POSTGRES_USER: postgres  # Default username in macOS is usually the current username
-POSTGRES_PASSWORD: ""    # Local development environment may have no password
-POSTGRES_DATABASE: nekro_db
-```
-
-::: info Complete Configuration
-For complete configuration instructions, please refer to [config.py](https://github.com/KroMiose/nekro-agent/blob/main/nekro_agent/core/config.py)
-:::
-
-### 7. Install Docker Environment
-
-On macOS, we recommend using OrbStack as a container management tool, which is lighter and more performant than Docker Desktop.
-
-#### Option 1: Install OrbStack (Recommended)
+OrbStack is the recommended solution for macOS, offering better performance and lighter resource usage than Docker Desktop, with full Docker compatibility.
 
 ```bash
 brew install --cask orbstack
 ```
 
-Start the OrbStack application after installation.
+After installation, launch the OrbStack app. It automatically provides Docker-compatible CLI tools.
 
-#### Option 2: Install Docker Desktop for Mac
+::: tip Why OrbStack?
+- ⚡ **Faster**: Significantly better startup speed and runtime performance than Docker Desktop
+- 💾 **Lighter**: Uses less system resources
+- 🔧 **Ready to Use**: No sudo required, automatically configured
+- 🐧 **Linux VM Support**: Can create Linux VMs for fully compatible development environments
+- 🆓 **Free**: Completely free for personal use
+:::
 
-1. Visit [Docker Desktop official website](https://www.docker.com/products/docker-desktop/) to download the macOS version
-2. Install and start Docker Desktop
-3. Confirm Docker service is running properly: `docker info`
+## Source Deployment
 
-### 8. Pull Sandbox Image
+### Quick Start
 
-Pull the Docker image for the sandbox environment:
+The development process for macOS is identical to Linux. Follow these steps:
+
+1. **Clone repository and install dependencies** - See [Linux Guide: Source Deployment Steps 1-2](./dev_linux.md#source-deployment)
+2. **Start development services** - See [Linux Guide: Step 3](./dev_linux.md#_3-start-development-services)
+3. **Configure environment variables** - See [Linux Guide: Step 4](./dev_linux.md#_4-configure-environment-variables)
+4. **Pull sandbox image** - See [Linux Guide: Step 5](./dev_linux.md#_5-pull-sandbox-image)
+5. **Run Bot** - See [Linux Guide: Step 6](./dev_linux.md#_6-run-bot)
+6. **OneBot configuration** - See [Linux Guide: Step 7](./dev_linux.md#_7-onebot-configuration)
+
+### One-Command Setup
 
 ```bash
-# Pull image
+# Clone and enter project
+git clone https://github.com/KroMiose/nekro-agent.git
+cd nekro-agent
+
+# Install dependencies
+uv sync --all-extras
+
+# Start development services
+docker-compose -f docker/docker-compose.dev.yml up -d
+
+# Configure environment variables
+cp .env.example .env.dev
+
+# Pull sandbox image
 docker pull kromiose/nekro-agent-sandbox:latest
 
-# Verify image
-docker images | grep nekro-agent-sandbox
+# Start application
+uv run nb run --reload --reload-excludes ext_workdir
 ```
 
-### 9. Set WebUI Password
+## Using OrbStack VM for Development (Alternative)
 
-Set environment variables in macOS:
+If you encounter compatibility issues in the native macOS environment, you can use an OrbStack VM:
 
 ```bash
-# Temporary setting (effective for current terminal session)
-export NEKRO_ADMIN_PASSWORD="your_password"
-
-# Permanent setting (requires terminal restart to take effect)
-echo 'export NEKRO_ADMIN_PASSWORD="your_password"' >> ~/.zshrc  # If using zsh
-# Or
-echo 'export NEKRO_ADMIN_PASSWORD="your_password"' >> ~/.bash_profile  # If using bash
-```
-
-### 10. Run Bot
-
-```bash
-nb run
-# Enable reload monitoring in development debug mode and exclude dynamic extension directories
-nb run --reload --reload-excludes ext_workdir
-```
-
-::: warning Note
-When running on macOS, if you encounter permission issues, you may need to use sudo:
-```bash
-sudo nb run
-```
-:::
-
-### 11. OneBot Configuration
-
-Use any OneBot protocol client to log in to the bot and use reverse WebSocket connection method, configure the connection address:
-
-```
-ws://127.0.0.1:8021/onebot/v11/ws
-```
-
-::: tip
-The port here can be configured in `.env.prod`, default is `8021`
-:::
-
-### 12. Debug Mode
-
-The project includes a `.vscode/launch.json` file, which allows you to debug directly using VSCode:
-
-1. Open the project root directory
-2. Press `F5` to start debugging
-3. Observe if terminal output is normal
-
-## Using OrbStack Virtual Machine for Development (Alternative)
-
-If you encounter compatibility issues in the native macOS environment, consider using OrbStack virtual machine for development:
-
-### 1. Create Linux Virtual Machine
-
-```bash
+# Create Ubuntu VM
 orb create ubuntu nekro-dev
-```
 
-### 2. Enter Virtual Machine
-
-```bash
+# Enter VM
 orb -m nekro-dev
+
+# Follow Linux development guide in the VM
 ```
 
-### 3. Follow Linux Development Guide in Virtual Machine
-
-In the virtual machine, follow the [Linux Development and Deployment Guide](/en/docs/05_app_dev/dev_linux.html) for subsequent operations.
+Then follow the [Linux Development Guide](./dev_linux.md) completely within the VM.
 
 ## Frontend Development (Optional)
 
-If you need to develop frontend pages, follow these steps:
+### Install Node.js
 
-### 1. Install Node.js
 ```bash
 brew install node@20
 ```
 
-### 2. Configure pnpm
-```bash
-# Install pnpm globally
-npm install -g pnpm
+### Next Steps
 
-# Set up mirror for acceleration
-pnpm config set registry https://registry.npmmirror.com
-```
+Other frontend development steps are the same as Linux. See [Linux Guide: Frontend Development](./dev_linux.md#frontend-development-optional).
 
-### 3. Install Frontend Dependencies
+Or use one-command setup:
+
 ```bash
 cd frontend
-
-# Install dependencies
+npm install -g pnpm
+pnpm config set registry https://registry.npmmirror.com
 pnpm install --frozen-lockfile
-```
-
-### 4. Start Frontend
-```bash
-cd ./frontend
 pnpm dev
 ```
 
-When you see the following log, you can access it in your browser:
-```
-VITE vx.x.x  ready in xxx ms
+## Debug Mode
 
-➜  Local:   http://localhost:xxxx/ <- This is the port number
-➜  Network: use --host to expose
-➜  press h + enter to show help
-``` 
+The project includes `.vscode/launch.json` for direct VSCode debugging:
+
+1. Open project root directory
+2. Press `F5` to start debugging
+3. Observe terminal output
+
+## Docker Image Information
+
+Please refer to [Linux Guide: Docker Image Information](./dev_linux.md#docker-image-information).

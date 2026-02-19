@@ -14,14 +14,56 @@ description: Linux環境でのNekro Agentの開発とデプロイメントに関
 開発環境要件：
 
 - 機能するPostgreSQLデータベース
-- Python環境がインストール済み（Python 3.10推奨）
-- `poetry`をインストール（Python依存関係管理ツール）
-- `nb-cli`をインストール（NoneBotスキャフォールディングツール）
+- Python環境がインストール済み（Python 3.11推奨）
+- `uv`をインストール（Pythonパッケージマネージャー）
+- Docker & Docker Compose
+
+### UVとpoeのインストール
 
 ```bash
-pip install poetry
-pip install nb-cli
+# Linux/macOS
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# インストールを確認
+uv --version
+
+# poeのインストール
+uv tool install poethepoet
+
+# インストールを確認
+poe --version
 ```
+
+::: tip sudo権限について
+プロジェクトがDockerを呼び出す必要があるため、一部の開発シナリオではsudo権限が必要になる場合があります。`uv`と`poe`をsudoで使用できるようにするには：
+
+**UVとpoeをシステムパスにインストール**
+```bash
+# UVをシステムパスにインストール
+sudo cp ~/.local/bin/uv /usr/local/bin/
+sudo cp ~/.local/bin/uvx /usr/local/bin/
+sudo chmod +x /usr/local/bin/uv /usr/local/bin/uvx
+
+# poeをシステムパスにインストール（プロジェクトで依存関係をインストール後）
+cd nekro-agent
+uv sync --all-extras
+sudo cp ~/.local/share/uv/tools/poethepoet/bin/poe /usr/local/bin/
+sudo chmod +x /usr/local/bin/poe
+
+# 新しいターミナルで確認
+sudo uv --version
+sudo poe --help
+```
+
+**sudoで開発サーバーを実行：**
+```bash
+sudo -E uv run poe dev
+# または
+sudo -E poe dev
+```
+
+`-E`パラメータは現在のユーザーの環境変数を保持します。
+:::
 
 ## ソースコードデプロイメント
 
@@ -35,40 +77,53 @@ git clone https://github.com/KroMiose/nekro-agent.git
 
 ```bash
 cd nekro-agent
-pip install poetry  # 最初にPython環境をインストールする必要があります：Python 3.10推奨
-poetry config virtualenvs.in-project true  # プロジェクトディレクトリに仮想環境をインストール（オプション）
-poetry install
+
+# UVを使用して依存関係をインストール（開発依存関係を含む）
+uv sync --all-extras
 ```
 
-### 3. 設定ファイルを生成
+### 3. 開発サービスを起動
 
-Botを一度実行してプラグインをロードし、設定ファイルを生成するために閉じます：
+開発環境のPostgreSQLデータベースが適切な権限で設定を書き込めるようにするため、まずデータディレクトリを作成し、権限を設定する必要があります：
 
 ```bash
-nb run
+mkdir -p data/dev_postgres_data
+sudo chown -R 999:999 data/dev_postgres_data
 ```
 
-### 4. 必要な情報を設定
+PostgreSQLやQdrantなどの必要なサービスを起動します：
 
-設定ファイル`./data/configs/nekro-agent.yaml`を編集して、データベース接続やその他の情報を設定します。
-
-```yaml
-# Botと管理情報
-SUPER_USERS: # 管理者ユーザーQQ番号のリスト
-  - "12345678"
-BOT_QQ: "12345678" # Bot QQ番号（**必須**）
-ADMIN_CHAT_KEY: group_12345678 # 管理者セッションチャネル識別子
-
-# PostgreSQLデータベース設定
-POSTGRES_HOST: 127.0.0.1
-POSTGRES_PORT: 5432
-POSTGRES_USER: db_username
-POSTGRES_PASSWORD: db_password
-POSTGRES_DATABASE: nekro_agent
+```bash
+# 開発サービスオーケストレーションを起動（PostgreSQL + Qdrant + NapCat）
+docker compose -f docker/docker-compose.dev.yml up -d
 ```
 
-::: info 完全な設定
-完全な設定手順については、[config.py](https://github.com/KroMiose/nekro-agent/blob/main/nekro_agent/core/config.py)を参照してください
+::: tip サービスポート情報
+開発環境のサービスポートマッピング：
+- PostgreSQL: `5433`（ローカルのデフォルト5432との競合を避けるため）
+- Qdrant: `6334`（本番環境のデフォルト6333との競合を避けるため）
+- NapCat: `6199`（デフォルト6099との競合を避けるため）
+:::
+
+### 4. 環境変数を設定
+
+環境変数設定テンプレートをコピーし、必要に応じて変更します：
+
+```bash
+# 設定テンプレートをコピー（開発サービスに接続するように事前設定済み）
+cp .env.example .env.dev
+
+# 必要に応じて設定を変更（オプション）
+vim .env.dev
+```
+
+::: info 設定情報
+`.env.example`は開発環境のデフォルト値で事前設定されており、以下が含まれます：
+- データベース接続情報（前のステップで起動したサービスに接続）
+- Qdrantベクトルデータベース設定
+- 開発環境用の事前設定されたセキュリティキー
+
+ほとんどの場合、変更せずにそのまま使用できます。カスタム設定については、[config.py](https://github.com/KroMiose/nekro-agent/blob/main/nekro_agent/core/config.py)を参照してください
 :::
 
 ### 5. サンドボックスイメージをプル
@@ -76,7 +131,11 @@ POSTGRES_DATABASE: nekro_agent
 サンドボックス環境用のDockerイメージをプルします：
 
 ```bash
-sudo bash sandbox.sh --pull
+# 安定版をプル
+sudo docker pull kromiose/nekro-agent-sandbox:latest
+
+# またはプレビュー版をプル（最新機能を含む）
+sudo docker pull kromiose/nekro-agent-sandbox:preview
 ```
 
 イメージ内の依存関係パッケージを変更する必要がある場合は、`sandbox/dockerfile`と`sandbox/pyproject.toml`ファイルを変更し、`sudo bash sandbox.sh --build`を使用してイメージを再構築できます
@@ -84,7 +143,7 @@ sudo bash sandbox.sh --pull
 ### 6. Botを実行
 
 ::: warning 注意
-プラグインは実行中にDockerを動的に使用してサンドボックス実行環境を作成し、コンテナ共有ディレクトリの権限を設定するため、現在のユーザーを`docker`グループに追加し、シェルを再起動して変更を有効にすることをお勧めします
+プラグインが動作する際にDockerを動的に使用してサンドボックス実行環境を作成し、コンテナ共有ディレクトリの権限を設定する必要があるため、現在のユーザーを`docker`グループに追加し、シェルを再起動して有効にすることをお勧めします：
 
 ```bash
 sudo usermod -aG docker $USER
@@ -93,9 +152,11 @@ sudo usermod -aG docker $USER
 :::
 
 ```bash
-nb run
+# 通常起動
+uv run nb run
+
 # 開発デバッグモードでリロード監視を有効にし、動的拡張ディレクトリを除外
-nb run --reload --reload-excludes ext_workdir
+uv run nb run --reload --reload-excludes ext_workdir
 ```
 
 ### 7. OneBot設定
@@ -164,4 +225,19 @@ VITE vx.x.x  ready in xxx ms
 ➜  Local:   http://localhost:xxxx/ <- これがポート番号です
 ➜  Network: use --host to expose
 ➜  press h + enter to show help
+```
+
+## Dockerイメージ説明
+
+Nekro Agentは2種類のDockerイメージタグを提供しています：
+
+- **latest**: 安定版、本番環境に適しています
+- **preview**: プレビュー版、最新機能を含み、テストと開発に適しています
+
+```bash
+# 安定版を使用（推奨）
+docker pull kromiose/nekro-agent:latest
+
+# プレビュー版を使用（最新機能を体験）
+docker pull kromiose/nekro-agent:preview
 ```
