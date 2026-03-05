@@ -150,21 +150,6 @@
 }
 
 /* --- 6. 文档图片 --- */
-.vp-doc img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 16px auto;
-  border-radius: 12px;
-  border: 1px solid var(--vp-c-divider);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
-  background-color: var(--vp-c-bg-soft);
-}
-
-.dark .vp-doc img {
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
-  border-color: rgba(255, 255, 255, 0.08);
-}
 
 /* --- 7. 其他组件 --- */
 /* 代码复制按钮 */
