@@ -98,6 +98,14 @@ sudo chown -R 999:999 data/dev_postgres_data
 docker compose -f docker/docker-compose.dev.yml up -d
 ```
 
+::: tip 初始化数据库
+如果启动编排后未自动创建 nekro_agent_dev 数据库，可使用以下命令创建:
+
+```bash
+docker exec -it nekro_dev_postgres psql -U nekro_agent -d postgres -c "CREATE DATABASE nekro_agent_dev OWNER nekro_agent;"
+```
+:::
+
 ::: tip 服务端口说明
 开发环境服务端口映射：
 - PostgreSQL: `5433` (避免与本地默认 5432 冲突)
@@ -165,11 +173,11 @@ uv run nb run --reload --reload-excludes ext_workdir
 使用任意 OneBot 协议客户端登录机器人并使用反向 WebSocket 连接方式，配置好连接地址：
 
 ```
-ws://127.0.0.1:8021/onebot/v11/ws
+ws://host.docker.internal:8021/onebot/v11/ws
 ```
 
 ::: tip
-这里的端口可在 `.env.prod` 中配置，默认为 `8021`
+这里的端口可在 `.env.dev` 中配置，默认为 `8021`
 :::
 
 ### 8. 调试模式

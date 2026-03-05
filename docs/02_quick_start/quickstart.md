@@ -23,6 +23,7 @@ description: 帮助您快速开始使用 Nekro Agent 的指南，包括部署选
 根据您的操作系统选择合适的部署方式：
 
 - [Linux 部署教程](/docs/02_quick_start/deploy/linux) - 适用于使用 apt 作为包管理器的 Linux 发行版
+- [NA-Tools 部署 (推荐)](/docs/02_quick_start/deploy/na-tools.md) - 官方 CLI 工具，支持 **Linux/macOS** 一键部署、备份与管理
 - [Windows 部署教程](/docs/02_quick_start/deploy/windows) - 适用于 Windows 10/11 系统
 - [MacOS 部署教程](/docs/02_quick_start/deploy/macos) - 适用于 MacOS 系统
 
