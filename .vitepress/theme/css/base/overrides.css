@@ -1,4 +1,4 @@
-/*!
+﻿/*!
  * @file overrides.css
  * @brief 全局样式覆盖与自定义 - Apple Style with #E05252
  * @description 对VitePress默认样式进行覆盖和自定义，实现Apple风格的主题定制
@@ -149,7 +149,24 @@
   padding: 16px 20px;
 }
 
-/* --- 6. 其他组件 --- */
+/* --- 6. 文档图片 --- */
+.vp-doc img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 16px auto;
+  border-radius: 12px;
+  border: 1px solid var(--vp-c-divider);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+  background-color: var(--vp-c-bg-soft);
+}
+
+.dark .vp-doc img {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* --- 7. 其他组件 --- */
 /* 代码复制按钮 */
 .vp-copy-code-button:hover {
   background-color: var(--vp-c-brand-1) !important;
