@@ -43,6 +43,80 @@ sudo docker-compose --env-file .env pull && \
 sudo docker-compose --env-file .env up --build -d
 ```
 
+## 🧪 切换到预览版
+
+如果你想提前体验最新功能，或协助测试尚未进入正式版的更新，可以将部署镜像从 `latest` 切换为 `preview`。
+
+::: warning 注意事项
+
+- `preview` 会跟随 `main` 分支持续更新，功能更新更快，但也更可能包含尚未充分验证的改动。
+- 如果你的实例用于稳定生产环境，建议继续使用 `latest`。
+- 以下步骤默认你使用的是安装脚本生成的 `docker-compose.yml`，且文件位于数据目录中。
+
+:::
+
+### 第一步：确认当前镜像标签
+
+```bash
+grep -n "image: kromiose/nekro-agent" docker-compose.yml
+```
+
+如果输出中已经是 `kromiose/nekro-agent:preview`，可以直接执行下方的升级命令。
+
+### 第二步：将主镜像标签从 `latest` 改为 `preview`
+
+```bash
+sed -i 's|image: kromiose/nekro-agent:latest|image: kromiose/nekro-agent:preview|g' docker-compose.yml
+```
+
+如果你使用的是 macOS 自带的 `sed`，请改用：
+
+```bash
+sed -i '' 's|image: kromiose/nekro-agent:latest|image: kromiose/nekro-agent:preview|g' docker-compose.yml
+```
+
+修改后可再次检查：
+
+```bash
+grep -n "image: kromiose/nekro-agent" docker-compose.yml
+```
+
+### 第三步：拉取预览版镜像并执行升级
+
+```bash
+sudo docker pull kromiose/nekro-agent-sandbox:preview && \
+sudo docker-compose --env-file .env pull nekro_agent && \
+sudo docker-compose --env-file .env up --build -d nekro_agent
+```
+
+如果你还希望同时更新 NapCat 或其他依赖服务，可以改用：
+
+```bash
+sudo docker pull kromiose/nekro-agent-sandbox:preview && \
+sudo docker-compose --env-file .env pull && \
+sudo docker-compose --env-file .env up --build -d
+```
+
+### 第四步：确认是否切换成功
+
+```bash
+sudo docker-compose --env-file .env ps
+```
+
+如需查看主服务日志，可执行：
+
+```bash
+sudo docker-compose --env-file .env logs -f nekro_agent
+```
+
+### 如何切回正式版
+
+将 `docker-compose.yml` 中的镜像标签改回 `latest`，然后重新执行一次正式版更新命令即可：
+
+```bash
+sed -i 's|image: kromiose/nekro-agent:preview|image: kromiose/nekro-agent:latest|g' docker-compose.yml
+```
+
 ## 📝 更新日志
 
 每次更新后，可以在 [GitHub Releases](https://github.com/KroMiose/nekro-agent/releases) 查看更新日志了解变更内容

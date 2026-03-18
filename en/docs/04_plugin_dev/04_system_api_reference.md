@@ -13,10 +13,10 @@ This reference will outline the main API modules and their common functions. For
 
 The `core` module provides some basic and core tools and services.
 
-*   **Logging Service (`core.logger`)**
-    *   Provides standard logging functionality, supporting different levels (such as `debug`, `info`, `warning`, `error`, `success`, `critical`).
-    *   Example: `core.logger.info("Plugin started")`
-    *   Plugins should use this logger to record their running status and key events, facilitating debugging and monitoring.
+*   **Logging**
+    *   **Recommended**: Use the plugin instance’s **`plugin.logger`**. It is automatically tagged with `plugin_key` so logs can be filtered by plugin in the WebUI Logs page. Use it like a standard logger, e.g. `plugin.logger.info("Plugin started")`, `plugin.logger.error("Operation failed", exc_info=True)`.
+    *   **Alternative**: `core.logger` provides global logging with levels `debug`, `info`, `warning`, `error`, `success`, `critical`. Use it when the plugin instance is not available or in non-plugin code.
+    *   Prefer `plugin.logger` inside plugins for run status and key events so you can filter and debug by plugin.
 
 *   **Qdrant Vector Database Client**
     *   `core.get_qdrant_client() -> Optional[QdrantClient]` (async): Get the global Qdrant client instance.
@@ -46,5 +46,21 @@ The `message` module is responsible for handling message sending.
     *   `message.send_file(chat_key: str, file_path: str, ctx: AgentCtx)` (async)
     *   Send a file. The `file_path` parameter is the same as above.
     *   `ctx` is required and provides sending context.
+
+## 3. Timer Service (`nekro_agent.api.timer`)
+
+The `timer` module provides one-shot and temporary timers; recurring (cron) jobs and workday modes are provided by the built-in **Timer** plugin.
+
+*   **One-shot timer (`timer.set_timer`)**
+    *   `timer.set_timer(chat_key: str, trigger_time: int, event_desc: str) -> bool` (async)
+    *   Fires at the given timestamp. One-shot and temporary timers are persisted to the data directory and restored after restart.
+*   **Temporary timer (`timer.set_temp_timer`)**
+    *   `timer.set_temp_timer(chat_key: str, trigger_time: int, event_desc: str) -> bool` (async)
+    *   Only the latest temporary timer per chat is kept; suitable for short self-wakeup.
+*   **Clear timers (`timer.clear_timers`)**
+    *   `timer.clear_timers(chat_key: str, temporary: Optional[bool] = None) -> bool` (async)
+    *   When `temporary` is `None`, clears all; when `True`/`False`, clears only temporary or non-temporary.
+
+**Recurring jobs and workday mode**: The built-in Timer plugin provides persistent cron jobs (e.g. `create_recurring_timer`, `list_recurring_timers`) and `workday_mode`: `none` (cron only), `mon_fri` (weekdays), `weekend` (weekends only), `cn_workday` (China statutory workdays, including in-lieu workdays), `cn_restday` (China rest days). China workday/restday support is **enabled by default**; no extra configuration is required.
 
 This API reference provides an overview. It is strongly recommended that plugin developers combine source code, IDE tools, and specific example plugins in actual development to deeply understand and use these APIs.
