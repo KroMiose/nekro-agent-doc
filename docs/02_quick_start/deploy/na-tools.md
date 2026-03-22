@@ -11,7 +11,7 @@ description: 使用官方提供的一键式 CLI 工具 na-tools 在 macOS 或 Li
 
 - **跨平台支持**：同时支持 Linux (Ubuntu/Debian 等) 和 macOS。
 - **全自动环境检测**：自动检测并引导安装 Docker 环境。
-- **便捷配置管理**：无需手动编辑 YAML，通过命令行即可修改模型配置、管理管理员。
+- **便捷镜像源管理**：一键配置国内 Docker 镜像源加速下载。
 - **完善的备份恢复**：一键备份数据和配置，支持交互式恢复。
 - **多实例管理**：支持在一台机器上部署多个 Nekro Agent 实例。
 
@@ -134,87 +134,7 @@ na-tools install --preview
 
 ---
 
-## ⚙️ 第三步：初始配置
-
-部署完成后，您需要配置 **模型 API** 才能正常使用 Nekro Agent。
-
-### 方式一：交互式配置向导（推荐新手）
-
-运行以下命令进入配置向导，一步步引导您完成所有配置：
-
-```bash
-na-tools config
-```
-
-向导会依次引导您配置：
-
-1. **模型 API**：设置 API 地址、API 密钥和聊天模型名称
-2. **管理员**：添加管理员 QQ 号（用于管理 Bot 权限）
-3. **聊天人设**：设置 Bot 的名称和描述（可选）
-
-配置完成后，向导会询问是否重启服务以应用更改。
-
-### 方式二：快捷配置命令
-
-如果您只需要配置某一项，可以使用对应的子命令：
-
-#### 配置模型 API
-
-```bash
-na-tools config model
-```
-
-会交互式询问：
-- **API 地址**（如 `https://api.openai.com/v1`）
-- **API 密钥**（如 `sk-xxxx`）
-- **模型名称**（如 `gpt-4o`）
-- 是否启用视觉能力
-- 是否启用外置思维链
-
-#### 添加/移除管理员
-
-```bash
-# 添加管理员（替换为实际的 QQ 号）
-na-tools config admin --add 123456789
-
-# 移除管理员
-na-tools config admin --remove 123456789
-
-# 查看当前管理员列表
-na-tools config admin
-```
-
-#### 查看/修改单项配置
-
-```bash
-# 查看当前配置摘要
-na-tools config show
-
-# 查看某个配置项的值
-na-tools config get CHAT_MODEL
-
-# 设置某个配置项
-na-tools config set CHAT_MODEL gpt-4o
-```
-
-#### 配置 Docker 镜像源
-
-如果您在国内拉取 Docker 镜像速度较慢，可以设置镜像源：
-
-```bash
-# 设置镜像源
-na-tools config mirror https://mirror.example.com
-
-# 查看当前镜像源
-na-tools config mirror
-
-# 清除镜像源（恢复默认）
-na-tools config mirror ""
-```
-
----
-
-## 🔌 第四步：配置 NapCat（连接 QQ）
+## 🔌 第三步：配置 NapCat（连接 QQ）
 
 如果您在安装时选择了包含 NapCat，需要完成以下配置才能让 Bot 连接 QQ。
 
@@ -465,6 +385,25 @@ na-tools remove --force
 
 ---
 
+## 🪞 配置 Docker 镜像源
+
+如果您在国内拉取 Docker 镜像速度较慢，可以通过 na-tools 设置镜像源：
+
+```bash
+# 设置镜像源
+na-tools config mirror https://mirror.example.com
+
+# 查看当前镜像源
+na-tools config mirror
+
+# 清除镜像源（恢复默认）
+na-tools config mirror ""
+```
+
+设置后，后续的 `install` 和 `update` 操作都会使用该镜像源。
+
+---
+
 ## 📋 命令速查表
 
 ### 部署管理
@@ -491,11 +430,7 @@ na-tools remove --force
 | `na-tools backup` | 备份数据和配置 |
 | `na-tools backup list` | 列出所有历史备份 |
 | `na-tools restore` | 从备份恢复（交互式选择或指定文件） |
-| `na-tools config` | 交互式配置向导 |
-| `na-tools config model` | 快捷配置模型 API |
-| `na-tools config admin` | 管理管理员列表 |
-| `na-tools config show` | 查看当前配置摘要 |
-| `na-tools config mirror` | 管理 Docker 镜像源 |
+| `na-tools config mirror` | 查看或设置 Docker 镜像源 |
 
 ### 日志与工具
 
@@ -549,5 +484,3 @@ na-tools install --port 9000
 ```bash
 na-tools config mirror https://your-mirror.example.com
 ```
-
-设置后，后续的 `install` 和 `update` 操作都会使用该镜像源。
