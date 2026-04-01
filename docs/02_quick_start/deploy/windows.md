@@ -10,6 +10,15 @@ description: 在 Windows 系统上部署 Nekro Agent 的详细步骤，包括WSL
 ## 请选择部署方式
 
 <div class="deploy-container">
+  <!-- VMware -->
+  <a class="deploy-option" href="/docs/02_quick_start/deploy/windows/na-for-win">
+    <div class="option-header naforwin">
+      <span class="option-icon">🖥️</span> <!-- 换了个更符合软件的图标 -->
+      <span class="option-title">Nekro-Agent Windows 安装器（推荐）</span>
+    </div>
+    <div class="option-desc">一键部署，图形化管理，基于 WSL2 的轻量级方案，开箱即用。</div>
+  </a>
+
   <!-- Hyper-V -->
   <a class="deploy-option" href="/docs/02_quick_start/deploy/windows/hyperv">
     <div class="option-header hyperv"> <!-- 这里的类名用于定位子元素图标颜色 -->
