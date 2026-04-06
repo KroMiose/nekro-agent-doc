@@ -87,6 +87,6 @@ Usage Examples:
 > 
 >   [Quick Start#Basic Configuration](/en/docs/02_quick_start/quickstart.html#basic-configuration)
 > 
->   [NapCat Login and Change Default Password](/en/docs/02_quick_start/config/protocol.html)
+>   [NapCat Login and Change Default Password](/en/docs/02_quick_start/adapters/onebot_v11)
 >
 >   [NekroAgent Related Configuration](/en/docs/02_quick_start/config/system.html)

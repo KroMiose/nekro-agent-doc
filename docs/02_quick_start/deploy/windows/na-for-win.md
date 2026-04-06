@@ -42,5 +42,5 @@ description: 使用启动器的一键安装教程。
 
 ## ⚙️ 部署后配置
 
-- **标准部署（对应启动器完整版）**: 前往[协议端配置](/docs/02_quick_start/config/protocol.html#napcat-集成部署-推荐)文档，根据文档说明完成配置。
-- **核心部署（对应启动器精简版）**: 前往[协议端配置](/docs/02_quick_start/config/protocol)文档，参考说明继续配置。
+- **标准部署（对应启动器完整版）**: 前往[OneBot V11 / NapCat 配置](/docs/02_quick_start/adapters/onebot_v11)文档，根据文档说明完成配置。
+- **核心部署（对应启动器精简版）**: 前往[OneBot V11 / NapCat 配置](/docs/02_quick_start/adapters/onebot_v11)文档，参考说明继续配置。

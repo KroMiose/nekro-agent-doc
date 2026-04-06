@@ -43,7 +43,7 @@ Choose the appropriate deployment method based on your operating system:
 
 After successful deployment, you need to complete the following basic configurations:
 
-1. **Protocol Configuration**: Connect to your selected chat platform
+1. **Adapter Configuration**: Connect to your selected chat platform
 2. **Model Configuration**: Set up AI models and API keys
 3. **System Configuration**: Set basic system parameters and user permissions
 
@@ -56,7 +56,7 @@ For security reasons, please be sure to read the following information:
 
 For detailed configuration instructions, please refer to the following documents:
 
-- [Protocol Configuration](/en/docs/02_quick_start/config/protocol)
+- [Adapter Configuration](/en/docs/02_quick_start/adapter_config)
 - [System Configuration](/en/docs/02_quick_start/config/system)
 - [Application Updates](/en/docs/02_quick_start/config/update)
 
@@ -75,7 +75,7 @@ For your first login, please use the administrator account and password generate
 
 ### Basic Usage Flow
 
-1. **Connect Protocol**: Complete protocol configuration and confirm connection status
+1. **Connect Adapter**: Complete adapter configuration and confirm connection status
 2. **Set Persona**: Configure the basic persona and behavior patterns of the AI
 3. **Test Conversation**: Test conversation with the AI through your selected platform
 4. **Extend Features**: Enable desired extension features as needed

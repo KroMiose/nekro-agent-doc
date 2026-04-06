@@ -87,7 +87,7 @@ options:
 > 
 >   [快速开始#基本配置](/docs/02_quick_start/quickstart.html#基本配置)
 > 
->   [NapCat登陆并修改默认密码](/docs/02_quick_start/config/protocol.html)
+>   [NapCat登陆并修改默认密码](/docs/02_quick_start/adapters/onebot_v11)
 >
 >   [NekroAgent相关项配置](/docs/02_quick_start/config/system.html)
 

@@ -36,7 +36,7 @@ description: 在 iStoreOS 软路由系统上部署 Nekro Agent。iStoreOS 基于
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/refs/heads/main/docker/wrtinstall.sh)" - --with-napcat
 ```
 
-部署完成后，请参考[协议端配置-Napcat](/docs/02_quick_start/config/protocol.html#napcat-集成部署-推荐)文档完成后续配置。
+部署完成后，请参考[OneBot V11 / NapCat 配置](/docs/02_quick_start/adapters/onebot_v11)文档完成后续配置。
 
 
 ## ⚙️ 安装过程详解
@@ -71,8 +71,8 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/ref
 
 ## ⚙️ 部署后配置
 
-- **标准部署**: 前往[协议端配置](/docs/02_quick_start/config/protocol.html#napcat-集成部署-推荐)文档，根据文档说明完成配置。
-- **核心部署**: 前往[协议端配置](/docs/02_quick_start/config/protocol)文档，参考说明继续配置。
+- **标准部署**: 前往[OneBot V11 / NapCat 配置](/docs/02_quick_start/adapters/onebot_v11)文档，根据文档说明完成配置。
+- **核心部署**: 前往[OneBot V11 / NapCat 配置](/docs/02_quick_start/adapters/onebot_v11)文档，参考说明继续配置。
 
 ## 🚀 应用更新
 

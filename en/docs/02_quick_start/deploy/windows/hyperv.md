@@ -112,4 +112,4 @@ The steps to install Nekro Agent are consistent with Linux deployment. Please ch
 
 ### Post-Deployment Configuration
 
-Go to the [Protocol Endpoint Configuration](/en/docs/02_quick_start/config/protocol) document and complete the configuration according to the documentation.
+Go to the [OneBot V11 / NapCat Configuration](/en/docs/02_quick_start/adapters/onebot_v11) document and complete the configuration according to the documentation.

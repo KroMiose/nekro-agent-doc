@@ -36,7 +36,7 @@ Deploy Nekro Agent core services and Napcat protocol endpoint with one click, pr
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/refs/heads/main/docker/wrtinstall.sh)" - --with-napcat
 ```
 
-After deployment is complete, please refer to the [Protocol Endpoint Configuration - Napcat](/en/docs/02_quick_start/config/protocol.html#napcat-integrated-deployment-recommended) documentation to complete subsequent configuration.
+After deployment is complete, please refer to the [OneBot V11 / NapCat Configuration](/en/docs/02_quick_start/adapters/onebot_v11) documentation to complete subsequent configuration.
 
 
 ## ⚙️ Detailed Installation Process
@@ -71,8 +71,8 @@ The installation script will automatically configure the OpenWRT firewall to ope
 
 ## ⚙️ Post-Deployment Configuration
 
-- **Standard Deployment**: Go to the [Protocol Endpoint Configuration](/en/docs/02_quick_start/config/protocol.html#napcat-integrated-deployment-recommended) documentation and complete configuration according to the documentation.
-- **Core Deployment**: Go to the [Protocol Endpoint Configuration](/en/docs/02_quick_start/config/protocol) documentation and refer to the instructions to continue configuration.
+- **Standard Deployment**: Go to the [OneBot V11 / NapCat Configuration](/en/docs/02_quick_start/adapters/onebot_v11) documentation and complete configuration according to the documentation.
+- **Core Deployment**: Go to the [OneBot V11 / NapCat Configuration](/en/docs/02_quick_start/adapters/onebot_v11) documentation and refer to the instructions to continue configuration.
 
 ## 🚀 Application Updates
 

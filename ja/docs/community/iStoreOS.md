@@ -36,7 +36,7 @@ Nekro AgentコアサービスとNapcatプロトコルエンドポイントをワ
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/refs/heads/main/docker/wrtinstall.sh)" - --with-napcat
 ```
 
-デプロイメント完了後、[プロトコルエンドポイント設定 - Napcat](/ja/docs/02_quick_start/config/protocol.html#napcat-integrated-deployment-recommended)ドキュメントを参照して、後続の設定を完了してください。
+デプロイメント完了後、[OneBot V11 / NapCat 設定](/ja/docs/02_quick_start/adapters/onebot_v11)ドキュメントを参照して、後続の設定を完了してください。
 
 
 ## ⚙️ 詳細インストールプロセス
@@ -71,8 +71,8 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/ref
 
 ## ⚙️ デプロイメント後の設定
 
-- **標準デプロイメント**: [プロトコルエンドポイント設定](/ja/docs/02_quick_start/config/protocol.html#napcat-integrated-deployment-recommended)ドキュメントに移動し、ドキュメントに従って設定を完了してください。
-- **コアデプロイメント**: [プロトコルエンドポイント設定](/ja/docs/02_quick_start/config/protocol)ドキュメントに移動し、指示を参照して設定を続行してください。
+- **標準デプロイメント**: [OneBot V11 / NapCat 設定](/ja/docs/02_quick_start/adapters/onebot_v11)ドキュメントに移動し、ドキュメントに従って設定を完了してください。
+- **コアデプロイメント**: [OneBot V11 / NapCat 設定](/ja/docs/02_quick_start/adapters/onebot_v11)ドキュメントに移動し、指示を参照して設定を続行してください。
 
 ## 🚀 アプリケーション更新
 

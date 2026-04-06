@@ -45,7 +45,7 @@ sudo -E bash -c "$(curl -fsSL https://ep.nekro.ai/e/KroMiose/nekro-agent/main/do
 > - 上記のコマンドの`--with-napcat`パラメータは、完全自動の標準デプロイメントを開始します。
 > - このパラメータを追加しない場合、スクリプトは対話モードで開始されます。その時、Napcat をインストールするために`Y`を選択してください。
 
-デプロイメント完了後、[プロトコル設定-Napcat](/ja/docs/02_quick_start/config/protocol.html#napcat統合デプロイメント推奨)ドキュメントを参照して、後続の設定を完了してください。
+デプロイメント完了後、[OneBot V11 / NapCat 設定](/ja/docs/02_quick_start/adapters/onebot_v11)ドキュメントを参照して、後続の設定を完了してください。
 
 ## 🚀 方法 2：コアデプロイメント
 
@@ -93,5 +93,5 @@ Do you want to use napcat service at the same time? [Y/n] n
 
 ## ⚙️ デプロイメント後の設定
 
-- **標準デプロイメント**：[プロトコル設定](/ja/docs/02_quick_start/config/protocol.html#napcat統合デプロイメント推奨)ドキュメントに移動し、ドキュメントに従って設定を完了してください。
-- **コアデプロイメント**：[プロトコル設定](/ja/docs/02_quick_start/config/protocol)ドキュメントに移動し、指示を参考に設定を続けてください。
+- **標準デプロイメント**：[OneBot V11 / NapCat 設定](/ja/docs/02_quick_start/adapters/onebot_v11)ドキュメントに移動し、ドキュメントに従って設定を完了してください。
+- **コアデプロイメント**：[OneBot V11 / NapCat 設定](/ja/docs/02_quick_start/adapters/onebot_v11)ドキュメントに移動し、指示を参考に設定を続けてください。

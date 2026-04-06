@@ -113,5 +113,5 @@ DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V
 
 ### 部署后配置
 
-前往[协议端配置](/docs/02_quick_start/config/protocol)文档，根据文档说明完成配置。
+前往[OneBot V11 / NapCat 配置](/docs/02_quick_start/adapters/onebot_v11)文档，根据文档说明完成配置。
 
