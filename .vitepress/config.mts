@@ -138,10 +138,27 @@ export default defineConfig({
                   ]
                 },
                 {
+                  text: "适配器配置",
+                  link: "/docs/02_quick_start/adapter_config",
+                  collapsed: true,
+                  items: [
+                    { text: "OneBot V11 / NapCat", link: "/docs/02_quick_start/adapters/onebot_v11" },
+                    { text: "微信（WeChatPad Pro）", link: "/docs/02_quick_start/adapters/wechatpad" },
+                    { text: "企业微信 AI Bot", link: "/docs/02_quick_start/adapters/wecom_bot" },
+                    { text: "企业微信自建应用", link: "/docs/02_quick_start/adapters/wecom_app" },
+                    { text: "飞书", link: "/docs/02_quick_start/adapters/feishu" },
+                    { text: "Telegram", link: "/docs/02_quick_start/adapters/telegram" },
+                    { text: "Discord", link: "/docs/02_quick_start/adapters/discord" },
+                    { text: "Email", link: "/docs/02_quick_start/adapters/email" },
+                    { text: "Bilibili 直播", link: "/docs/02_quick_start/adapters/bilibili" },
+                    { text: "Minecraft", link: "/docs/02_quick_start/adapters/minecraft" },
+                    { text: "SSE", link: "/docs/02_quick_start/adapters/sse" },
+                  ],
+                },
+                {
                   text: "基本配置",
                   collapsed: true,
                   items: [
-                    { text: "协议端配置", link: "/docs/02_quick_start/config/protocol" },
                     { text: "系统配置", link: "/docs/02_quick_start/config/system" },
                     { text: "应用更新", link: "/docs/02_quick_start/config/update" },
                   ],
@@ -266,10 +283,27 @@ export default defineConfig({
                   ]
                 },
                 {
+                  text: "Adapter Configuration",
+                  link: "/en/docs/02_quick_start/adapter_config",
+                  collapsed: true,
+                  items: [
+                    { text: "OneBot V11 / NapCat", link: "/en/docs/02_quick_start/adapters/onebot_v11" },
+                    { text: "WeChat (WeChatPad Pro)", link: "/en/docs/02_quick_start/adapters/wechatpad" },
+                    { text: "WeCom AI Bot", link: "/en/docs/02_quick_start/adapters/wecom_bot" },
+                    { text: "WeCom Custom App", link: "/en/docs/02_quick_start/adapters/wecom_app" },
+                    { text: "Feishu", link: "/en/docs/02_quick_start/adapters/feishu" },
+                    { text: "Telegram", link: "/en/docs/02_quick_start/adapters/telegram" },
+                    { text: "Discord", link: "/en/docs/02_quick_start/adapters/discord" },
+                    { text: "Email", link: "/en/docs/02_quick_start/adapters/email" },
+                    { text: "Bilibili Live", link: "/en/docs/02_quick_start/adapters/bilibili" },
+                    { text: "Minecraft", link: "/en/docs/02_quick_start/adapters/minecraft" },
+                    { text: "SSE", link: "/en/docs/02_quick_start/adapters/sse" },
+                  ],
+                },
+                {
                   text: "Configuration",
                   collapsed: true,
                   items: [
-                    { text: "Protocol", link: "/en/docs/02_quick_start/config/protocol" },
                     { text: "System", link: "/en/docs/02_quick_start/config/system" },
                     { text: "Update", link: "/en/docs/02_quick_start/config/update" },
                   ],
@@ -394,10 +428,27 @@ export default defineConfig({
                   ]
                 },
                 {
+                  text: "アダプター設定",
+                  link: "/ja/docs/02_quick_start/adapter_config",
+                  collapsed: true,
+                  items: [
+                    { text: "OneBot V11 / NapCat", link: "/ja/docs/02_quick_start/adapters/onebot_v11" },
+                    { text: "WeChat（WeChatPad Pro）", link: "/ja/docs/02_quick_start/adapters/wechatpad" },
+                    { text: "WeCom AI Bot", link: "/ja/docs/02_quick_start/adapters/wecom_bot" },
+                    { text: "WeCom カスタムアプリ", link: "/ja/docs/02_quick_start/adapters/wecom_app" },
+                    { text: "Feishu", link: "/ja/docs/02_quick_start/adapters/feishu" },
+                    { text: "Telegram", link: "/ja/docs/02_quick_start/adapters/telegram" },
+                    { text: "Discord", link: "/ja/docs/02_quick_start/adapters/discord" },
+                    { text: "Email", link: "/ja/docs/02_quick_start/adapters/email" },
+                    { text: "Bilibili Live", link: "/ja/docs/02_quick_start/adapters/bilibili" },
+                    { text: "Minecraft", link: "/ja/docs/02_quick_start/adapters/minecraft" },
+                    { text: "SSE", link: "/ja/docs/02_quick_start/adapters/sse" },
+                  ],
+                },
+                {
                   text: "構成",
                   collapsed: true,
                   items: [
-                    { text: "プロトコル", link: "/ja/docs/02_quick_start/config/protocol" },
                     { text: "システム", link: "/ja/docs/02_quick_start/config/system" },
                     { text: "アップデート", link: "/ja/docs/02_quick_start/config/update" },
                   ],
