@@ -18,7 +18,7 @@ description: 使用启动器的一键安装教程。
 1. **安装启动器**
     - 从下方链接中下载启动器最新安装包，并完成启动器安装  
     [Github Release](https://github.com/NekroAI/nekro-agent-for-windows/releases)  
-    [123云盘](https://www.123865.com/s/R0I3Td-1nRw)
+    [123云盘](https://www.123865.com/s/R0I3Td-v0Rw)
 
 2. **运行环境检测，部署服务**
     - 首次打开程序，启动器会对基础环境进行检测，如下图所示
