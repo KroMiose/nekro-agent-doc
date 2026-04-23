@@ -166,10 +166,26 @@ export default defineConfig({
               ],
             },
             {
+              text: "工作区与 Claude Code",
+              collapsed: true,
+              items: [
+                { text: "工作区总览", link: "/docs/03_workspace/overview" },
+                { text: "快速上手", link: "/docs/03_workspace/quickstart" },
+                { text: "Claude Code 沙盒", link: "/docs/03_workspace/claude_code_sandbox" },
+                { text: "MCP 服务管理", link: "/docs/03_workspace/mcp_management" },
+                { text: "记忆系统", link: "/docs/03_workspace/memory_system" },
+                { text: "工作区定时器", link: "/docs/03_workspace/timers" },
+                { text: "2.3.0 预览特性", link: "/docs/03_workspace/preview_features" },
+              ],
+            },
+            {
               text: "进阶指南",
               collapsed: true,
               items: [
-                { text: "模型组配置", link: "/docs/03_advanced/model_config" },
+                { text: "命令中心", link: "/docs/03_advanced/command_center" },
+                { text: "频道管理", link: "/docs/03_advanced/channel_management" },
+                { text: "邮箱适配器", link: "/docs/03_advanced/email_adapter" },
+                { text: "模型管理", link: "/docs/03_advanced/model_config" },
                 { text: "模型选择", link: "/docs/03_advanced/model_usage" },
                 { text: "人设技巧", link: "/docs/03_advanced/persona_tips" },
                 { text: "会话独立人设", link: "/docs/03_advanced/session_persona" },
@@ -197,6 +213,7 @@ export default defineConfig({
                     { text: "数据存储", link: "/docs/04_plugin_dev/02_plugin_basics/2.4_storage" },
                     { text: "提示词注入", link: "/docs/04_plugin_dev/02_plugin_basics/2.5_prompt_injection" },
                     { text: "上下文对象", link: "/docs/04_plugin_dev/02_plugin_basics/2.6_agent_context" },
+                    { text: "插件激活调度", link: "/docs/04_plugin_dev/02_plugin_basics/2.7_plugin_activation" },
                   ],
                 },
                 {
@@ -213,6 +230,8 @@ export default defineConfig({
                   ],
                 },
                 { text: "系统 API 参考", link: "/docs/04_plugin_dev/04_system_api_reference" },
+                { text: "插件命令开发", link: "/docs/04_plugin_dev/05_command_development" },
+                { text: "插件定时任务开发", link: "/docs/04_plugin_dev/06_timer_development" },
               ],
             },
             {
