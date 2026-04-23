@@ -104,4 +104,3 @@ async def on_timer_trigger(chat_key: str):
 
 - [系统 API 参考](/docs/04_plugin_dev/04_system_api_reference)
 - [插件命令开发](/docs/04_plugin_dev/05_command_development)
-- [工作区定时器](/docs/03_workspace/timers)

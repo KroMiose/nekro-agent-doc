@@ -156,4 +156,3 @@ async def config_set(
 
 - [系统 API 参考](/docs/04_plugin_dev/04_system_api_reference)
 - [插件定时任务开发](/docs/04_plugin_dev/06_timer_development)
-- [命令中心](/docs/03_advanced/command_center)

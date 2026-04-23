@@ -79,9 +79,9 @@ description: 帮助您快速开始使用 Nekro Agent 的指南，包括部署选
 如果使用的是 `preview` 镜像或 `main` 分支构建，建议在完成基础部署后继续阅读以下内容：
 
 1. 完成协议端、模型组和系统配置
-2. 阅读 [工作区总览](/docs/03_workspace/overview)
-3. 跟随 [工作区快速上手](/docs/03_workspace/quickstart) 创建第一个工作区
-4. 再继续阅读 [Claude Code 沙盒](/docs/03_workspace/claude_code_sandbox) 与 [记忆系统](/docs/03_workspace/memory_system)
+2. 阅读工作区总览（即将发布）
+3. 跟随工作区快速上手创建第一个工作区（即将发布）
+4. 再继续阅读 Claude Code 沙盒与记忆系统（即将发布）
 :::
 
 ### 基本使用流程
@@ -97,10 +97,10 @@ description: 帮助您快速开始使用 Nekro Agent 的指南，包括部署选
 
 完成基础配置后，您可以探索更多高级功能：
 
-- [工作区总览](/docs/03_workspace/overview) - 了解新版工作区与 Claude Code 主路径
-- [工作区快速上手](/docs/03_workspace/quickstart) - 走通第一个工作区任务
-- [Claude Code 沙盒](/docs/03_workspace/claude_code_sandbox) - 理解沙盒任务与通信记录
-- [记忆系统](/docs/03_workspace/memory_system) - 了解长期记忆与记忆重建
+- 工作区总览 - 了解新版工作区与 Claude Code 主路径（即将发布）
+- 工作区快速上手 - 走通第一个工作区任务（即将发布）
+- Claude Code 沙盒 - 理解沙盒任务与通信记录（即将发布）
+- 记忆系统 - 了解长期记忆与记忆重建（即将发布）
 - [模型组配置](/docs/03_advanced/model_config) - 配置多种模型组合
 
 ## 快速参考

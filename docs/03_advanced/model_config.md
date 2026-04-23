@@ -67,5 +67,5 @@ CC 模型组功能适用于 Nekro Agent `2.3.0` 预览版（`preview` 镜像 / `
 ## 相关文档
 
 - [模型选择指南](/docs/03_advanced/model_usage)
-- [工作区总览](/docs/03_workspace/overview)
-- [工作区快速上手](/docs/03_workspace/quickstart)
+- 工作区总览（即将发布）
+- 工作区快速上手（即将发布）

@@ -110,9 +110,7 @@ na_observe group_123456789
 - 保留频道记录
 - 不触发正常回复流程
 
-如果你想理解三种频道状态的差异，建议阅读：
-
-- [频道管理](/docs/03_advanced/channel_management)
+如果你想理解三种频道状态的差异，建议阅读频道管理文档（即将发布）。
 
 ## 系统信息命令
 
@@ -202,6 +200,6 @@ reset_plugin draw
 
 ## 继续阅读
 
-- [命令中心](/docs/03_advanced/command_center)
+- 命令中心（即将发布）
 - [调试命令指南](/docs/03_advanced/commands_debug)
-- [频道管理](/docs/03_advanced/channel_management)
+- 频道管理（即将发布）
