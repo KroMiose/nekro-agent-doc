@@ -75,17 +75,32 @@ description: 帮助您快速开始使用 Nekro Agent 的指南，包括部署选
 
 首次登录时，请使用部署过程中生成的管理员账户和密码进行登录
 
+::: tip 2.3.0 推荐路径
+如果使用的是 `preview` 镜像或 `main` 分支构建，建议在完成基础部署后继续阅读以下内容：
+
+1. 完成协议端、模型组和系统配置
+2. 阅读 [工作区总览](/docs/03_workspace/overview)
+3. 跟随 [工作区快速上手](/docs/03_workspace/quickstart) 创建第一个工作区
+4. 再继续阅读 [Claude Code 沙盒](/docs/03_workspace/claude_code_sandbox) 与 [记忆系统](/docs/03_workspace/memory_system)
+:::
+
 ### 基本使用流程
 
 1. **连接适配器**：完成适配器配置并确认连接状态
 2. **设置人设**：配置 AI 的基本人设和行为模式
 3. **测试对话**：通过您选择的平台与 AI 进行对话测试
-4. **扩展功能**：按需启用所需的扩展功能
+4. **创建工作区**：在 WebUI 中创建工作区并绑定目标频道
+5. **启动 Claude Code 沙盒**：配置模型预设、`CLAUDE.md` 与运行策略
+6. **扩展功能**：按需启用记忆系统、MCP、技能、定时器等能力
 
 ## 下一步
 
 完成基础配置后，您可以探索更多高级功能：
 
+- [工作区总览](/docs/03_workspace/overview) - 了解新版工作区与 Claude Code 主路径
+- [工作区快速上手](/docs/03_workspace/quickstart) - 走通第一个工作区任务
+- [Claude Code 沙盒](/docs/03_workspace/claude_code_sandbox) - 理解沙盒任务与通信记录
+- [记忆系统](/docs/03_workspace/memory_system) - 了解长期记忆与记忆重建
 - [模型组配置](/docs/03_advanced/model_config) - 配置多种模型组合
 
 ## 快速参考
@@ -114,4 +129,3 @@ sudo docker restart nekro_agent
 ::: tip 💡 功能探索
 好奇 Nekro Agent 能做什么？查看 [应用场景展示](/docs/01_intro/application_scenarios) 了解丰富多样的实际使用案例和创意玩法！
 :::
-
