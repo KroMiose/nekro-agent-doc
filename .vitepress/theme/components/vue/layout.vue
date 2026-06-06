@@ -5,6 +5,7 @@
 import { useRouter, useData } from "vitepress";
 import DefaultTheme from "vitepress/theme";
 import { ref, watch, nextTick, computed } from "vue";
+import PageCopyActions from "./PageCopyActions.vue";
 
 const { Layout } = DefaultTheme;
 const { route } = useRouter();
@@ -77,7 +78,11 @@ watch(
 
 <template>
   <div class="router-wrapper">
-    <Layout />
+    <Layout>
+      <template #doc-before>
+        <PageCopyActions v-if="route.path.includes('/docs/')" :key="route.path" />
+      </template>
+    </Layout>
     
     <!-- 文档页脚 -->
     <div class="doc-footer" v-if="route.path.includes('/docs/')">
@@ -106,6 +111,14 @@ watch(
 .router-wrapper {
   position: relative;
   min-height: 100vh;
+}
+
+.VPDoc .content-container {
+  position: relative;
+}
+
+.VPDoc .content-container:has(.page-copy-actions) .vp-doc > h1:first-child {
+  padding-right: 32px;
 }
 
 /* 内容区域动画 - 只作用于内容区域，不影响导航栏等固定元素 */

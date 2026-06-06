@@ -19,6 +19,7 @@ import { inBrowser } from "vitepress"
 import Confetti from "./components/vue/Confetti.vue"
 import MyLayout from './components/vue/switch.vue'
 import LayoutComponent from './components/vue/layout.vue'
+import PageCopyActions from './components/vue/PageCopyActions.vue'
 import { init3DTiltEffect } from './components/js/feature.js'
 import { showCookieNotice } from './components/js/notice.js'
 
@@ -59,6 +60,7 @@ export default {
     // 注册全局组件
     app.component("Confetti", Confetti)
     app.component("MyLayout", MyLayout)
+    app.component("PageCopyActions", PageCopyActions)
 
     // 仅在浏览器环境下执行
     if (inBrowser) {

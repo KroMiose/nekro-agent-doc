@@ -1,8 +1,33 @@
 import { defineConfig } from "vitepress";
 import markdownItVideo from "@vrcd-community/markdown-it-video";
+import llmstxt from "vitepress-plugin-llms";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  vite: {
+    plugins: [
+      llmstxt({
+        domain: "https://doc.nekro.ai",
+        injectLLMHint: false,
+        customLLMsTxtTemplate: [
+          "# {title}",
+          "",
+          "{description}",
+          "",
+          "{details}",
+          "",
+          "## Docs",
+          "",
+          "{toc}",
+        ].join("\n"),
+        ignoreFiles: [
+          "README.md",
+          "nekro-agent/**",
+        ],
+      }),
+    ],
+  },
+
   // --- 忽略子模块中的死链接 ---
   ignoreDeadLinks: [
     /nekro-agent/,
