@@ -30,7 +30,7 @@ const messages: Record<string, LocaleMessages> = {
   },
 }
 
-const { lang, site } = useData()
+const { lang } = useData()
 const t = computed(() => messages[lang.value] || messages['zh-CN'])
 
 const menuId = 'page-copy-menu'
@@ -52,7 +52,7 @@ function resolveCurrentMarkdownPageURL(): string {
 }
 
 function resolveLlmsURL(): string {
-  return new URL(`${site.value.base}llms.txt`, window.location.origin).toString()
+  return new URL('/llms.txt', window.location.origin).toString()
 }
 
 function showCopiedState(target: 'page'): void {

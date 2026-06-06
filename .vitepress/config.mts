@@ -1,11 +1,38 @@
 import { defineConfig } from "vitepress";
 import markdownItVideo from "@vrcd-community/markdown-it-video";
 import llmstxt from "vitepress-plugin-llms";
+import fs from "node:fs";
+import path from "node:path";
+
+function serveGeneratedLLMsTxt() {
+  return {
+    name: "serve-generated-llms-txt",
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        const pathname = req.url?.split("?")[0];
+        if (pathname !== "/llms.txt" && pathname !== "/llms-full.txt") {
+          next();
+          return;
+        }
+
+        const filePath = path.resolve(__dirname, "dist", pathname.slice(1));
+        if (!fs.existsSync(filePath)) {
+          next();
+          return;
+        }
+
+        res.setHeader("Content-Type", "text/plain; charset=utf-8");
+        res.end(fs.readFileSync(filePath, "utf8"));
+      });
+    },
+  };
+}
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   vite: {
     plugins: [
+      serveGeneratedLLMsTxt(),
       llmstxt({
         domain: "https://doc.nekro.ai",
         injectLLMHint: false,
