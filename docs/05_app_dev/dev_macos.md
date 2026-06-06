@@ -53,11 +53,11 @@ brew install --cask orbstack
 安装完成后启动 OrbStack 应用，它会自动提供 Docker 兼容的命令行工具。
 
 ::: tip 为什么选择 OrbStack？
-- ⚡ **更快**：启动速度和运行性能显著优于 Docker Desktop
-- 💾 **更轻量**：占用更少的系统资源
-- 🔧 **开箱即用**：无需 sudo 权限，自动配置完成
-- 🐧 **Linux VM 支持**：可创建 Linux 虚拟机用于完全兼容的开发环境
-- 🆓 **免费**：个人使用完全免费
+- <DocIcon name="zap" /> **更快**：启动速度和运行性能显著优于 Docker Desktop
+- <DocIcon name="drive" /> **更轻量**：占用更少的系统资源
+- <DocIcon name="wrench" /> **开箱即用**：无需 sudo 权限，自动配置完成
+- <DocIcon name="laptop" /> **Linux VM 支持**：可创建 Linux 虚拟机用于完全兼容的开发环境
+- <DocIcon name="gift" /> **免费**：个人使用完全免费
 :::
 
 ## 源码部署

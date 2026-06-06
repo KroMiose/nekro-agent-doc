@@ -1,4 +1,8 @@
 {
+  "packageManager": "pnpm@9.15.9",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "devDependencies": {
     "@types/canvas-confetti": "^1.9.0",
     "@types/dom-view-transitions": "^1.0.6",
@@ -16,6 +20,7 @@
     "docs:preview": "vitepress preview"
   },
   "dependencies": {
+    "@lucide/vue": "^1.17.0",
     "@vrcd-community/markdown-it-video": "^1.1.1",
     "medium-zoom": "^1.1.0"
   }

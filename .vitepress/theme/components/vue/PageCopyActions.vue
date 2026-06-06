@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
-import { useData } from 'vitepress'
+import { useData, withBase } from 'vitepress'
 
 type LocaleMessages = {
   copyMarkdown: string
@@ -52,7 +52,7 @@ function resolveCurrentMarkdownPageURL(): string {
 }
 
 function resolveLlmsURL(): string {
-  return new URL('/llms.txt', window.location.origin).toString()
+  return new URL(withBase('/llms.txt'), window.location.origin).toString()
 }
 
 function showCopiedState(target: 'page'): void {

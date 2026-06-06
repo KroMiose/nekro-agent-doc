@@ -10,7 +10,7 @@ description: Linux環境でのNekro Agentデプロイメントの完全ガイド
 本文で提供するインストールスクリプトは、`apt` をパッケージマネージャーとして使用している Linux ディストリビューション（Ubuntu、Debian など）にのみ対応しています。
 :::
 
-## 🚀 方法 1：標準デプロイメント（推奨）
+## <DocIcon name="rocket" /> 方法 1：標準デプロイメント（推奨）
 
 このモードでは、Nekro Agent コアサービスと Napcat プロトコルエンドポイントをワンクリックでデプロイし、ほとんどのユーザーにおすすめの完全なソリューションです。
 
@@ -47,7 +47,7 @@ sudo -E bash -c "$(curl -fsSL https://ep.nekro.ai/e/KroMiose/nekro-agent/main/do
 
 デプロイメント完了後、[OneBot V11 / NapCat 設定](/ja/docs/02_quick_start/adapters/onebot_v11)ドキュメントを参照して、後続の設定を完了してください。
 
-## 🚀 方法 2：コアデプロイメント
+## <DocIcon name="rocket" /> 方法 2：コアデプロイメント
 
 このモードでは Nekro Agent コアサービスのみをデプロイし、他のアダプタープラットフォームを使用する必要がある場合や、OneBot V11 プロトコルエンドポイントを自分で設定する必要がある上級ユーザーに適しています。
 
@@ -75,7 +75,7 @@ Do you want to use napcat service at the same time? [Y/n] n
 
 `ws://<あなたのサービスIP>:8021/onebot/v11/ws`
 
-## 📝 注意事項
+## <DocIcon name="file" /> 注意事項
 
 - **インストールディレクトリ**：
 
@@ -91,7 +91,7 @@ Do you want to use napcat service at the same time? [Y/n] n
 - **認証情報の保存**：
   - インストールスクリプト実行後、**管理者パスワード**や**OneBot アクセストークン**などの重要な情報が出力されます。必ず適切に保存してください。
 
-## ⚙️ デプロイメント後の設定
+## <DocIcon name="settings" /> デプロイメント後の設定
 
 - **標準デプロイメント**：[OneBot V11 / NapCat 設定](/ja/docs/02_quick_start/adapters/onebot_v11)ドキュメントに移動し、ドキュメントに従って設定を完了してください。
 - **コアデプロイメント**：[OneBot V11 / NapCat 設定](/ja/docs/02_quick_start/adapters/onebot_v11)ドキュメントに移動し、指示を参考に設定を続けてください。

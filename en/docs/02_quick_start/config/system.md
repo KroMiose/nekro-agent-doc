@@ -7,7 +7,7 @@ description: Detailed explanation of Nekro Agent system configuration, including
 
 Nekro Agent provides flexible system configuration options, allowing you to customize system behavior according to your needs. This document will introduce the main system configuration items required to complete basic chat conversation functionality.
 
-## ⚙️ Accessing Configuration
+## <DocIcon name="settings" /> Accessing Configuration
 
 ### Through WebUI Configuration (Recommended)
 
@@ -29,7 +29,7 @@ Under the default installation path, the configuration file is located at `~/srv
 
 Note: After directly modifying the configuration file, you need to use the `/conf-reload` command or restart the NA service to take effect
 
-## 📝 Concepts
+## <DocIcon name="file" /> Concepts
 
 ### Configuration Key
 
@@ -39,7 +39,7 @@ The configuration key is the unique identifier used to identify configuration it
 
 The configuration value is the value corresponding to the configuration key. You can see it below all configuration names in the WebUI's "System Configuration" → "Basic Configuration" page, corresponding one-to-one with the field values in the configuration file. For example, the configuration value of `ENABLE_NEKRO_CLOUD` is `true`, indicating that the NekroAI cloud service function is enabled
 
-## 🔑 Necessary Basic Configuration
+## <DocIcon name="key" /> Necessary Basic Configuration
 
 In the "System Configuration" → "Basic Configuration" page, it is recommended to complete the following important configuration items first to avoid affecting normal use
 
@@ -47,7 +47,7 @@ In the "System Configuration" → "Basic Configuration" page, it is recommended 
 
 The administrator account is used to configure accounts allowed to use system commands. Usually configured as the administrator user's QQ account, multiple accounts can be configured. It should be noted that QQ users configured as administrators can use `QQ account + default password (123456)` to log in to WebUI for management operations. Please be sure to change the password in time after logging in
 
-## 🔒 Necessary Model Group Configuration
+## <DocIcon name="lock" /> Necessary Model Group Configuration
 
 In the "System Configuration" → "Model Groups" page, please configure at least one available LLM conversation model group, otherwise you will not be able to use it normally
 

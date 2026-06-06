@@ -7,7 +7,7 @@ description: Methods and steps for updating Nekro Agent application, including o
 
 Nekro Agent regularly releases updates, including feature improvements, bug fixes, and security patches. This document will introduce how to safely update your Nekro Agent instance.
 
-## 🚀 Orchestration Update (Recommended)
+## <DocIcon name="rocket" /> Orchestration Update (Recommended)
 
 Nekro Agent provides convenient orchestration update commands. When a new version is released, you can use the following one-click command to update the application
 
@@ -43,7 +43,7 @@ sudo docker-compose --env-file .env pull && \
 sudo docker-compose --env-file .env up --build -d
 ```
 
-## 🧪 Switch to Preview
+## <DocIcon name="flask" /> Switch to Preview
 
 If you want early access to the latest features, or want to help test changes that have not yet reached a stable release, you can switch the deployment image from `latest` to `preview`.
 
@@ -117,6 +117,6 @@ Change the image tag in `docker-compose.yml` back to `latest`, then run the stab
 sed -i 's|image: kromiose/nekro-agent:preview|image: kromiose/nekro-agent:latest|g' docker-compose.yml
 ```
 
-## 📝 Update Logs
+## <DocIcon name="file" /> Update Logs
 
 After each update, you can check the [GitHub Releases](https://github.com/KroMiose/nekro-agent/releases) to view the update logs and understand the changes

@@ -9,7 +9,7 @@ description: Deploying Nekro Agent on the iStoreOS soft router system. iStoreOS 
 Deploying Nekro Agent on the iStoreOS soft router system. iStoreOS is based on OpenWRT and uses the ash shell environment. We provide a specially adapted installation script.
 
 
-## 📋 Prerequisites
+## <DocIcon name="clipboard" /> Prerequisites
 
 Before starting deployment, please ensure your iStoreOS system meets the following conditions:
 
@@ -17,7 +17,7 @@ Before starting deployment, please ensure your iStoreOS system meets the followi
 - **Storage Space**: Docker root directory has at least 10GB of available space
 - **Network Connection**: Ability to access GitHub and Docker.io normally
 
-## 🚀 Deployment Methods
+## <DocIcon name="rocket" /> Deployment Methods
 
 ### One-Click Deployment
 
@@ -39,7 +39,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/ref
 After deployment is complete, please refer to the [OneBot V11 / NapCat Configuration](/en/docs/02_quick_start/adapters/onebot_v11) documentation to complete subsequent configuration.
 
 
-## ⚙️ Detailed Installation Process
+## <DocIcon name="settings" /> Detailed Installation Process
 
 ### 1. Environment Detection
 
@@ -69,12 +69,12 @@ The installation script will automatically configure the OpenWRT firewall to ope
 - **Nekro Agent Main Service**: `8021/tcp` (customizable in .env)
 - **Napcat Service**: `6099/tcp` (customizable in .env)
 
-## ⚙️ Post-Deployment Configuration
+## <DocIcon name="settings" /> Post-Deployment Configuration
 
 - **Standard Deployment**: Go to the [OneBot V11 / NapCat Configuration](/en/docs/02_quick_start/adapters/onebot_v11) documentation and complete configuration according to the documentation.
 - **Core Deployment**: Go to the [OneBot V11 / NapCat Configuration](/en/docs/02_quick_start/adapters/onebot_v11) documentation and refer to the instructions to continue configuration.
 
-## 🚀 Application Updates
+## <DocIcon name="rocket" /> Application Updates
 
 For iStoreOS environment, please use the following commands to update the application
 
@@ -103,6 +103,6 @@ cd ${NEKRO_DATA_DIR}
  docker-compose --env-file .env up --build -d
 ```
 
-## 📝 Changelog
+## <DocIcon name="file" /> Changelog
 
 After each update, you can check [GitHub Releases](https://github.com/KroMiose/nekro-agent/releases) to view the changelog and understand the changes

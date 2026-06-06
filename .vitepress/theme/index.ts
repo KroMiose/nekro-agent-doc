@@ -20,6 +20,7 @@ import Confetti from "./components/vue/Confetti.vue"
 import MyLayout from './components/vue/switch.vue'
 import LayoutComponent from './components/vue/layout.vue'
 import PageCopyActions from './components/vue/PageCopyActions.vue'
+import DocIcon from './components/vue/DocIcon.vue'
 import { init3DTiltEffect } from './components/js/feature.js'
 import { showCookieNotice } from './components/js/notice.js'
 
@@ -61,6 +62,7 @@ export default {
     app.component("Confetti", Confetti)
     app.component("MyLayout", MyLayout)
     app.component("PageCopyActions", PageCopyActions)
+    app.component("DocIcon", DocIcon)
 
     // 仅在浏览器环境下执行
     if (inBrowser) {

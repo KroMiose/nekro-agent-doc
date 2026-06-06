@@ -3,26 +3,255 @@ import markdownItVideo from "@vrcd-community/markdown-it-video";
 import llmstxt from "vitepress-plugin-llms";
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const configDir = path.dirname(fileURLToPath(import.meta.url));
+const llmsDomain = "https://doc.nekro.ai";
+const llmsTxtTargets = new Set(["/llms.txt", "/llms-full.txt"]);
+const llmsIgnoreFiles = [
+  "README.md",
+  "nekro-agent/**",
+];
+
+const localSearchTranslations = {
+  root: {
+    button: {
+      buttonText: "搜索",
+      buttonAriaLabel: "搜索文档",
+    },
+    modal: {
+      displayDetails: "显示详细列表",
+      resetButtonTitle: "清空搜索",
+      backButtonTitle: "关闭搜索",
+      noResultsText: "没有搜索结果：",
+      footer: {
+        selectText: "选择",
+        selectKeyAriaLabel: "回车",
+        navigateText: "切换",
+        navigateUpKeyAriaLabel: "上箭头",
+        navigateDownKeyAriaLabel: "下箭头",
+        closeText: "关闭",
+        closeKeyAriaLabel: "Esc",
+      },
+    },
+  },
+  en: {
+    button: {
+      buttonText: "Search",
+      buttonAriaLabel: "Search docs",
+    },
+    modal: {
+      displayDetails: "Display detailed list",
+      resetButtonTitle: "Reset search",
+      backButtonTitle: "Close search",
+      noResultsText: "No results for",
+      footer: {
+        selectText: "to select",
+        selectKeyAriaLabel: "enter",
+        navigateText: "to navigate",
+        navigateUpKeyAriaLabel: "up arrow",
+        navigateDownKeyAriaLabel: "down arrow",
+        closeText: "to close",
+        closeKeyAriaLabel: "escape",
+      },
+    },
+  },
+  ja: {
+    button: {
+      buttonText: "検索",
+      buttonAriaLabel: "ドキュメントを検索",
+    },
+    modal: {
+      displayDetails: "詳細リストを表示",
+      resetButtonTitle: "検索をリセット",
+      backButtonTitle: "検索を閉じる",
+      noResultsText: "検索結果がありません：",
+      footer: {
+        selectText: "選択",
+        selectKeyAriaLabel: "Enter",
+        navigateText: "移動",
+        navigateUpKeyAriaLabel: "上矢印",
+        navigateDownKeyAriaLabel: "下矢印",
+        closeText: "閉じる",
+        closeKeyAriaLabel: "Esc",
+      },
+    },
+  },
+}
+
+type ArrayByCopyPrototype = typeof Array.prototype & {
+  toReversed?: <T>(this: T[]) => T[];
+  toSorted?: <T>(this: T[], compareFn?: (a: T, b: T) => number) => T[];
+};
+
+function installArrayByCopyPolyfills() {
+  const arrayPrototype = Array.prototype as ArrayByCopyPrototype;
+
+  if (!arrayPrototype.toReversed) {
+    Object.defineProperty(arrayPrototype, "toReversed", {
+      configurable: true,
+      value: function toReversed<T>(this: T[]) {
+        return [...this].reverse();
+      },
+      writable: true,
+    });
+  }
+
+  if (!arrayPrototype.toSorted) {
+    Object.defineProperty(arrayPrototype, "toSorted", {
+      configurable: true,
+      value: function toSorted<T>(this: T[], compareFn?: (a: T, b: T) => number) {
+        return [...this].sort(compareFn);
+      },
+      writable: true,
+    });
+  }
+}
+
+installArrayByCopyPolyfills();
+
+function normalizeRequestPath(url = "") {
+  try {
+    return decodeURIComponent(url.split("?")[0] || "");
+  } catch {
+    return url.split("?")[0] || "";
+  }
+}
+
+function readGeneratedLLMTextFile(pathname: string) {
+  const filePath = path.resolve(configDir, "dist", pathname.slice(1));
+  return fs.existsSync(filePath) ? fs.readFileSync(filePath, "utf8") : undefined;
+}
+
+function parseFrontmatter(content: string) {
+  const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/u);
+  if (!match) return { body: content, data: {} as Record<string, string> };
+
+  const data: Record<string, string> = {};
+  for (const line of match[1].split(/\r?\n/u)) {
+    const property = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/u);
+    if (!property) continue;
+
+    data[property[1]] = property[2].trim().replace(/^['"]|['"]$/gu, "");
+  }
+
+  return { body: content.slice(match[0].length), data };
+}
+
+function collectMarkdownFiles(directory: string): string[] {
+  if (!fs.existsSync(directory)) return [];
+
+  return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const fullPath = path.join(directory, entry.name);
+    if (entry.isDirectory()) {
+      if ([".git", ".vitepress", "node_modules", "nekro-agent"].includes(entry.name)) {
+        return [];
+      }
+
+      return collectMarkdownFiles(fullPath);
+    }
+
+    return entry.isFile() && entry.name.endsWith(".md") ? [fullPath] : [];
+  });
+}
+
+function shouldIncludeMarkdownFile(relativePath: string) {
+  const normalizedPath = relativePath.replaceAll("\\", "/");
+  return (
+    normalizedPath !== "README.md" &&
+    normalizedPath !== "index.md" &&
+    !normalizedPath.startsWith("nekro-agent/")
+  );
+}
+
+function markdownPageURL(relativePath: string) {
+  const normalizedPath = relativePath.replaceAll("\\", "/");
+  const withoutExtension = normalizedPath.replace(/\.md$/u, "");
+  const pagePath = withoutExtension.endsWith("/index")
+    ? withoutExtension.slice(0, -"/index".length)
+    : withoutExtension;
+
+  return `${llmsDomain}/${pagePath}.md`;
+}
+
+function collectLLMMarkdownPages() {
+  return collectMarkdownFiles(path.resolve(configDir, ".."))
+    .map((filePath) => {
+      const relativePath = path.relative(path.resolve(configDir, ".."), filePath);
+      return { filePath, relativePath };
+    })
+    .filter(({ relativePath }) => shouldIncludeMarkdownFile(relativePath))
+    .map(({ filePath, relativePath }) => {
+      const rawContent = fs.readFileSync(filePath, "utf8");
+      const { body, data } = parseFrontmatter(rawContent);
+      const heading = body.match(/^#\s+(.+)$/mu)?.[1]?.trim();
+      const title = data.title || heading || path.basename(relativePath, ".md");
+
+      return {
+        content: body.trim(),
+        description: data.description,
+        relativePath,
+        title,
+        url: markdownPageURL(relativePath),
+      };
+    })
+    .sort((a, b) => a.title.localeCompare(b.title, "zh-CN"));
+}
+
+function generateFallbackLLMsTxt() {
+  const links = collectLLMMarkdownPages()
+    .map((page) => `- [${page.title}](${page.url})${page.description ? `: ${page.description}` : ""}`)
+    .join("\n");
+
+  return [
+    "# Nekro Agent",
+    "",
+    "> 新一代智能中枢框架",
+    "",
+    "安全、高效、优雅的智能交互体验",
+    "",
+    "## Docs",
+    "",
+    links,
+    "",
+  ].join("\n");
+}
+
+function generateFallbackLLMsFullTxt() {
+  const pages = collectLLMMarkdownPages()
+    .map((page) => `# ${page.title}\n\nSource: ${page.url}\n\n${page.content}`)
+    .join("\n\n---\n\n");
+
+  return [
+    "# Nekro Agent",
+    "",
+    "> 新一代智能中枢框架",
+    "",
+    pages,
+    "",
+  ].join("\n");
+}
+
+function generateFallbackLLMText(pathname: string) {
+  return pathname === "/llms-full.txt" ? generateFallbackLLMsFullTxt() : generateFallbackLLMsTxt();
+}
 
 function serveGeneratedLLMsTxt() {
   return {
     name: "serve-generated-llms-txt",
+    enforce: "pre",
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
-        const pathname = req.url?.split("?")[0];
-        if (pathname !== "/llms.txt" && pathname !== "/llms-full.txt") {
+        const pathname = normalizeRequestPath(req.url);
+        if (!llmsTxtTargets.has(pathname)) {
           next();
           return;
         }
 
-        const filePath = path.resolve(__dirname, "dist", pathname.slice(1));
-        if (!fs.existsSync(filePath)) {
-          next();
-          return;
-        }
-
+        const content = readGeneratedLLMTextFile(pathname) ?? generateFallbackLLMText(pathname);
         res.setHeader("Content-Type", "text/plain; charset=utf-8");
-        res.end(fs.readFileSync(filePath, "utf8"));
+        res.setHeader("Cache-Control", "no-cache");
+        res.end(content);
       });
     },
   };
@@ -34,7 +263,7 @@ export default defineConfig({
     plugins: [
       serveGeneratedLLMsTxt(),
       llmstxt({
-        domain: "https://doc.nekro.ai",
+        domain: llmsDomain,
         injectLLMHint: false,
         customLLMsTxtTemplate: [
           "# {title}",
@@ -47,10 +276,7 @@ export default defineConfig({
           "",
           "{toc}",
         ].join("\n"),
-        ignoreFiles: [
-          "README.md",
-          "nekro-agent/**",
-        ],
+        ignoreFiles: llmsIgnoreFiles,
       }),
     ],
   },
@@ -168,6 +394,8 @@ export default defineConfig({
               items: [
                 { text: "概览", link: "/docs/01_intro/overview" },
                 { text: "应用场景", link: "/docs/01_intro/application_scenarios" },
+                { text: "NekroAI 成员招募", link: "/docs/01_intro/recruitment" },
+
               ],
             },
             {
@@ -309,8 +537,7 @@ export default defineConfig({
               items: [
                 { text: "Linux 开发环境准备", link: "/docs/05_app_dev/dev_linux" },
                 { text: "Windows 开发环境准备", link: "/docs/05_app_dev/dev_win" },
-                { text: "MacOS 开发环境准备", link: "/docs/05_app_dev/dev_macos" },
-                { text: "NekroAI 成员招募", link: "/docs/01_intro/recruitment" },
+                { text: "MacOS 开发环境准备", link: "/docs/05_app_dev/dev_macos" }
               ],
             },
             {
@@ -678,7 +905,23 @@ export default defineConfig({
 
   themeConfig: {
     logo: '/nekro_agent_logo.webp',
-    search: { provider: 'local' },
+    search: {
+      provider: 'local',
+      options: {
+        translations: localSearchTranslations.root,
+        locales: {
+          root: {
+            translations: localSearchTranslations.root,
+          },
+          en: {
+            translations: localSearchTranslations.en,
+          },
+          ja: {
+            translations: localSearchTranslations.ja,
+          },
+        },
+      },
+    },
 
     // 共享的社交链接
     socialLinks: [

@@ -7,7 +7,7 @@ description: Complete guide for deploying Nekro Agent on macOS systems, using Or
 
 This document will guide you through deploying Nekro Agent on MacOS systems.
 
-## 🌈 Environment Preparation
+## <DocIcon name="rainbow" /> Environment Preparation
 
 Since Nekro Agent runs based on Docker, we recommend using OrbStack as the container management tool on MacOS, and deploy through its virtual machine functionality.
 
@@ -60,7 +60,7 @@ orb ls
 orb -m ubuntu ls
 ```
 
-## 🚀 Deployment Methods (in OrbStack Virtual Machine)
+## <DocIcon name="rocket" /> Deployment Methods (in OrbStack Virtual Machine)
 
 After entering the OrbStack virtual machine, the deployment process is completely identical to that in a standard Linux environment.
 

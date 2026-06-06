@@ -9,7 +9,7 @@ description: 在 iStoreOS 软路由系统上部署 Nekro Agent。iStoreOS 基于
 在 iStoreOS 软路由系统上部署 Nekro Agent。iStoreOS 基于 OpenWRT，使用 ash shell 环境，我们提供专门适配的安装脚本。
 
 
-## 📋 前置要求
+## <DocIcon name="clipboard" /> 前置要求
 
 在开始部署前，请确保您的 iStoreOS 系统满足以下条件：
 
@@ -17,7 +17,7 @@ description: 在 iStoreOS 软路由系统上部署 Nekro Agent。iStoreOS 基于
 - **存储空间**：Docker 根目录至少有 10GB 可用空间
 - **网络连接**：能够正常访问 GitHub 和 Docker.io
 
-## 🚀 部署方式
+## <DocIcon name="rocket" /> 部署方式
 
 ### 一键部署
 
@@ -39,7 +39,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/ref
 部署完成后，请参考[OneBot V11 / NapCat 配置](/docs/02_quick_start/adapters/onebot_v11)文档完成后续配置。
 
 
-## ⚙️ 安装过程详解
+## <DocIcon name="settings" /> 安装过程详解
 
 ### 1. 环境检测
 
@@ -69,12 +69,12 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/ref
 - **Nekro Agent 主服务**：`8021/tcp`（可在 .env 中自定义）
 - **Napcat 服务**：`6099/tcp`（可在 .env 中自定义）
 
-## ⚙️ 部署后配置
+## <DocIcon name="settings" /> 部署后配置
 
 - **标准部署**: 前往[OneBot V11 / NapCat 配置](/docs/02_quick_start/adapters/onebot_v11)文档，根据文档说明完成配置。
 - **核心部署**: 前往[OneBot V11 / NapCat 配置](/docs/02_quick_start/adapters/onebot_v11)文档，参考说明继续配置。
 
-## 🚀 应用更新
+## <DocIcon name="rocket" /> 应用更新
 
 iStoreOS 环境请使用以下命令更新应用
 
@@ -103,7 +103,7 @@ cd ${NEKRO_DATA_DIR}
  docker-compose --env-file .env up --build -d
 ```
 
-## 📝 更新日志
+## <DocIcon name="file" /> 更新日志
 
 每次更新后，可以在 [GitHub Releases](https://github.com/KroMiose/nekro-agent/releases) 查看更新日志了解变更内容
 

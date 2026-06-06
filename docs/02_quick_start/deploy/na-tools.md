@@ -7,7 +7,7 @@ description: 使用官方提供的一键式 CLI 工具 na-tools 在 macOS 或 Li
 
 `na-tools` 是官方提供的跨平台自动部署 CLI 工具，支持 **macOS** 和 **Linux** 系统。它提供了从安装、配置到备份、恢复的全生命周期管理功能。
 
-## ✨ 为什么选择 na-tools？
+## <DocIcon name="sparkles" /> 为什么选择 na-tools？
 
 - **跨平台支持**：同时支持 Linux (Ubuntu/Debian 等) 和 macOS。
 - **全自动环境检测**：自动检测并引导安装 Docker 环境。
@@ -17,7 +17,7 @@ description: 使用官方提供的一键式 CLI 工具 na-tools 在 macOS 或 Li
 
 ---
 
-## 📦 第一步：安装 na-tools
+## <DocIcon name="package" /> 第一步：安装 na-tools
 
 na-tools 需要 **Python 3.11+** 环境（与 Nekro Agent 主程序版本要求一致）。我们推荐使用 [uv](https://docs.astral.sh/uv/) 来安装，它可以自动管理 Python 环境，避免污染系统。
 
@@ -54,7 +54,7 @@ uv tool upgrade na-tools
 
 ---
 
-## 🚀 第二步：一键部署 Nekro Agent
+## <DocIcon name="rocket" /> 第二步：一键部署 Nekro Agent
 
 运行以下命令开始安装流程：
 
@@ -137,7 +137,7 @@ na-tools install --preview
 
 ---
 
-## 🔌 第三步（可选）：配置 NapCat（连接 QQ）
+## <DocIcon name="plug" /> 第三步（可选）：配置 NapCat（连接 QQ）
 
 如果您在安装时选择了包含 NapCat，需要完成以下配置才能让 Bot 连接 QQ。
 
@@ -151,7 +151,7 @@ na-tools napcat --qq 123456789
 
 ---
 
-## 💡 日常管理命令
+## <DocIcon name="lightbulb" /> 日常管理命令
 
 ### 查看服务状态
 
@@ -198,7 +198,7 @@ na-tools update --no-update-sandbox
 
 ---
 
-## 💾 备份与恢复
+## <DocIcon name="drive" /> 备份与恢复
 
 ### 创建备份
 
@@ -256,7 +256,7 @@ na-tools restore --data-dir /path/to/target_dir
 
 ---
 
-## 🧪 Preview 预览版
+## <DocIcon name="flask" /> Preview 预览版
 
 Preview 频道提供预览版镜像，可以提前体验新功能，但**可能不稳定**。
 
@@ -288,7 +288,7 @@ na-tools update --rollback
 
 ---
 
-## 📂 多实例管理
+## <DocIcon name="folder" /> 多实例管理
 
 na-tools 支持在**同一台机器**上管理多个 Nekro Agent 实例，每个实例拥有独立的数据目录和配置。
 
@@ -364,7 +364,7 @@ na-tools remove --force
 
 ---
 
-## 🪞 配置 Docker 镜像源
+## <DocIcon name="box" /> 配置 Docker 镜像源
 
 如果您在国内拉取 Docker 镜像速度较慢，可以通过 na-tools 设置镜像源：
 
@@ -383,7 +383,7 @@ na-tools config mirror ""
 
 ---
 
-## 📋 命令速查表
+## <DocIcon name="clipboard" /> 命令速查表
 
 ### 部署管理
 
@@ -420,7 +420,7 @@ na-tools config mirror ""
 
 ---
 
-## ⚠️ 常见问题
+## <DocIcon name="warning" label="注意" /> 常见问题
 
 ### Docker 相关
 

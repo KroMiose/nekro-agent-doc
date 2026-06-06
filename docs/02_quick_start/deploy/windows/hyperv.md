@@ -15,7 +15,7 @@ description: 在 Windows 系统上使用 Hyper-V 部署 Nekro Agent 的详细步
 :::
 
 
-## 🌈 环境准备
+## <DocIcon name="rainbow" /> 环境准备
 
 由于 Nekro Agent 基于 Docker 运行，我们需要先在 Windows 上安装 Hyper-V。
 

@@ -15,7 +15,7 @@ This document will guide you through deploying Nekro Agent on Windows systems.
 :::
 
 
-## 🌈 Environment Preparation
+## <DocIcon name="rainbow" /> Environment Preparation
 
 Since Nekro Agent runs based on Docker, we need to install Hyper-V on Windows first.
 

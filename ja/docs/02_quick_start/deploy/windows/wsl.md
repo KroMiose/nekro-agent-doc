@@ -7,7 +7,7 @@ description: WSL2を通じてWindowsシステムにNekro Agentをデプロイす
 
 このドキュメントでは、Windows Subsystem for Linux (WSL2) を通じてWindowsシステムにNekro Agentをデプロイする方法を案内します。すべての環境設定とインストール手順を自動的に処理するワンクリックインストールスクリプトの使用を強くお勧めします。
 
-## 🚀 ワンクリックインストール（推奨）
+## <DocIcon name="rocket" /> ワンクリックインストール（推奨）
 
 このスクリプトは自動的に以下のタスクを完了します：
 - WSL2と仮想化関連機能をチェックして有効にします（コンピュータの再起動が必要な場合があります）。
@@ -61,7 +61,7 @@ iex "& { $scriptContent } -InstallPath '<あなたのパス>'"
     D:\wslinstall.ps1 -InstallPath 'D:\WSL\NekroAgent'
     ```
 
-## ⚙️ デプロイメント後の操作
+## <DocIcon name="settings" /> デプロイメント後の操作
 
 インストールが完了したら、いつでも以下の方法でNekro Agent環境を管理できます：
 
@@ -76,7 +76,7 @@ iex "& { $scriptContent } -InstallPath '<あなたのパス>'"
 - **その後の操作**：
   WSL環境に入った後、すべての操作はLinux環境と一致します。[Linuxデプロイメントチュートリアル](../linux.md)を参照して、ログの表示、サービスの管理などの操作を行うことができます。
 
-## ✋ 手動インストール
+## <DocIcon name="hand" /> 手動インストール
 
 自動化スクリプトを使用したくない場合や、既存のWSLディストリビューションにインストールしたい場合は、以下の手順に従ってください：
 

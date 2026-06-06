@@ -13,7 +13,7 @@ This will guide you through deploying Nekro Agent on Windows systems.
   <!-- Hyper-V -->
   <a class="deploy-option" href="/en/docs/02_quick_start/deploy/windows/hyperv">
     <div class="option-header hyperv"> <!-- The class name here is used to locate child element icon colors -->
-      <span class="option-icon">🚀</span>
+      <span class="option-icon"><DocIcon name="rocket" /></span>
       <span class="option-title">Hyper-V Deployment</span>
     </div>
     <div class="option-desc">High performance, starts with the system, Windows native virtualization solution.</div>
@@ -22,7 +22,7 @@ This will guide you through deploying Nekro Agent on Windows systems.
   <!-- WSL2 -->
   <a class="deploy-option" href="/en/docs/02_quick_start/deploy/windows/wsl">
     <div class="option-header wsl">
-      <span class="option-icon">🐧</span>
+      <span class="option-icon"><DocIcon name="laptop" /></span>
       <span class="option-title">WSL2 Deployment</span>
     </div>
     <div class="option-desc">Lightweight and convenient, deeply integrated with Windows file system, suitable for development.</div>
@@ -31,7 +31,7 @@ This will guide you through deploying Nekro Agent on Windows systems.
   <!-- ISO -->
   <a class="deploy-option" href="/en/docs/02_quick_start/deploy/windows/iso">
     <div class="option-header iso">
-      <span class="option-icon">💿</span>
+      <span class="option-icon"><DocIcon name="disc" /></span>
       <span class="option-title">Complete Image Deployment</span>
     </div>
     <div class="option-desc">Independent environment, one-click installation, the deployment method with the best isolation.</div>
@@ -40,7 +40,7 @@ This will guide you through deploying Nekro Agent on Windows systems.
   <!-- VMware -->
   <a class="deploy-option disabled">
     <div class="option-header vmware">
-      <span class="option-icon">📦</span> <!-- Changed to an icon more suitable for software -->
+      <span class="option-icon"><DocIcon name="package" /></span> <!-- Changed to an icon more suitable for software -->
       <span class="option-title">VMware Deployment</span>
     </div>
     <div class="option-desc">Coming soon: Exclusive solution for VMware Workstation.</div>

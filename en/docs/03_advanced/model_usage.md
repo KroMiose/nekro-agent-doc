@@ -13,11 +13,11 @@ In the recommended models, we use the following rating standards:
 
 | Rating | Corresponding Level | Description |
 | ---- | ------------------ | ---- |
-| 👑   | ⭐⭐⭐⭐⭐ | Excellent |
-| 🥇   | ⭐⭐⭐⭐   | Outstanding |
-| 🥈   | ⭐⭐⭐     | Good |
-| 🥉   | ⭐⭐       | Average |
-| ⚪   | ⭐         | Poor |
+| <DocIcon name="crown" label="极佳" />   | <DocIcon name="star" label="星级" /><DocIcon name="star" label="星级" /><DocIcon name="star" label="星级" /><DocIcon name="star" label="星级" /><DocIcon name="star" label="星级" /> | Excellent |
+| <DocIcon name="medal" label="优秀" />   | <DocIcon name="star" label="星级" /><DocIcon name="star" label="星级" /><DocIcon name="star" label="星级" /><DocIcon name="star" label="星级" />   | Outstanding |
+| <DocIcon name="award" label="良好" />   | <DocIcon name="star" label="星级" /><DocIcon name="star" label="星级" /><DocIcon name="star" label="星级" />     | Good |
+| <DocIcon name="badge-check" label="一般" />   | <DocIcon name="star" label="星级" /><DocIcon name="star" label="星级" />       | Average |
+| <DocIcon name="circle-off" label="较差" />   | <DocIcon name="star" label="星级" />         | Poor |
 
 ::: warning Note
 The following recommendations are for reference only. The same model from different sources may have differences in final performance due to channel conversion strategies, different configuration settings, concurrency situations, current status, etc. We encourage you to try multiple models based on actual usage, including those not in the following form, to choose the model that best suits you!
@@ -42,20 +42,20 @@ Below is the list of recommended models for **Chat Conversation Process**:
 
 | Model Name                          | Quality | Speed | Stability | Cost-Effectiveness | Vision | Built-in Thinking | Notes |
 | --------------------------------- | ------- | ----- | --------- | ------------------ | ------ | ----------------- | ----- |
-| claude-4-5-sonnet-latest          | 👑     | 🥈    | 🥈        | 🥈                 | 👁️    | ❌                | Anthropic's latest flagship model, with the strongest comprehensive capabilities but limited supply, suitable as the main model |
-| gemini-3.1-pro-preview            | 👑     | 🥈    | 🥇        | 🥉                 | 👁️    | 🧠                | Google's 3.1 generation high-quality flagship model, currently top performance, supports thinking signature and thinking levels ⚠️ Preview model |
-| gemini-3-flash-preview            | 🥇     | 🥇    | 🥇        | 👑                 | 👁️    | ❌                | Balanced model with excellent overall experience, fast speed and strong logic, recommended as the main model |
-| gemini-2.5-pro                    | 🥇     | 🥇    | 🥇        | 🥈                 | 👁️    | 🧠                | Stable logical ability, has adaptive thinking ability ⚠️ Expected to be discontinued on June 17, 2026 |
-| gpt-4.1                           | 🥇     | 🥈    | 🥇        | 🥈                 | 👁️    | ❌                | Newer flagship GPT model, with obvious AI characteristics but decent logical ability |
-| gemini-3.1-flash-lite-preview     | 🥈     | 👑    | 🥇        | 👑                 | 👁️    | ❌                | Ultra-fast small model, extremely low inference cost, suitable for simple tasks or fast iteration ⚠️ Preview model |
-| claude-4-5-haiku                  | 🥈     | 🥇    | 🥇        | 🥉                 | 👁️    | ❌                | Anthropic's fast model, suitable for scenarios with specific requirements for generation style |
-| gemini-2.5-flash                  | 🥇     | 🥇    | 🥇        | 👑                 | 👁️    | ❌                | High cost-effectiveness, will soon be replaced by gemini-3-flash ⚠️ Expected to be discontinued on June 17, 2026 |
-| deepseek-chat (v3)                | 🥇     | 🥉    | 🥇        | 🥈                 | ❌    | ❌                | Classic domestic model, excellent Chinese ability, distinctive language style |
-| doubao-1.5-vision-pro-32k-250115  | 🥈     | 🥈    | 👑        | 🥈                 | 👁️    | ❌                | Domestic model provided by ByteDance, excellent stability, strong multimodal ability, suitable as a backup model |
-| gemini-2.0-flash                  | 🥈     | 👑    | 🥇        | 🥇                 | 👁️    | ❌                | Small model with extremely low cost ⚠️ Expected to be discontinued on June 1, 2026 |
-| gpt-4o                            | 🥇     | 🥈    | 🥇        | 🥈                 | 👁️    | ❌                | Commonly used model for productivity scenarios, high API stability |
-| gpt-4o-mini                       | 🥈     | 🥈    | 🥇        | 🥇                 | 👁️    | ❌                | Classic GPT series small model |
-| grok-3                            | 🥈     | 🥈    | 🥇        | 🥉                 | 👁️    | ❌                | Language model launched by xAI, distinct personality, lower AI flavor |
+| claude-4-5-sonnet-latest          | <DocIcon name="crown" label="极佳" />     | <DocIcon name="award" label="良好" />    | <DocIcon name="award" label="良好" />        | <DocIcon name="award" label="良好" />                 | <DocIcon name="eye" label="视觉" />    | <DocIcon name="circle-x" label="否" />                | Anthropic's latest flagship model, with the strongest comprehensive capabilities but limited supply, suitable as the main model |
+| gemini-3.1-pro-preview            | <DocIcon name="crown" label="极佳" />     | <DocIcon name="award" label="良好" />    | <DocIcon name="medal" label="优秀" />        | <DocIcon name="badge-check" label="一般" />                 | <DocIcon name="eye" label="视觉" />    | <DocIcon name="brain" />                | Google's 3.1 generation high-quality flagship model, currently top performance, supports thinking signature and thinking levels <DocIcon name="warning" label="注意" /> Preview model |
+| gemini-3-flash-preview            | <DocIcon name="medal" label="优秀" />     | <DocIcon name="medal" label="优秀" />    | <DocIcon name="medal" label="优秀" />        | <DocIcon name="crown" label="极佳" />                 | <DocIcon name="eye" label="视觉" />    | <DocIcon name="circle-x" label="否" />                | Balanced model with excellent overall experience, fast speed and strong logic, recommended as the main model |
+| gemini-2.5-pro                    | <DocIcon name="medal" label="优秀" />     | <DocIcon name="medal" label="优秀" />    | <DocIcon name="medal" label="优秀" />        | <DocIcon name="award" label="良好" />                 | <DocIcon name="eye" label="视觉" />    | <DocIcon name="brain" />                | Stable logical ability, has adaptive thinking ability <DocIcon name="warning" label="注意" /> Expected to be discontinued on June 17, 2026 |
+| gpt-4.1                           | <DocIcon name="medal" label="优秀" />     | <DocIcon name="award" label="良好" />    | <DocIcon name="medal" label="优秀" />        | <DocIcon name="award" label="良好" />                 | <DocIcon name="eye" label="视觉" />    | <DocIcon name="circle-x" label="否" />                | Newer flagship GPT model, with obvious AI characteristics but decent logical ability |
+| gemini-3.1-flash-lite-preview     | <DocIcon name="award" label="良好" />     | <DocIcon name="crown" label="极佳" />    | <DocIcon name="medal" label="优秀" />        | <DocIcon name="crown" label="极佳" />                 | <DocIcon name="eye" label="视觉" />    | <DocIcon name="circle-x" label="否" />                | Ultra-fast small model, extremely low inference cost, suitable for simple tasks or fast iteration <DocIcon name="warning" label="注意" /> Preview model |
+| claude-4-5-haiku                  | <DocIcon name="award" label="良好" />     | <DocIcon name="medal" label="优秀" />    | <DocIcon name="medal" label="优秀" />        | <DocIcon name="badge-check" label="一般" />                 | <DocIcon name="eye" label="视觉" />    | <DocIcon name="circle-x" label="否" />                | Anthropic's fast model, suitable for scenarios with specific requirements for generation style |
+| gemini-2.5-flash                  | <DocIcon name="medal" label="优秀" />     | <DocIcon name="medal" label="优秀" />    | <DocIcon name="medal" label="优秀" />        | <DocIcon name="crown" label="极佳" />                 | <DocIcon name="eye" label="视觉" />    | <DocIcon name="circle-x" label="否" />                | High cost-effectiveness, will soon be replaced by gemini-3-flash <DocIcon name="warning" label="注意" /> Expected to be discontinued on June 17, 2026 |
+| deepseek-chat (v3)                | <DocIcon name="medal" label="优秀" />     | <DocIcon name="badge-check" label="一般" />    | <DocIcon name="medal" label="优秀" />        | <DocIcon name="award" label="良好" />                 | <DocIcon name="circle-x" label="否" />    | <DocIcon name="circle-x" label="否" />                | Classic domestic model, excellent Chinese ability, distinctive language style |
+| doubao-1.5-vision-pro-32k-250115  | <DocIcon name="award" label="良好" />     | <DocIcon name="award" label="良好" />    | <DocIcon name="crown" label="极佳" />        | <DocIcon name="award" label="良好" />                 | <DocIcon name="eye" label="视觉" />    | <DocIcon name="circle-x" label="否" />                | Domestic model provided by ByteDance, excellent stability, strong multimodal ability, suitable as a backup model |
+| gemini-2.0-flash                  | <DocIcon name="award" label="良好" />     | <DocIcon name="crown" label="极佳" />    | <DocIcon name="medal" label="优秀" />        | <DocIcon name="medal" label="优秀" />                 | <DocIcon name="eye" label="视觉" />    | <DocIcon name="circle-x" label="否" />                | Small model with extremely low cost <DocIcon name="warning" label="注意" /> Expected to be discontinued on June 1, 2026 |
+| gpt-4o                            | <DocIcon name="medal" label="优秀" />     | <DocIcon name="award" label="良好" />    | <DocIcon name="medal" label="优秀" />        | <DocIcon name="award" label="良好" />                 | <DocIcon name="eye" label="视觉" />    | <DocIcon name="circle-x" label="否" />                | Commonly used model for productivity scenarios, high API stability |
+| gpt-4o-mini                       | <DocIcon name="award" label="良好" />     | <DocIcon name="award" label="良好" />    | <DocIcon name="medal" label="优秀" />        | <DocIcon name="medal" label="优秀" />                 | <DocIcon name="eye" label="视觉" />    | <DocIcon name="circle-x" label="否" />                | Classic GPT series small model |
+| grok-3                            | <DocIcon name="award" label="良好" />     | <DocIcon name="award" label="良好" />    | <DocIcon name="medal" label="优秀" />        | <DocIcon name="badge-check" label="一般" />                 | <DocIcon name="eye" label="视觉" />    | <DocIcon name="circle-x" label="否" />                | Language model launched by xAI, distinct personality, lower AI flavor |
 
 Note:
 
@@ -69,16 +69,16 @@ The generation modification suggestion model in NekroAgent's **Plugin Editor** u
 
 | Model Name                        | Quality | Speed | Stability | Cost-Effectiveness | Vision | Thinking | Notes |
 | --------------------------------- | ------- | ----- | --------- | ------------------ | ------ | -------- | ----- |
-| claude-4-5                        | 👑     | 🥈    | 🥈        | 🥈                 | 👁️    | 🧠       | Anthropic's latest high-quality flagship coding model |
-| gemini-3.1-pro-preview            | 👑     | 🥈    | 🥇        | 🥉                 | 👁️    | 🧠       | Google's latest generation flagship model, excellent performance in the programming field, extremely strict logic ⚠️ Preview model |
-| gemini-2.5-pro                    | 🥇     | 🥇    | 🥇        | 🥈                 | 👁️    | 🧠       | Classic flagship model, stable programming ability, supports adaptive thinking ⚠️ Expected to be discontinued on June 17, 2026 |
+| claude-4-5                        | <DocIcon name="crown" label="极佳" />     | <DocIcon name="award" label="良好" />    | <DocIcon name="award" label="良好" />        | <DocIcon name="award" label="良好" />                 | <DocIcon name="eye" label="视觉" />    | <DocIcon name="brain" />       | Anthropic's latest high-quality flagship coding model |
+| gemini-3.1-pro-preview            | <DocIcon name="crown" label="极佳" />     | <DocIcon name="award" label="良好" />    | <DocIcon name="medal" label="优秀" />        | <DocIcon name="badge-check" label="一般" />                 | <DocIcon name="eye" label="视觉" />    | <DocIcon name="brain" />       | Google's latest generation flagship model, excellent performance in the programming field, extremely strict logic <DocIcon name="warning" label="注意" /> Preview model |
+| gemini-2.5-pro                    | <DocIcon name="medal" label="优秀" />     | <DocIcon name="medal" label="优秀" />    | <DocIcon name="medal" label="优秀" />        | <DocIcon name="award" label="良好" />                 | <DocIcon name="eye" label="视觉" />    | <DocIcon name="brain" />       | Classic flagship model, stable programming ability, supports adaptive thinking <DocIcon name="warning" label="注意" /> Expected to be discontinued on June 17, 2026 |
 
 After the generation model generates modification suggestions, we also need to use the `Plugin Code Application Model Group (PLUGIN_APPLY_MODEL_GROUP)` to apply the modification suggestions in the current plugin editor. It is recommended to use models with strong prompt compliance and fast generation speed. Below is the list of recommended models:
 
 | Model Name         | Quality | Speed | Stability | Cost-Effectiveness | Vision | Thinking | Notes |
 | ------------------ | ------- | ----- | --------- | ------------------ | ------ | -------- | ----- |
-| gemini-3-flash-preview | 🥇   | 👑    | 🥇        | 👑                 | 👁️    | ❌       | Recommended fast logic application model |
-| gemini-2.5-flash       | 🥈   | 👑    | 🥇        | 🥈                 | 👁️    | ❌       | ⚠️ Expected to be discontinued on June 17, 2026 |
+| gemini-3-flash-preview | <DocIcon name="medal" label="优秀" />   | <DocIcon name="crown" label="极佳" />    | <DocIcon name="medal" label="优秀" />        | <DocIcon name="crown" label="极佳" />                 | <DocIcon name="eye" label="视觉" />    | <DocIcon name="circle-x" label="否" />       | Recommended fast logic application model |
+| gemini-2.5-flash       | <DocIcon name="award" label="良好" />   | <DocIcon name="crown" label="极佳" />    | <DocIcon name="medal" label="优秀" />        | <DocIcon name="award" label="良好" />                 | <DocIcon name="eye" label="视觉" />    | <DocIcon name="circle-x" label="否" />       | <DocIcon name="warning" label="注意" /> Expected to be discontinued on June 17, 2026 |
 
 ## Built-in Plugins
 
@@ -88,8 +88,8 @@ The emoticon pack plugin needs to use a `Vector Embedding Model` to provide emot
 
 | Model Name                | Quality | Speed | Stability | Cost-Effectiveness | Vision | Dimensions | Notes |
 | ----------------------- | ------- | ----- | --------- | ------------------ | ------ | ---------- | ----- |
-| text-embedding-v3       | 👑     | 👑    | 👑        | 👑                 | ❌    | 1024       | Very cheap and efficient text embedding model provided by Alibaba Cloud |
-| multimodal-embedding-v1 | 👑     | 🥇    | 👑        | 👑                 | ✅    | 1024       | Multimodal embedding model provided by Alibaba Cloud, but with many input restrictions, only recommended for special use |
+| text-embedding-v3       | <DocIcon name="crown" label="极佳" />     | <DocIcon name="crown" label="极佳" />    | <DocIcon name="crown" label="极佳" />        | <DocIcon name="crown" label="极佳" />                 | <DocIcon name="circle-x" label="否" />    | 1024       | Very cheap and efficient text embedding model provided by Alibaba Cloud |
+| multimodal-embedding-v1 | <DocIcon name="crown" label="极佳" />     | <DocIcon name="medal" label="优秀" />    | <DocIcon name="crown" label="极佳" />        | <DocIcon name="crown" label="极佳" />                 | <DocIcon name="circle-check" label="是" />    | 1024       | Multimodal embedding model provided by Alibaba Cloud, but with many input restrictions, only recommended for special use |
 
 ### Drawing (Learn to Draw)
 
@@ -97,10 +97,10 @@ The drawing plugin supports OpenAI standard drawing API (such as DALL-E 3) and a
 
 | Model Name                       | Quality | Speed | Stability | Cost-Effectiveness | Image-to-Image | Format         | Notes |
 | -------------------------------- | ------- | ----- | --------- | ------------------ | -------------- | -------------- | ----- |
-| gemini-3.1-flash-image-preview | 👑     | 🥇    | 🥇        | 🥇                 | ✅             | Chat mode      | Gemini 3.1 drawing model, with extremely high understanding and visual quality |
-| gemini-3-pro-image-preview     | 👑     | 🥇    | 🥈        | 🥉                 | ✅             | Chat mode      | Gemini 3 flagship drawing model, rich in details |
-| sora_image                     | 🥇     | ⚪    | 🥇        | 🥈                 | ✅             | Chat mode      | Consistent with ChatGPT official website 4o drawing, good logic compliance but slow |
-| Kolors                         | 🥈     | 👑    | 👑        | 🥇                 | ✅             | Image generation mode | Classic domestic drawing model, suitable for CG style tasks |
+| gemini-3.1-flash-image-preview | <DocIcon name="crown" label="极佳" />     | <DocIcon name="medal" label="优秀" />    | <DocIcon name="medal" label="优秀" />        | <DocIcon name="medal" label="优秀" />                 | <DocIcon name="circle-check" label="是" />             | Chat mode      | Gemini 3.1 drawing model, with extremely high understanding and visual quality |
+| gemini-3-pro-image-preview     | <DocIcon name="crown" label="极佳" />     | <DocIcon name="medal" label="优秀" />    | <DocIcon name="award" label="良好" />        | <DocIcon name="badge-check" label="一般" />                 | <DocIcon name="circle-check" label="是" />             | Chat mode      | Gemini 3 flagship drawing model, rich in details |
+| sora_image                     | <DocIcon name="medal" label="优秀" />     | <DocIcon name="circle-off" label="较差" />    | <DocIcon name="medal" label="优秀" />        | <DocIcon name="award" label="良好" />                 | <DocIcon name="circle-check" label="是" />             | Chat mode      | Consistent with ChatGPT official website 4o drawing, good logic compliance but slow |
+| Kolors                         | <DocIcon name="award" label="良好" />     | <DocIcon name="crown" label="极佳" />    | <DocIcon name="crown" label="极佳" />        | <DocIcon name="medal" label="优秀" />                 | <DocIcon name="circle-check" label="是" />             | Image generation mode | Classic domestic drawing model, suitable for CG style tasks |
 
 ## Notes
 

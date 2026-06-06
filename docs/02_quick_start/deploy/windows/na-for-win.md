@@ -40,7 +40,7 @@ description: 使用启动器的一键安装教程。
     ![内置浏览器](/assets/windows/manage7.png)
     - 到这里，NekroAgent的部署已经完成。
 
-## ⚙️ 部署后配置
+## <DocIcon name="settings" /> 部署后配置
 
 - **标准部署（对应启动器完整版）**: 前往[OneBot V11 / NapCat 配置](/docs/02_quick_start/adapters/onebot_v11)文档，根据文档说明完成配置。
 - **核心部署（对应启动器精简版）**: 前往[OneBot V11 / NapCat 配置](/docs/02_quick_start/adapters/onebot_v11)文档，参考说明继续配置。

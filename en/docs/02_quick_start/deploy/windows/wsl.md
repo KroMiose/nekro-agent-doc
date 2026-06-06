@@ -7,7 +7,7 @@ description: Detailed steps for deploying Nekro Agent on Windows systems through
 
 This document will guide you through deploying Nekro Agent on Windows systems through the Windows Subsystem for Linux (WSL2). We highly recommend using our one-click installation script, which will automatically handle all environment configuration and installation steps for you.
 
-## 🚀 One-Click Installation (Recommended)
+## <DocIcon name="rocket" /> One-Click Installation (Recommended)
 
 This script will automatically complete the following tasks:
 - Check and enable WSL2 and virtualization-related features (may require one computer restart).
@@ -61,7 +61,7 @@ If you cannot execute the above `irm` command due to network issues, you can:
     D:\wslinstall.ps1 -InstallPath 'D:\WSL\NekroAgent'
     ```
 
-## ⚙️ Post-Deployment Operations
+## <DocIcon name="settings" /> Post-Deployment Operations
 
 After installation is complete, you can manage your Nekro Agent environment at any time through the following methods:
 
@@ -76,7 +76,7 @@ After installation is complete, you can manage your Nekro Agent environment at a
 - **Subsequent Operations**:
   After entering the WSL environment, all operations are consistent with the Linux environment. You can refer to the [Linux Deployment Tutorial](../linux.md) for viewing logs, managing services, and other operations.
 
-## ✋ Manual Installation
+## <DocIcon name="hand" /> Manual Installation
 
 If you don't want to use the automation script, or want to install in an existing WSL distribution, you can follow these steps:
 

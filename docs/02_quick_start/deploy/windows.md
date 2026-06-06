@@ -13,7 +13,7 @@ description: 在 Windows 系统上部署 Nekro Agent 的详细步骤，包括WSL
   <!-- NA-for-Win -->
   <a class="deploy-option" href="/docs/02_quick_start/deploy/windows/na-for-win">
     <div class="option-header naforwin">
-      <span class="option-icon">🖥️</span>
+      <span class="option-icon"><DocIcon name="monitor" /></span>
       <span class="option-title">NA Windows 启动器（推荐）</span>
     </div>
     <div class="option-desc">一键部署，图形化管理，基于 WSL2 的轻量级方案，开箱即用。</div>
@@ -22,7 +22,7 @@ description: 在 Windows 系统上部署 Nekro Agent 的详细步骤，包括WSL
   <!-- Hyper-V -->
   <a class="deploy-option" href="/docs/02_quick_start/deploy/windows/hyperv">
     <div class="option-header hyperv"> <!-- 这里的类名用于定位子元素图标颜色 -->
-      <span class="option-icon">🚀</span>
+      <span class="option-icon"><DocIcon name="rocket" /></span>
       <span class="option-title">Hyper-V 部署</span>
     </div>
     <div class="option-desc">性能强劲，跟随系统启动，Windows 原生虚拟化方案。</div>
@@ -31,7 +31,7 @@ description: 在 Windows 系统上部署 Nekro Agent 的详细步骤，包括WSL
   <!-- WSL2 -->
   <a class="deploy-option" href="/docs/02_quick_start/deploy/windows/wsl">
     <div class="option-header wsl">
-      <span class="option-icon">🐧</span>
+      <span class="option-icon"><DocIcon name="laptop" /></span>
       <span class="option-title">WSL2 部署</span>
     </div>
     <div class="option-desc">轻量便捷，与 Windows 文件系统深度集成，适合开发。</div>
@@ -40,7 +40,7 @@ description: 在 Windows 系统上部署 Nekro Agent 的详细步骤，包括WSL
   <!-- ISO -->
   <a class="deploy-option" href="/docs/02_quick_start/deploy/windows/iso">
     <div class="option-header iso">
-      <span class="option-icon">💿</span>
+      <span class="option-icon"><DocIcon name="disc" /></span>
       <span class="option-title">完整镜像部署</span>
     </div>
     <div class="option-desc">独立环境，一键安装，隔离性最好的部署方式。</div>
@@ -49,7 +49,7 @@ description: 在 Windows 系统上部署 Nekro Agent 的详细步骤，包括WSL
   <!-- VMware -->
   <a class="deploy-option disabled">
     <div class="option-header vmware">
-      <span class="option-icon">📦</span> <!-- 换了个更符合软件的图标 -->
+      <span class="option-icon"><DocIcon name="package" /></span> <!-- 换了个更符合软件的图标 -->
       <span class="option-title">VMware 部署</span>
     </div>
     <div class="option-desc">即将推出：适用于 VMware Workstation 的专属方案。</div>

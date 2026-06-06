@@ -53,11 +53,11 @@ brew install --cask orbstack
 インストール後、OrbStackアプリを起動します。自動的にDocker互換のCLIツールが提供されます。
 
 ::: tip なぜOrbStack？
-- ⚡ **高速**：Docker Desktopより起動速度と実行パフォーマンスが大幅に向上
-- 💾 **軽量**：システムリソースの使用量が少ない
-- 🔧 **すぐに使える**：sudo不要、自動設定完了
-- 🐧 **Linux VM対応**：完全互換の開発環境用にLinux VMを作成可能
-- 🆓 **無料**：個人利用は完全無料
+- <DocIcon name="zap" /> **高速**：Docker Desktopより起動速度と実行パフォーマンスが大幅に向上
+- <DocIcon name="drive" /> **軽量**：システムリソースの使用量が少ない
+- <DocIcon name="wrench" /> **すぐに使える**：sudo不要、自動設定完了
+- <DocIcon name="laptop" /> **Linux VM対応**：完全互換の開発環境用にLinux VMを作成可能
+- <DocIcon name="gift" /> **無料**：個人利用は完全無料
 :::
 
 ## ソースコードデプロイ

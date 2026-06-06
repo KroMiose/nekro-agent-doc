@@ -7,7 +7,7 @@ description: 帮助您快速开始使用 Nekro Agent 的指南，包括部署选
 
 欢迎使用 Nekro Agent `(以下简称 NA)`！本文档将帮助您快速开始使用这个强大的 AI 代理系统。
 
-::: warning ⚠ 安全警告 ⚠
+::: warning <DocIcon name="warning" label="注意" /> 安全警告 <DocIcon name="warning" label="注意" />
 
 本项目运行时允许 AI 在独立 Docker 容器环境中执行任意代码，应用已采用多种包括但不限于容器隔离、权限限定等安全措施，但仍存在一定的安全风险，例如:
 
@@ -18,7 +18,7 @@ description: 帮助您快速开始使用 Nekro Agent 的指南，包括部署选
 ! 请知悉结果接受自行承担风险后继续，作者不对使用本项目造成的任何损失负责 !
 :::
 
-## 🗺️ 全景：从零到第一条对话
+## <DocIcon name="map" /> 全景：从零到第一条对话
 
 下面这张图概括了您需要做的所有事，**前 4 步合在一起大约 30 分钟**就能让 Bot 在您的平台上回出第一句话。
 
@@ -49,7 +49,7 @@ description: 帮助您快速开始使用 Nekro Agent 的指南，包括部署选
 2. **模型配置**：再设置 AI 模型及 API 密钥，确认模型可以正常回复
 3. **系统配置**：最后设置基本系统参数和用户权限
 
-::: warning ⚠ 重要安全信息 ⚠
+::: warning <DocIcon name="warning" label="注意" /> 重要安全信息 <DocIcon name="warning" label="注意" />
 为安全起见，请务必阅读以下信息:
 
 1. 若您同步部署了 napcat ，务必修改默认密码：公网 napcat 必须使用强密码（建议 12 位以上，含数字、字母、符号）
@@ -116,6 +116,6 @@ sudo docker restart nekro_agent
 /reset - 重置当前会话
 ```
 
-::: tip 💡 功能探索
+::: tip <DocIcon name="lightbulb" /> 功能探索
 好奇 Nekro Agent 能做什么？查看 [应用场景展示](/docs/01_intro/application_scenarios) 了解丰富多样的实际使用案例和创意玩法！
 :::

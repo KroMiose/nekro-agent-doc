@@ -11,7 +11,7 @@ This document will guide you through deploying Nekro Agent on a Linux system. Ou
 The installation script provided in this article is only applicable to Linux distributions that use `apt` as the package manager, such as Ubuntu and Debian.
 :::
 
-## 🚀 Method 1: Standard Deployment (Recommended)
+## <DocIcon name="rocket" /> Method 1: Standard Deployment (Recommended)
 
 This mode will deploy Nekro Agent core services and Napcat protocol endpoint with one click, which is the complete solution recommended for most users.
 
@@ -48,7 +48,7 @@ sudo -E bash -c "$(curl -fsSL https://ep.nekro.ai/e/KroMiose/nekro-agent/main/do
 
 After deployment is complete, please refer to the [OneBot V11 / NapCat Configuration](/en/docs/02_quick_start/adapters/onebot_v11) document to complete subsequent configuration.
 
-## 🚀 Method 2: Core Deployment
+## <DocIcon name="rocket" /> Method 2: Core Deployment
 
 This mode only deploys Nekro Agent core services, suitable for advanced users who need to use other adapter platforms or configure OneBot V11 protocol endpoints themselves.
 
@@ -76,7 +76,7 @@ After deployment is complete, Nekro Agent will listen to the following address. 
 
 `ws://<your service ip>:8021/onebot/v11/ws`
 
-## 📝 Notes
+## <DocIcon name="file" /> Notes
 
 - **Installation Directory**:
 
@@ -92,7 +92,7 @@ After deployment is complete, Nekro Agent will listen to the following address. 
 - **Save Credentials**:
   - After the installation script is executed, it will output important information such as **administrator password** and **OneBot access token**. Please be sure to save them properly.
 
-## ⚙️ Post-Deployment Configuration
+## <DocIcon name="settings" /> Post-Deployment Configuration
 
 - **Standard Deployment**: Go to the [OneBot V11 / NapCat Configuration](/en/docs/02_quick_start/adapters/onebot_v11) document and complete the configuration according to the documentation.
 - **Core Deployment**: Go to the [OneBot V11 / NapCat Configuration](/en/docs/02_quick_start/adapters/onebot_v11) document and continue configuration with reference to the instructions.
