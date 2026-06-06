@@ -3,6 +3,13 @@ import markdownItVideo from "@vrcd-community/markdown-it-video";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  // --- 忽略子模块中的死链接 ---
+  ignoreDeadLinks: [
+    /nekro-agent/,
+    /^http:\/\/localhost/,
+    /\.\/LICENSE/,
+  ],
+
   // --- Markdown 扩展配置 ---
   markdown: {
     config: (md) => {
@@ -294,6 +301,14 @@ export default defineConfig({
               items: [
                 { text: "Quick Start", link: "/en/docs/02_quick_start/quickstart" },
                 {
+                  text: "Quick Deployment",
+                  collapsed: true,
+                  items: [
+                    { text: "Linux / macOS: NA-Tools", link: "/en/docs/02_quick_start/deploy/na-tools" },
+                    { text: "Windows: Launcher", link: "/en/docs/02_quick_start/deploy/windows/na-for-win" }
+                  ],
+                },
+                {
                   text: "Community Deployment",
                   collapsed: true,
                   items: [
@@ -306,6 +321,7 @@ export default defineConfig({
                   collapsed: true,
                   items: [
                     { text: "OneBot V11 / NapCat", link: "/en/docs/02_quick_start/adapters/onebot_v11" },
+                    { text: "WeChat (OpenILink)", link: "/en/docs/02_quick_start/adapters/wechat_openilink" },
                     { text: "WeChat (WeChatPad Pro)", link: "/en/docs/02_quick_start/adapters/wechatpad" },
                     { text: "WeCom AI Bot", link: "/en/docs/02_quick_start/adapters/wecom_bot" },
                     { text: "WeCom Custom App", link: "/en/docs/02_quick_start/adapters/wecom_app" },
@@ -323,15 +339,38 @@ export default defineConfig({
                   collapsed: true,
                   items: [
                     { text: "System", link: "/en/docs/02_quick_start/config/system" },
+                    { text: "Advanced", link: "/en/docs/02_quick_start/config/advanced" },
                     { text: "Update", link: "/en/docs/02_quick_start/config/update" },
                   ],
                 },
               ],
             },
             {
+              text: "Workspace & Claude Code",
+              collapsed: true,
+              items: [
+                { text: "Workspace Overview", link: "/en/docs/03_workspace/overview" },
+                { text: "Quick Start", link: "/en/docs/03_workspace/quickstart" },
+                { text: "Claude Code Sandbox", link: "/en/docs/03_workspace/claude_code_sandbox" },
+                { text: "MCP Services", link: "/en/docs/03_workspace/mcp_management" },
+                { text: "Resource Center", link: "/en/docs/03_workspace/resource_center" },
+                { text: "Knowledge Base", link: "/en/docs/03_workspace/knowledge_base" },
+                { text: "Memory System", link: "/en/docs/03_workspace/memory_system" },
+                { text: "Skills Library", link: "/en/docs/03_workspace/skills" },
+                { text: "Workspace Timers", link: "/en/docs/03_workspace/timers" },
+                { text: "v2.3.3 Features", link: "/en/docs/03_workspace/preview_features" },
+              ],
+            },
+            {
               text: "Advanced",
               collapsed: true,
               items: [
+                { text: "Dashboard", link: "/en/docs/03_advanced/dashboard" },
+                { text: "Log Center", link: "/en/docs/03_advanced/logs" },
+                { text: "Space Cleanup", link: "/en/docs/03_advanced/space_cleanup" },
+                { text: "Command Center", link: "/en/docs/03_advanced/command_center" },
+                { text: "Channel Management", link: "/en/docs/03_advanced/channel_management" },
+                { text: "Email Adapter", link: "/en/docs/03_advanced/email_adapter" },
                 { text: "Model Config", link: "/en/docs/03_advanced/model_config" },
                 { text: "Model Selection", link: "/en/docs/03_advanced/model_usage" },
                 { text: "Persona Tips", link: "/en/docs/03_advanced/persona_tips" },
@@ -341,6 +380,16 @@ export default defineConfig({
                 { text: "Plugin Generator", link: "/en/docs/03_advanced/plugin_generator" },
                 { text: "Basic Commands", link: "/en/docs/03_advanced/commands_basic" },
                 { text: "Debug Commands", link: "/en/docs/03_advanced/commands_debug" },
+              ],
+            },
+            {
+              text: "Plugins",
+              collapsed: true,
+              items: [
+                { text: "Plugin Usage", link: "/en/docs/03_advanced/plugin_usage" },
+                { text: "Built-in Plugins", link: "/en/docs/04_plugins/builtin_plugins" },
+                { text: "Community Plugins", link: "/en/docs/04_plugins/community_plugins" },
+                { text: "Plugin Generator", link: "/en/docs/03_advanced/plugin_generator" },
               ],
             },
             {
@@ -427,6 +476,14 @@ export default defineConfig({
               items: [
                 { text: "クイックスタート", link: "/ja/docs/02_quick_start/quickstart" },
                 {
+                  text: "クイックデプロイ",
+                  collapsed: true,
+                  items: [
+                    { text: "Linux / macOS：NA-Toolsデプロイ", link: "/ja/docs/02_quick_start/deploy/na-tools" },
+                    { text: "Windows：ランチャー", link: "/ja/docs/02_quick_start/deploy/windows/na-for-win" }
+                  ],
+                },
+                {
                   text: "コミュニティ提供デプロイ",
                   collapsed: true,
                   items: [
@@ -439,6 +496,7 @@ export default defineConfig({
                   collapsed: true,
                   items: [
                     { text: "OneBot V11 / NapCat", link: "/ja/docs/02_quick_start/adapters/onebot_v11" },
+                    { text: "WeChat（OpenILink）", link: "/ja/docs/02_quick_start/adapters/wechat_openilink" },
                     { text: "WeChat（WeChatPad Pro）", link: "/ja/docs/02_quick_start/adapters/wechatpad" },
                     { text: "WeCom AI Bot", link: "/ja/docs/02_quick_start/adapters/wecom_bot" },
                     { text: "WeCom カスタムアプリ", link: "/ja/docs/02_quick_start/adapters/wecom_app" },
@@ -456,15 +514,38 @@ export default defineConfig({
                   collapsed: true,
                   items: [
                     { text: "システム", link: "/ja/docs/02_quick_start/config/system" },
+                    { text: "高度な設定", link: "/ja/docs/02_quick_start/config/advanced" },
                     { text: "アップデート", link: "/ja/docs/02_quick_start/config/update" },
                   ],
                 },
               ],
             },
             {
+              text: "ワークスペースとClaude Code",
+              collapsed: true,
+              items: [
+                { text: "ワークスペース概要", link: "/ja/docs/03_workspace/overview" },
+                { text: "クイックスタート", link: "/ja/docs/03_workspace/quickstart" },
+                { text: "Claude Codeサンドボックス", link: "/ja/docs/03_workspace/claude_code_sandbox" },
+                { text: "MCPサービス管理", link: "/ja/docs/03_workspace/mcp_management" },
+                { text: "リソースセンター", link: "/ja/docs/03_workspace/resource_center" },
+                { text: "ナレッジベース", link: "/ja/docs/03_workspace/knowledge_base" },
+                { text: "メモリシステム", link: "/ja/docs/03_workspace/memory_system" },
+                { text: "スキルライブラリ", link: "/ja/docs/03_workspace/skills" },
+                { text: "ワークスペースタイマー", link: "/ja/docs/03_workspace/timers" },
+                { text: "v2.3.3の機能", link: "/ja/docs/03_workspace/preview_features" },
+              ],
+            },
+            {
               text: "高度な機能",
               collapsed: true,
               items: [
+                { text: "ダッシュボード", link: "/ja/docs/03_advanced/dashboard" },
+                { text: "ログセンター", link: "/ja/docs/03_advanced/logs" },
+                { text: "スペースクリーンアップ", link: "/ja/docs/03_advanced/space_cleanup" },
+                { text: "コマンドセンター", link: "/ja/docs/03_advanced/command_center" },
+                { text: "チャンネル管理", link: "/ja/docs/03_advanced/channel_management" },
+                { text: "メールアダプター", link: "/ja/docs/03_advanced/email_adapter" },
                 { text: "モデル構成", link: "/ja/docs/03_advanced/model_config" },
                 { text: "モデル選択", link: "/ja/docs/03_advanced/model_usage" },
                 { text: "ペルソナのヒント", link: "/ja/docs/03_advanced/persona_tips" },
@@ -474,6 +555,16 @@ export default defineConfig({
                 { text: "プラグインジェネレーター", link: "/ja/docs/03_advanced/plugin_generator" },
                 { text: "基本コマンド", link: "/ja/docs/03_advanced/commands_basic" },
                 { text: "デバッグコマンド", link: "/ja/docs/03_advanced/commands_debug" },
+              ],
+            },
+            {
+              text: "プラグイン",
+              collapsed: true,
+              items: [
+                { text: "プラグインの使用", link: "/ja/docs/03_advanced/plugin_usage" },
+                { text: "組み込みプラグイン", link: "/ja/docs/04_plugins/builtin_plugins" },
+                { text: "コミュニティプラグイン", link: "/ja/docs/04_plugins/community_plugins" },
+                { text: "プラグインジェネレーター", link: "/ja/docs/03_advanced/plugin_generator" },
               ],
             },
             {

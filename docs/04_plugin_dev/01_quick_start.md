@@ -58,7 +58,7 @@ plugin = NekroPlugin(
     description="一个简单的 Hello World 插件示例。",
     author="您的名字",
     version="0.1.0",
-    url="https://your.plugin.repo.url" # 可选，插件的仓库或主页地址
+    url="https://your.plugin.repo.url" # 必填，插件的仓库或主页地址
 )
 
 # 2. 注册一个沙盒方法
@@ -88,9 +88,22 @@ async def say_hello_from_plugin(_ctx: AgentCtx) -> str:
 *   **`plugin = NekroPlugin(...)`**: 创建了一个 `NekroPlugin` 类的实例。您需要提供插件的名称、模块名、描述等基本信息。
     *   `name`: 用户在界面上看到的插件名称。
     *   `module_name`: 插件的唯一标识符，通常与您的插件目录名一致。
+    *   `description`: 插件的简短描述。
     *   `author`: 插件作者名。
+    *   `version`: 插件版本号。
+    *   `url`: 插件的仓库或主页地址（必填）。
+    *   `support_adapter`: 可选，限制插件只在指定适配器下生效，如 `["onebot_v11"]`。
+    *   `is_builtin`: 可选，是否为内置插件（默认 `False`）。
+    *   `is_package`: 可选，是否为云端包插件（默认 `False`）。
+    *   `i18n_name` / `i18n_description`: 可选，插件名称/描述的国际化字典。
+    *   `allow_sleep`: 可选，是否允许插件休眠（`None` 表示跟随全局设置）。
+    *   `sleep_brief`: 可选，插件休眠时的简要描述。
 *   **`@plugin.mount_sandbox_method(...)`**: 这是一个装饰器，用于将一个函数注册为插件的沙盒方法。AI 可以通过沙盒环境调用这些方法。
-    *   `method_type=SandboxMethodType.TOOL`: 指定了这个方法是一个"工具"类型的方法。这类方法的返回值会直接提供给 AI 使用。
+    *   `method_type=SandboxMethodType.TOOL`: 指定了这个方法是一个"工具"类型的方法。这类方法的返回值会直接提供给 AI 使用。可用的方法类型有：
+        *   `SandboxMethodType.TOOL` — 工具方法，返回值直接给 AI 读取。
+        *   `SandboxMethodType.AGENT` — Agent 方法，调用后会再次触发 LLM 推理（返回内容作为新的 user 消息）。
+        *   `SandboxMethodType.BEHAVIOR` — 行为方法，执行后不会触发再次 LLM 调用（适合纯副作用操作）。
+        *   `SandboxMethodType.MULTIMODAL_AGENT` — 多模态 Agent 方法，可返回多模态消息并触发再次推理。
 *   **`async def say_hello_from_plugin(_ctx: AgentCtx) -> str:`**: 定义了沙盒方法的实际执行逻辑。
     *   它是一个异步函数 (`async def`)。
     *   第一个参数必须是 `_ctx: AgentCtx`。
@@ -120,3 +133,28 @@ async def say_hello_from_plugin(_ctx: AgentCtx) -> str:
 恭喜！您已经成功创建并测试了您的第一个 Nekro Agent 插件。
 
 在接下来的章节中，我们将深入学习插件的各项核心概念和高级功能。
+
+## 插件目录结构说明
+
+插件可以从以下三个位置加载：
+
+*   `plugins/workdir/` — 工作目录插件（开发时使用）
+*   内置插件目录 — 随 Nekro Agent 一起分发的内置插件
+*   云端包插件目录 — 从插件市场安装的插件包
+
+**注意**：插件也可以是单个 `.py` 文件，不必是目录包。只要文件中定义了 `NekroPlugin` 实例并正确导出即可。
+
+## 可用的 API 模块
+
+插件开发中可通过 `nekro_agent.api` 导入以下模块：
+
+| 模块 | 说明 |
+|---|---|
+| `nekro_agent.api.plugin` | 插件核心类（`NekroPlugin`、`SandboxMethodType`、`PluginStore` 等） |
+| `nekro_agent.api.schemas` | 类型定义（`AgentCtx`、`WebhookRequest` 等） |
+| `nekro_agent.api.message` | 消息发送（`send_text`、`send_image`、`send_file`、`push_system`） |
+| `nekro_agent.api.timer` | 一次性定时器（`set_timer`、`get_timers`、`clear_timers`） |
+| `nekro_agent.api.recurring_timer` | 周期定时器（`add_job`、`update_job`、`list_jobs` 等） |
+| `nekro_agent.api.core` | 核心功能（`logger`、`config`、`get_qdrant_client`） |
+| `nekro_agent.api.i18n` | 国际化工具（`i18n_text`、`I18nDict`） |
+| `nekro_agent.api.signal` | 信号定义（`MsgSignal`） |

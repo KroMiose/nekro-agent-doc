@@ -34,11 +34,11 @@ Different mailbox providers use different settings. Always follow the actual mai
 4. Follow the instructions to enable the related services
 5. Record the authorization code
 
-![Settings 1](/assets/adapters/email/config.png)
+![Settings 1](/assets/adapters/email/qqconf_1.png)
 
-![Settings 2](/assets/adapters/email/config2.png)
+![Settings 2](/assets/adapters/email/qqconf_2.png)
 
-![Authorization code](/assets/adapters/email/config3.png)
+![Authorization code](/assets/adapters/email/qqconf_3.png)
 
 ## Step 2: Add the mailbox account in Nekro Agent
 
@@ -51,7 +51,7 @@ Different mailbox providers use different settings. Always follow the actual mai
 7. If you want to always send with this account by default, also turn on `Default Sender`
 8. Save the settings and restart Nekro Agent
 
-![Email configuration page in Nekro Agent](/assets/adapters/email/na_config.png)
+![Email configuration page in Nekro Agent](/assets/adapters/email/naconf_3.png)
 
 ### How to fill in the common fields
 

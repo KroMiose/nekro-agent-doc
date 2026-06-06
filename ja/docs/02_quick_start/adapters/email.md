@@ -34,11 +34,11 @@ description: Email を初めて接続する方向けの Nekro Agent 設定ガイ
 4. 画面の案内に従って関連機能を有効化する
 5. 認証コードを控える
 
-![設定 1](/assets/adapters/email/config.png)
+![設定 1](/assets/adapters/email/qqconf_1.png)
 
-![設定 2](/assets/adapters/email/config2.png)
+![設定 2](/assets/adapters/email/qqconf_2.png)
 
-![認証コード](/assets/adapters/email/config3.png)
+![認証コード](/assets/adapters/email/qqconf_3.png)
 
 ## ステップ2: Nekro Agent にメールアカウントを追加する
 
@@ -51,7 +51,7 @@ description: Email を初めて接続する方向けの Nekro Agent 設定ガイ
 7. 常にこのアカウントを使って送信したい場合は `Default Sender` もオンにする
 8. 保存して Nekro Agent を再起動する
 
-![Nekro Agent 内の Email 設定ページ](/assets/adapters/email/na_config.png)
+![Nekro Agent 内の Email 設定ページ](/assets/adapters/email/naconf_3.png)
 
 ### 主な項目の入力方法
 
