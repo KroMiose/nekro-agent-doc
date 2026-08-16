@@ -328,19 +328,6 @@ na-tools use ~/nekro_agent_dev
 
 切换后，所有命令（`status`、`logs`、`backup` 等）都会操作切换后的实例。
 
-### 绑定已有安装
-
-如果您之前通过其他方式（如手动 Docker Compose）安装了 Nekro Agent，可以将其绑定到 na-tools 管理：
-
-```bash
-na-tools bind --data-dir /path/to/existing/nekro_data
-```
-
-绑定时可以为实例命名，方便识别：
-
-```bash
-na-tools bind --data-dir /opt/nekro_data --name production
-```
 
 ### 移除实例
 
@@ -361,6 +348,45 @@ na-tools remove --force
 :::danger 注意
 `na-tools remove` 默认会**删除数据目录和 Docker 卷**，操作不可恢复。如果只是想解除管理而保留数据，请使用 `--keep-data` 选项。
 :::
+
+---
+
+## 使用 na-tools 接管已有 NA 实例
+
+如果您之前通过手动 Docker Compose、旧脚本或迁移数据目录的方式部署过 Nekro Agent，可以使用 `bind` 命令将现有实例纳入 na-tools 管理。接管后即可继续使用 `status`、`logs`、`backup`、`update` 等命令操作该实例。
+
+:::tip 接管前请确认
+目标数据目录应包含现有实例的 `docker-compose.yml` 和 `.env` 等配置文件。`bind` 不会重新安装或覆盖数据，只会把该目录登记到 na-tools 的实例列表，并补齐必要的管理通道配置。
+:::
+
+```bash
+# 接管已有 NA 数据目录，并设为当前激活实例
+na-tools bind --data-dir /path/to/existing/nekro_data --as-current
+
+# 可选：为实例设置易识别的名称
+na-tools bind --data-dir /opt/nekro_data --name production --as-current
+```
+
+接管完成后建议检查实例是否已被正确识别：
+
+```bash
+na-tools list
+na-tools status
+```
+
+如果需要在 WebUI 的「部署管理」页面中执行更新、备份、回退等操作，请注册 root daemon 服务：
+
+```bash
+na-tools daemon register --data-dir /path/to/existing/nekro_data
+```
+
+注册完成后，可以像普通 na-tools 安装的实例一样管理：
+
+```bash
+na-tools logs
+na-tools backup
+na-tools update
+```
 
 ---
 
