@@ -9,9 +9,9 @@ description: 面向首次接入 Telegram 用户的 Nekro Agent 配置教程。
 
 ## 开始前准备
 
-- 你已经部署好 Nekro Agent，并能登录 WebUI
-- 你的网络可以访问 Telegram
-- 如果你的网络不能直连 Telegram，请提前准备好代理地址
+- 您已经部署好 Nekro Agent，并能登录 WebUI
+- 您的网络可以访问 Telegram
+- 如果您的网络不能直连 Telegram，请提前准备好代理地址
 
 ## 第一步：用 BotFather 创建机器人
 
@@ -42,7 +42,7 @@ description: 面向首次接入 Telegram 用户的 Nekro Agent 配置教程。
 1. 打开「适配器」->「Telegram」
 2. 打开 `启用适配器`
 3. 把刚才拿到的 `Bot Token` 填进去
-4. 如果你的网络需要代理，再填写 `代理地址`
+4. 如果您的网络需要代理，再填写 `代理地址`
 5. 保存并重启 Nekro Agent
 
 ![Nekro Agent 中的 Telegram 配置页](/assets/adapters/telegram/na_config.png)
@@ -67,7 +67,7 @@ description: 面向首次接入 Telegram 用户的 Nekro Agent 配置教程。
 1. `Bot Token` 有没有复制错
 2. 机器人是否真的已经创建成功
 3. 服务器是否能访问 Telegram
-4. 是否应该填写代理但你没有填
+4. 是否应该填写代理但您没有填
 
 ### 私聊可以，群聊不回复
 

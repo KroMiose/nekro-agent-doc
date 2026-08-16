@@ -70,6 +70,57 @@
   --vp-code-color: #FCA5A5;
 }
 
+.doc-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  color: var(--vp-c-brand-1);
+  stroke-width: 2;
+  vertical-align: -0.16em;
+  flex: none;
+}
+
+h1 .doc-icon,
+h2 .doc-icon,
+h3 .doc-icon,
+h4 .doc-icon,
+summary .doc-icon,
+.custom-block-title .doc-icon {
+  margin-right: 0.35em;
+}
+
+.vp-doc li > .doc-icon:first-child,
+.vp-doc p > .doc-icon:first-child,
+.vp-doc blockquote > p > .doc-icon:first-child {
+  margin-right: 0.35em;
+}
+
+.vp-doc table .doc-icon {
+  width: 1.05em;
+  height: 1.05em;
+  vertical-align: -0.18em;
+}
+
+.vp-doc .option-icon .doc-icon,
+.vp-doc .VPFeature .icon .doc-icon {
+  width: 1em;
+  height: 1em;
+  margin: 0;
+  vertical-align: -0.12em;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ==============================================
    组件覆盖 (Apple Style Overrides)
    ============================================== */

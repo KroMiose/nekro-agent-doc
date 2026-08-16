@@ -7,7 +7,7 @@ description: A guide to help you quickly get started with Nekro Agent, including
 
 Welcome to Nekro Agent `(hereinafter referred to as NA)`! This document will help you quickly get started with this powerful AI agent system.
 
-::: warning ⚠ Security Warning ⚠
+::: warning <DocIcon name="warning" label="注意" /> Security Warning <DocIcon name="warning" label="注意" />
 
 This project allows AI to execute arbitrary code in an isolated Docker container environment during runtime. Although the application has adopted multiple security measures including but not limited to container isolation and permission restrictions, certain security risks still exist, such as:
 
@@ -47,7 +47,7 @@ After successful deployment, you need to complete the following basic configurat
 2. **Model Configuration**: Set up AI models and API keys
 3. **System Configuration**: Set basic system parameters and user permissions
 
-::: warning ⚠ Important Security Information ⚠
+::: warning <DocIcon name="warning" label="注意" /> Important Security Information <DocIcon name="warning" label="注意" />
 For security reasons, please be sure to read the following information:
 
 1. Be sure to change the default protocol password: Public WebUI must use strong passwords (recommended 12+ characters, including numbers, letters, and symbols)
@@ -109,7 +109,7 @@ sudo docker restart nekro_agent
 /reset - Reset current session
 ```
 
-::: tip 💡 Feature Exploration
+::: tip <DocIcon name="lightbulb" /> Feature Exploration
 Curious about what Nekro Agent can do? Check out [Application Scenarios Showcase](/en/docs/01_intro/application_scenarios) to learn about rich and diverse practical use cases and creative ways to play!
 :::
 

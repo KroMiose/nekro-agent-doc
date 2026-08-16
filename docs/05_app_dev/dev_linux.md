@@ -196,13 +196,13 @@ ws://host.docker.internal:8021/onebot/v11/ws
     ```bash
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
     ```
-2.  安装完成后，根据提示将 `nvm` 的加载命令添加到你的 shell 配置文件中 (例如 `~/.bashrc`, `~/.zshrc`) 并重启终端。
+2.  安装完成后，根据提示将 `nvm` 的加载命令添加到您的 shell 配置文件中 (例如 `~/.bashrc`, `~/.zshrc`) 并重启终端。
 3.  安装 Node.js 20:
     ```bash
     nvm install 20
     nvm use 20
     ```
-    你也可以通过系统的包管理器安装，但请确保版本是 20.x。
+    您也可以通过系统的包管理器安装，但请确保版本是 20.x。
 
 ### 2. 配置 pnpm
 

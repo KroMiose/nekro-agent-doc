@@ -9,9 +9,9 @@ description: 面向首次接入 Discord 用户的 Nekro Agent 配置教程。
 
 ## 开始前准备
 
-- 你已经部署好 Nekro Agent
-- 你能打开 [Discord Developer Portal](https://discord.com/developers/applications)
-- 你有一个可以邀请 Bot 的 Discord 服务器
+- 您已经部署好 Nekro Agent
+- 您能打开 [Discord Developer Portal](https://discord.com/developers/applications)
+- 您有一个可以邀请 Bot 的 Discord 服务器
 
 ## 第一步：创建 Discord 应用和 Bot
 
@@ -39,11 +39,11 @@ description: 面向首次接入 Discord 用户的 Nekro Agent 配置教程。
 - `PRESENCE INTENT`
 - `MESSAGE CONTENT INTENT`
 
-如果你不打开 `MESSAGE CONTENT INTENT`，机器人通常收不到消息正文。
+如果您不打开 `MESSAGE CONTENT INTENT`，机器人通常收不到消息正文。
 
 ![Discord Bot 页面中的 Intents 开关](/assets/adapters/discord/config.png)
 
-## 第四步：把 Bot 邀请到你的服务器
+## 第四步：把 Bot 邀请到您的服务器
 
 1. 打开 `OAuth2` -> `URL 生成器`
 2. 在 `SCOPES` 中勾选：
@@ -55,7 +55,7 @@ description: 面向首次接入 Discord 用户的 Nekro Agent 配置教程。
    - `Embed Links`
    - `Attach Files`
    - `Read Message History`
-4. 打开生成的邀请链接，把 Bot 拉进你的服务器
+4. 打开生成的邀请链接，把 Bot 拉进您的服务器
 
 ![权限1](/assets/adapters/discord/config2.png)
 
@@ -68,7 +68,7 @@ description: 面向首次接入 Discord 用户的 Nekro Agent 配置教程。
 1. 打开「适配器」->「Discord」
 2. 打开 `启用适配器`
 3. 填入 `Discord Bot Token`
-4. 如果你的网络需要代理，再填写 `代理地址`
+4. 如果您的网络需要代理，再填写 `代理地址`
 5. 保存并重启 Nekro Agent
 
 ![Nekro Agent 中的 Discord 配置页](/assets/adapters/discord/na_config.png)
@@ -79,7 +79,7 @@ description: 面向首次接入 Discord 用户的 Nekro Agent 配置教程。
 2. 发送一条测试消息
 3. 如果 Nekro Agent 能正常回复，说明已经配置成功
 
-## 你实际只需要填写什么
+## 您实际只需要填写什么
 
 - `Discord Bot Token`：必填，来自 Discord Developer Portal
 
@@ -91,7 +91,7 @@ description: 面向首次接入 Discord 用户的 Nekro Agent 配置教程。
 
 1. `MESSAGE CONTENT INTENT` 有没有打开
 2. Bot 在当前频道是否有读取和发言权限
-3. 你填进 Nekro Agent 的 Token 是否仍然有效
+3. 您填进 Nekro Agent 的 Token 是否仍然有效
 
 ### 机器人根本没进服务器
 

@@ -9,9 +9,9 @@ description: 面向首次接入飞书用户的 Nekro Agent 配置教程。
 
 ## 开始前准备
 
-- 你已经部署好 Nekro Agent
-- 你有权限创建飞书企业自建应用
-- 你可以进入 [飞书开放平台](https://open.feishu.cn/app)
+- 您已经部署好 Nekro Agent
+- 您有权限创建飞书企业自建应用
+- 您可以进入 [飞书开放平台](https://open.feishu.cn/app)
 
 ## 第一步：创建飞书应用并添加机器人能力
 
@@ -100,7 +100,7 @@ description: 面向首次接入飞书用户的 Nekro Agent 配置教程。
 2. 或者在群里 `@机器人` 发送一条消息
 3. 如果 Nekro Agent 正常回复，说明配置成功
 
-## 你实际需要填写什么
+## 您实际需要填写什么
 
 - `APP_ID`：来自飞书开放平台
 - `APP_SECRET`：来自飞书开放平台

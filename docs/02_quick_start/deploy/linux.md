@@ -11,14 +11,25 @@ description: 在 Linux 环境下部署 Nekro Agent 的完整指南，包括标�
 本文提供的安装脚本仅适用于使用`apt`作为包管理器的Linux发行版，例如Ubuntu、Debian等
 :::
 
-## 🚀 方式一：标准部署（推荐）
+::: warning 与 NA-Tools 的关系
+**新用户首选 [NA-Tools 部署](/docs/02_quick_start/deploy/na-tools)**，体验更简单、自带备份/恢复/多实例管理。
+
+本文的 `install.sh` 脚本面向**高级用户**或在受限环境下部署的场景。两者使用**不同的默认数据目录**：
+
+- NA-Tools：默认 `~/nekro_agent_data`
+- 本文 `install.sh`：默认 `~/srv/nekro_agent`
+
+**不要在同一台机器上同时使用两套方案**，否则会出现两份数据，难以同步备份。
+:::
+
+## <DocIcon name="rocket" /> 方式一：标准部署（推荐）
 
 此模式将一键部署 Nekro Agent 核心服务及 Napcat 协议端，是为大多数用户推荐的完整解决方案。
 
 ::: warning 警告！
 
-1. 务必修改NapCat默认密码：公网WebU 必须使用强密码（建议12位以上，含数字、字母、符号）
-2. 务必使用Token验证：OneBot服务务必设置有效 Token，避免空Token或弱口令
+1. 务必修改 NapCat 默认密码：公网 WebUI 必须使用强密码（建议 12 位以上，含数字、字母、符号）
+2. 务必使用 Token 验证：OneBot 服务务必设置有效 Token，避免空 Token 或弱口令
 3. 为安全起见，请避免使用默认端口
 
 :::
@@ -26,11 +37,11 @@ description: 在 Linux 环境下部署 Nekro Agent 的完整指南，包括标�
 ### 部署命令
 
 ```bash
-# 从 Github (推荐)
+# 从 GitHub (推荐)
 sudo -E bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/main/docker/install.sh)" - --with-napcat
 ```
 
-如果从 Github 下载脚本遇到网络问题，您可以使用 [NekroEndpoint](https://ep.nekro.ai) 代理访问部署脚本：
+如果从 GitHub 下载脚本遇到网络问题，您可以使用 [NekroEndpoint](https://ep.nekro.ai) 代理访问部署脚本：
 
 :::tip
 [NekroEndpoint](https://ep.nekro.ai) 是基于 Cloudflare Workers 构建的边缘端点编排平台，支持静态内容返回、代理转发、动态脚本执行三类端点，提供权限组、访问密钥等细粒度权限控制，依托全球 300 + 节点实现毫秒级响应，可用于 API 代理聚合、Webhook 处理等场景。
@@ -47,7 +58,7 @@ sudo -E bash -c "$(curl -fsSL https://ep.nekro.ai/e/KroMiose/nekro-agent/main/do
 
 部署完成后，请参考[OneBot V11 / NapCat 配置](/docs/02_quick_start/adapters/onebot_v11)文档完成后续配置。
 
-## 🚀 方式二：核心部署
+## <DocIcon name="rocket" /> 方式二：核心部署
 
 此模式仅部署 Nekro Agent 核心服务，适用于需要使用其它适配器平台或自行配置 OneBot V11 协议端的高级用户。
 
@@ -56,7 +67,7 @@ sudo -E bash -c "$(curl -fsSL https://ep.nekro.ai/e/KroMiose/nekro-agent/main/do
 运行以下命令，并在脚本询问时选择不安装 Napcat 服务。
 
 ```bash
-# 从 Github (推荐)
+# 从 GitHub (推荐)
 sudo -E bash -c "$(curl -fsSL https://raw.githubusercontent.com/KroMiose/nekro-agent/main/docker/install.sh)"
 ```
 
@@ -73,13 +84,13 @@ sudo -E bash -c "$(curl -fsSL https://ep.nekro.ai/e/KroMiose/nekro-agent/main/do
 
 部署完成后，Nekro Agent 将会监听以下地址，请将您的 OneBot V11 协议端连接至此：
 
-`ws://<你的服务ip>:8021/onebot/v11/ws`
+`ws://<您的服务ip>:8021/onebot/v11/ws`
 
-## 📝 注意事项
+## <DocIcon name="file" /> 注意事项
 
 - **安装目录**:
   - 默认安装在 `~/srv/nekro_agent`。
-  - 如需自定义，请在 **执行脚本前** 设置环境变量: `export NEKRO_DATA_DIR=<你的目录>`
+  - 如需自定义，请在 **执行脚本前** 设置环境变量: `export NEKRO_DATA_DIR=<您的目录>`
 
 - **端口放行**:
   - 如果您使用云服务器，请在安全组中放行所需端口：
@@ -89,7 +100,7 @@ sudo -E bash -c "$(curl -fsSL https://ep.nekro.ai/e/KroMiose/nekro-agent/main/do
 - **保存凭证**:
   - 安装脚本执行完毕后，会输出 **管理员密码** 和 **OneBot 访问令牌** 等重要信息，请务必妥善保存。
 
-## ⚙️ 部署后配置
+## <DocIcon name="settings" /> 部署后配置
 
 - **标准部署**: 前往[OneBot V11 / NapCat 配置](/docs/02_quick_start/adapters/onebot_v11)文档，根据文档说明完成配置。
 - **核心部署**: 前往[OneBot V11 / NapCat 配置](/docs/02_quick_start/adapters/onebot_v11)文档，参考说明继续配置。

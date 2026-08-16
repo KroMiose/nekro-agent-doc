@@ -9,9 +9,9 @@ description: 面向首次接入企业微信自建应用用户的 Nekro Agent 配
 
 ## 开始前准备
 
-- 你已经部署好 Nekro Agent
-- 你有企业微信后台权限
-- 你已经准备好一个可公网访问的 HTTP/HTTPS 地址
+- 您已经部署好 Nekro Agent
+- 您有企业微信后台权限
+- 您已经准备好一个可公网访问的 HTTP/HTTPS 地址
 
 ## 第一步：在企业微信后台创建自建应用
 
@@ -21,7 +21,7 @@ description: 面向首次接入企业微信自建应用用户的 Nekro Agent 配
 2. 填写应用名称，简介，选择可见范围并上传一张图片作为应用图标
 3. 在应用主页记录下 `AgentId` `Secret` ,其中 `Secret` 需要点击查看后前往桌面端/手机端对应企业查看
 4. 在 `接收消息` 中点击 `设置API接收`
-5. 填写 `URL` 随机获取并记下 `Token` `EncodingAESKey` ,其中 `URL` 为提前准备好的公网可访问的HTTP/HTTPS地址，该地址应该指向 `Nekro Agent` 的wecom_crop接收地址：`http://ip:port/api/adapters/wxwork_corp_app/callback` 若您没有公网域名，那么该适配器不适合您，请前往[企业微信官方机器人](/docs/02_quick_start/adapters/wecom_bot.md)
+5. 填写 `URL` 随机获取并记下 `Token` `EncodingAESKey` ,其中 `URL` 为提前准备好的公网可访问的HTTP/HTTPS地址，该地址应该指向 `Nekro Agent` 的企业微信自建应用接收地址：`http://ip:port/api/adapters/wxwork_corp_app/callback` 若您没有公网域名，那么该适配器不适合您，请前往[企业微信官方机器人](/docs/02_quick_start/adapters/wecom_bot)
 6. 获取到两个 token 后，先不要点击保存，先进行第二步，配置启用适配器并重启 Nekro Agent 后，再点击保存，否则会出现 URL 验证失败
 7. 保存好应用后，前往应用管理页面，配置可信IP，首先，在您部署的机器上，运行 `curl ifconfig.me` 然后将输出填写进 `企业可信IP` 输入框内并保存
 

@@ -64,8 +64,8 @@ plugin = NekroPlugin(
 # 2. サンドボックスメソッドを登録
 @plugin.mount_sandbox_method(
     method_type=SandboxMethodType.TOOL, # メソッドタイプはTOOL、結果は直接AIに返されます
-    name="say_hello",                  
-    description="挨拶を返します。"       
+    name="say_hello",
+    description="挨拶を返します。"
 )
 async def say_hello_from_plugin(_ctx: AgentCtx) -> str:
     """プラグインの挨拶メソッド

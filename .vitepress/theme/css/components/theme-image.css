@@ -1,0 +1,18 @@
+/* 主题感知图片：给 <img> 加 class 即可在浅色/深色模式间切换显示
+ *
+ * 用法：
+ *   <img src="/assets/.../foo_light.png" class="light-only" alt="..." />
+ *   <img src="/assets/.../foo_dark.png" class="dark-only" alt="..." />
+ *
+ * 也可以包在容器上：
+ *   <div class="light-only">...</div>
+ *   <div class="dark-only">...</div>
+ */
+
+html:not(.dark) .dark-only {
+  display: none !important;
+}
+
+html.dark .light-only {
+  display: none !important;
+}

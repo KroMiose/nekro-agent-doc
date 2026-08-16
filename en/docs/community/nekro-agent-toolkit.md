@@ -27,7 +27,7 @@ description: Use Nekro-Agent-Toolkit to quickly deploy NekroAgent.
   - Theoretically **cross-platform** brings a unified user experience.
 
 * [User Documentation (Click to Read)](https://github.com/greenhandzdl/nekro-agent-toolkit/wiki): If you don't understand, you may need translation plugins like immersive translator.
-  
+
 * Feature Introduction:
 
 ```zsh
@@ -83,10 +83,10 @@ Usage Examples:
 ```
 
 > [!WARNING]
-> ### Recommended reading after NekroAgent installation: 
-> 
+> ### Recommended reading after NekroAgent installation:
+>
 >   [Quick Start#Basic Configuration](/en/docs/02_quick_start/quickstart.html#basic-configuration)
-> 
+>
 >   [NapCat Login and Change Default Password](/en/docs/02_quick_start/adapters/onebot_v11)
 >
 >   [NekroAgent Related Configuration](/en/docs/02_quick_start/config/system.html)

@@ -13,34 +13,34 @@ This will guide you through deploying Nekro Agent on Windows systems.
   <!-- Hyper-V -->
   <a class="deploy-option" href="/en/docs/02_quick_start/deploy/windows/hyperv">
     <div class="option-header hyperv"> <!-- The class name here is used to locate child element icon colors -->
-      <span class="option-icon">🚀</span>
+      <span class="option-icon"><DocIcon name="rocket" /></span>
       <span class="option-title">Hyper-V Deployment</span>
     </div>
     <div class="option-desc">High performance, starts with the system, Windows native virtualization solution.</div>
   </a>
-  
+
   <!-- WSL2 -->
   <a class="deploy-option" href="/en/docs/02_quick_start/deploy/windows/wsl">
     <div class="option-header wsl">
-      <span class="option-icon">🐧</span>
+      <span class="option-icon"><DocIcon name="laptop" /></span>
       <span class="option-title">WSL2 Deployment</span>
     </div>
     <div class="option-desc">Lightweight and convenient, deeply integrated with Windows file system, suitable for development.</div>
   </a>
-  
+
   <!-- ISO -->
   <a class="deploy-option" href="/en/docs/02_quick_start/deploy/windows/iso">
     <div class="option-header iso">
-      <span class="option-icon">💿</span>
+      <span class="option-icon"><DocIcon name="disc" /></span>
       <span class="option-title">Complete Image Deployment</span>
     </div>
     <div class="option-desc">Independent environment, one-click installation, the deployment method with the best isolation.</div>
   </a>
-  
+
   <!-- VMware -->
   <a class="deploy-option disabled">
     <div class="option-header vmware">
-      <span class="option-icon">📦</span> <!-- Changed to an icon more suitable for software -->
+      <span class="option-icon"><DocIcon name="package" /></span> <!-- Changed to an icon more suitable for software -->
       <span class="option-title">VMware Deployment</span>
     </div>
     <div class="option-desc">Coming soon: Exclusive solution for VMware Workstation.</div>
@@ -70,22 +70,22 @@ This will guide you through deploying Nekro Agent on Windows systems.
   border-radius: 18px;
   text-decoration: none !important;
   overflow: hidden;
-  
+
   /* --- 关键：强制硬件加速与过渡动画 --- */
   transform-style: preserve-3d;
   transform: translateZ(0) scale(1); /* 定义初始状态 */
   backface-visibility: hidden; /* 防止渲染闪烁 */
-  
+
   /* 添加更多硬件加速属性 */
   will-change: transform, box-shadow, border-color;
   isolation: isolate;
-  
-  /* 
+
+  /*
      all: 所有属性都参与动画
      0.4s: 动画时长
-     cubic-bezier: 苹果风格的平滑减速曲线 
+     cubic-bezier: 苹果风格的平滑减速曲线
   */
-  transition: 
+  transition:
     transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
     box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
     border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -95,7 +95,7 @@ This will guide you through deploying Nekro Agent on Windows systems.
 .deploy-option:hover {
   /* 放大 1.05 倍，并稍微抬起 */
   transform: translateZ(0) scale(1.05) translateY(-5px);
-  
+
   /* 阴影变得很大、很虚，模拟离桌面很高 */
   box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.25);
   border-color: var(--vp-c-brand); /* 边框变色 */

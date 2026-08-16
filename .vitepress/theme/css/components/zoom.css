@@ -1,0 +1,23 @@
+/* 正文区图片点击放大相关样式
+ *
+ * 注意：cursor: zoom-in 的选择范围与 theme/index.ts 里
+ * collectZoomTargets() 的筛选规则保持一致 —— 即"被 <a> 链接包裹的图
+ * 不参与放大"。CSS 无法表达"祖先里没有 a"，所以用 JS 给真正参与放大
+ * 的 img 加 .medium-zoom-image 类后，光标样式由 medium-zoom 自己处理。
+ */
+
+/* medium-zoom 给参与放大的图片自动加 .medium-zoom-image 类 */
+.vp-doc img.medium-zoom-image {
+  cursor: zoom-in;
+}
+
+/* 遮罩与图片层级（高于 vitepress 导航栏，避免被遮挡） */
+.medium-zoom-overlay {
+  z-index: 1000;
+}
+
+.medium-zoom-image--opened {
+  z-index: 1001;
+  border-radius: 6px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}

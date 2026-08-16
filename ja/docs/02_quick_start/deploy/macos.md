@@ -7,7 +7,7 @@ description: macOSシステムでのNekro Agentデプロイメントの完全ガ
 
 このドキュメントでは、MacOSシステムにNekro Agentをデプロイする方法を案内します。
 
-## 🌈 環境準備
+## <DocIcon name="rainbow" /> 環境準備
 
 Nekro AgentはDockerベースで動作するため、MacOSではOrbStackをコンテナ管理ツールとして使用し、その仮想マシン機能を通じてデプロイすることをお勧めします。
 
@@ -60,7 +60,7 @@ orb ls
 orb -m ubuntu ls
 ```
 
-## 🚀 デプロイメント方法（OrbStack仮想マシン内）
+## <DocIcon name="rocket" /> デプロイメント方法（OrbStack仮想マシン内）
 
 OrbStack仮想マシンに入った後、デプロイメントプロセスは標準のLinux環境と完全に同じです。
 

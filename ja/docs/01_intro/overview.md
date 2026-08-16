@@ -9,12 +9,12 @@ description: Nekro Agentは、強力なAIエージェントフレームワーク
 </div>
 
 <div align="center">
-  🎉 安全、効率的、かつエレガントなインテリジェントインタラクション体験を備えた次世代AIエージェントフレームワーク 🎉<br/>
-  🚅 第一世代の大規模モデルアプリケーション <a href="https://github.com/KroMiose/nonebot_plugin_naturel_gpt"> Naturel GPT</a> のアップグレードおよび再構築された後継 🌈<br/>
-  💬 技術交流/学習/Q&A/ディスカッション: <a href="https://discord.com/invite/eMsgwFnxUB">Discordサーバーに参加する</a> 🗨️
+  <DocIcon name="sparkles" /> 安全、効率的、かつエレガントなインテリジェントインタラクション体験を備えた次世代AIエージェントフレームワーク <DocIcon name="sparkles" /><br/>
+  <DocIcon name="train" /> 第一世代の大規模モデルアプリケーション <a href="https://github.com/KroMiose/nonebot_plugin_naturel_gpt"> Naturel GPT</a> のアップグレードおよび再構築された後継 <DocIcon name="rainbow" /><br/>
+  <DocIcon name="message-text" /> 技術交流/学習/Q&A/ディスカッション: <a href="https://discord.com/invite/eMsgwFnxUB">Discordサーバーに参加する</a> <DocIcon name="message" />
 </div>
 
-## 🚀 コア機能
+## <DocIcon name="rocket" /> コア機能
 
 NekroAgentは、強力で柔軟なプロンプト構築システムを通じてAIに正確なコード生成とサンドボックス内での実行を指示し、RPC通信を介して現実環境と相互作用します。主な特徴は以下の通りです：
 
@@ -29,9 +29,9 @@ NekroAgentは、強力で柔軟なプロンプト構築システムを通じてA
 - 非同期ファーストの効率的な応答メカニズムに従う **イベント駆動型** インタラクションアーキテクチャ
 - 動的インストールと **PYPI依存関係のリアルタイム導入** をサポートし、Pythonユニバースの無限の宝物を解き放つ
 
-👉 Nekro Agentで何ができるか知りたいですか？ [アプリケーションシナリオ紹介](/ja/docs/01_intro/application_scenarios) をチェックして、豊富な実用例を学びましょう！
+<DocIcon name="send" /> Nekro Agentで何ができるか知りたいですか？ [アプリケーションシナリオ紹介](/ja/docs/01_intro/application_scenarios) をチェックして、豊富な実用例を学びましょう！
 
-## 🌟 Nekro AI
+## <DocIcon name="star" /> Nekro AI
 
 **Nekro AI** はNekro Agentのクラウドサービスプラットフォームであり、エコシステム全体のサービスハブとして機能し、プラグインとペルソナの統一管理および配布機能を提供します。ユーザーと開発者がインテリジェントなAIエージェントシステムをより効率的に構築し、共有できるよう支援することに取り組んでいます。
 
@@ -40,19 +40,19 @@ NekroAgentは、強力で柔軟なプロンプト構築システムを通じてA
 
 Nekro AIは、オープンで協力的かつ可用性の高いサービスエコシステムを構築し、Nekro Agentアプリケーションエコシステムの大きな発展を促進することに取り組んでいます！
 
-## 💡 機能リスト
+## <DocIcon name="lightbulb" /> 機能リスト
 
 ### その他の機能
 
-- ✅ ステッカー管理、AI描画、Web検索、ノートシステム、タイマー、ダイスロールなど、強力で特徴的な組み込みプラグインラインナップ
-- ✅ カスタムプラグイン機能を低障壁で迅速に実装するためのAI拡張プラグインエディタ
-- ✅ システム設定およびプラグイン設定の即時ホットアップデート
-- ✅ 外部思考の連鎖（CoT）による高品質な推論能力
-- ✅ ペルソナ分離、セッションごとの独立したペルソナ設定をサポート
-- ✅ Webhookベースのカスタムイベントプッシュ機能、プラグイン例：GitHubリポジトリ変更イベント通知
-- ✅ 柔軟な動的モデルスケジューリングシステムにより、パフォーマンスとコストのバランスを取り、各反復ステップに最適なモデルを選択
-- ✅ トリガールール/ブロックルール/コンテンツフィルタリングなど、柔軟な応答ルール設定
-- ✅ 祝日の挨拶プッシュ通知
+- <DocIcon name="circle-check" label="是" /> ステッカー管理、AI描画、Web検索、ノートシステム、タイマー、ダイスロールなど、強力で特徴的な組み込みプラグインラインナップ
+- <DocIcon name="circle-check" label="是" /> カスタムプラグイン機能を低障壁で迅速に実装するためのAI拡張プラグインエディタ
+- <DocIcon name="circle-check" label="是" /> システム設定およびプラグイン設定の即時ホットアップデート
+- <DocIcon name="circle-check" label="是" /> 外部思考の連鎖（CoT）による高品質な推論能力
+- <DocIcon name="circle-check" label="是" /> ペルソナ分離、セッションごとの独立したペルソナ設定をサポート
+- <DocIcon name="circle-check" label="是" /> Webhookベースのカスタムイベントプッシュ機能、プラグイン例：GitHubリポジトリ変更イベント通知
+- <DocIcon name="circle-check" label="是" /> 柔軟な動的モデルスケジューリングシステムにより、パフォーマンスとコストのバランスを取り、各反復ステップに最適なモデルを選択
+- <DocIcon name="circle-check" label="是" /> トリガールール/ブロックルール/コンテンツフィルタリングなど、柔軟な応答ルール設定
+- <DocIcon name="circle-check" label="是" /> 祝日の挨拶プッシュ通知
 
 ### 開発計画
 
@@ -60,7 +60,7 @@ Nekro AIは、オープンで協力的かつ可用性の高いサービスエコ
 - [ ] より多くのアダプターとチャットプラットフォームのサポート
 - [ ] LLMベースの自動コンテキスト接続トリガー
 
-## 🤝 貢献者
+## <DocIcon name="handshake" /> 貢献者
 
 このプロジェクトへの貢献に感謝します
 

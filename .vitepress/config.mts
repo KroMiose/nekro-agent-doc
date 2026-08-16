@@ -1,8 +1,293 @@
 import { defineConfig } from "vitepress";
 import markdownItVideo from "@vrcd-community/markdown-it-video";
+import llmstxt from "vitepress-plugin-llms";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const configDir = path.dirname(fileURLToPath(import.meta.url));
+const llmsDomain = "https://doc.nekro.ai";
+const llmsTxtTargets = new Set(["/llms.txt", "/llms-full.txt"]);
+const llmsIgnoreFiles = [
+  "README.md",
+  "nekro-agent/**",
+];
+
+const localSearchTranslations = {
+  root: {
+    button: {
+      buttonText: "搜索",
+      buttonAriaLabel: "搜索文档",
+    },
+    modal: {
+      displayDetails: "显示详细列表",
+      resetButtonTitle: "清空搜索",
+      backButtonTitle: "关闭搜索",
+      noResultsText: "没有搜索结果：",
+      footer: {
+        selectText: "选择",
+        selectKeyAriaLabel: "回车",
+        navigateText: "切换",
+        navigateUpKeyAriaLabel: "上箭头",
+        navigateDownKeyAriaLabel: "下箭头",
+        closeText: "关闭",
+        closeKeyAriaLabel: "Esc",
+      },
+    },
+  },
+  en: {
+    button: {
+      buttonText: "Search",
+      buttonAriaLabel: "Search docs",
+    },
+    modal: {
+      displayDetails: "Display detailed list",
+      resetButtonTitle: "Reset search",
+      backButtonTitle: "Close search",
+      noResultsText: "No results for",
+      footer: {
+        selectText: "to select",
+        selectKeyAriaLabel: "enter",
+        navigateText: "to navigate",
+        navigateUpKeyAriaLabel: "up arrow",
+        navigateDownKeyAriaLabel: "down arrow",
+        closeText: "to close",
+        closeKeyAriaLabel: "escape",
+      },
+    },
+  },
+  ja: {
+    button: {
+      buttonText: "検索",
+      buttonAriaLabel: "ドキュメントを検索",
+    },
+    modal: {
+      displayDetails: "詳細リストを表示",
+      resetButtonTitle: "検索をリセット",
+      backButtonTitle: "検索を閉じる",
+      noResultsText: "検索結果がありません：",
+      footer: {
+        selectText: "選択",
+        selectKeyAriaLabel: "Enter",
+        navigateText: "移動",
+        navigateUpKeyAriaLabel: "上矢印",
+        navigateDownKeyAriaLabel: "下矢印",
+        closeText: "閉じる",
+        closeKeyAriaLabel: "Esc",
+      },
+    },
+  },
+}
+
+type ArrayByCopyPrototype = typeof Array.prototype & {
+  toReversed?: <T>(this: T[]) => T[];
+  toSorted?: <T>(this: T[], compareFn?: (a: T, b: T) => number) => T[];
+};
+
+function installArrayByCopyPolyfills() {
+  const arrayPrototype = Array.prototype as ArrayByCopyPrototype;
+
+  if (!arrayPrototype.toReversed) {
+    Object.defineProperty(arrayPrototype, "toReversed", {
+      configurable: true,
+      value: function toReversed<T>(this: T[]) {
+        return [...this].reverse();
+      },
+      writable: true,
+    });
+  }
+
+  if (!arrayPrototype.toSorted) {
+    Object.defineProperty(arrayPrototype, "toSorted", {
+      configurable: true,
+      value: function toSorted<T>(this: T[], compareFn?: (a: T, b: T) => number) {
+        return [...this].sort(compareFn);
+      },
+      writable: true,
+    });
+  }
+}
+
+installArrayByCopyPolyfills();
+
+function normalizeRequestPath(url = "") {
+  try {
+    return decodeURIComponent(url.split("?")[0] || "");
+  } catch {
+    return url.split("?")[0] || "";
+  }
+}
+
+function readGeneratedLLMTextFile(pathname: string) {
+  const filePath = path.resolve(configDir, "dist", pathname.slice(1));
+  return fs.existsSync(filePath) ? fs.readFileSync(filePath, "utf8") : undefined;
+}
+
+function parseFrontmatter(content: string) {
+  const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/u);
+  if (!match) return { body: content, data: {} as Record<string, string> };
+
+  const data: Record<string, string> = {};
+  for (const line of match[1].split(/\r?\n/u)) {
+    const property = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/u);
+    if (!property) continue;
+
+    data[property[1]] = property[2].trim().replace(/^['"]|['"]$/gu, "");
+  }
+
+  return { body: content.slice(match[0].length), data };
+}
+
+function collectMarkdownFiles(directory: string): string[] {
+  if (!fs.existsSync(directory)) return [];
+
+  return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const fullPath = path.join(directory, entry.name);
+    if (entry.isDirectory()) {
+      if ([".git", ".vitepress", "node_modules", "nekro-agent"].includes(entry.name)) {
+        return [];
+      }
+
+      return collectMarkdownFiles(fullPath);
+    }
+
+    return entry.isFile() && entry.name.endsWith(".md") ? [fullPath] : [];
+  });
+}
+
+function shouldIncludeMarkdownFile(relativePath: string) {
+  const normalizedPath = relativePath.replaceAll("\\", "/");
+  return (
+    normalizedPath !== "README.md" &&
+    normalizedPath !== "index.md" &&
+    !normalizedPath.startsWith("nekro-agent/")
+  );
+}
+
+function markdownPageURL(relativePath: string) {
+  const normalizedPath = relativePath.replaceAll("\\", "/");
+  const withoutExtension = normalizedPath.replace(/\.md$/u, "");
+  const pagePath = withoutExtension.endsWith("/index")
+    ? withoutExtension.slice(0, -"/index".length)
+    : withoutExtension;
+
+  return `${llmsDomain}/${pagePath}.md`;
+}
+
+function collectLLMMarkdownPages() {
+  return collectMarkdownFiles(path.resolve(configDir, ".."))
+    .map((filePath) => {
+      const relativePath = path.relative(path.resolve(configDir, ".."), filePath);
+      return { filePath, relativePath };
+    })
+    .filter(({ relativePath }) => shouldIncludeMarkdownFile(relativePath))
+    .map(({ filePath, relativePath }) => {
+      const rawContent = fs.readFileSync(filePath, "utf8");
+      const { body, data } = parseFrontmatter(rawContent);
+      const heading = body.match(/^#\s+(.+)$/mu)?.[1]?.trim();
+      const title = data.title || heading || path.basename(relativePath, ".md");
+
+      return {
+        content: body.trim(),
+        description: data.description,
+        relativePath,
+        title,
+        url: markdownPageURL(relativePath),
+      };
+    })
+    .sort((a, b) => a.title.localeCompare(b.title, "zh-CN"));
+}
+
+function generateFallbackLLMsTxt() {
+  const links = collectLLMMarkdownPages()
+    .map((page) => `- [${page.title}](${page.url})${page.description ? `: ${page.description}` : ""}`)
+    .join("\n");
+
+  return [
+    "# Nekro Agent",
+    "",
+    "> 新一代智能中枢框架",
+    "",
+    "安全、高效、优雅的智能交互体验",
+    "",
+    "## Docs",
+    "",
+    links,
+    "",
+  ].join("\n");
+}
+
+function generateFallbackLLMsFullTxt() {
+  const pages = collectLLMMarkdownPages()
+    .map((page) => `# ${page.title}\n\nSource: ${page.url}\n\n${page.content}`)
+    .join("\n\n---\n\n");
+
+  return [
+    "# Nekro Agent",
+    "",
+    "> 新一代智能中枢框架",
+    "",
+    pages,
+    "",
+  ].join("\n");
+}
+
+function generateFallbackLLMText(pathname: string) {
+  return pathname === "/llms-full.txt" ? generateFallbackLLMsFullTxt() : generateFallbackLLMsTxt();
+}
+
+function serveGeneratedLLMsTxt() {
+  return {
+    name: "serve-generated-llms-txt",
+    enforce: "pre",
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        const pathname = normalizeRequestPath(req.url);
+        if (!llmsTxtTargets.has(pathname)) {
+          next();
+          return;
+        }
+
+        const content = readGeneratedLLMTextFile(pathname) ?? generateFallbackLLMText(pathname);
+        res.setHeader("Content-Type", "text/plain; charset=utf-8");
+        res.setHeader("Cache-Control", "no-cache");
+        res.end(content);
+      });
+    },
+  };
+}
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  vite: {
+    plugins: [
+      serveGeneratedLLMsTxt(),
+      llmstxt({
+        domain: llmsDomain,
+        injectLLMHint: false,
+        customLLMsTxtTemplate: [
+          "# {title}",
+          "",
+          "{description}",
+          "",
+          "{details}",
+          "",
+          "## Docs",
+          "",
+          "{toc}",
+        ].join("\n"),
+        ignoreFiles: llmsIgnoreFiles,
+      }),
+    ],
+  },
+
+  // --- 忽略子模块中的死链接 ---
+  ignoreDeadLinks: [
+    /nekro-agent/,
+    /^http:\/\/localhost/,
+    /\.\/LICENSE/,
+  ],
+
   // --- Markdown 扩展配置 ---
   markdown: {
     config: (md) => {
@@ -109,9 +394,8 @@ export default defineConfig({
               items: [
                 { text: "概览", link: "/docs/01_intro/overview" },
                 { text: "应用场景", link: "/docs/01_intro/application_scenarios" },
-                { text: "社区宣发激励计划", link: "/docs/01_intro/event" },
                 { text: "NekroAI 成员招募", link: "/docs/01_intro/recruitment" },
-                { text: "文档站隐私政策", link: "/docs/01_intro/privacy" },
+
               ],
             },
             {
@@ -123,18 +407,15 @@ export default defineConfig({
                   text: "快速部署",
                   collapsed: true,
                   items: [
-                    { text: "NA-Tools 部署 (推荐)", link: "/docs/02_quick_start/deploy/na-tools" },
-                    { text: "Linux 部署教程", link: "/docs/02_quick_start/deploy/linux" },
-                    { text: "Windows 部署教程", link: "/docs/02_quick_start/deploy/windows" },
-                    { text: "MacOS 部署教程", link: "/docs/02_quick_start/deploy/macos" }
+                    { text: "Linux / macOS：NA-Tools 部署", link: "/docs/02_quick_start/deploy/na-tools" },
+                    { text: "Windows：启动器部署", link: "/docs/02_quick_start/deploy/windows/na-for-win" }
                   ],
                 },
                 {
-                  text: "社区部署",
+                  text: "社区贡献部署",
                   collapsed: true,
                   items: [
-                    { text: "Nekro-Agent-Toolkit", link: "/docs/community/nekro-agent-toolkit" },
-                    { text: "iStoreOS 部署教程", link: "/docs/community/iStoreOS" }
+                    { text: "iStoreOS 部署（社区贡献）", link: "/docs/community/iStoreOS" }
                   ]
                 },
                 {
@@ -143,6 +424,7 @@ export default defineConfig({
                   collapsed: true,
                   items: [
                     { text: "OneBot V11 / NapCat", link: "/docs/02_quick_start/adapters/onebot_v11" },
+                    { text: "微信（OpenILink）", link: "/docs/02_quick_start/adapters/wechat_openilink" },
                     { text: "微信（WeChatPad Pro）", link: "/docs/02_quick_start/adapters/wechatpad" },
                     { text: "企业微信 AI Bot", link: "/docs/02_quick_start/adapters/wecom_bot" },
                     { text: "企业微信自建应用", link: "/docs/02_quick_start/adapters/wecom_app" },
@@ -160,6 +442,7 @@ export default defineConfig({
                   collapsed: true,
                   items: [
                     { text: "系统配置", link: "/docs/02_quick_start/config/system" },
+                    { text: "高级配置", link: "/docs/02_quick_start/config/advanced" },
                     { text: "应用更新", link: "/docs/02_quick_start/config/update" },
                   ],
                 },
@@ -173,15 +456,21 @@ export default defineConfig({
                 { text: "快速上手", link: "/docs/03_workspace/quickstart" },
                 { text: "Claude Code 沙盒", link: "/docs/03_workspace/claude_code_sandbox" },
                 { text: "MCP 服务管理", link: "/docs/03_workspace/mcp_management" },
+                { text: "资源中心", link: "/docs/03_workspace/resource_center" },
+                { text: "知识库", link: "/docs/03_workspace/knowledge_base" },
                 { text: "记忆系统", link: "/docs/03_workspace/memory_system" },
+                { text: "技能库", link: "/docs/03_workspace/skills" },
                 { text: "工作区定时器", link: "/docs/03_workspace/timers" },
-                { text: "2.3.0 预览特性", link: "/docs/03_workspace/preview_features" },
+                { text: "2.3.3 版本特性", link: "/docs/03_workspace/preview_features" },
               ],
             },
             {
               text: "进阶指南",
               collapsed: true,
               items: [
+                { text: "仪表盘", link: "/docs/03_advanced/dashboard" },
+                { text: "日志中心", link: "/docs/03_advanced/logs" },
+                { text: "空间清理", link: "/docs/03_advanced/space_cleanup" },
                 { text: "命令中心", link: "/docs/03_advanced/command_center" },
                 { text: "频道管理", link: "/docs/03_advanced/channel_management" },
                 { text: "邮箱适配器", link: "/docs/03_advanced/email_adapter" },
@@ -190,48 +479,56 @@ export default defineConfig({
                 { text: "人设技巧", link: "/docs/03_advanced/persona_tips" },
                 { text: "会话独立人设", link: "/docs/03_advanced/session_persona" },
                 { text: "用户管理", link: "/docs/03_advanced/user_management" },
-                { text: "插件用例", link: "/docs/03_advanced/plugin_usage" },
-                { text: "插件生成器", link: "/docs/03_advanced/plugin_generator" },
                 { text: "基础命令指南", link: "/docs/03_advanced/commands_basic" },
                 { text: "调试命令指南", link: "/docs/03_advanced/commands_debug" },
               ],
             },
             {
-              text: "插件开发",
+              text: "插件文档",
               collapsed: true,
               items: [
-                { text: "引言", link: "/docs/04_plugin_dev/00_introduction" },
-                { text: "快速上手", link: "/docs/04_plugin_dev/01_quick_start" },
+                { text: "插件使用原则", link: "/docs/03_advanced/plugin_usage" },
+                { text: "内置插件", link: "/docs/04_plugins/builtin_plugins" },
+                { text: "社区插件", link: "/docs/04_plugins/community_plugins" },
+                { text: "插件生成器", link: "/docs/03_advanced/plugin_generator" },
                 {
-                  text: "插件核心概念",
-                  link: "/docs/04_plugin_dev/02_plugin_basics",
+                  text: "插件开发",
                   collapsed: true,
                   items: [
-                    { text: "插件实例与生命周期", link: "/docs/04_plugin_dev/02_plugin_basics/2.1_plugin_instance" },
-                    { text: "沙盒方法详解", link: "/docs/04_plugin_dev/02_plugin_basics/2.2_sandbox_methods" },
-                    { text: "插件配置", link: "/docs/04_plugin_dev/02_plugin_basics/2.3_configuration" },
-                    { text: "数据存储", link: "/docs/04_plugin_dev/02_plugin_basics/2.4_storage" },
-                    { text: "提示词注入", link: "/docs/04_plugin_dev/02_plugin_basics/2.5_prompt_injection" },
-                    { text: "上下文对象", link: "/docs/04_plugin_dev/02_plugin_basics/2.6_agent_context" },
-                    { text: "插件激活调度", link: "/docs/04_plugin_dev/02_plugin_basics/2.7_plugin_activation" },
+                    { text: "引言", link: "/docs/04_plugin_dev/00_introduction" },
+                    { text: "快速上手", link: "/docs/04_plugin_dev/01_quick_start" },
+                    {
+                      text: "插件核心概念",
+                      link: "/docs/04_plugin_dev/02_plugin_basics",
+                      collapsed: true,
+                      items: [
+                        { text: "插件实例与生命周期", link: "/docs/04_plugin_dev/02_plugin_basics/2.1_plugin_instance" },
+                        { text: "沙盒方法详解", link: "/docs/04_plugin_dev/02_plugin_basics/2.2_sandbox_methods" },
+                        { text: "插件配置", link: "/docs/04_plugin_dev/02_plugin_basics/2.3_configuration" },
+                        { text: "数据存储", link: "/docs/04_plugin_dev/02_plugin_basics/2.4_storage" },
+                        { text: "提示词注入", link: "/docs/04_plugin_dev/02_plugin_basics/2.5_prompt_injection" },
+                        { text: "上下文对象", link: "/docs/04_plugin_dev/02_plugin_basics/2.6_agent_context" },
+                        { text: "插件激活调度", link: "/docs/04_plugin_dev/02_plugin_basics/2.7_plugin_activation" },
+                      ],
+                    },
+                    {
+                      text: "高级功能",
+                      link: "/docs/04_plugin_dev/03_advanced_features",
+                      collapsed: true,
+                      items: [
+                        { text: "Webhook 接入点（已废弃）", link: "/docs/04_plugin_dev/03_advanced_features/3.1_webhooks" },
+                        { text: "文件交互", link: "/docs/04_plugin_dev/03_advanced_features/3.2_file_interaction" },
+                        { text: "使用向量数据库", link: "/docs/04_plugin_dev/03_advanced_features/3.3_vector_database" },
+                        { text: "动态路由", link: "/docs/04_plugin_dev/03_advanced_features/3.4_dynamic_router" },
+                        { text: "动态包导入", link: "/docs/04_plugin_dev/03_advanced_features/3.5_dynamic_package_import" },
+                        { text: "异步任务", link: "/docs/04_plugin_dev/03_advanced_features/3.6_async_tasks" },
+                      ],
+                    },
+                    { text: "系统 API 参考", link: "/docs/04_plugin_dev/04_system_api_reference" },
+                    { text: "插件命令开发", link: "/docs/04_plugin_dev/05_command_development" },
+                    { text: "插件定时任务开发", link: "/docs/04_plugin_dev/06_timer_development" },
                   ],
                 },
-                {
-                  text: "高级功能",
-                  link: "/docs/04_plugin_dev/03_advanced_features",
-                  collapsed: true,
-                  items: [
-                    { text: "Webhook 接入点（弃用）", link: "/docs/04_plugin_dev/03_advanced_features/3.1_webhooks" },
-                    { text: "文件交互", link: "/docs/04_plugin_dev/03_advanced_features/3.2_file_interaction" },
-                    { text: "使用向量数据库", link: "/docs/04_plugin_dev/03_advanced_features/3.3_vector_database" },
-                    { text: "动态路由", link: "/docs/04_plugin_dev/03_advanced_features/3.4_dynamic_router" },
-                    { text: "动态包导入", link: "/docs/04_plugin_dev/03_advanced_features/3.5_dynamic_package_import" },
-                    { text: "异步任务", link: "/docs/04_plugin_dev/03_advanced_features/3.6_async_tasks" },
-                  ],
-                },
-                { text: "系统 API 参考", link: "/docs/04_plugin_dev/04_system_api_reference" },
-                { text: "插件命令开发", link: "/docs/04_plugin_dev/05_command_development" },
-                { text: "插件定时任务开发", link: "/docs/04_plugin_dev/06_timer_development" },
               ],
             },
             {
@@ -240,7 +537,7 @@ export default defineConfig({
               items: [
                 { text: "Linux 开发环境准备", link: "/docs/05_app_dev/dev_linux" },
                 { text: "Windows 开发环境准备", link: "/docs/05_app_dev/dev_win" },
-                { text: "MacOS 开发环境准备", link: "/docs/05_app_dev/dev_macos" },
+                { text: "MacOS 开发环境准备", link: "/docs/05_app_dev/dev_macos" }
               ],
             },
             {
@@ -274,9 +571,7 @@ export default defineConfig({
               items: [
                 { text: "Overview", link: "/en/docs/01_intro/overview" },
                 { text: "Scenarios", link: "/en/docs/01_intro/application_scenarios" },
-                { text: "Incentive Plan", link: "/en/docs/01_intro/event" },
                 { text: "Recruitment", link: "/en/docs/01_intro/recruitment" },
-                { text: "Privacy Policy", link: "/en/docs/01_intro/privacy" },
               ],
             },
             {
@@ -285,20 +580,18 @@ export default defineConfig({
               items: [
                 { text: "Quick Start", link: "/en/docs/02_quick_start/quickstart" },
                 {
-                  text: "Deployment",
+                  text: "Quick Deployment",
                   collapsed: true,
                   items: [
-                    { text: "Linux", link: "/en/docs/02_quick_start/deploy/linux" },
-                    { text: "Windows", link: "/en/docs/02_quick_start/deploy/windows" },
-                    { text: "MacOS", link: "/en/docs/02_quick_start/deploy/macos" }
+                    { text: "Linux / macOS: NA-Tools", link: "/en/docs/02_quick_start/deploy/na-tools" },
+                    { text: "Windows: Launcher", link: "/en/docs/02_quick_start/deploy/windows/na-for-win" }
                   ],
                 },
                 {
                   text: "Community Deployment",
                   collapsed: true,
                   items: [
-                    { text: "Nekro-Agent-Toolkit", link: "/en/docs/community/nekro-agent-toolkit" },
-                    { text: "iStoreOS", link: "/en/docs/community/iStoreOS" }
+                    { text: "iStoreOS (Community)", link: "/en/docs/community/iStoreOS" }
                   ]
                 },
                 {
@@ -307,6 +600,7 @@ export default defineConfig({
                   collapsed: true,
                   items: [
                     { text: "OneBot V11 / NapCat", link: "/en/docs/02_quick_start/adapters/onebot_v11" },
+                    { text: "WeChat (OpenILink)", link: "/en/docs/02_quick_start/adapters/wechat_openilink" },
                     { text: "WeChat (WeChatPad Pro)", link: "/en/docs/02_quick_start/adapters/wechatpad" },
                     { text: "WeCom AI Bot", link: "/en/docs/02_quick_start/adapters/wecom_bot" },
                     { text: "WeCom Custom App", link: "/en/docs/02_quick_start/adapters/wecom_app" },
@@ -324,15 +618,38 @@ export default defineConfig({
                   collapsed: true,
                   items: [
                     { text: "System", link: "/en/docs/02_quick_start/config/system" },
+                    { text: "Advanced", link: "/en/docs/02_quick_start/config/advanced" },
                     { text: "Update", link: "/en/docs/02_quick_start/config/update" },
                   ],
                 },
               ],
             },
             {
+              text: "Workspace & Claude Code",
+              collapsed: true,
+              items: [
+                { text: "Workspace Overview", link: "/en/docs/03_workspace/overview" },
+                { text: "Quick Start", link: "/en/docs/03_workspace/quickstart" },
+                { text: "Claude Code Sandbox", link: "/en/docs/03_workspace/claude_code_sandbox" },
+                { text: "MCP Services", link: "/en/docs/03_workspace/mcp_management" },
+                { text: "Resource Center", link: "/en/docs/03_workspace/resource_center" },
+                { text: "Knowledge Base", link: "/en/docs/03_workspace/knowledge_base" },
+                { text: "Memory System", link: "/en/docs/03_workspace/memory_system" },
+                { text: "Skills Library", link: "/en/docs/03_workspace/skills" },
+                { text: "Workspace Timers", link: "/en/docs/03_workspace/timers" },
+                { text: "v2.3.3 Features", link: "/en/docs/03_workspace/preview_features" },
+              ],
+            },
+            {
               text: "Advanced",
               collapsed: true,
               items: [
+                { text: "Dashboard", link: "/en/docs/03_advanced/dashboard" },
+                { text: "Log Center", link: "/en/docs/03_advanced/logs" },
+                { text: "Space Cleanup", link: "/en/docs/03_advanced/space_cleanup" },
+                { text: "Command Center", link: "/en/docs/03_advanced/command_center" },
+                { text: "Channel Management", link: "/en/docs/03_advanced/channel_management" },
+                { text: "Email Adapter", link: "/en/docs/03_advanced/email_adapter" },
                 { text: "Model Config", link: "/en/docs/03_advanced/model_config" },
                 { text: "Model Selection", link: "/en/docs/03_advanced/model_usage" },
                 { text: "Persona Tips", link: "/en/docs/03_advanced/persona_tips" },
@@ -342,6 +659,16 @@ export default defineConfig({
                 { text: "Plugin Generator", link: "/en/docs/03_advanced/plugin_generator" },
                 { text: "Basic Commands", link: "/en/docs/03_advanced/commands_basic" },
                 { text: "Debug Commands", link: "/en/docs/03_advanced/commands_debug" },
+              ],
+            },
+            {
+              text: "Plugins",
+              collapsed: true,
+              items: [
+                { text: "Plugin Usage", link: "/en/docs/03_advanced/plugin_usage" },
+                { text: "Built-in Plugins", link: "/en/docs/04_plugins/builtin_plugins" },
+                { text: "Community Plugins", link: "/en/docs/04_plugins/community_plugins" },
+                { text: "Plugin Generator", link: "/en/docs/03_advanced/plugin_generator" },
               ],
             },
             {
@@ -419,9 +746,7 @@ export default defineConfig({
               items: [
                 { text: "概要", link: "/ja/docs/01_intro/overview" },
                 { text: "適用シナリオ", link: "/ja/docs/01_intro/application_scenarios" },
-                { text: "インセンティブプラン", link: "/ja/docs/01_intro/event" },
                 { text: "採用情報", link: "/ja/docs/01_intro/recruitment" },
-                { text: "プライバシーポリシー", link: "/ja/docs/01_intro/privacy" },
               ],
             },
             {
@@ -430,20 +755,18 @@ export default defineConfig({
               items: [
                 { text: "クイックスタート", link: "/ja/docs/02_quick_start/quickstart" },
                 {
-                  text: "デプロイ",
+                  text: "クイックデプロイ",
                   collapsed: true,
                   items: [
-                    { text: "Linux", link: "/ja/docs/02_quick_start/deploy/linux" },
-                    { text: "Windows", link: "/ja/docs/02_quick_start/deploy/windows" },
-                    { text: "MacOS", link: "/ja/docs/02_quick_start/deploy/macos" }
+                    { text: "Linux / macOS：NA-Toolsデプロイ", link: "/ja/docs/02_quick_start/deploy/na-tools" },
+                    { text: "Windows：ランチャー", link: "/ja/docs/02_quick_start/deploy/windows/na-for-win" }
                   ],
                 },
                 {
-                  text: "コミュニティデプロイ",
+                  text: "コミュニティ提供デプロイ",
                   collapsed: true,
                   items: [
-                    { text: "Nekro-Agent-Toolkit", link: "/ja/docs/community/nekro-agent-toolkit" },
-                    { text: "iStoreOS", link: "/ja/docs/community/iStoreOS" }
+                    { text: "iStoreOS（コミュニティ）", link: "/ja/docs/community/iStoreOS" }
                   ]
                 },
                 {
@@ -452,6 +775,7 @@ export default defineConfig({
                   collapsed: true,
                   items: [
                     { text: "OneBot V11 / NapCat", link: "/ja/docs/02_quick_start/adapters/onebot_v11" },
+                    { text: "WeChat（OpenILink）", link: "/ja/docs/02_quick_start/adapters/wechat_openilink" },
                     { text: "WeChat（WeChatPad Pro）", link: "/ja/docs/02_quick_start/adapters/wechatpad" },
                     { text: "WeCom AI Bot", link: "/ja/docs/02_quick_start/adapters/wecom_bot" },
                     { text: "WeCom カスタムアプリ", link: "/ja/docs/02_quick_start/adapters/wecom_app" },
@@ -469,15 +793,38 @@ export default defineConfig({
                   collapsed: true,
                   items: [
                     { text: "システム", link: "/ja/docs/02_quick_start/config/system" },
+                    { text: "高度な設定", link: "/ja/docs/02_quick_start/config/advanced" },
                     { text: "アップデート", link: "/ja/docs/02_quick_start/config/update" },
                   ],
                 },
               ],
             },
             {
+              text: "ワークスペースとClaude Code",
+              collapsed: true,
+              items: [
+                { text: "ワークスペース概要", link: "/ja/docs/03_workspace/overview" },
+                { text: "クイックスタート", link: "/ja/docs/03_workspace/quickstart" },
+                { text: "Claude Codeサンドボックス", link: "/ja/docs/03_workspace/claude_code_sandbox" },
+                { text: "MCPサービス管理", link: "/ja/docs/03_workspace/mcp_management" },
+                { text: "リソースセンター", link: "/ja/docs/03_workspace/resource_center" },
+                { text: "ナレッジベース", link: "/ja/docs/03_workspace/knowledge_base" },
+                { text: "メモリシステム", link: "/ja/docs/03_workspace/memory_system" },
+                { text: "スキルライブラリ", link: "/ja/docs/03_workspace/skills" },
+                { text: "ワークスペースタイマー", link: "/ja/docs/03_workspace/timers" },
+                { text: "v2.3.3の機能", link: "/ja/docs/03_workspace/preview_features" },
+              ],
+            },
+            {
               text: "高度な機能",
               collapsed: true,
               items: [
+                { text: "ダッシュボード", link: "/ja/docs/03_advanced/dashboard" },
+                { text: "ログセンター", link: "/ja/docs/03_advanced/logs" },
+                { text: "スペースクリーンアップ", link: "/ja/docs/03_advanced/space_cleanup" },
+                { text: "コマンドセンター", link: "/ja/docs/03_advanced/command_center" },
+                { text: "チャンネル管理", link: "/ja/docs/03_advanced/channel_management" },
+                { text: "メールアダプター", link: "/ja/docs/03_advanced/email_adapter" },
                 { text: "モデル構成", link: "/ja/docs/03_advanced/model_config" },
                 { text: "モデル選択", link: "/ja/docs/03_advanced/model_usage" },
                 { text: "ペルソナのヒント", link: "/ja/docs/03_advanced/persona_tips" },
@@ -487,6 +834,16 @@ export default defineConfig({
                 { text: "プラグインジェネレーター", link: "/ja/docs/03_advanced/plugin_generator" },
                 { text: "基本コマンド", link: "/ja/docs/03_advanced/commands_basic" },
                 { text: "デバッグコマンド", link: "/ja/docs/03_advanced/commands_debug" },
+              ],
+            },
+            {
+              text: "プラグイン",
+              collapsed: true,
+              items: [
+                { text: "プラグインの使用", link: "/ja/docs/03_advanced/plugin_usage" },
+                { text: "組み込みプラグイン", link: "/ja/docs/04_plugins/builtin_plugins" },
+                { text: "コミュニティプラグイン", link: "/ja/docs/04_plugins/community_plugins" },
+                { text: "プラグインジェネレーター", link: "/ja/docs/03_advanced/plugin_generator" },
               ],
             },
             {
@@ -548,7 +905,23 @@ export default defineConfig({
 
   themeConfig: {
     logo: '/nekro_agent_logo.webp',
-    search: { provider: 'local' },
+    search: {
+      provider: 'local',
+      options: {
+        translations: localSearchTranslations.root,
+        locales: {
+          root: {
+            translations: localSearchTranslations.root,
+          },
+          en: {
+            translations: localSearchTranslations.en,
+          },
+          ja: {
+            translations: localSearchTranslations.ja,
+          },
+        },
+      },
+    },
 
     // 共享的社交链接
     socialLinks: [

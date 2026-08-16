@@ -13,34 +13,34 @@ description: WindowsシステムでのNekro Agentデプロイメントの詳細�
   <!-- Hyper-V -->
   <a class="deploy-option" href="/ja/docs/02_quick_start/deploy/windows/hyperv">
     <div class="option-header hyperv"> <!-- ここでのクラス名は子要素のアイコンカラーを特定するために使用されます -->
-      <span class="option-icon">🚀</span>
+      <span class="option-icon"><DocIcon name="rocket" /></span>
       <span class="option-title">Hyper-Vデプロイメント</span>
     </div>
     <div class="option-desc">高性能、システムと同時に起動、Windowsネイティブ仮想化ソリューション。</div>
   </a>
-  
+
   <!-- WSL2 -->
   <a class="deploy-option" href="/ja/docs/02_quick_start/deploy/windows/wsl">
     <div class="option-header wsl">
-      <span class="option-icon">🐧</span>
+      <span class="option-icon"><DocIcon name="laptop" /></span>
       <span class="option-title">WSL2デプロイメント</span>
     </div>
     <div class="option-desc">軽量で便利、Windowsファイルシステムと深く統合、開発に適しています。</div>
   </a>
-  
+
   <!-- ISO -->
   <a class="deploy-option" href="/ja/docs/02_quick_start/deploy/windows/iso">
     <div class="option-header iso">
-      <span class="option-icon">💿</span>
+      <span class="option-icon"><DocIcon name="disc" /></span>
       <span class="option-title">完全イメージデプロイメント</span>
     </div>
     <div class="option-desc">独立環境、ワンクリックインストール、最も分離性の高いデプロイメント方法。</div>
   </a>
-  
+
   <!-- VMware -->
   <a class="deploy-option disabled">
     <div class="option-header vmware">
-      <span class="option-icon">📦</span> <!-- ソフトウェアに適したアイコンに変更 -->
+      <span class="option-icon"><DocIcon name="package" /></span> <!-- ソフトウェアに適したアイコンに変更 -->
       <span class="option-title">VMwareデプロイメント</span>
     </div>
     <div class="option-desc">近日公開：VMware Workstation専用ソリューション。</div>
@@ -70,22 +70,22 @@ description: WindowsシステムでのNekro Agentデプロイメントの詳細�
   border-radius: 18px;
   text-decoration: none !important;
   overflow: hidden;
-  
+
   /* --- 关键：强制硬件加速与过渡动画 --- */
   transform-style: preserve-3d;
   transform: translateZ(0) scale(1); /* 定义初始状态 */
   backface-visibility: hidden; /* 防止渲染闪烁 */
-  
+
   /* 添加更多硬件加速属性 */
   will-change: transform, box-shadow, border-color;
   isolation: isolate;
-  
-  /* 
+
+  /*
      all: 所有属性都参与动画
      0.4s: 动画时长
-     cubic-bezier: 苹果风格的平滑减速曲线 
+     cubic-bezier: 苹果风格的平滑减速曲线
   */
-  transition: 
+  transition:
     transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
     box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
     border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -95,7 +95,7 @@ description: WindowsシステムでのNekro Agentデプロイメントの詳細�
 .deploy-option:hover {
   /* 放大 1.05 倍，并稍微抬起 */
   transform: translateZ(0) scale(1.05) translateY(-5px);
-  
+
   /* 阴影变得很大、很虚，模拟离桌面很高 */
   box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.25);
   border-color: var(--vp-c-brand); /* 边框变色 */

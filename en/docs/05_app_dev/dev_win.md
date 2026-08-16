@@ -59,7 +59,7 @@ Windows users typically don't need administrator privileges to run the developme
    ```powershell
    # Install WSL2
    wsl --install
-   
+
    # Develop in WSL2, refer to Linux development guide
    ```
 :::

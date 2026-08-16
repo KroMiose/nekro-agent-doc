@@ -59,7 +59,7 @@ Windows 用户通常不需要管理员权限运行开发服务器。Docker Deskt
    ```powershell
    # 安装 WSL2
    wsl --install
-   
+
    # 在 WSL2 中开发，参考 Linux 开发文档
    ```
 :::

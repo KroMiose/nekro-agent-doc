@@ -53,11 +53,11 @@ brew install --cask orbstack
 After installation, launch the OrbStack app. It automatically provides Docker-compatible CLI tools.
 
 ::: tip Why OrbStack?
-- ⚡ **Faster**: Significantly better startup speed and runtime performance than Docker Desktop
-- 💾 **Lighter**: Uses less system resources
-- 🔧 **Ready to Use**: No sudo required, automatically configured
-- 🐧 **Linux VM Support**: Can create Linux VMs for fully compatible development environments
-- 🆓 **Free**: Completely free for personal use
+- <DocIcon name="zap" /> **Faster**: Significantly better startup speed and runtime performance than Docker Desktop
+- <DocIcon name="drive" /> **Lighter**: Uses less system resources
+- <DocIcon name="wrench" /> **Ready to Use**: No sudo required, automatically configured
+- <DocIcon name="laptop" /> **Linux VM Support**: Can create Linux VMs for fully compatible development environments
+- <DocIcon name="gift" /> **Free**: Completely free for personal use
 :::
 
 ## Source Deployment

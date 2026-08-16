@@ -7,7 +7,7 @@ description: 使用官方提供的一键式 CLI 工具 na-tools 在 macOS 或 Li
 
 `na-tools` 是官方提供的跨平台自动部署 CLI 工具，支持 **macOS** 和 **Linux** 系统。它提供了从安装、配置到备份、恢复的全生命周期管理功能。
 
-## ✨ 为什么选择 na-tools？
+## <DocIcon name="sparkles" /> 为什么选择 na-tools？
 
 - **跨平台支持**：同时支持 Linux (Ubuntu/Debian 等) 和 macOS。
 - **全自动环境检测**：自动检测并引导安装 Docker 环境。
@@ -17,9 +17,9 @@ description: 使用官方提供的一键式 CLI 工具 na-tools 在 macOS 或 Li
 
 ---
 
-## 📦 第一步：安装 na-tools
+## <DocIcon name="package" /> 第一步：安装 na-tools
 
-na-tools 需要 **Python 3.10+** 环境。我们推荐使用 [uv](https://docs.astral.sh/uv/) 来安装，它可以自动管理 Python 环境，避免污染系统。
+na-tools 需要 **Python 3.11+** 环境（与 Nekro Agent 主程序版本要求一致）。我们推荐使用 [uv](https://docs.astral.sh/uv/) 来安装，它可以自动管理 Python 环境，避免污染系统。
 
 ### 1. 安装 uv（如果尚未安装）
 
@@ -54,7 +54,7 @@ uv tool upgrade na-tools
 
 ---
 
-## 🚀 第二步：一键部署 Nekro Agent
+## <DocIcon name="rocket" /> 第二步：一键部署 Nekro Agent
 
 运行以下命令开始安装流程：
 
@@ -92,15 +92,18 @@ na-tools 会自动检测您的系统是否已安装 Docker：
 - 拉取所需的 Docker 镜像
 - 启动所有服务容器
 
-**6. 沙盒镜像（可选）**
+**6. 沙盒镜像**
 
-安装过程中会询问是否拉取 CC 沙盒镜像（`kromiose/nekro-cc-sandbox`），这是可选组件。如果不确定，可以先选择 **否**，后续可通过 `na-tools update --update-cc-sandbox` 补充安装。
+Nekro Agent 涉及两种沙盒镜像：
+
+- **通用沙盒** `kromiose/nekro-agent-sandbox`：用于执行 AI 生成的代码片段，是核心功能，安装时会**自动拉取**，无需选择。
+- **CC 沙盒** `kromiose/nekro-cc-sandbox`：为 Claude Code 工作区准备的隔离环境，体积较大，**可选**安装。安装过程中会询问是否拉取，如果暂时不用工作区/Claude Code 功能，可以先选择 **否**，后续通过 `na-tools update --update-cc-sandbox` 补充安装。
 
 **7. 部署完成**
 
 安装完成后，终端会显示一个信息面板，包含：
 
-- **Web 访问地址**（默认 `http://你的IP:8021`）
+- **Web 访问地址**（默认 `http://您的IP:8021`）
 - **管理员密码**
 - **访问 Token**
 - **NapCat 端口**（如果安装了 NapCat）
@@ -134,35 +137,11 @@ na-tools install --preview
 
 ---
 
-## 🔌 第三步：配置 NapCat（连接 QQ）
+## <DocIcon name="plug" /> 第三步（可选）：配置 NapCat（连接 QQ）
 
 如果您在安装时选择了包含 NapCat，需要完成以下配置才能让 Bot 连接 QQ。
 
-### 1. 登录 NapCat
-
-运行引导命令：
-
-```bash
-na-tools napcat
-```
-
-工具会显示 NapCat WebUI 的访问地址（默认 `http://127.0.0.1:6099/webui`）。
-
-**操作步骤**：
-
-1. 查看 NapCat 日志获取 WebUI Token：
-   ```bash
-   na-tools logs napcat
-   ```
-2. 在浏览器中打开 WebUI 地址
-3. 使用日志中显示的 Token 登录
-4. 在 WebUI 中完成 QQ 扫码登录
-
-### 2. 自动配置 OneBot 连接
-
-登录成功后，回到终端确认已完成登录。工具会要求您输入已登录的 QQ 号，然后**自动生成 OneBot WebSocket 连接配置**，免去手动编辑配置文件的麻烦。
-
-您也可以直接指定 QQ 号跳过交互：
+### 自动配置 OneBot 连接
 
 ```bash
 na-tools napcat --qq 123456789
@@ -172,7 +151,7 @@ na-tools napcat --qq 123456789
 
 ---
 
-## 💡 日常管理命令
+## <DocIcon name="lightbulb" /> 日常管理命令
 
 ### 查看服务状态
 
@@ -219,7 +198,7 @@ na-tools update --no-update-sandbox
 
 ---
 
-## 💾 备份与恢复
+## <DocIcon name="drive" /> 备份与恢复
 
 ### 创建备份
 
@@ -277,7 +256,7 @@ na-tools restore --data-dir /path/to/target_dir
 
 ---
 
-## 🧪 Preview 预览版
+## <DocIcon name="flask" /> Preview 预览版
 
 Preview 频道提供预览版镜像，可以提前体验新功能，但**可能不稳定**。
 
@@ -309,7 +288,7 @@ na-tools update --rollback
 
 ---
 
-## 📂 多实例管理
+## <DocIcon name="folder" /> 多实例管理
 
 na-tools 支持在**同一台机器**上管理多个 Nekro Agent 实例，每个实例拥有独立的数据目录和配置。
 
@@ -385,7 +364,7 @@ na-tools remove --force
 
 ---
 
-## 🪞 配置 Docker 镜像源
+## <DocIcon name="box" /> 配置 Docker 镜像源
 
 如果您在国内拉取 Docker 镜像速度较慢，可以通过 na-tools 设置镜像源：
 
@@ -404,7 +383,7 @@ na-tools config mirror ""
 
 ---
 
-## 📋 命令速查表
+## <DocIcon name="clipboard" /> 命令速查表
 
 ### 部署管理
 
@@ -441,7 +420,7 @@ na-tools config mirror ""
 
 ---
 
-## ⚠️ 常见问题
+## <DocIcon name="warning" label="注意" /> 常见问题
 
 ### Docker 相关
 

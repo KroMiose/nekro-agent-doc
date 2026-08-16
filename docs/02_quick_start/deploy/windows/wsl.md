@@ -7,7 +7,7 @@ description: 在 Windows 系统上通过 WSL2 部署 Nekro Agent 的详细步骤
 
 本文档将指导您在 Windows 系统上，通过适用于 Linux 的 Windows 子系统 (WSL2) 部署 Nekro Agent。我们强烈推荐使用我们提供的一键化安装脚本，它能为您自动处理好所有环境配置和安装步骤。
 
-## 🚀 一键安装 (推荐)
+## <DocIcon name="rocket" /> 一键安装 (推荐)
 
 该脚本将全自动完成以下工作：
 - 检查并启用 WSL2 和虚拟化相关功能 (可能需要重启一次电脑)。
@@ -42,12 +42,12 @@ description: 在 Windows 系统上通过 WSL2 部署 Nekro Agent 的详细步骤
 
 ### 自定义安装路径
 
-默认情况下，WSL 虚拟磁盘文件将安装在 `C:\Users\<你的用户名>\AppData\Local\NekroAgent`。如果您想指定其他安装位置（例如 D 盘），可以在执行脚本时通过 `-InstallPath` 参数指定：
+默认情况下，WSL 虚拟磁盘文件将安装在 `C:\Users\<您的用户名>\AppData\Local\NekroAgent`。如果您想指定其他安装位置（例如 D 盘），可以在执行脚本时通过 `-InstallPath` 参数指定：
 
 ```powershell
-# 将 <你的路径> 替换为你想要的文件夹路径
+# 将 <您的路径> 替换为您想要的文件夹路径
 $scriptContent = irm https://raw.githubusercontent.com/KroMiose/nekro-agent/main/docker/install.ps1
-iex "& { $scriptContent } -InstallPath '<你的路径>'"
+iex "& { $scriptContent } -InstallPath '<您的路径>'"
 ```
 
 ### 网络问题处理
@@ -61,7 +61,7 @@ iex "& { $scriptContent } -InstallPath '<你的路径>'"
     D:\wslinstall.ps1 -InstallPath 'D:\WSL\NekroAgent'
     ```
 
-## ⚙️ 部署后操作
+## <DocIcon name="settings" /> 部署后操作
 
 安装完成后，您可以随时通过以下方式管理您的 Nekro Agent 环境：
 
@@ -76,7 +76,7 @@ iex "& { $scriptContent } -InstallPath '<你的路径>'"
 - **后续操作**:
   进入 WSL 环境后，所有操作均与 Linux 环境一致。您可以参考 [Linux 部署教程](../linux.md) 进行查看日志、管理服务等操作。
 
-## ✋ 手动安装
+## <DocIcon name="hand" /> 手动安装
 
 如果您不想使用自动化脚本，或者希望在已有的 WSL 发行版中进行安装，可以按照以下步骤操作：
 

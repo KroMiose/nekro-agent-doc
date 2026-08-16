@@ -15,7 +15,7 @@ description: 在 Windows 系统上使用 Hyper-V 部署 Nekro Agent 的详细步
 :::
 
 
-## 🌈 环境准备
+## <DocIcon name="rainbow" /> 环境准备
 
 由于 Nekro Agent 基于 Docker 运行，我们需要先在 Windows 上安装 Hyper-V。
 
@@ -100,7 +100,7 @@ DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V
 
 ## 使用 Hyper-V 安装 Linux 虚拟机
 ### 安装 Linux 虚拟机
-1.打开 Hyper-V 管理器。 选择 “快速创建”，然后选择 Ubuntu 22.04 LTS 
+1.打开 Hyper-V 管理器。 选择 “快速创建”，然后选择 Ubuntu 22.04 LTS
 
 2.选择 “创建虚拟机”。
 

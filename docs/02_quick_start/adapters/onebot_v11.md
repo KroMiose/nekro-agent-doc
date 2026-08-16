@@ -15,9 +15,9 @@ description: 面向首次接入 QQ 平台用户的 OneBot V11 / NapCat 配置教
 
 ## 开始前准备
 
-- 你已经部署好 Nekro Agent，并且可以打开 WebUI
-- 你有一个准备用来挂机器人的 QQ 账号
-- 你知道 Nekro Agent 的访问地址，例如 `http://<服务器IP>:8021`
+- 您已经部署好 Nekro Agent，并且可以打开 WebUI
+- 您有一个准备用来挂机器人的 QQ 账号
+- 您知道 Nekro Agent 的访问地址，例如 `http://<服务器IP>:8021`
 
 ## 第一步：先在 Nekro Agent 里打开 OneBot V11
 
@@ -37,7 +37,7 @@ description: 面向首次接入 QQ 平台用户的 OneBot V11 / NapCat 配置教
 ### 这几个字段怎么填
 
 - `BOT_QQ`：要登录的机器人 QQ 号
-- `RESOLVE_CQ_CODE`：一般保持默认即可；只有你明确需要让协议端解析 CQ 码时再打开
+- `RESOLVE_CQ_CODE`：一般保持默认即可；只有您明确需要让协议端解析 CQ 码时再打开
 - `NAPCAT_ACCESS_URL`：NapCat WebUI 地址，常见是 `http://<服务器IP>:6099/webui`
 - `NAPCAT_CONTAINER_NAME`：默认部署一般不用改
 
@@ -64,7 +64,7 @@ ws://nekro_agent:8021/onebot/v11/ws
 如果不是一体化容器部署，也可以改成：
 
 ```text
-ws://<你的服务器IP>:8021/onebot/v11/ws
+ws://<您的服务器IP>:8021/onebot/v11/ws
 ```
 
 4. 鉴权密钥填写刚才在 Nekro Agent 页面里看到的 `OneBot 服务访问密钥`
@@ -82,17 +82,17 @@ ws://<你的服务器IP>:8021/onebot/v11/ws
 4. 回到 Nekro Agent 进入 `系统日志` 查看是否有您刚才发送的消息
 5. 若有，则说明配置成功
 
-## 如果你不是用 NapCat
+## 如果您不是用 NapCat
 
-如果你使用的是其他兼容 `OneBot V11` 的协议端，只要把它的反向 WebSocket 地址指向下面这个接口即可：
+如果您使用的是其他兼容 `OneBot V11` 的协议端，只要把它的反向 WebSocket 地址指向下面这个接口即可：
 
 ```text
-ws://<你的服务器IP>:8021/onebot/v11/ws
+ws://<您的服务器IP>:8021/onebot/v11/ws
 ```
 
-如果你还要用到图片、文件上传之类的能力，需要额外确认 Nekro Agent 和协议端之间的目录挂载是否一致。
+如果您还要用到图片、文件上传之类的能力，需要额外确认 Nekro Agent 和协议端之间的目录挂载是否一致。
 
-## 配置完成后你会看到什么
+## 配置完成后您会看到什么
 
 - 群聊会显示为：`onebot_v11-group_群号`
 - 私聊会显示为：`onebot_v11-private_QQ号`
@@ -120,8 +120,14 @@ ws://<你的服务器IP>:8021/onebot/v11/ws
 
 ### 图片或文件发送失败
 
-如果你不是标准一体化部署，通常要检查目录挂载：
+如果您不是标准一体化部署，通常要检查目录挂载：
 
 1. 协议端是否支持图片和文件发送
 2. Nekro Agent 与协议端是否看得到同一份文件路径
 3. 文件大小是否超出平台限制
+
+## 下一步
+
+- 适配器配好了，但 Bot 还不会回话？前往 [系统配置](/docs/02_quick_start/config/system) 配好至少一个**聊天模型组**
+- 想换 NapCat 之外的协议端？参考 [如果您不是用 NapCat](#如果您不是用-napcat) 章节
+- 想给 Bot 配人设？参考 [人设技巧](/docs/03_advanced/persona_tips)

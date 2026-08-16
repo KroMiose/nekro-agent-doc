@@ -10,14 +10,14 @@ description: 使用启动器的一键安装教程。
 ## 环境要求
 
 - Windows 10 版本 2004 及更高版本，或 Windows 11。
-- 已在电脑的 BIOS/UEFI 中启用硬件虚拟化。可使用powershell命令  
+- 已在电脑的 BIOS/UEFI 中启用硬件虚拟化。可使用powershell命令
 `Get-CimInstance -ClassName Win32_Processor | Select-Object Name, VirtualizationFirmwareEnabled`检测，运行命令后，若`VirtualizationFirmwareEnabled`对应为`True`，则说明虚拟化已开启。
 
 ### 使用步骤
 
 1. **安装启动器**
-    - 从下方链接中下载启动器最新安装包，并完成启动器安装  
-    [Github Release](https://github.com/NekroAI/nekro-agent-for-windows/releases)  
+    - 从下方链接中下载启动器最新安装包，并完成启动器安装
+    [Github Release](https://github.com/NekroAI/nekro-agent-for-windows/releases)
     [123云盘](https://www.123865.com/s/R0I3Td-v0Rw)
 
 2. **运行环境检测，部署服务**
@@ -40,7 +40,7 @@ description: 使用启动器的一键安装教程。
     ![内置浏览器](/assets/windows/manage7.png)
     - 到这里，NekroAgent的部署已经完成。
 
-## ⚙️ 部署后配置
+## <DocIcon name="settings" /> 部署后配置
 
 - **标准部署（对应启动器完整版）**: 前往[OneBot V11 / NapCat 配置](/docs/02_quick_start/adapters/onebot_v11)文档，根据文档说明完成配置。
 - **核心部署（对应启动器精简版）**: 前往[OneBot V11 / NapCat 配置](/docs/02_quick_start/adapters/onebot_v11)文档，参考说明继续配置。

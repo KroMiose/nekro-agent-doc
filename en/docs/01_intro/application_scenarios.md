@@ -3,7 +3,7 @@ title: Nekro Agent Application Scenarios
 description: Application cases and solutions of Nekro Agent in various scenarios, including daily assistant, group chat bot, development assistance, knowledge management, and more
 ---
 
-# ⚙️ Demo
+# <DocIcon name="settings" /> Demo
 
 ::: info About Debug Mode
 
@@ -22,7 +22,7 @@ Leveraging Python's powerful ecosystem, Nekro Agent can execute complex file pro
 ![Image processing, file compression](/assets/demo/demo_1.webp)
 
 <details>
-<summary>💡 Usage Tips</summary>
+<summary><DocIcon name="lightbulb" /> Usage Tips</summary>
 
 Try requesting tasks such as:
 
@@ -42,7 +42,7 @@ Without the need for tedious development environment configuration, directly gen
 ![2048 Game Development](/assets/demo/demo_2.webp)
 
 <details>
-<summary>💡 Usage Tips</summary>
+<summary><DocIcon name="lightbulb" /> Usage Tips</summary>
 
 Try developing simple:
 
@@ -59,7 +59,7 @@ Help understand complex concepts and improve learning efficiency by generating i
 ![Architecture, Flowchart Diagramming](/assets/demo/demo_3.webp)
 
 <details>
-<summary>💡 Usage Tips</summary>
+<summary><DocIcon name="lightbulb" /> Usage Tips</summary>
 
 You can request:
 
@@ -77,7 +77,7 @@ Assist in solving complex problems by providing clear ideas and solutions throug
 ![Complex Problem Analysis](/assets/demo/demo_5.webp)
 
 <details>
-<summary>💡 Usage Tips</summary>
+<summary><DocIcon name="lightbulb" /> Usage Tips</summary>
 
 Applicable for:
 
@@ -97,7 +97,7 @@ Through Webhook mechanism, subscribe to external events and implement automated 
 ![Github Push](/assets/demo/demo_4.webp)
 
 <details>
-<summary>💡 Usage Tips</summary>
+<summary><DocIcon name="lightbulb" /> Usage Tips</summary>
 
 You can implement:
 
@@ -115,7 +115,7 @@ Seamlessly integrate with other AI services to achieve complementary capabilitie
 ![Drawing AI Integration](/assets/demo/demo_6.webp)
 
 <details>
-<summary>💡 Usage Tips</summary>
+<summary><DocIcon name="lightbulb" /> Usage Tips</summary>
 
 Try combining:
 

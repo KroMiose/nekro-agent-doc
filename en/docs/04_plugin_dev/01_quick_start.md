@@ -64,8 +64,8 @@ plugin = NekroPlugin(
 # 2. Register a sandbox method
 @plugin.mount_sandbox_method(
     method_type=SandboxMethodType.TOOL, # Method type is TOOL, result is directly returned to AI
-    name="say_hello",                  
-    description="Returns a greeting."       
+    name="say_hello",
+    description="Returns a greeting."
 )
 async def say_hello_from_plugin(_ctx: AgentCtx) -> str:
     """Greeting method of the plugin

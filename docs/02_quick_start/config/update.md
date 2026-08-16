@@ -7,9 +7,9 @@ description: Nekro Agent 应用更新的方法与步骤，包括编排更新命�
 
 Nekro Agent 会定期发布更新，包括功能改进、bug 修复和安全补丁。本文档将介绍如何安全地更新您的 Nekro Agent 实例。
 
-## 🚀 编排更新（推荐）
+## <DocIcon name="rocket" /> 编排更新（推荐）
 
-Nekro Agent 提供了简便的编排更新命令，当新版本发布时，你可以使用以下一键命令更新应用
+Nekro Agent 提供了简便的编排更新命令，当新版本发布时，您可以使用以下一键命令更新应用
 
 ::: warning 注意事项
 
@@ -56,15 +56,15 @@ sudo docker compose --env-file .env up --build -d
 
 
 
-## 🧪 切换到预览版
+## <DocIcon name="flask" /> 切换到预览版
 
-如果你想提前体验最新功能，或协助测试尚未进入正式版的更新，可以将部署镜像从 `latest` 切换为 `preview`。
+如果您想提前体验最新功能，或协助测试尚未进入正式版的更新，可以将部署镜像从 `latest` 切换为 `preview`。
 
 ::: warning 注意事项
 
 - `preview` 会跟随 `main` 分支持续更新，功能更新更快，但也更可能包含尚未充分验证的改动。
-- 如果你的实例用于稳定生产环境，建议继续使用 `latest`。
-- 以下步骤默认你使用的是安装脚本生成的 `docker-compose.yml`，且文件位于数据目录中。
+- 如果您的实例用于稳定生产环境，建议继续使用 `latest`。
+- 以下步骤默认您使用的是安装脚本生成的 `docker-compose.yml`，且文件位于数据目录中。
 
 :::
 
@@ -88,7 +88,7 @@ grep -n "image: kromiose/nekro-agent" docker-compose.yml
 sed -i 's|image: kromiose/nekro-agent:latest|image: kromiose/nekro-agent:preview|g' docker-compose.yml
 ```
 
-如果你使用的是 macOS 自带的 `sed`，请改用：
+如果您使用的是 macOS 自带的 `sed`，请改用：
 
 ```bash
 sed -i '' 's|image: kromiose/nekro-agent:latest|image: kromiose/nekro-agent:preview|g' docker-compose.yml
@@ -108,7 +108,7 @@ sudo docker compose --env-file .env pull nekro_agent && \
 sudo docker compose --env-file .env up --build -d nekro_agent
 ```
 
-如果你还希望同时更新 NapCat 或其他依赖服务(建议)，可以改用：
+如果您还希望同时更新 NapCat 或其他依赖服务(建议)，可以改用：
 
 ```bash
 sudo docker pull kromiose/nekro-agent-sandbox:preview && \
@@ -135,22 +135,21 @@ sudo docker compose --env-file .env logs -f nekro_agent
 
 
 
-### 如何切回正式版(不建议)
+### 回退到正式版
 
-将 `docker-compose.yml` 中的镜像标签改回 `latest`，然后重新执行一次正式版更新命令即可：
+回退前请先备份数据。确认需要回退后，将 `docker-compose.yml` 中的镜像标签改回 `latest`，然后重新执行一次正式版更新命令即可：
 
 ```bash
 sed -i 's|image: kromiose/nekro-agent:preview|image: kromiose/nekro-agent:latest|g' docker-compose.yml
 ```
 
-若您通过启动器切换至预览版的同时，备份了正式版数据，可在`总览控制台`点击`恢复正式版`按钮后，根据提示操作，如下图所示
+若您通过启动器切换至预览版时已经备份正式版数据，可在「总览控制台」点击「恢复正式版」按钮，并根据提示操作，如下图所示
 ![降级](/assets/windows/manage11.png)
 
-### ⚠️:强烈建议预览版用户定期备份数据
+### 强烈建议预览版用户定期备份数据
 
-无责推荐一个好用的Wsl虚拟机部署方案的备份工具。
-`https://gitee.com/bye/wsl-dashboard/releases`
+如果您使用 WSL 虚拟机部署，可以按需选择第三方备份工具辅助管理。第三方工具并非 Nekro Agent 官方组件，使用前请自行确认来源、权限和备份结果。
 
-## 📝 更新日志
+## <DocIcon name="file" /> 更新日志
 
 每次更新后，可以在 [GitHub Releases](https://github.com/KroMiose/nekro-agent/releases) 查看更新日志了解变更内容

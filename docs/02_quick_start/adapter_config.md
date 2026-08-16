@@ -6,7 +6,14 @@ aside: false
 
 # 适配器配置
 
-在这里选择你当前使用的适配器，进入对应的详细配置文档。
+在这里选择您当前使用的适配器，进入对应的详细配置文档。
+
+::: tip 先选您要的接入方式
+- **接 QQ**：选 [OneBot V11 / NapCat](/docs/02_quick_start/adapters/onebot_v11)。**首次部署建议用 `na-tools napcat` 命令自动配** ([详见 NA-Tools 部署](/docs/02_quick_start/deploy/na-tools#第三步-配置-napcat-连接-qq))，已有 NapCat 实例则直接看 OneBot V11 文档手动连接。
+- **接微信**：优先选 [WeChat OpenILink](/docs/02_quick_start/adapters/wechat_openilink)（实验性，扫码登录）；不推荐使用 WeChatPad Pro。
+- **接企业平台**：飞书 / 企业微信 / 邮件 / Telegram / Discord 都按各自卡片走即可。
+- **接特殊场景**：Bilibili 直播间、Minecraft 服务器、SSE 自定义协议。
+:::
 
 <div class="adapter-hub">
   <div class="adapter-hub-shell">
@@ -21,9 +28,16 @@ aside: false
             </a>
           </div>
           <div class="item grid-6">
+            <a class="VPFeature adapter-card" href="/docs/02_quick_start/adapters/wechat_openilink">
+              <div class="icon"><img src="/common/adapters/wechat.svg" alt="WeChat" /></div>
+              <div class="title">微信（OpenILink）</div>
+              <div class="details">基于 wechatbot-sdk 扫码登录的微信适配器，实验性。</div>
+            </a>
+          </div>
+          <div class="item grid-6">
             <a class="VPFeature adapter-card" href="/docs/02_quick_start/adapters/wechatpad">
               <div class="icon"><img src="/common/adapters/wechat.svg" alt="WeChat" /></div>
-              <div class="title">微信（WeChatPad Pro）</div>
+              <div class="title">微信（WeChatPad Pro）<sup style="color: var(--vp-c-danger-1); font-size: 11px; font-weight: 600;">不推荐</sup></div>
               <div class="details">查看微信（WeChatPad Pro）适配器文档状态与风险说明。</div>
             </a>
           </div>
@@ -73,14 +87,14 @@ aside: false
             <a class="VPFeature adapter-card" href="/docs/02_quick_start/adapters/bilibili">
               <div class="icon"><img src="/common/adapters/bilibili.svg" alt="Bilibili" /></div>
               <div class="title">Bilibili 直播</div>
-              <div class="details">Bilibili 直播适配器文档暂未编写。</div>
+              <div class="details">查看 Bilibili 直播适配器配置教程。</div>
             </a>
           </div>
           <div class="item grid-6">
             <a class="VPFeature adapter-card" href="/docs/02_quick_start/adapters/minecraft">
               <div class="icon"><img src="/common/adapters/minecraft.svg" alt="Minecraft" /></div>
               <div class="title">Minecraft</div>
-              <div class="details">Minecraft 适配器文档暂未编写。</div>
+              <div class="details">查看 Minecraft 适配器配置教程。</div>
             </a>
           </div>
           <div class="item grid-6">
@@ -95,6 +109,12 @@ aside: false
     </div>
   </div>
 </div>
+
+## 下一步
+
+配置好适配器后，记得做这件最容易被忽略的事：
+
+→ 前往 [系统配置](/docs/02_quick_start/config/system) 至少配置一个**聊天模型组**，否则 Bot 即使收到消息也不会回复。
 
 <style>
 .adapter-hub {

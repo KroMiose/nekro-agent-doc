@@ -15,7 +15,7 @@ This document will guide you through deploying Nekro Agent on Windows systems.
 :::
 
 
-## 🌈 Environment Preparation
+## <DocIcon name="rainbow" /> Environment Preparation
 
 Since Nekro Agent runs based on Docker, we need to install Hyper-V on Windows first.
 
@@ -99,7 +99,7 @@ After installation is complete, the system will prompt you to restart your compu
 
 ## Install Linux Virtual Machine Using Hyper-V
 ### Install Linux Virtual Machine
-1. Open Hyper-V Manager. Select "Quick Create", then select Ubuntu 22.04 LTS 
+1. Open Hyper-V Manager. Select "Quick Create", then select Ubuntu 22.04 LTS
 
 2. Select "Create Virtual Machine".
 

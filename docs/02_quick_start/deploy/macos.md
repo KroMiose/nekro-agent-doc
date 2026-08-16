@@ -7,7 +7,7 @@ description: 在macOS系统上部署 Nekro Agent 的完整指南，使用 OrbSta
 
 本文档将指导您在 MacOS 系统上部署 Nekro Agent。
 
-## 🌈 环境准备
+## <DocIcon name="rainbow" /> 环境准备
 
 由于 Nekro Agent 基于 Docker 运行，我们推荐使用 OrbStack 作为 MacOS 上的容器管理工具，并通过其虚拟机功能进行部署。
 
@@ -60,7 +60,7 @@ orb ls
 orb -m ubuntu ls
 ```
 
-## 🚀 部署方式（在 OrbStack 虚拟机中）
+## <DocIcon name="rocket" /> 部署方式（在 OrbStack 虚拟机中）
 
 进入 OrbStack 虚拟机后，部署过程与在标准 Linux 环境中完全相同。
 

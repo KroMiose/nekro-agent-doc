@@ -15,7 +15,7 @@ description: Hyper-Vを使用してWindowsシステムにNekro Agentをデプロ
 :::
 
 
-## 🌈 環境準備
+## <DocIcon name="rainbow" /> 環境準備
 
 Nekro AgentはDockerベースで動作するため、まずWindowsにHyper-Vをインストールする必要があります。
 

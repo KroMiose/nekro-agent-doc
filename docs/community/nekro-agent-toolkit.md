@@ -26,8 +26,8 @@ description: 使用Nekro-Agent-Toolkit快速部署NekroAgent。
   - 完整的工具箱支持**安装、更新、备份**一条龙工作。
   - 理论上**跨平台**带来统一的用户体验。
 
-* [用户文档(戳我阅读)](https://github.com/greenhandzdl/nekro-agent-toolkit/wiki):如果看不懂，你可能需要沉浸式翻译器等翻译插件。
-  
+* [用户文档(戳我阅读)](https://github.com/greenhandzdl/nekro-agent-toolkit/wiki):如果看不懂，您可能需要沉浸式翻译器等翻译插件。
+
 * 功能介绍：
 
 ```zsh
@@ -83,10 +83,10 @@ options:
 ```
 
 > [!WARNING]
-> ### NekroAgent安装后建议阅读： 
-> 
+> ### NekroAgent安装后建议阅读：
+>
 >   [快速开始#基本配置](/docs/02_quick_start/quickstart.html#基本配置)
-> 
+>
 >   [NapCat登陆并修改默认密码](/docs/02_quick_start/adapters/onebot_v11)
 >
 >   [NekroAgent相关项配置](/docs/02_quick_start/config/system.html)
