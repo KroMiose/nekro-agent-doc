@@ -21,6 +21,13 @@ Choose the adapter you are currently using and open its detailed configuration g
             </a>
           </div>
           <div class="item grid-6">
+            <a class="VPFeature adapter-card" href="/en/docs/02_quick_start/adapters/qqbot_openclaw">
+              <div class="icon"><img src="/common/adapters/qq.svg" alt="QQ" /></div>
+              <div class="title">QQBot OpenClaw (QQ Official Bot)</div>
+              <div class="details">Official bot adapter based on the QQ Open Platform OpenClaw channel.</div>
+            </a>
+          </div>
+          <div class="item grid-6">
             <a class="VPFeature adapter-card" href="/en/docs/02_quick_start/adapters/wechatpad">
               <div class="icon"><img src="/common/adapters/wechat.svg" alt="WeChat" /></div>
               <div class="title">WeChat (WeChatPad Pro)</div>

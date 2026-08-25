@@ -21,6 +21,13 @@ aside: false
             </a>
           </div>
           <div class="item grid-6">
+            <a class="VPFeature adapter-card" href="/ja/docs/02_quick_start/adapters/qqbot_openclaw">
+              <div class="icon"><img src="/common/adapters/qq.svg" alt="QQ" /></div>
+              <div class="title">QQBot OpenClaw（QQ 公式ボット）</div>
+              <div class="details">QQ 開放プラットフォーム OpenClaw チャンネルを利用した公式ボットアダプター。</div>
+            </a>
+          </div>
+          <div class="item grid-6">
             <a class="VPFeature adapter-card" href="/ja/docs/02_quick_start/adapters/wechatpad">
               <div class="icon"><img src="/common/adapters/wechat.svg" alt="WeChat" /></div>
               <div class="title">WeChat（WeChatPad Pro）</div>
