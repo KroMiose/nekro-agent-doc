@@ -9,7 +9,7 @@ aside: false
 在这里选择您当前使用的适配器，进入对应的详细配置文档。
 
 ::: tip 先选您要的接入方式
-- **接 QQ**：选 [OneBot V11 / NapCat](/docs/02_quick_start/adapters/onebot_v11)。**首次部署建议用 `na-tools napcat` 命令自动配** ([详见 NA-Tools 部署](/docs/02_quick_start/deploy/na-tools#第三步-配置-napcat-连接-qq))，已有 NapCat 实例则直接看 OneBot V11 文档手动连接。
+- **接 QQ**：用 [QQBot OpenClaw（QQ 官方机器人）](/docs/02_quick_start/adapters/qqbot_openclaw) 走开放平台官方频道；或选 [OneBot V11 / NapCat](/docs/02_quick_start/adapters/onebot_v11)。**首次部署建议用 `na-tools napcat` 命令自动配** ([详见 NA-Tools 部署](/docs/02_quick_start/deploy/na-tools#第三步-配置-napcat-连接-qq))，已有 NapCat 实例则直接看 OneBot V11 文档手动连接。
 - **接微信**：优先选 [WeChat OpenILink](/docs/02_quick_start/adapters/wechat_openilink)（实验性，扫码登录）；不推荐使用 WeChatPad Pro。
 - **接企业平台**：飞书 / 企业微信 / 邮件 / Telegram / Discord 都按各自卡片走即可。
 - **接特殊场景**：Bilibili 直播间、Minecraft 服务器、SSE 自定义协议。
@@ -25,6 +25,13 @@ aside: false
               <div class="icon"><img src="/common/adapters/qq.svg" alt="QQ" /></div>
               <div class="title">OneBot V11 / NapCat</div>
               <div class="details">查看 OneBot V11 / NapCat 适配器配置教程。</div>
+            </a>
+          </div>
+          <div class="item grid-6">
+            <a class="VPFeature adapter-card" href="/docs/02_quick_start/adapters/qqbot_openclaw">
+              <div class="icon"><img src="/common/adapters/qq.svg" alt="QQ" /></div>
+              <div class="title">QQBot OpenClaw（QQ 官方机器人）</div>
+              <div class="details">基于 QQ 开放平台 OpenClaw 渠道的官方机器人适配器。</div>
             </a>
           </div>
           <div class="item grid-6">

@@ -424,6 +424,7 @@ export default defineConfig({
                   collapsed: true,
                   items: [
                     { text: "OneBot V11 / NapCat", link: "/docs/02_quick_start/adapters/onebot_v11" },
+                    { text: "QQBot OpenClaw（QQ 官方机器人）", link: "/docs/02_quick_start/adapters/qqbot_openclaw" },
                     { text: "微信（OpenILink）", link: "/docs/02_quick_start/adapters/wechat_openilink" },
                     { text: "微信（WeChatPad Pro）", link: "/docs/02_quick_start/adapters/wechatpad" },
                     { text: "企业微信 AI Bot", link: "/docs/02_quick_start/adapters/wecom_bot" },
@@ -600,6 +601,7 @@ export default defineConfig({
                   collapsed: true,
                   items: [
                     { text: "OneBot V11 / NapCat", link: "/en/docs/02_quick_start/adapters/onebot_v11" },
+                    { text: "QQBot OpenClaw (QQ Official Bot)", link: "/en/docs/02_quick_start/adapters/qqbot_openclaw" },
                     { text: "WeChat (OpenILink)", link: "/en/docs/02_quick_start/adapters/wechat_openilink" },
                     { text: "WeChat (WeChatPad Pro)", link: "/en/docs/02_quick_start/adapters/wechatpad" },
                     { text: "WeCom AI Bot", link: "/en/docs/02_quick_start/adapters/wecom_bot" },
@@ -775,6 +777,7 @@ export default defineConfig({
                   collapsed: true,
                   items: [
                     { text: "OneBot V11 / NapCat", link: "/ja/docs/02_quick_start/adapters/onebot_v11" },
+                    { text: "QQBot OpenClaw（QQ 公式ボット）", link: "/ja/docs/02_quick_start/adapters/qqbot_openclaw" },
                     { text: "WeChat（OpenILink）", link: "/ja/docs/02_quick_start/adapters/wechat_openilink" },
                     { text: "WeChat（WeChatPad Pro）", link: "/ja/docs/02_quick_start/adapters/wechatpad" },
                     { text: "WeCom AI Bot", link: "/ja/docs/02_quick_start/adapters/wecom_bot" },
